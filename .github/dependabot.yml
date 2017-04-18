@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 5
+    ignore:
+      # Transitive deps from deprecated `request` package (via gulp.spritesmith).
+      # No patched versions available; Dependabot cannot fix these.
+      - dependency-name: "form-data"
+      - dependency-name: "qs"
+      - dependency-name: "tough-cookie"
+      - dependency-name: "got"
+      - dependency-name: "underscore"
