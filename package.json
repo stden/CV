@@ -22,7 +22,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp.spritesmith": "^6.11.0",
-    "imagemin-pngquant": "^9.0.2"
+    "imagemin-pngquant": "^10.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
