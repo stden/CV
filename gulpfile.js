@@ -1,89 +1,67 @@
-var gulp = require('gulp'),
-    prefixer = require('gulp-autoprefixer'),
-    sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    rigger = require('gulp-rigger'),
-    imagemin = require('gulp-imagemin'),
-    pngquant = require('imagemin-pngquant'),
-    newer = require('gulp-newer'),
-    uglify = require('gulp-uglify'),
-    cssmin = require('gulp-minify-css'),
-    spritesmith = require('gulp.spritesmith'),
-    notify = require("gulp-notify"),
-    gulpif = require('gulp-if'),
-    rename = require("gulp-rename"),
-    gutil = require("gulp-util");
+const gulp = require('gulp');
+const prefixer = require('gulp-autoprefixer');
+const sass = require('gulp-sass')(require('sass'));
+const rigger = require('gulp-rigger');
+const pngquant = require('imagemin-pngquant');
+const newer = require('gulp-newer');
+const uglify = require('gulp-uglify');
+const cssmin = require('gulp-clean-css');
+const notify = require('gulp-notify');
+const gulpif = require('gulp-if');
+const { existsSync } = require('node:fs');
+const { pipeline } = require('node:stream/promises');
 
-var path = {
-    build: { //Тут мы укажем куда складывать готовые после сборки файлы
-        js: 'assets/js/',
-        css: 'assets/css/',
-        img: 'assets/images/',
-        sprite: 'assets/images/src/'
-    },
-    src: { //Пути откуда брать исходники
-        js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
-        style: 'src/scss/style.scss',
-        img: 'src/images/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
-        icons: 'src/images/sprite/*.*'
-    },
-    watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
-        js: 'src/js/src/**/*.js',
-        style: 'src/scss/**/*.scss',
-        img: 'src/img/**/*.*'
-    }
+const buildRoot = process.env.CV_BUILD_DIR || 'assets';
+const isCI = Boolean(process.env.CI) || process.argv.includes('--type=ci');
+const buildPaths = {
+    js: `${buildRoot}/js/`,
+    css: `${buildRoot}/css/`,
+    images: `${buildRoot}/images/`
 };
 
-var prod = true; //Если true то мы будем минифицировать и строить карты
-var sm = false,
-    allImg = false;
+function buildJavaScript() {
+    return gulp.src('src/js/main.js')
+        .pipe(rigger())
+        .pipe(uglify())
+        .pipe(gulp.dest(buildPaths.js))
+        .pipe(gulpif(!isCI, notify('JS compiled: <%= file.relative %>!')));
+}
 
+function buildStyles() {
+    return gulp.src('src/scss/style.scss')
+        .pipe(sass())
+        .pipe(prefixer())
+        .pipe(cssmin())
+        .pipe(gulp.dest(buildPaths.css))
+        .pipe(gulpif(!isCI, notify('STYLE compiled: <%= file.relative %>!')));
+}
 
-gulp.task('js:build', function () {
-    gulp.src(path.src.js) //Найдем наш main файл
-        .pipe(rigger()) //Прогоним через rigger
-        .pipe(gulpif(sm, sourcemaps.init())) //Инициализируем sourcemap
-        .pipe(gulpif(prod, uglify())) //Сожмем наш js
-        .pipe(gulpif(sm, sourcemaps.write())) //Пропишем карты
-        .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
-        .pipe(gutil.env.type !== 'ci' ? notify("JS compiled: <%= file.relative %>!") : gutil.noop());
-});
+async function buildImages() {
+    if (!existsSync('src/images')) return;
+    const { default: imagemin, gifsicle, mozjpeg, svgo } = await import('gulp-imagemin');
+    return pipeline(
+        gulp.src('src/images/**/*.*', { allowEmpty: true }),
+        newer(buildPaths.images),
+        imagemin([
+            gifsicle({ interlaced: true }),
+            mozjpeg({ progressive: true }),
+            pngquant(),
+            svgo({ plugins: [{ name: 'preset-default', params: { overrides: { removeViewBox: false } } }] })
+        ]),
+        gulp.dest(buildPaths.images)
+    );
+}
 
-gulp.task('style:build', function () {
-    gulp.src(path.src.style) //Выберем наш main.scss
-        .pipe(gulpif(sm, sourcemaps.init())) //То же самое что и с js
-        .pipe(sass().on('error', sass.logError)) //Скомпилируем
-        .pipe(gulpif(prod, prefixer())) //Добавим вендорные префиксы
-        .pipe(gulpif(prod, cssmin())) //Сожмем
-        .pipe(gulpif(sm, sourcemaps.write()))
-        .pipe(gulp.dest(path.build.css))
-        .pipe(gutil.env.type !== 'ci' ? notify("STYLE compiled: <%= file.relative %>!") : gutil.noop());
-});
+function watchFiles() {
+    gulp.watch('src/scss/**/*.scss', buildStyles);
+    gulp.watch('src/js/**/*.js', buildJavaScript);
+    gulp.watch('src/images/**/*.*', buildImages);
+}
 
-gulp.task('image:build', function () {
-    gulp.src(path.src.img) //Выберем наши картинки
-        .pipe(gulpif(!allImg, newer(path.build.img)))
-        .pipe(imagemin({ //Сожмем их
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()],
-            interlaced: true
-        }))
-        .pipe(gulp.dest(path.build.img));
-});
-
-
-gulp.task('build', [
-    'js:build',
-    'style:build',
-    'image:build'
-]);
-
-gulp.task('watch', function () {
-    gulp.watch(path.watch.style, ['style:build']);
-    gulp.watch(path.watch.js, ['js:build']);
-    gulp.watch(path.watch.img, ['image:build']);
-});
-
-gulp.task('default', ['build', 'watch']);
-
+const build = gulp.parallel(buildJavaScript, buildStyles, buildImages);
+exports['js:build'] = buildJavaScript;
+exports['style:build'] = buildStyles;
+exports['image:build'] = buildImages;
+exports.build = build;
+exports.watch = watchFiles;
+exports.default = gulp.series(build, watchFiles);
