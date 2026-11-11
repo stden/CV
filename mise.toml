@@ -1,0 +1,9 @@
+[tools]
+node = "7"
+yarn = "1"
+
+[tasks.check]
+run = "git diff --check"
+
+[tasks.test]
+run = "yarn run test"
