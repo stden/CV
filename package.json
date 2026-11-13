@@ -1,0 +1,41 @@
+{
+  "name": "dl-cv",
+  "version": "0.0.1",
+  "description": "CV Template",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stden/stden.github.io.git"
+  },
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^10.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-if": "^3.0.0",
+    "gulp-notify": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.108.2"
+  },
+  "scripts": {
+    "build": "gulp build --type=ci",
+    "test": "node scripts/check-build.js",
+    "tech": "node scripts/build-tech-pages.js",
+    "projects": "node scripts/build-project-diagrams.js"
+  },
+  "author": "Denis Stepulenok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stden/stden.github.io/issues"
+  },
+  "homepage": "https://github.com/stden/stden.github.io#readme",
+  "dependencies": {
+    "gulp-cli": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}
