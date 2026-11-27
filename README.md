@@ -2,41 +2,41 @@
 
 Static engineering portfolio, independent architecture showcase, technology notes, and automated ATS-friendly PDF resume generator for **Denis Stepulenok** (`Senior Software Engineer | Java, Distributed Systems & AI Engineering`).
 
-- **Production site:** https://stden.github.io/CV/
-- **Repository:** https://github.com/stden/CV
+- 🌐 **Production site:** https://stden.github.io/CV/
+- 📂 **Repository:** https://github.com/stden/CV
 
 ## Confidentiality & NDA Policy
 
-- Employer experience is presented strictly at a high-level competency and responsibility level—no internal project names, proprietary architectures, internal endpoints, hostnames, IP addresses, metrics, or credentials are published.
+- 🛡️ Employer experience is presented strictly at a high-level competency and responsibility level—no internal project names, proprietary architectures, internal endpoints, hostnames, IP addresses, metrics, or credentials are published.
 - All architecture diagrams and case studies are strictly based on independent personal projects, public open-source libraries, or educational reference patterns, each explicitly labelled with its origin.
-- Every HTML page, SVG diagram, image (`photo.jpg`), CSS/JS asset, and generated PDF is verified automatically by `npm run check:confidentiality` (`scripts/check-confidentiality.js`).
+- 🔍 Every HTML page, SVG diagram, image (`photo.jpg`), CSS/JS asset, and generated PDF is verified automatically by `npm run check:confidentiality` (`scripts/check-confidentiality.js`).
 - To check against private employer terms without committing them publicly, place one term per line in `.confidential-denylist` (gitignored) or configure the `CONFIDENTIAL_DENYLIST` secret in GitHub Actions.
 
 ## Architecture & Design Decisions
 
-1. **Zero-Framework Static Generation (`data/cv.json` -> HTML + SVG + PDF):**
+1. 🧱 **Zero-Framework Static Generation (`data/cv.json` -> HTML + SVG + PDF):**
    - Single JSON source of truth (`data/cv.json`) drives `index.html`, the general CV and six targeted CV web pages (`cv/*.html`), 20 technology detail pages (`tech/*.html`), 4 independent/educational architecture SVGs (`assets/images/projects/*.svg`), `sitemap.xml`, `robots.txt`, and 7 ATS-friendly A4 PDF resumes (`assets/pdf/*.pdf`). The general Senior Software Engineer CV is the primary download.
-2. **GitHub Pages `/CV/` Subpath Compatibility:**
+2. 🌍 **GitHub Pages `/CV/` Subpath Compatibility:**
    - All HTML/CSS asset and page references use strictly relative paths (`assets/...`, `../assets/...`, `tech/...`).
    - Local preview and Playwright tests mount the site under `/CV/` on local port `4174` (`scripts/serve-subpath.js`).
-3. **Performance & Accessibility:**
+3. ♿ **Performance & Accessibility:**
    - Self-hosted variable `Inter` font (`assets/fonts/inter-latin-wght-normal.woff2`), light/dark theme toggle, keyboard-accessible interactive SVG diagrams, and full usability without JavaScript.
-4. **ATS-Friendly Single-Column PDF Resumes:**
+4. 📄 **ATS-Friendly Single-Column PDF Resumes:**
    - Generated reproducibly via headless Chromium / Playwright (`scripts/build-pdfs.js`) with selectable text, clickable links, standard ATS headings, and zero skill-percentage bars.
 
 ## Project Structure
 
-- `data/cv.json` — Single verified source of truth for profile, experience, case studies, GitHub repos, architecture diagrams, skills, technologies, and CV variants.
-- `scripts/build-project-diagrams.js` — Generates standalone and inline interactive SVG diagrams.
-- `scripts/build-tech-pages.js` — Generates the 20 `tech/*.html` pages.
-- `scripts/build-site.js` — Generates `index.html`, `cv/index.html`, `cv/*.html`, `sitemap.xml`, `robots.txt`, and `og-preview.svg`.
-- `scripts/build-pdfs.js` — Generates the public A4 PDFs in `assets/pdf/` and `assets/images/og-preview.png`.
-- `scripts/build-job-cv.js` — Generates private vacancy-specific HTML and PDF CVs under `applications/`.
-- `scripts/check-build.js` — Static validator checking data rules, relative paths, missing assets, SEO/JSON-LD, `pdfinfo` page counts, and `pdftotext` extraction.
-- `scripts/check-confidentiality.js` — Automated NDA, URL allowlist, secret/PII, and EXIF/SVG metadata verifier.
-- `scripts/serve-subpath.js` — Local `/CV/` subpath HTTP server for preview and testing.
-- `scripts/run-lighthouse.js` — Runs headless Lighthouse mobile and desktop audits against `/CV/`.
-- `tests/e2e.spec.js` — Playwright E2E, 6-viewport responsiveness, JS-disabled, and `@axe-core/playwright` WCAG 2.1 AA suite.
+- 🗃️ `data/cv.json` — Single verified source of truth for profile, experience, case studies, GitHub repos, architecture diagrams, skills, technologies, and CV variants.
+- 🧩 `scripts/build-project-diagrams.js` — Generates standalone and inline interactive SVG diagrams.
+- 📚 `scripts/build-tech-pages.js` — Generates the 20 `tech/*.html` pages.
+- 🛠️ `scripts/build-site.js` — Generates `index.html`, `cv/index.html`, `cv/*.html`, `sitemap.xml`, `robots.txt`, and `og-preview.svg`.
+- 📄 `scripts/build-pdfs.js` — Generates the public A4 PDFs in `assets/pdf/` and `assets/images/og-preview.png`.
+- 📝 `scripts/build-job-cv.js` — Generates private vacancy-specific HTML and PDF CVs under `applications/`.
+- ✅ `scripts/check-build.js` — Static validator checking data rules, relative paths, missing assets, SEO/JSON-LD, `pdfinfo` page counts, and `pdftotext` extraction.
+- 🔒 `scripts/check-confidentiality.js` — Automated NDA, URL allowlist, secret/PII, and EXIF/SVG metadata verifier.
+- 🖥️ `scripts/serve-subpath.js` — Local `/CV/` subpath HTTP server for preview and testing.
+- ⚡ `scripts/run-lighthouse.js` — Runs headless Lighthouse mobile and desktop audits against `/CV/`.
+- 🧪 `tests/e2e.spec.js` — Playwright E2E, 6-viewport responsiveness, JS-disabled, and `@axe-core/playwright` WCAG 2.1 AA suite.
 
 ## Commands
 
