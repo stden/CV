@@ -433,7 +433,7 @@
   "variants": {
     "general": {
       "shortLabel": "Allgemeiner Lebenslauf",
-      "targetAudience": "Senior-Stellen im Backend- und im Umfeld verteilter Systeme",
+      "targetAudience": "Senior-Stellen im Backend und im Umfeld verteilter Systeme",
       "summary": "Senior Software Engineer mit Schwerpunkt auf Java in Unternehmen, verteilten Systemen und Backend-Integrationen. Erfahrung umfasst Services mit Spring Boot, asynchrones Messaging, relationale Datenbanken, produktive Bereitstellungen und JVM-Tests. Eigenständige Projekte nutzen Rust und Python für Datenverarbeitung, semantische Suche und KI-Integrationen.",
       "focusHighlights": [
         "Unternehmens-Java-Dienste und asynchrone Integration mit Spring Boot, RabbitMQ, PostgreSQL und Oracle Database.",
