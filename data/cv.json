@@ -49,7 +49,7 @@
     {
       "id": "event-driven",
       "title": "Event-Driven Architecture",
-      "description": "Develops event-driven services with Apache Kafka (Spring Kafka, partitioning, per-key ordering, offsets/rebalancing, outbox, idempotent consumption, retry/DLQ, Schema Registry, Streams/Connect, lag monitoring) and RabbitMQ."
+      "description": "Develops production event-driven services with Apache Kafka and Spring Kafka."
     },
     {
       "id": "enterprise-integration",
@@ -85,8 +85,8 @@
       "summary": "Develop and maintain enterprise Java backend services and integrations, and support automated software delivery.",
       "responsibilities": [
         "Develop Java and Spring Boot services used in enterprise workflows.",
-        "Build event-driven pipelines with Apache Kafka (Spring Kafka producers/consumers, partitioning, per-key ordering, offsets/rebalancing, Schema Registry, Kafka Streams/Connect) and RabbitMQ.",
-        "Implement reliable messaging with transactional outbox, idempotent processing, retry/DLQ topics, consumer lag monitoring, and broker operations.",
+        "Build production messaging and event-driven integrations with Apache Kafka and Spring Kafka.",
+        "Maintain asynchronous message processing in production.",
         "Integrate backend services with PostgreSQL and relational databases using SQL, JPA, and Hibernate.",
         "Automate builds, tests, and containerised deployments with JUnit, Jenkins, GitLab CI/CD, Docker, and Kubernetes."
       ],
@@ -398,6 +398,7 @@
   "githubProjects": [
     {
       "name": "pythorust_tg",
+      "sourcePath": "mcp_telegram_server.py",
       "url": "https://github.com/stden/pythorust_tg",
       "docsUrl": "https://github.com/stden/pythorust_tg/blob/main/docs/testing.md",
       "language": "Rust",
@@ -415,6 +416,7 @@
     },
     {
       "name": "FunnyFileManager",
+      "sourcePath": "src/action/lsp_editor.rs",
       "previewImage": "assets/images/projects/funny-file-manager-preview.webp",
       "previewAlt": "FunnyFileManager’s terminal editor shows a language-server hover panel over a sample Rust function",
       "previewCaption": "Built-in editor with language-server hover.",
@@ -434,6 +436,7 @@
     },
     {
       "name": "RustShot",
+      "sourcePath": "src/capture.rs",
       "previewImage": "assets/images/projects/rustshot-preview.webp",
       "previewAlt": "Illustration of a screen region framed by crop guides",
       "previewCaption": "Illustration of region capture.",
@@ -453,6 +456,7 @@
     },
     {
       "name": "SonarQubeChecker",
+      "sourcePath": "src/report.rs",
       "url": "https://github.com/stden/SonarQubeChecker",
       "docsUrl": "https://github.com/stden/SonarQubeChecker/blob/main/README.md",
       "language": "Python",
@@ -470,6 +474,7 @@
     },
     {
       "name": "EntityLocker",
+      "sourcePath": "src/main/java/util/EntityLocker.java",
       "url": "https://github.com/stden/EntityLocker",
       "docsUrl": "https://github.com/stden/EntityLocker/blob/main/README.md",
       "language": "Java",
@@ -484,6 +489,7 @@
     },
     {
       "name": "JPA2",
+      "sourcePath": "src/main/java/JPA2/models/Employee.java",
       "url": "https://github.com/stden/JPA2",
       "docsUrl": "https://github.com/stden/JPA2/blob/main/README.md",
       "language": "Java",
@@ -853,6 +859,8 @@
       "items": [
         {
           "name": "Java (6–25)",
+          "id": "java",
+          "synonyms": ["Java SE", "JDK"],
           "tier": "core",
           "techSlug": "java",
           "evidence": [
@@ -868,6 +876,8 @@
         },
         {
           "name": "JVM & Concurrency",
+          "id": "jvm-concurrency",
+          "synonyms": ["Java concurrency", "thread safety"],
           "tier": "core",
           "techSlug": "java",
           "evidence": [
@@ -883,6 +893,7 @@
         },
         {
           "name": "Spring Framework",
+          "id": "spring-framework",
           "tier": "core",
           "techSlug": "spring",
           "evidence": [
@@ -894,6 +905,8 @@
         },
         {
           "name": "Spring Boot",
+          "id": "spring-boot",
+          "synonyms": ["Spring Boot backend"],
           "tier": "core",
           "techSlug": "spring-boot",
           "evidence": [
@@ -905,6 +918,8 @@
         },
         {
           "name": "Distributed Systems",
+          "id": "distributed-systems",
+          "synonyms": ["distributed backend systems"],
           "tier": "core",
           "evidence": [
             {
@@ -923,6 +938,7 @@
         },
         {
           "name": "Microservices",
+          "id": "microservices",
           "tier": "additional",
           "evidence": [
             {
@@ -933,6 +949,7 @@
         },
         {
           "name": "SQL",
+          "id": "sql",
           "tier": "core",
           "techSlug": "sql",
           "evidence": [
@@ -944,6 +961,8 @@
         },
         {
           "name": "PostgreSQL",
+          "id": "postgresql",
+          "synonyms": ["Postgres"],
           "tier": "core",
           "techSlug": "postgresql",
           "evidence": [
@@ -959,6 +978,7 @@
         },
         {
           "name": "JPA / Hibernate",
+          "id": "jpa-hibernate",
           "tier": "additional",
           "techSlug": "jpa",
           "evidence": [
@@ -974,6 +994,8 @@
         },
         {
           "name": "Enterprise Integration",
+          "id": "enterprise-integration",
+          "synonyms": ["systems integration", "asynchronous integration"],
           "tier": "core",
           "evidence": [
             {
@@ -984,6 +1006,7 @@
         },
         {
           "name": "Software Design & Algorithms",
+          "id": "software-design-algorithms",
           "tier": "additional",
           "evidence": [
             {
@@ -1005,6 +1028,8 @@
       "items": [
         {
           "name": "RabbitMQ",
+          "id": "rabbitmq",
+          "synonyms": ["AMQP messaging"],
           "tier": "core",
           "evidence": [
             {
@@ -1015,6 +1040,8 @@
         },
         {
           "name": "Apache Kafka",
+          "id": "apache-kafka",
+          "synonyms": ["Kafka", "Apache Kafka"],
           "tier": "core",
           "evidence": [
             {
@@ -1025,6 +1052,7 @@
         },
         {
           "name": "Oracle Database",
+          "id": "oracle-database",
           "tier": "additional",
           "techSlug": "oracle",
           "evidence": [
@@ -1036,6 +1064,7 @@
         },
         {
           "name": "Redis",
+          "id": "redis",
           "tier": "additional",
           "evidence": [
             {
@@ -1046,6 +1075,7 @@
         },
         {
           "name": "Valkey",
+          "id": "valkey",
           "tier": "familiarity",
           "evidence": [
             {
@@ -1056,6 +1086,7 @@
         },
         {
           "name": "Qdrant",
+          "id": "qdrant",
           "tier": "personal",
           "evidence": [
             {
@@ -1066,6 +1097,7 @@
         },
         {
           "name": "Vector databases",
+          "id": "vector-databases",
           "tier": "personal",
           "evidence": [
             {
@@ -1083,6 +1115,8 @@
       "items": [
         {
           "name": "Docker / Compose",
+          "id": "docker",
+          "synonyms": ["Docker Compose"],
           "tier": "additional",
           "techSlug": "docker",
           "evidence": [
@@ -1102,6 +1136,7 @@
         },
         {
           "name": "Kubernetes",
+          "id": "kubernetes",
           "tier": "additional",
           "techSlug": "kubernetes",
           "evidence": [
@@ -1113,6 +1148,7 @@
         },
         {
           "name": "Helm",
+          "id": "helm",
           "tier": "familiarity",
           "evidence": [
             {
@@ -1123,6 +1159,7 @@
         },
         {
           "name": "Jenkins",
+          "id": "jenkins",
           "tier": "core",
           "techSlug": "jenkins",
           "evidence": [
@@ -1134,6 +1171,7 @@
         },
         {
           "name": "GitLab CI/CD",
+          "id": "gitlab-ci-cd",
           "tier": "core",
           "techSlug": "gitlab",
           "evidence": [
@@ -1145,6 +1183,7 @@
         },
         {
           "name": "GitHub Actions",
+          "id": "github-actions",
           "tier": "personal",
           "evidence": [
             {
@@ -1159,6 +1198,7 @@
         },
         {
           "name": "Maven",
+          "id": "maven",
           "tier": "additional",
           "techSlug": "maven",
           "evidence": [
@@ -1174,6 +1214,7 @@
         },
         {
           "name": "Git",
+          "id": "git",
           "tier": "additional",
           "techSlug": "git",
           "evidence": [
@@ -1185,6 +1226,7 @@
         },
         {
           "name": "AWS",
+          "id": "aws",
           "tier": "additional",
           "evidence": [
             {
@@ -1195,6 +1237,7 @@
         },
         {
           "name": "Terraform",
+          "id": "terraform",
           "tier": "familiarity",
           "evidence": [
             {
@@ -1205,6 +1248,7 @@
         },
         {
           "name": "Linux / systemd / bash",
+          "id": "linux-systemd-bash",
           "tier": "personal",
           "evidence": [
             {
@@ -1215,6 +1259,7 @@
         },
         {
           "name": "Nginx / Caddy / Cloudflare",
+          "id": "nginx-caddy-cloudflare",
           "tier": "familiarity",
           "evidence": [
             {
@@ -1225,6 +1270,7 @@
         },
         {
           "name": "Prometheus / Grafana",
+          "id": "prometheus-grafana",
           "tier": "familiarity",
           "evidence": [
             {
@@ -1242,6 +1288,7 @@
       "items": [
         {
           "name": "Python (2 & 3)",
+          "id": "python",
           "tier": "additional",
           "techSlug": "python",
           "evidence": [
@@ -1261,6 +1308,7 @@
         },
         {
           "name": "Rust",
+          "id": "rust",
           "tier": "personal",
           "evidence": [
             {
@@ -1279,6 +1327,7 @@
         },
         {
           "name": "TypeScript",
+          "id": "typescript",
           "tier": "additional",
           "evidence": [
             {
@@ -1289,6 +1338,7 @@
         },
         {
           "name": "Node.js",
+          "id": "node-js",
           "tier": "additional",
           "evidence": [
             {
@@ -1299,6 +1349,7 @@
         },
         {
           "name": "Go (Gin, gRPC)",
+          "id": "go-gin-grpc",
           "tier": "familiarity",
           "evidence": [
             {
@@ -1309,6 +1360,7 @@
         },
         {
           "name": "React",
+          "id": "react",
           "tier": "additional",
           "techSlug": "react",
           "evidence": [
@@ -1320,6 +1372,7 @@
         },
         {
           "name": "AngularJS",
+          "id": "angularjs",
           "tier": "additional",
           "techSlug": "angular",
           "evidence": [
@@ -1331,6 +1384,7 @@
         },
         {
           "name": "Svelte / SvelteKit",
+          "id": "svelte-sveltekit",
           "tier": "familiarity",
           "evidence": [
             {
@@ -1348,6 +1402,8 @@
       "items": [
         {
           "name": "Model Context Protocol (MCP)",
+          "id": "mcp",
+          "synonyms": ["Model Context Protocol"],
           "tier": "personal",
           "evidence": [
             {
@@ -1362,6 +1418,7 @@
         },
         {
           "name": "RAG / Embeddings / Semantic Search",
+          "id": "rag-embeddings-semantic-search",
           "tier": "personal",
           "evidence": [
             {
@@ -1376,6 +1433,7 @@
         },
         {
           "name": "Local LLMs / Ollama",
+          "id": "local-llms-ollama",
           "tier": "familiarity",
           "evidence": [
             {
@@ -1386,6 +1444,7 @@
         },
         {
           "name": "Large Language Models (Claude, GPT, Gemini)",
+          "id": "large-language-models-claude-gpt-gemini",
           "tier": "personal",
           "evidence": [
             {
@@ -1400,6 +1459,7 @@
         },
         {
           "name": "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)",
+          "id": "ai-assisted-development-claude-code-codex-copilot-gemini",
           "tier": "personal",
           "evidence": [
             {
@@ -1417,6 +1477,7 @@
       "items": [
         {
           "name": "JUnit",
+          "id": "junit",
           "tier": "core",
           "evidence": [
             {
@@ -1435,6 +1496,7 @@
         },
         {
           "name": "Mockito / JMockit / EasyMock",
+          "id": "mockito-jmockit-easymock",
           "tier": "additional",
           "techSlug": "mockito",
           "evidence": [
@@ -1450,6 +1512,8 @@
         },
         {
           "name": "Test-Driven Development (TDD)",
+          "id": "tdd",
+          "synonyms": ["test-driven development"],
           "tier": "familiarity",
           "evidence": [
             {
@@ -1460,6 +1524,8 @@
         },
         {
           "name": "Integration & E2E Testing",
+          "id": "integration-testing",
+          "synonyms": ["integration testing", "end-to-end testing"],
           "tier": "personal",
           "evidence": [
             {
@@ -1474,6 +1540,7 @@
         },
         {
           "name": "Cucumber / Gherkin (BDD)",
+          "id": "cucumber-gherkin-bdd",
           "tier": "personal",
           "evidence": [
             {
@@ -1484,6 +1551,7 @@
         },
         {
           "name": "Playwright / Vitest / Selenide",
+          "id": "playwright-vitest-selenide",
           "tier": "familiarity",
           "evidence": [
             {
@@ -1494,6 +1562,8 @@
         },
         {
           "name": "Continuous Integration",
+          "id": "continuous-integration",
+          "synonyms": ["CI"],
           "tier": "core",
           "evidence": [
             {
@@ -2004,7 +2074,7 @@
       "pdfFilename": "Denis-Stepulenok-Senior-Software-Engineer.pdf",
       "summary": "Senior software engineer specialising in Java backend services, distributed systems and enterprise integration. Experience includes Spring Boot, asynchronous messaging, relational databases, CI/CD and JDK testing. Independent projects use Rust and Python for data processing, semantic search and AI integrations.",
       "focusHighlights": [
-        "Enterprise Java services and event-driven integration with Spring Boot, Apache Kafka, RabbitMQ and relational databases.",
+        "Enterprise Java services and event-driven integration. Production messaging with Apache Kafka and Spring Kafka.",
         "JVM concurrency and automated testing, including JDK defect investigation at Oracle."
       ],
       "skillCategoryOrder": [
@@ -2047,7 +2117,7 @@
       "pdfFilename": "Denis-Stepulenok-Senior-Java-Engineer.pdf",
       "summary": "Senior Java backend engineer with experience developing Spring Boot services, asynchronous integrations and relational data access. Earlier work includes JDK testing and defect investigation at Oracle.",
       "focusHighlights": [
-        "Java, Spring Boot, Apache Kafka, RabbitMQ, SQL and PostgreSQL in enterprise services.",
+        "Enterprise Java and Spring Boot services. Production messaging with Apache Kafka.",
         "JVM concurrency, class loading and automated testing from JDK quality engineering.",
         "Automated builds and deployments with Jenkins, GitLab CI/CD and container tooling."
       ],
@@ -2098,7 +2168,7 @@
       "pdfFilename": "Denis-Stepulenok-Distributed-Systems-Engineer.pdf",
       "summary": "Senior backend engineer with experience in asynchronous services, enterprise integration, and distributed test infrastructure. Independent work explores retries, idempotent updates and JVM-local concurrency.",
       "focusHighlights": [
-        "Event-driven services with Apache Kafka (Spring Kafka, partitioning, offsets/rebalancing, outbox, retry/DLQ, Schema Registry, Streams/Connect, lag monitoring) and RabbitMQ.",
+        "Production event-driven integration with Apache Kafka and Spring Kafka.",
         "JDK testing and distributed test infrastructure at Oracle.",
         "Independent archive indexing with deterministic IDs and replay after failure."
       ],
@@ -2130,7 +2200,7 @@
       "pdfFilename": "Denis-Stepulenok-Fintech-Engineer.pdf",
       "summary": "Senior software engineer with experience in Java and Spring Boot services, asynchronous integration, and SQL-based data access. Brings automated testing and deployment experience to integration-focused engineering roles.",
       "focusHighlights": [
-        "Enterprise Java integration, Apache Kafka (outbox, idempotent consumption, retry/DLQ, Schema Registry), RabbitMQ and relational persistence.",
+        "Enterprise Java integration and production messaging with Apache Kafka.",
         "Jenkins and GitLab CI/CD for Java service delivery.",
         "JDK quality engineering and automated test maintenance."
       ],
@@ -2177,9 +2247,9 @@
       "roleTitle": "Senior Java Backend Engineer",
       "targetAudience": "Tailored for Wise Senior Java / Distributed Backend engineering teams",
       "pdfFilename": "Denis-Stepulenok-Wise-Senior-Java-Engineer.pdf",
-      "summary": "Senior Java backend engineer with experience in Spring Boot, Apache Kafka (Spring Kafka, partitioning, offsets/rebalancing, outbox, idempotent consumers, retry/DLQ, Schema Registry, Streams/Connect, lag monitoring), RabbitMQ, SQL and PostgreSQL. Investigated JDK defects at Oracle and built high-load services at Taxify (now Bolt).",
+      "summary": "Senior Java backend engineer experienced in Spring Boot, production Apache Kafka messaging and relational data access. Investigated JDK defects at Oracle and built high-load services at Taxify (now Bolt).",
       "focusHighlights": [
-        "Enterprise Java & Spring Boot development with Apache Kafka, RabbitMQ, relational data access and CI/CD automation.",
+        "Enterprise Java and Spring Boot development, relational data access and CI/CD automation.",
         "JVM concurrency and JDK quality engineering at Oracle.",
         "High-load backend service development at Taxify (now Bolt)."
       ],
@@ -2282,5 +2352,195 @@
       "includeCompactRoles": true,
       "expectedPages": 3
     }
-  ]
+  ],
+  "publicProfile": {
+    "contentRevisionDate": "2026-11-27",
+    "employmentIds": [
+      "kuehne-nagel",
+      "taxify-bolt",
+      "oracle",
+      "sds",
+      "bonus-club",
+      "early-engineering-2005",
+      "i-free",
+      "spb-etu-research"
+    ],
+    "projectNames": [
+      "pythorust_tg",
+      "FunnyFileManager",
+      "RustShot",
+      "SonarQubeChecker",
+      "EntityLocker",
+      "JPA2"
+    ],
+    "skillIds": [
+      "java",
+      "jvm-concurrency",
+      "spring-framework",
+      "spring-boot",
+      "distributed-systems",
+      "microservices",
+      "sql",
+      "postgresql",
+      "jpa-hibernate",
+      "enterprise-integration",
+      "software-design-algorithms",
+      "rabbitmq",
+      "apache-kafka",
+      "oracle-database",
+      "redis",
+      "valkey",
+      "qdrant",
+      "vector-databases",
+      "docker",
+      "kubernetes",
+      "helm",
+      "jenkins",
+      "gitlab-ci-cd",
+      "github-actions",
+      "maven",
+      "git",
+      "aws",
+      "terraform",
+      "linux-systemd-bash",
+      "nginx-caddy-cloudflare",
+      "prometheus-grafana",
+      "python",
+      "rust",
+      "typescript",
+      "node-js",
+      "go-gin-grpc",
+      "react",
+      "angularjs",
+      "svelte-sveltekit",
+      "mcp",
+      "rag-embeddings-semantic-search",
+      "local-llms-ollama",
+      "large-language-models-claude-gpt-gemini",
+      "ai-assisted-development-claude-code-codex-copilot-gemini",
+      "junit",
+      "mockito-jmockit-easymock",
+      "tdd",
+      "integration-testing",
+      "cucumber-gherkin-bdd",
+      "playwright-vitest-selenide",
+      "continuous-integration"
+    ],
+    "roleAlignment": [
+      {
+        "id": "senior-java-backend-engineer",
+        "title": "Senior Java Backend Engineer",
+        "alignment": "primary-target",
+        "competencyIds": [
+          "java",
+          "spring-boot",
+          "sql",
+          "postgresql",
+          "apache-kafka",
+          "junit"
+        ],
+        "limitations": [
+          "Employment scope is candidate-reported. Public code is independent work."
+        ],
+        "requiresConfirmation": [
+          "Service ownership, recent JVM deployment versions and role-specific on-call expectations."
+        ]
+      },
+      {
+        "id": "senior-software-engineer",
+        "title": "Senior Software Engineer",
+        "alignment": "primary-target",
+        "competencyIds": [
+          "java",
+          "distributed-systems",
+          "software-design-algorithms",
+          "integration-testing",
+          "continuous-integration"
+        ],
+        "limitations": [
+          "The public CV records individual engineering responsibilities."
+        ],
+        "requiresConfirmation": [
+          "Team leadership, mentoring scope and decision ownership for a specific vacancy."
+        ]
+      },
+      {
+        "id": "distributed-systems-engineer",
+        "title": "Distributed Systems Engineer",
+        "alignment": "primary-target",
+        "competencyIds": [
+          "distributed-systems",
+          "apache-kafka",
+          "rabbitmq",
+          "postgresql",
+          "jvm-concurrency"
+        ],
+        "limitations": [
+          "Independent diagrams demonstrate design decisions under stated assumptions. Employer topology is out of scope."
+        ],
+        "requiresConfirmation": [
+          "Production scale, failure recovery ownership and the target role’s consistency requirements."
+        ]
+      },
+      {
+        "id": "enterprise-integration-engineer",
+        "title": "Enterprise Integration Engineer",
+        "alignment": "related-role",
+        "competencyIds": [
+          "enterprise-integration",
+          "spring-boot",
+          "apache-kafka",
+          "rabbitmq",
+          "jpa-hibernate"
+        ],
+        "limitations": [
+          "The public employment record gives only high-level integration responsibilities."
+        ],
+        "requiresConfirmation": [
+          "Domain contracts, integration governance and system ownership relevant to the vacancy."
+        ]
+      },
+      {
+        "id": "software-reliability-engineer",
+        "title": "Software Reliability Engineer",
+        "alignment": "related-role",
+        "competencyIds": [
+          "integration-testing",
+          "continuous-integration",
+          "jenkins",
+          "docker",
+          "kubernetes"
+        ],
+        "limitations": [
+          "The public evidence is stronger for testing, release automation and backend engineering than for a dedicated SRE role."
+        ],
+        "requiresConfirmation": [
+          "Incident leadership, on-call depth, SLO ownership and infrastructure scope."
+        ]
+      },
+      {
+        "id": "ai-integration-engineer",
+        "title": "AI Integration Engineer",
+        "alignment": "independent-project-fit",
+        "competencyIds": [
+          "mcp",
+          "rag-embeddings-semantic-search",
+          "rust",
+          "python",
+          "qdrant"
+        ],
+        "limitations": [
+          "This alignment rests primarily on independent integration, retrieval and tooling work."
+        ],
+        "requiresConfirmation": [
+          "Production AI ownership, formal evaluations and model-training requirements."
+        ]
+      }
+    ],
+    "caseRepositoryNames": {
+      "messenger-archive-search": "pythorust_tg",
+      "entity-concurrency-locking": "EntityLocker",
+      "rust-desktop-tooling": "RustShot"
+    }
+  }
 }

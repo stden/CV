@@ -10,7 +10,7 @@
   "expertise.distributed-systems.title": "Hajussüsteemid",
   "expertise.distributed-systems.description": "Arendab asünkroonseid taustateenuseid ja hajuskeskkondade automaatteste. Iseseisvates projektides uurib korduskatseid ja töötluse ohutut kordamist.",
   "expertise.event-driven.title": "Sündmuspõhine arhitektuur",
-  "expertise.event-driven.description": "Arendab sündmuspõhiseid teenuseid Apache Kafka (Spring Kafka, partitsioneerimine, võtmepõhine järjekord, nihked/tasakaalustamine, outbox, idempotentsed tarbijad, kordus/DLQ, Schema Registry, Streams/Connect, viivituse jälgimine) ja RabbitMQ abil.",
+  "expertise.event-driven.description": "Arendab Apache Kafka ja Spring Kafka abil tootmiskeskkonnas töötavaid sündmuspõhiseid teenuseid.",
   "expertise.enterprise-integration.title": "Ettevõttesüsteemide liidestamine",
   "expertise.enterprise-integration.description": "Arendab Java, XML-i ja relatsioonandmebaaside abil taustasüsteemide liidestusi.",
   "expertise.cloud-infra.title": "Pilveteenused ja taristu",
@@ -23,8 +23,8 @@
   "experience.kuehne-nagel.location": "Tallinn, Eesti",
   "experience.kuehne-nagel.summary": "Arendan ja hooldan ettevõtete Java taustateenuseid ja liidestusi ning toetan tarkvara automatiseeritud tarnet.",
   "experience.kuehne-nagel.responsibilities.1": "Arendan ettevõtete töövoogudes kasutatavaid Java ja Spring Booti teenuseid.",
-  "experience.kuehne-nagel.responsibilities.2": "Ehitan sündmuspõhiseid liidestusi Apache Kafka (Spring Kafka tootjad/tarbijad, partitsioneerimine, võtmepõhine järjekord, nihete/tasakaalustamise haldus, Schema Registry, Kafka Streams/Connect) ja RabbitMQ abil.",
-  "experience.kuehne-nagel.responsibilities.3": "Rakendan töökindlat asünkroonset töötlust transactional outboxi, idempotentse tarbimise, korduste/DLQ teemade, tarbija viivituse jälgimise ja brokeri haldusega.",
+  "experience.kuehne-nagel.responsibilities.2": "Arendan Apache Kafka ja Spring Kafka abil tootmiskeskkonnas kasutatavat sõnumitöötlust ja sündmuspõhiseid liidestusi.",
+  "experience.kuehne-nagel.responsibilities.3": "Hooldan asünkroonset sõnumitöötlust tootmiskeskkonnas.",
   "experience.kuehne-nagel.responsibilities.4": "Liidestan taustateenuseid PostgreSQL-i ja relatsioonandmebaasidega SQL-i, JPA ja Hibernate’i abil.",
   "experience.kuehne-nagel.responsibilities.5": "Automatiseerin teste, koostamist ja konteinerites juurutamist JUniti, Jenkinsi, GitLab CI/CD, Dockeri ja Kubernetese abil.",
   "experience.taxify-bolt.role": "Taustsüsteemide vanemarendaja",
@@ -532,7 +532,7 @@
   "cv.general.roleTitle": "Vanemtarkvarainsener",
   "cv.general.shortLabel": "Üldine CV",
   "cv.general.summary": "Vanemtarkvarainsener, kelle põhisuunad on Java taustateenused, hajussüsteemid ja ettevõttesüsteemide liidestamine. Töökogemus hõlmab Spring Booti, asünkroonset sõnumitöötlust, relatsioonandmebaase, CI/CD-d ja JDK testimist. Iseseisvates projektides kasutan andmetöötluseks, semantiliseks otsinguks ja tehisintellekti liidestamiseks Rusti ja Pythonit.",
-  "cv.general.focusHighlights.1": "Ettevõtete Java teenused ja sündmuspõhised liidestused Spring Booti, Apache Kafka, RabbitMQ ja relatsioonandmebaasidega.",
+  "cv.general.focusHighlights.1": "Ettevõtete Java teenused ja sündmuspõhine liidestamine. Sõnumitöötlus tootmiskeskkonnas Apache Kafka ja Spring Kafka abil.",
   "cv.general.focusHighlights.2": "JVM-i lõimede samaaegne töö, automaattestimine ja JDK vigade uurimine Oracle’is.",
   "ui.nav.overview": "Ülevaade",
   "ui.nav.experience": "Töökogemus",
@@ -746,5 +746,8 @@
   "ui.skills.assisted": "AI-toega arendus (Claude Code, Codex, Copilot, Gemini)",
   "ui.skills.tdd": "Testipõhine arendus (TDD)",
   "ui.skills.integrationTesting": "Integratsiooni- ja läbivtestimine",
-  "ui.skills.ci": "Pidevintegratsioon"
+  "ui.skills.ci": "Pidevintegratsioon",
+  "ui.discovery.formats": "Masinloetav CV (EN)",
+  "ui.discovery.roles": "Rollide sobivus (EN)",
+  "ui.discovery.articles": "Tehnilised artiklid (EN)"
 }

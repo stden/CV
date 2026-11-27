@@ -1,0 +1,132 @@
+[
+  {
+    "slug": "keyed-lock-registry-lifetime",
+    "title": "Java keyed locks and registry lifetime",
+    "summary": "EntityLocker is a small public Java experiment. Its timeout test checks what a caller can do while a key is held, and a separate invariant governs when the key’s lock can be retired.",
+    "topic": "Java concurrency",
+    "published": "2026-11-27",
+    "revised": "2026-11-27",
+    "sections": [
+      {
+        "heading": "What the registry coordinates",
+        "paragraphs": [
+          "A caller supplies an entity key and an action. ConcurrentHashMap.computeIfAbsent looks up or creates that key’s lock in one EntityLocker instance. A thread-local check rejects nested acquisition of a smaller key. This ordering rule only covers acquisitions made through the utility."
+        ],
+        "sources": [
+          {
+            "label": "EntityLocker implementation at the reviewed commit",
+            "url": "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/main/java/util/EntityLocker.java"
+          }
+        ]
+      },
+      {
+        "heading": "Run the timed-acquisition test",
+        "paragraphs": [
+          "The test uses a latch to wait until one thread holds key 1. A second attempt on that key has a 50 ms timeout while the holder pauses for 500 ms. The assertions check that the second action never runs and the holder finishes. With Java and Maven installed, run this single test from the pinned revision."
+        ],
+        "examples": [
+          {
+            "label": "Run the existing JUnit test",
+            "language": "sh",
+            "code": "git clone https://github.com/stden/EntityLocker.git\ncd EntityLocker\ngit checkout d3de8482cd2f7d24c688217ccc51c4eabde5373b\nmvn -Dtest=EntityLockerTest#testTimeouts test"
+          }
+        ],
+        "sources": [
+          {
+            "label": "Source for testTimeouts",
+            "url": "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/test/java/EntityLockerTest.java"
+          }
+        ]
+      },
+      {
+        "heading": "What a passing test leaves open",
+        "paragraphs": [
+          "The registry must keep a mapping alive while a caller has reserved its lock, even if that caller is still waiting. The reviewed code attempts removal during cleanup and uses a counter that the blocking lock() path increments. The inherited timed tryLock path does not increment that counter. The timeout test covers an acquisition outcome and gives no proof about registry retirement.",
+          "For a registry that reclaims entries, I would make reservation and retirement part of one per-key lifecycle. Every acquisition path would reserve an entry before waiting and release that reservation on timeout, interruption or completion. Removal would require both zero reservations and a match to the exact entry still in the registry. I would test overlapping acquisition and retirement with a deterministic schedule before relying on the reclamation policy."
+        ],
+        "sources": [
+          {
+            "label": "CountLock implementation at the reviewed commit",
+            "url": "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/main/java/util/CountLock.java"
+          }
+        ]
+      }
+    ],
+    "related": {
+      "label": "Read the EntityLocker case study",
+      "route": "projects/#case-entity-concurrency-locking"
+    }
+  },
+  {
+    "slug": "idempotent-consumer-boundaries",
+    "title": "Idempotency across a database commit and a Kafka offset",
+    "summary": "A short SQL exercise separates a PostgreSQL job claim, an idempotent database update and a Kafka consumer offset. Each advances at a different boundary.",
+    "topic": "Independent educational example",
+    "published": "2026-11-27",
+    "revised": "2026-11-27",
+    "sections": [
+      {
+        "heading": "Follow each commit separately",
+        "paragraphs": [
+          "An outbox transaction puts the application change and its event row in the same database commit. A relay that publishes to Kafka and then marks the event sent has a different boundary. A crash after broker acknowledgement can leave the row pending, so the relay may publish the same event again.",
+          "On the consumer side, polling advances its position. The group’s committed offset is where recovery resumes. Commit the database effect first, then advance the offset for the processed portion of that partition. A crash in between allows replay. Committing the offset first can skip an effect that never reached the database."
+        ],
+        "sources": [
+          {
+            "label": "Kafka 4.3 consumer API on offsets and manual commits",
+            "url": "https://github.com/apache/kafka/blob/4.3.0/clients/src/main/java/org/apache/kafka/clients/consumer/KafkaConsumer.java"
+          }
+        ]
+      },
+      {
+        "heading": "Observe a row claim in two sessions",
+        "paragraphs": [
+          "In a disposable PostgreSQL database, run the setup once and open two sessions. Leave the first transaction open while you run the second. The second query returns 2 because the first transaction holds the row for 1. Roll back both transactions after the observation."
+        ],
+        "examples": [
+          {
+            "label": "Setup followed by two sessions",
+            "language": "sql",
+            "code": "-- Setup\nCREATE TABLE queue_demo (id integer PRIMARY KEY);\nINSERT INTO queue_demo VALUES (1), (2);\n\n-- Session A\nBEGIN;\nSELECT id FROM queue_demo WHERE id = 1 FOR UPDATE;\n\n-- Session B\nBEGIN;\nSELECT id FROM queue_demo\nORDER BY id LIMIT 1 FOR UPDATE SKIP LOCKED;\nROLLBACK;\n\n-- Session A\nROLLBACK;"
+          }
+        ],
+        "sources": [
+          {
+            "label": "PostgreSQL SELECT locking clause",
+            "url": "https://www.postgresql.org/docs/18/sql-select.html#SQL-FOR-UPDATE-SHARE"
+          }
+        ]
+      },
+      {
+        "heading": "Replay one database effect",
+        "paragraphs": [
+          "In one new session, run the setup and execute the common table expression twice. The second insertion sees the same event ID and returns no row, so the update runs only on the first attempt. The counter ends at 1. In a consumer, use a stable event ID and commit the marker and effect in one transaction before updating the offset."
+        ],
+        "examples": [
+          {
+            "label": "Repeat the statement and inspect the result",
+            "language": "sql",
+            "code": "CREATE TEMP TABLE processed (event_id text PRIMARY KEY);\nCREATE TEMP TABLE totals (value integer NOT NULL);\nINSERT INTO totals VALUES (0);\n\n-- Run this statement twice.\nWITH accepted AS (\n    INSERT INTO processed VALUES ('demo-event')\n    ON CONFLICT (event_id) DO NOTHING\n    RETURNING event_id\n)\nUPDATE totals SET value = value + 1\nWHERE EXISTS (SELECT 1 FROM accepted);\n\nSELECT value FROM totals;  -- Expected: 1"
+          }
+        ],
+        "sources": [
+          {
+            "label": "PostgreSQL INSERT and ON CONFLICT",
+            "url": "https://www.postgresql.org/docs/18/sql-insert.html#SQL-ON-CONFLICT"
+          }
+        ]
+      },
+      {
+        "heading": "Where the guarantees stop",
+        "paragraphs": [
+          "SKIP LOCKED lets concurrent workers take another available row. To keep a claim after the transaction ends, persist a state change or lease and define who recovers it on expiry. Rows can be processed out of arrival order.",
+          "The deduplication record covers the example’s database effect only. A separate network call needs an idempotency contract of its own. If work completes in parallel, the committed offset must leave any unfinished earlier work recoverable within its partition. The SQL exercise models neither broker failure nor consumer group rebalancing."
+        ]
+      }
+    ],
+    "related": {
+      "label": "Open the transactional outbox diagram",
+      "route": "architecture/#arch-tab-ref-event-driven-outbox"
+    }
+  }
+]

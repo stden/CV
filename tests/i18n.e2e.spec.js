@@ -43,7 +43,7 @@ async function expectLanguageNavigation(page, locale, route = '') {
     await expect(page.locator('link[rel="canonical"]'))
         .toHaveAttribute('href', CANONICAL + localizedPath(locale, route));
     await expect(page.locator('link[rel="alternate"][hreflang="x-default"]'))
-        .toHaveAttribute('href', CANONICAL + BASE);
+        .toHaveAttribute('href', CANONICAL + BASE + route);
     await expect(page.locator('nav.language-menu a[aria-current="page"]'))
         .toHaveAttribute('data-locale', locale);
     for (const target of Object.keys(LOCALES)) {

@@ -12,6 +12,11 @@
   <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/">
   <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/">
   <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <link rel="alternate" type="text/markdown" href="https://stden.github.io/CV/resume.md">
+  <link rel="alternate" type="text/plain" href="https://stden.github.io/CV/resume.txt">
+  <link rel="describedby" type="application/json" href="https://stden.github.io/CV/candidate.json">
+  <link rel="describedby" type="application/json" href="https://stden.github.io/CV/skills-evidence.json">
+  <link rel="describedby" type="application/json" href="https://stden.github.io/CV/role-alignment.json">
   <meta property="og:locale" content="de_DE">
   <meta property="og:locale:alternate" content="en_GB">
   <meta property="og:locale:alternate" content="et_EE">
@@ -30,7 +35,7 @@
   <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://stden.github.io/CV/#person","name":"Denis Stepulenok","jobTitle":"Senior Software Engineer – Java und verteilte Systeme","description":"Ich entwickle Java-Backend-Dienste und asynchrone Integrationen. Bei Kuehne+Nagel arbeite ich an Java-Diensten für Unternehmen und automatisiere die Softwarebereitstellung. Zuvor entwickelte ich bei Taxify (heute Bolt) Dienste für hohe Last und untersuchte bei Oracle Fehler im JDK.","url":"https://stden.github.io/CV/","image":"https://stden.github.io/CV/assets/images/photo.jpg","email":"mailto:super.denis@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"sameAs":["https://github.com/stden","https://www.linkedin.com/in/denis-stepulenok-2149b514/","https://t.me/stdenx"],"knowsAbout":["Java","Spring Boot","Distributed systems","Apache Kafka & RabbitMQ","PostgreSQL"]},{"@type":"ProfilePage","@id":"https://stden.github.io/CV/de/#profilepage","url":"https://stden.github.io/CV/de/","inLanguage":"de","name":"Denis Stepulenok – Senior Software Engineer, Java und verteilte Systeme","mainEntity":{"@id":"https://stden.github.io/CV/#person"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://stden.github.io/CV/#person","name":"Denis Stepulenok","jobTitle":"Senior Software Engineer – Java und verteilte Systeme","description":"Ich entwickle Java-Backend-Dienste und asynchrone Integrationen. Bei Kuehne+Nagel arbeite ich an Java-Diensten für Unternehmen und automatisiere die Softwarebereitstellung. Zuvor entwickelte ich bei Taxify (heute Bolt) Dienste für hohe Last und untersuchte bei Oracle Fehler im JDK.","url":"https://stden.github.io/CV/","image":"https://stden.github.io/CV/assets/images/photo.jpg","email":"mailto:super.denis@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"sameAs":["https://github.com/stden","https://www.linkedin.com/in/denis-stepulenok-2149b514/","https://t.me/stdenx"],"knowsAbout":["Java","Spring Boot","Distributed systems","Apache Kafka & RabbitMQ","PostgreSQL"],"subjectOf":{"@type":"DigitalDocument","name":"Machine-readable candidate profile","url":"https://stden.github.io/CV/candidate.json","encodingFormat":"application/json"}},{"@type":"ProfilePage","dateModified":"2026-11-27","@id":"https://stden.github.io/CV/de/#profilepage","url":"https://stden.github.io/CV/de/","inLanguage":"de","name":"Denis Stepulenok – Senior Software Engineer, Java und verteilte Systeme","mainEntity":{"@id":"https://stden.github.io/CV/#person"}}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
@@ -107,7 +112,7 @@
       <p class="recruiter-meta">Senior Java-Entwickler · Mai 2018 – heute · Tallinn, Estland</p>
       <p>Entwicklung und Wartung von Java-Backend-Diensten und Integrationen für Unternehmen sowie Unterstützung der automatisierten Softwarebereitstellung.</p>
       <ul class="bullet-list">
-        <li>Ereignisgesteuerte Integrationen mit Apache Kafka (Spring Kafka Producer/Consumer, Partitionierung, Schlüsselreihenfolge, Offset-/Rebalancing-Verwaltung, Schema Registry, Kafka Streams/Connect) und RabbitMQ entwickeln.</li><li>Zuverlässige asynchrone Pipelines mit Transactional Outbox, idempotenter Verarbeitung, Retry-/DLQ-Topics, Consumer-Lag-Monitoring und Broker-Betrieb umsetzen.</li><li>Backend-Dienste über SQL, JPA und Hibernate an PostgreSQL und relationale Datenbanken anbinden.</li><li>Tests, Builds und containerisierte Deployments mit JUnit, Jenkins, GitLab CI/CD, Docker und Kubernetes automatisieren.</li>
+        <li>Nachrichtenverarbeitung und ereignisgesteuerte Integrationen für den Produktivbetrieb mit Apache Kafka und Spring Kafka entwickeln.</li><li>Asynchrone Nachrichtenverarbeitung im Produktivbetrieb betreuen.</li><li>Backend-Dienste über SQL, JPA und Hibernate an PostgreSQL und relationale Datenbanken anbinden.</li><li>Tests, Builds und containerisierte Deployments mit JUnit, Jenkins, GitLab CI/CD, Docker und Kubernetes automatisieren.</li>
       </ul>
     </article>
     <article class="recruiter-role" id="role-taxify-bolt">
@@ -221,6 +226,7 @@
       </div>
       <p class="recruiter-context">Der allgemeine Lebenslauf ist in dieser Sprache als Webseite und als durchsuchbares A4-PDF verfügbar. Die Übersicht verlinkt auch spezialisierte englische Fassungen.</p>
       <p class="recruiter-context">Die Fassungen <a href="../cv/senior-java.html" hreflang="en">Java-Backend</a>, <a href="../cv/distributed-systems.html" hreflang="en">Verteilte Systeme</a> und <a href="../cv/fintech-integrations.html" hreflang="en">Integrationen</a> sind auf unterschiedliche Positionen zugeschnitten. <a href="../cv/full.html" hreflang="en">Vollständiger Lebenslauf</a> enthält auch frühere Stationen und weitere Projekte.</p>
+
       <p id="copy-email-status" class="copy-status" aria-live="polite"></p>
     </div>
   </div>
@@ -232,6 +238,9 @@
     <div class="footer-links">
       <a href="index.html">Portfolio</a>
       <a href="cv/">Alle Lebenslaufversionen</a>
+      <a href="../contact/#public-cv-formats" hreflang="en">Maschinenlesbarer Lebenslauf (EN)</a>
+      <a href="../role-alignment/" hreflang="en">Rollenprofil (EN)</a>
+      <a href="../articles/" hreflang="en">Technische Artikel (EN)</a>
       <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:super.denis@gmail.com">E-Mail</a>

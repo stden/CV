@@ -19,6 +19,7 @@ const MIME_TYPES = {
     '.pdf': 'application/pdf',
     '.xml': 'application/xml; charset=utf-8',
     '.txt': 'text/plain; charset=utf-8',
+    '.md': 'text/markdown; charset=utf-8',
 };
 
 function startServer(port = Number(process.env.PORT) || 4174, directory = process.env.CV_PUBLIC_ROOT || ROOT_DIR) {

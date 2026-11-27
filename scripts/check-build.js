@@ -10,7 +10,7 @@ const { withValidatedPublicArtifact } = require('./stage-public');
 const { ConfidentialityCheckError } = require('./check-confidentiality');
 
 function runBuild() {
-    for (const script of ['build-project-diagrams.js', 'build-tech-pages.js', 'build-site.js']) {
+    for (const script of ['build-project-diagrams.js', 'build-tech-pages.js', 'build-site.js', 'build-profile.js', 'build-articles.js']) {
         execFileSync(process.execPath, [path.join(ROOT_DIR, 'scripts', script)], {
             cwd: ROOT_DIR,
             stdio: 'pipe',
@@ -43,7 +43,7 @@ function checkHtmlPages(data, pages) {
         const alternate = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">/g)];
         assert.deepEqual(alternate.map(([, lang, href]) => [lang, href]), [
             ...availableLanguages(route).map((lang) => [lang, `${data.site.baseUrl}/${localizedPath(lang, route)}`]),
-            ['x-default', `${data.site.baseUrl}/`],
+            ['x-default', `${data.site.baseUrl}/${route}`],
         ], 'PUBLIC_LANGUAGE_ALTERNATES');
 
         assert.match(html, /<title>[^<]+<\/title>/, `${page} must have a <title>`);

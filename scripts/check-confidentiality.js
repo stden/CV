@@ -77,6 +77,7 @@ const PROVENANCE_ORIGINS = new Map([
 ]);
 const SAFE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const PRIVATE_PATH = /(?:^|\/)(?:\.private|private|applications?|application-packages)(?:\/|$)|(?:^|\/)(?:resume|cover-letter|interview-preparation|evidence-report|match-report|application-manifest)\.[\w-]+$/i;
+const ROOT_PUBLIC_RESUMES = ['resume.md', 'resume.txt'];
 const MAX_FILE_SIZE = 32 * 1024 * 1024;
 const UTF8 = new TextDecoder('utf8', { fatal: true });
 
@@ -264,14 +265,18 @@ function isSafeManifestPath(value) {
         || /^[a-z0-9_-]+(?:[./][a-z0-9_-]+)*$/i.test(value));
 }
 
-function validateManifest(manifest, record) {
+function isPrivateArtifact(file, publicResumes) {
+    return PRIVATE_PATH.test(file) && !publicResumes.has(file);
+}
+
+function validateManifest(manifest, publicResumes, record) {
     const paths = new Set();
     if (!Array.isArray(manifest) || manifest.length === 0) {
         record('invalid-manifest');
         return paths;
     }
     for (const item of manifest) {
-        if (!isSafeManifestPath(item) || paths.has(item) || PRIVATE_PATH.test(item)) {
+        if (!isSafeManifestPath(item) || paths.has(item) || isPrivateArtifact(item, publicResumes)) {
             record('invalid-manifest');
         } else {
             paths.add(item);
@@ -308,6 +313,9 @@ function inspectFile(filename, relative, policy, record, counts) {
         const bytes = fs.readFileSync(filename);
         if (TEXT_EXTENSIONS.has(extension)) {
             const text = UTF8.decode(bytes);
+            if (policy.publicResumes.has(relative) && policy.publicResumes.get(relative) !== text) {
+                record('public-resume-mismatch');
+            }
             if (extension === '.svg' && /<metadata\b|<!--|<!DOCTYPE\b|<!ENTITY\b/i.test(text)) record('image-metadata');
             scanText(text, relative === 'assets/fonts/INTER-LICENSE.txt'
                 ? { ...policy, extraHosts: FONT_LICENSE_HOSTS }
@@ -341,7 +349,7 @@ function inspectArtifact({ artifactRoot, expected, policy, record }) {
         for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
             const name = path.posix.join(relative, entry.name);
             scanText(name, policy, record);
-            if (PRIVATE_PATH.test(name)) record('private-application');
+            if (isPrivateArtifact(name, policy.publicResumes)) record('private-application');
             if (entry.isDirectory()) {
                 if (!directories.has(name)) record('unexpected-artifact');
                 visit(name);
@@ -380,7 +388,15 @@ function runConfidentialityCheck(options = {}) {
         const artifactRoot = path.resolve(options.artifactRoot ?? process.env.PUBLIC_ARTIFACT_DIR ?? path.join(ROOT_DIR, '_site'));
         const cvData = options.cvData ?? loadCvData();
         const manifest = options.manifest ?? require('./lib/public-artifact').publicFiles(cvData);
+        const publicResumes = new Map();
+        if (cvData.publicProfile && Array.isArray(manifest) && ROOT_PUBLIC_RESUMES.some((file) => manifest.includes(file))) {
+            const { createPublicProfile } = require('./lib/public-profile');
+            const { renderResume } = require('./build-profile');
+            const profile = createPublicProfile(cvData);
+            for (const file of ROOT_PUBLIC_RESUMES) publicResumes.set(file, renderResume(profile, file.endsWith('.md')));
+        }
         const policy = {
+            publicResumes,
             terms: loadPrivateDenylist({
                 artifactRoot,
                 denylistPath: options.denylistPath ?? process.env.CONFIDENTIAL_DENYLIST_FILE,
@@ -390,7 +406,7 @@ function runConfidentialityCheck(options = {}) {
         };
         if (cvData.profile?.availability?.showOpenToWork) record('public-availability');
         validateArchitecture(cvData, policy, record);
-        const expected = validateManifest(manifest, record);
+        const expected = validateManifest(manifest, publicResumes, record);
         counts = inspectArtifact({ artifactRoot, expected, policy, record });
     } catch {
         record('configuration-or-inspection-error');

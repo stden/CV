@@ -13,7 +13,7 @@
     "build:site": "node scripts/build-site.js",
     "build:pdfs": "node scripts/build-pdfs.js",
     "cv:job": "node scripts/build-job-cv.js",
-    "build": "npm run build:diagrams && npm run build:tech && npm run build:site",
+    "build": "npm run build:diagrams && npm run build:tech && npm run build:site && node scripts/build-profile.js && node scripts/build-articles.js",
     "build:all": "npm run build && npm run build:pdfs",
     "test": "node scripts/check-build.js && node --test tests/*.unit.js",
     "stage:public": "node scripts/stage-public.js",

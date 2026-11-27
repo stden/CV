@@ -114,6 +114,28 @@ test('approved stylesheet Unicode ranges coexist with phone screening', (t) => {
         'phone-number', [fictional]);
 });
 
+test('root resume exports must match the approved profile projection', (t) => {
+    const cvData = {
+        ...syntheticCv,
+        site: { baseUrl: 'https://stden.github.io/CV' },
+        profile: { name: 'Fictional Candidate', title: 'Software Engineer', summary: 'Public fixture', location: 'Tallinn',
+            contact: { github: 'https://github.com/example', linkedin: 'https://www.linkedin.com/in/example/' } },
+        experience: [], githubProjects: [], skills: [], languages: [],
+        publicProfile: {
+            contentRevisionDate: '2026-11-27', employmentIds: [], projectNames: [], skillIds: [],
+            roleAlignment: [], caseRepositoryNames: {},
+        },
+    };
+    const { createPublicProfile } = require('../scripts/lib/public-profile');
+    const { renderResume } = require('../scripts/build-profile');
+    const profile = createPublicProfile(cvData);
+    const files = { 'resume.md': renderResume(profile, true), 'resume.txt': renderResume(profile, false) };
+    assert.doesNotThrow(() => runConfidentialityCheck({ ...fixture(t, files), cvData }));
+    const wrong = { ...files, 'resume.md': 'Fictional private application draft' };
+    expectViolation({ ...fixture(t, wrong), cvData }, 'public-resume-mismatch', [wrong['resume.md']]);
+    expectViolation({ ...fixture(t, { 'applications/sample/resume.md': files['resume.md'] }), cvData }, 'private-application');
+});
+
 test('a private denylist cannot be read from inside the publication directory', (t) => {
     const options = fixture(t, {
         'index.html': 'Public',
