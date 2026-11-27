@@ -45,7 +45,7 @@ jobs:
         run: npm run test:e2e
       - name: Upload browser report and screenshots
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7.0.2
         with:
           name: portfolio-browser-report
           path: |
@@ -55,7 +55,7 @@ jobs:
           retention-days: 14
       - name: Upload pull-request preview files
         if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7.0.2
         with:
           name: portfolio-preview
           path: dist/
@@ -74,7 +74,7 @@ jobs:
           fi
       - name: Upload the validated GitHub Pages artifact
         if: steps.pages-source.outputs.mode == 'workflow'
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: dist
 
@@ -91,4 +91,4 @@ jobs:
     steps:
       - name: Deploy the validated portfolio
         id: publish
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.1
