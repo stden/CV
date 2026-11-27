@@ -100,14 +100,16 @@
     "legendLabel": "Legende zum Erfahrungskontext",
     "filterLabel": "Kompetenzen nach Erfahrungskontext filtern",
     "educationEyebrow": "Akademischer Hintergrund",
-    "backToPortfolio": "← Zurück zum Portfolio",
+    "backToPortfolio": "Zurück zum Portfolio",
     "cvIndexTitle": "Lebenslauf-Versionen",
     "cvIndexLead": "Allgemeiner, auf Stellen zugeschnittener und vollständiger Lebenslauf, verfügbar als Webseiten und als ATS-taugliche A4-PDFs.",
     "pdfEngineeringProjects": "Ausgewählte technische Projekte",
     "pdfOpenSource": "Open-Source-Schwerpunkte",
     "pdfEducationLanguages": "Ausbildung und Sprachen",
     "pdfKeyDecisions": "Zentrale Entscheidungen und Stack:",
-    "langHint": "Diese Seite auf {language} öffnen."
+    "langHint": "Diese Seite auf {language} öffnen.",
+    "openWebCv": "Webversion öffnen",
+    "downloadPdf": "PDF herunterladen"
   },
   "profile": {
     "title": "Senior Software Engineer | Java, verteilte Systeme und KI-Engineering",

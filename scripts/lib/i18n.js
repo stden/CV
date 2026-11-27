@@ -69,6 +69,7 @@ function validateLocales(data) {
         for (const key of englishUi) {
             if (typeof file.ui?.[key] !== 'string' || !file.ui[key].trim()) where(`missing UI string "${key}"`);
         }
+        if (!file.meta?.title?.trim() || !file.meta?.description?.trim()) where('missing meta.title or meta.description');
         const profile = file.profile || {};
         for (const key of ['title', 'location', 'photoAlt', 'summary', 'homeIntro']) {
             if (typeof profile[key] !== 'string' || !profile[key].trim()) where(`missing profile.${key}`);
@@ -84,6 +85,7 @@ function validateLocales(data) {
             if (!Array.isArray(overlay.responsibilities) || overlay.responsibilities.length !== role.responsibilities.length) {
                 where(`responsibilities of ${role.id} must match the canonical count (${role.responsibilities.length})`);
             }
+            if (role.homeSummary && !overlay.homeSummary?.trim()) where(`missing homeSummary for ${role.id}`);
             if (role.homeBullets && (!Array.isArray(overlay.homeBullets) || overlay.homeBullets.length !== role.homeBullets.length)) {
                 where(`homeBullets of ${role.id} must match the canonical count`);
             }
@@ -120,8 +122,11 @@ function validateLocales(data) {
             }
         }
         if (!Array.isArray(file.education) || file.education.length !== data.education.length) where('education count differs');
+        else file.education.forEach((item, i) => { if (!item.degree?.trim() || !item.institution?.trim()) where(`incomplete education ${i}`); });
         if (!Array.isArray(file.languages) || file.languages.length !== data.languages.length) where('languages count differs');
+        else file.languages.forEach((item, i) => { if (!item.name?.trim() || !item.level?.trim()) where(`incomplete language ${i}`); });
         if (!Array.isArray(file.interests) || file.interests.length !== data.interests.length) where('interests count differs');
+        else file.interests.forEach((item, i) => { if (!String(item).trim()) where(`empty interest ${i}`); });
         for (const variant of data.variants) {
             const overlay = file.variants?.[variant.slug];
             if (!overlay || !overlay.shortLabel || !overlay.targetAudience) where(`missing variant ${variant.slug}`);
@@ -130,7 +135,6 @@ function validateLocales(data) {
                 where('focusHighlights of general must match the canonical count');
             }
         }
-        for (const dup of duplicates(Object.keys(file.ui || {}))) where(`duplicate UI key ${dup}`);
     }
     return problems;
 }
@@ -159,7 +163,6 @@ function localizeData(data, code) {
         });
         if (role.companyNote) role.companyNote = overlay.companyNote;
         if (role.homeBullets) role.homeBullets = overlay.homeBullets;
-        if (role.homeSummary) role.homeSummary = overlay.homeSummary;
         if (overlay.homeSummary) role.homeSummary = overlay.homeSummary;
     }
     for (const group of copy.skills) Object.assign(group, file.skillGroups[group.id]);
@@ -188,6 +191,8 @@ function localizeData(data, code) {
         if (overlay.summary) variant.summary = overlay.summary;
         if (overlay.focusHighlights) variant.focusHighlights = overlay.focusHighlights;
         if (overlay.roleTitle) variant.roleTitle = overlay.roleTitle;
+        if (Array.isArray(variant.skillNames)) variant.skillNames = variant.skillNames.map((name) => file.skillNames[name]);
+        if (variant.slug === 'general') variant.pdfFilename = cvPdfName(code);
     }
     return copy;
 }

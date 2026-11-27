@@ -422,6 +422,10 @@ ${eduCards}
 
 const HOME_EXPERIENCE_IDS = ['kuehne-nagel', 'taxify-bolt', 'oracle'];
 
+function pageHomeUrl(data) {
+    return pageUrl(data, pageOutputPath(currentLocaleCode(), 'home'));
+}
+
 function localeDepth() {
     return currentLocaleCode() === 'en' ? 0 : 1;
 }
@@ -463,7 +467,7 @@ function renderHomeSkills(data) {
     const groups = data.profile.coreSkillGroups.map((group) => `      <div class="skill-group-home">
         <h3 class="skill-group-title">${escapeHtml(group.title)}</h3>
         <p class="muted">${escapeHtml(group.description)}</p>
-        <ul class="badge-list" aria-label="${escapeHtml(group.title)} skills">${group.items.map((s) => `<li><span class="badge">${escapeHtml(s)}</span></li>`).join('')}</ul>
+        <ul class="badge-list" aria-label="${escapeHtml(group.title)}">${group.items.map((s) => `<li><span class="badge">${escapeHtml(s)}</span></li>`).join('')}</ul>
       </div>`).join('\n');
     return `<section id="skills" class="section section-alt" aria-labelledby="skills-heading">
   <div class="container">
@@ -529,7 +533,7 @@ function renderHomePage(data) {
                 name: data.profile.name,
                 jobTitle: data.profile.title,
                 description: data.profile.summary,
-                url: `${data.site.baseUrl}/`,
+                url: pageHomeUrl(data),
                 image: `${data.site.baseUrl}/${data.profile.photo}`,
                 address: { '@type': 'PostalAddress', addressLocality: 'Tallinn', addressCountry: 'EE' },
                 sameAs: [data.profile.contact.github, data.profile.contact.linkedin, data.profile.contact.telegram],
@@ -537,10 +541,10 @@ function renderHomePage(data) {
             },
             {
                 '@type': 'ProfilePage',
-                '@id': `${data.site.baseUrl}/#profilepage`,
-                url: `${data.site.baseUrl}/`,
+                '@id': `${pageHomeUrl(data)}#profilepage`,
+                url: pageHomeUrl(data),
                 name: data.site.title,
-                mainEntity: { '@id': `${data.site.baseUrl}/#person` },
+                mainEntity: { '@id': `${pageHomeUrl(data)}#person` },
             },
         ],
     };
@@ -622,11 +626,11 @@ function renderSecondaryPages(data, techLookup) {
 function renderCvIndexPage(data) {
     const cards = data.variants.map((v) => `      <article class="card">
         <p class="section-eyebrow">${escapeHtml(v.shortLabel)}</p>
-        <h2 class="card-title">${escapeHtml(v.roleTitle)}</h2>
-        <p class="card-body">${escapeHtml(v.summary)}</p>
+        <h2 class="card-title">${escapeHtml(currentLocaleCode() === 'en' ? v.roleTitle : v.targetAudience)}</h2>
+        ${currentLocaleCode() === 'en' ? `<p class="card-body">${escapeHtml(v.summary)}</p>` : ''}
         <div class="hero-actions" style="margin-top:1rem;margin-bottom:0">
-          <a class="btn btn-secondary btn-sm" href="${escapeHtml(path.posix.relative(path.posix.dirname(pageOutputPath(currentLocaleCode(), 'cv-index')), `cv/${v.slug}.html`))}">Open Web CV</a>
-          <a class="btn btn-primary btn-sm" href="${relPrefix(1 + localeDepth())}assets/pdf/${escapeHtml(v.pdfFilename)}" download>Download PDF</a>
+          <a class="btn btn-secondary btn-sm" href="${escapeHtml(path.posix.relative(path.posix.dirname(pageOutputPath(currentLocaleCode(), 'cv-index')), `cv/${v.slug}.html`))}">${escapeHtml(ui('openWebCv'))}</a>
+          <a class="btn btn-primary btn-sm" href="${relPrefix(1 + localeDepth())}assets/pdf/${escapeHtml(v.pdfFilename)}" download>${escapeHtml(ui('downloadPdf'))}</a>
         </div>
       </article>`).join('\n');
 
@@ -821,7 +825,6 @@ function writeDiscoveryFiles(data) {
     }
     const englishOnly = [
         'architecture/index.html',
-        'cv/index.html',
         ...data.variants.map((v) => `cv/${v.slug}.html`),
         ...data.technologies.map((t) => `tech/${t.slug}.html`),
     ];

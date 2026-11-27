@@ -96,13 +96,15 @@
     "legendLabel": "Experience context legend",
     "filterLabel": "Filter skills by experience context",
     "educationEyebrow": "Academic Background",
-    "backToPortfolio": "← Back to Main Portfolio",
+    "backToPortfolio": "Back to Main Portfolio",
     "cvIndexTitle": "CV Versions",
     "cvIndexLead": "General, role-specific and full CVs, available as web pages and ATS-friendly A4 PDFs.",
     "pdfEngineeringProjects": "Selected Engineering Projects",
     "pdfOpenSource": "Open-Source Highlights",
     "pdfEducationLanguages": "Education & Languages",
     "pdfKeyDecisions": "Key Decisions & Stack:",
-    "langHint": "Open this page in {language}."
+    "langHint": "Open this page in {language}.",
+    "openWebCv": "Open Web CV",
+    "downloadPdf": "Download PDF"
   }
 }

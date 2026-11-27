@@ -65,7 +65,7 @@
     "languagesLabel": "Keeled",
     "interestsLabel": "Huvid",
     "tierCore": "Põhiline töökogemus",
-    "tierAdditional": "Lisaks töökogemus",
+    "tierAdditional": "Täiendav töökogemus",
     "tierPersonal": "Isiklik / iseseisev",
     "filterAll": "Kõik",
     "filterCore": "Põhiline",
@@ -100,14 +100,16 @@
     "legendLabel": "Kogemuse konteksti selgitus",
     "filterLabel": "Filtreeri oskusi kogemuse konteksti järgi",
     "educationEyebrow": "Akadeemiline taust",
-    "backToPortfolio": "← Tagasi portfooliosse",
+    "backToPortfolio": "Tagasi portfooliosse",
     "cvIndexTitle": "CV versioonid",
     "cvIndexLead": "Üldine, ametikohtade kaupa kohandatud ja täielik CV on saadaval veebilehtedena ja ATS-sõbralike A4 PDF-idena.",
     "pdfEngineeringProjects": "Valitud insenerprojektid",
     "pdfOpenSource": "Avatud lähtekoodi esiletõstud",
     "pdfEducationLanguages": "Haridus ja keeled",
     "pdfKeyDecisions": "Peamised otsused ja tehnoloogiad:",
-    "langHint": "Ava see leht keeles: {language}."
+    "langHint": "Ava see leht keeles: {language}.",
+    "openWebCv": "Ava veebi-CV",
+    "downloadPdf": "Lae PDF alla"
   },
   "profile": {
     "title": "Vanem-tarkvaraarendaja | Java, hajussüsteemid ja tehisintellekt",
@@ -139,7 +141,7 @@
     "taxify-bolt": {
       "role": "Vanem-taustaarendaja",
       "location": "Tallinn, Eesti",
-      "companyNote": "Taxify nimetati ümber Bolt'iks",
+      "companyNote": "Taxify nimetati ümber Boltiks",
       "summary": "Vanem taustaarendaja, kes arendas suure koormusega taustateenuseid ja REST API-sid Bolti juures (tol ajal tegutses ettevõte nime Taxify all).",
       "responsibilities": [
         "Arendasin ja hooldasin suure koormusega Node.js-mikroteenuseid ja REST API-sid TypeScriptis ja JavaScriptis.",
@@ -293,7 +295,7 @@
     "AngularJS": "AngularJS",
     "Svelte / SvelteKit": "Svelte / SvelteKit",
     "Model Context Protocol (MCP)": "Model Context Protocol (MCP)",
-    "RAG / Embeddings / Semantic Search": "RAG / sõnaasendid / semantiline otsing",
+    "RAG / Embeddings / Semantic Search": "RAG / vektor-esitused / semantiline otsing",
     "Local LLMs / Ollama": "Kohalikud keelemudelid / Ollama",
     "Large Language Models (Claude, GPT, Gemini)": "Suured keelemudelid (Claude, GPT, Gemini)",
     "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)": "Tehisintellektiga toetatud arendus (Claude Code, Codex, Copilot, Gemini)",
@@ -329,7 +331,7 @@
       "description": "Kiire töölauatööriist ekraanipiltide kohesteks jäädvustamiseks ja H.264 MP4 ekraanisalvestuseks."
     },
     "SonarQubeChecker": {
-      "description": "Automatiseeritud kvaliteediväravate kontrollija, mis päringu SonarCloudi / SonarQube'i mõõdikuid vigade, koodilõhnade ja kvaliteediväravate oleku kohta.",
+      "description": "Automatiseeritud kvaliteediväravate kontrollija, mis pärib SonarCloudi / SonarQube'i mõõdikuid vigade, koodilõhnade ja kvaliteediväravate oleku kohta.",
       "homeSummary": "Pythonis kirjutatud käsurea tööriist, mis toob SonarQube'i analüüsi andmed ja probleemid ning koostab kakskeelsed Markdown-kvaliteediaruanded."
     },
     "EntityLocker": {
@@ -346,7 +348,7 @@
       "scope": "Iseseisev isiklik projekt",
       "problem": "Pikaajalised isiklikud vestlusarhiivid ühendavad tekst- ja häälsõnumeid tuhandetes lõimedes. Märksõnaotsing ei aita konteksti meenutada ega anna LLM-agentidele struktureeritud ajalugu.",
       "context": "Iseseisev isiklik insenerprojekt, mis on tehtud väljaspool tööandja töö. Eesmärk on uurida Rusti ja Pythoni koostööd, kohalikku kõnetuvastust, vektorindekseerimist ja Model Context Protocoli (MCP) tööriistu.",
-      "architecture": "Rusti sünkroonimisteenus laeb isikliku vestlusajaloo MTProto kaudu PostgreSQL-i, kasutades flood-wait tagasilangemist. Pythoni töötaja võtab ootel häälread PostgreSQL-i SKIP LOCKED abil ja transkribeerib need Whisperiga. Rusti indekseerija arvutab partiidena kohalikke sõnaasendeid ja salvestab punktid Qdrant'i. LLM-agendid pääsevad neile ligi ainult lugemisõigusega MCP-serveri kaudu (stdio ja HTTP).",
+      "architecture": "Rusti sünkroonimisteenus laeb isikliku vestlusajaloo MTProto kaudu PostgreSQL-i, kasutades flood-wait tagasilangemist. Pythoni töötaja võtab ootel häälread PostgreSQL-i SKIP LOCKED abil ja transkribeerib need Whisperiga. Rusti indekseerija arvutab partiidena kohalikke vektor-esitusi ja salvestab punktid Qdrant'i. LLM-agendid pääsevad neile ligi ainult lugemisõigusega MCP-serveri kaudu (stdio ja HTTP).",
       "challenges": [
         "Ühtegi hajustehingut ei hõlma PostgreSQL, Qdrant ja sünkroonimise kursori kontrollpunkt.",
         "Ülesvoolu MTProto piirangute järgimine ja puhas taastumine partii katkemisel."
