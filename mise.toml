@@ -1,0 +1,14 @@
+[tools]
+node = "22"
+
+[tasks.check]
+run = "git diff --check"
+
+[tasks.build]
+run = "npm run build:all"
+
+[tasks.test]
+run = "npm test"
+
+[tasks.e2e]
+run = "npm run test:e2e"

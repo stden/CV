@@ -1,0 +1,38 @@
+{
+  "name": "stden-cv",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Modern Senior Software Engineer portfolio and data-driven CV system for Denis Stepulenok",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stden/CV.git"
+  },
+  "scripts": {
+    "build:diagrams": "node scripts/build-project-diagrams.js",
+    "build:tech": "node scripts/build-tech-pages.js",
+    "build:site": "node scripts/build-site.js",
+    "build:pdfs": "node scripts/build-pdfs.js",
+    "cv:job": "node scripts/build-job-cv.js",
+    "build": "npm run build:diagrams && npm run build:tech && npm run build:site",
+    "build:all": "npm run build && npm run build:pdfs",
+    "test": "node scripts/check-build.js && node --test tests/job-cv.unit.js",
+    "check:confidentiality": "node scripts/check-confidentiality.js",
+    "test:e2e": "playwright test",
+    "audit:lighthouse": "node scripts/run-lighthouse.js",
+    "preview": "node scripts/serve-subpath.js"
+  },
+  "author": "Denis Stepulenok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stden/CV/issues"
+  },
+  "homepage": "https://stden.github.io/CV/",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@fontsource-variable/inter": "^5.2.5",
+    "@playwright/test": "^1.52.0"
+  }
+}
