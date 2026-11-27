@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Technical Articles — Denis Stepulenok</title>
+  <meta name="description" content="Original, independently researched engineering notes on Java concurrency, Kafka idempotency and outbox delivery, PostgreSQL row locking, Rust/MCP retrieval, and automated quality gates.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/articles/">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <link rel="alternate" type="text/markdown" title="Markdown Resume" href="../resume.md">
+  <link rel="alternate" type="text/plain" title="Plain Text Resume" href="../resume.txt">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="../llms.txt">
+  <link rel="describedby" type="application/json" title="Candidate Profile JSON" href="../candidate.json">
+  <link rel="describedby" type="application/json" title="Skills Evidence JSON" href="../skills-evidence.json">
+  <link rel="describedby" type="application/json" title="Role Alignment JSON" href="../role-alignment.json">
+  <meta property="og:locale" content="en_GB">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Technical Articles — Denis Stepulenok">
+  <meta property="og:description" content="Original, independently researched engineering notes on Java concurrency, Kafka idempotency and outbox delivery, PostgreSQL row locking, Rust/MCP retrieval, and automated quality gates.">
+  <meta property="og:url" content="https://stden.github.io/CV/articles/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="Technical Articles — Denis Stepulenok">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Technical Articles — Denis Stepulenok">
+  <meta name="twitter:description" content="Original, independently researched engineering notes on Java concurrency, Kafka idempotency and outbox delivery, PostgreSQL row locking, Rust/MCP retrieval, and automated quality gates.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://stden.github.io/CV/articles/#page","url":"https://stden.github.io/CV/articles/","inLanguage":"en","name":"Technical Articles — Denis Stepulenok","description":"Original, independently researched engineering notes on Java concurrency, Kafka idempotency and outbox delivery, PostgreSQL row locking, Rust/MCP retrieval, and automated quality gates.","dateModified":"2026-11-27","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfolio","item":"https://stden.github.io/CV/"},{"@type":"ListItem","position":2,"name":"Technical Articles","item":"https://stden.github.io/CV/articles/"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../experience/">Experience</a></li>
+        <li><a href="../skills/">Skills</a></li>
+        <li><a href="../projects/">Projects</a></li>
+        <li><a href="../architecture/">Architecture</a></li>
+        <li><a href="../cv/">CV Versions</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Dark · Switch to dark theme"
+        data-light-label="Light" data-dark-label="Dark"
+        data-to-light="Light · Switch to light theme"
+        data-to-dark="Dark · Switch to dark theme">
+        <span class="theme-label">Dark</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menu · Toggle navigation menu">
+        Menu
+      </button>
+    </div>
+    <nav class="language-menu" aria-label="Website language"><a href="../articles/" hreflang="en" lang="en" aria-label="EN · English" data-locale="en" aria-current="page">EN</a><a href="../et/cv/index.html" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../de/cv/index.html" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../ru/cv/index.html" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../experience/">Experience</a></li>
+        <li><a href="../skills/">Skills</a></li>
+        <li><a href="../projects/">Projects</a></li>
+        <li><a href="../architecture/">Architecture</a></li>
+        <li><a href="../cv/">CV Versions</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      <li><a href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">Portfolio</a> / Technical Articles</p>
+    <h1>Technical Articles</h1>
+    <p class="section-lead">Original, independently researched engineering notes on Java concurrency, Kafka idempotency and outbox delivery, PostgreSQL row locking, Rust/MCP retrieval, and automated quality gates.</p>
+    <p class="provenance">All articles use independent research, public repository code, and educational examples without employer internals or confidential metrics.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="repo-grid">
+      <article class="card" id="article-java-keyed-entity-locking">
+        <p class="article-meta">2026-11-27 &middot; Denis Stepulenok &middot; 6 min read</p>
+        <h2 class="card-title"><a href="java-keyed-entity-locking/">Java Concurrency and Keyed Entity Locking</a></h2>
+        <p class="card-body">Designing per-entity mutex synchronization in JVM memory using ConcurrentHashMap, per-key ReentrantLock instances, and canonical key ordering — plus an honest look at lock-registry eviction races.</p>
+        <ul class="badge-list" style="margin-top:0.75rem"><li><span class="badge">Java</span></li><li><span class="badge">Concurrency</span></li><li><span class="badge">ReentrantLock</span></li><li><span class="badge">Deadlock Avoidance</span></li></ul>
+      </article>
+      <article class="card" id="article-kafka-consumer-idempotency-outbox">
+        <p class="article-meta">2026-11-27 &middot; Denis Stepulenok &middot; 7 min read</p>
+        <h2 class="card-title"><a href="kafka-consumer-idempotency-outbox/">Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox</a></h2>
+        <p class="card-body">Why consumer rebalances and dual writes break naive event pipelines, how partitioned key ordering interacts with retry topics, and where transactional outbox plus idempotent consumers restore safety.</p>
+        <ul class="badge-list" style="margin-top:0.75rem"><li><span class="badge">Apache Kafka</span></li><li><span class="badge">Idempotency</span></li><li><span class="badge">Transactional Outbox</span></li><li><span class="badge">DLQ</span></li></ul>
+      </article>
+      <article class="card" id="article-postgresql-row-level-locking">
+        <p class="article-meta">2026-11-27 &middot; Denis Stepulenok &middot; 5 min read</p>
+        <h2 class="card-title"><a href="postgresql-row-level-locking/">PostgreSQL Row-Level Locking for Concurrent Worker Queues</a></h2>
+        <p class="card-body">Comparing SELECT FOR UPDATE, NOWAIT, and FOR UPDATE SKIP LOCKED when implementing multi-worker job claims on top of a relational database.</p>
+        <ul class="badge-list" style="margin-top:0.75rem"><li><span class="badge">PostgreSQL</span></li><li><span class="badge">SQL</span></li><li><span class="badge">SKIP LOCKED</span></li><li><span class="badge">Concurrency</span></li></ul>
+      </article>
+      <article class="card" id="article-rust-mcp-local-retrieval">
+        <p class="article-meta">2026-11-27 &middot; Denis Stepulenok &middot; 6 min read</p>
+        <h2 class="card-title"><a href="rust-mcp-local-retrieval/">Rust and Model Context Protocol (MCP) for Local Archive Retrieval</a></h2>
+        <p class="card-body">Structuring read-only stdio MCP tools in front of a hybrid lexical and vector retrieval index so coding or research agents inspect narrow evidence without exfiltrating raw archives.</p>
+        <ul class="badge-list" style="margin-top:0.75rem"><li><span class="badge">Rust</span></li><li><span class="badge">Model Context Protocol</span></li><li><span class="badge">RAG</span></li><li><span class="badge">Privacy</span></li></ul>
+      </article>
+      <article class="card" id="article-automated-testing-software-reliability">
+        <p class="article-meta">2026-11-27 &middot; Denis Stepulenok &middot; 5 min read</p>
+        <h2 class="card-title"><a href="automated-testing-software-reliability/">Automated Testing, Deterministic Validation Gates, and Software Reliability</a></h2>
+        <p class="card-body">Treating static HTML, ATS PDFs, confidentiality scanning, and WCAG accessibility as machine-checked build gates rather than manual post-hoc checklists.</p>
+        <ul class="badge-list" style="margin-top:0.75rem"><li><span class="badge">Testing</span></li><li><span class="badge">CI/CD</span></li><li><span class="badge">Confidentiality Gates</span></li><li><span class="badge">Playwright</span></li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
+    <div class="footer-links">
+      <a href="../index.html">Portfolio</a>
+      <a href="../cv/">All CV versions</a>
+      <a href="../roles/" hreflang="en">Role Alignment</a>
+      <a href="../articles/" hreflang="en">Technical Articles</a>
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../candidate.json">JSON</a>
+      <a href="../resume.md">Markdown</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

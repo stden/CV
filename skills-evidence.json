@@ -1,0 +1,1074 @@
+{
+  "schemaVersion": "1.0.0",
+  "canonicalProfileUrl": "https://stden.github.io/CV/",
+  "contentRevisionDate": "2026-11-27",
+  "canonicalLanguage": "en",
+  "verificationLegend": {
+    "self-reported": "Experience reported by the candidate from private commercial employment; cannot be independently verified from public source code.",
+    "publicly-inspectable": "Supported by public source code or technical documentation on GitHub/portfolio without an automated CI workflow.",
+    "ci-verified": "Supported by a public GitHub repository with an inspected passing automated CI workflow.",
+    "requires-confirmation": "Listed familiarity or breadth item without dedicated public repository or detailed production evidence."
+  },
+  "skillsCount": 51,
+  "skills": [
+    {
+      "id": "java",
+      "name": "Java (6–25)",
+      "synonyms": [
+        "Java",
+        "JDK",
+        "Java SE",
+        "Core Java",
+        "Java 6 to Java 25"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Primary backend language across Kuehne+Nagel, Oracle (SQE/JDK), SDS, and public repositories.",
+      "supportingUrls": [
+        "https://github.com/stden/EntityLocker",
+        "https://github.com/stden/JPA2",
+        "https://stden.github.io/CV/tech/java.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Production Java services at employers are self-reported and private; only EntityLocker and JPA2 (Maven CI) are publicly inspectable."
+    },
+    {
+      "id": "jvm-concurrency",
+      "name": "JVM & Concurrency",
+      "synonyms": [
+        "Multithreading",
+        "ReentrantLock",
+        "ConcurrentHashMap",
+        "Deadlock Prevention",
+        "JVM"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "JDK concurrency defects and thread-safety analysis at Oracle plus independent keyed locking utility EntityLocker.",
+      "supportingUrls": [
+        "https://github.com/stden/EntityLocker",
+        "https://github.com/stden/EntityLocker/blob/main/src/main/java/EntityLocker.java",
+        "https://github.com/stden/EntityLocker/blob/main/src/test/java/EntityLockerTest.java"
+      ],
+      "evidenceType": "self-reported-employment+public-repository",
+      "verificationStatus": "publicly-inspectable",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "EntityLocker has JUnit 4 unit tests but no automated GitHub Actions CI workflow; its CountLock registry eviction path has a documented non-atomic race under competing acquire/release."
+    },
+    {
+      "id": "spring-framework",
+      "name": "Spring Framework",
+      "synonyms": [
+        "Spring",
+        "Spring MVC",
+        "Spring Core",
+        "Spring Data"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Enterprise Java application development and dependency injection at Kuehne+Nagel plus public Spring MVC / JPA2 experiment.",
+      "supportingUrls": [
+        "https://github.com/stden/JPA2",
+        "https://stden.github.io/CV/tech/spring.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Production Spring systems at Kuehne+Nagel are self-reported; public Spring/JPA2 repository is a small academic/experimental codebase."
+    },
+    {
+      "id": "spring-boot",
+      "name": "Spring Boot",
+      "synonyms": [
+        "Spring Boot",
+        "Spring Kafka",
+        "Spring AMQP"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Enterprise microservices and asynchronous integration services built at Kuehne+Nagel.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/tech/spring-boot.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Used in private employer systems at Kuehne+Nagel; no public Spring Boot repository is linked."
+    },
+    {
+      "id": "distributed-systems",
+      "name": "Distributed Systems",
+      "synonyms": [
+        "Event-Driven Architecture",
+        "Asynchronous Messaging",
+        "Transactional Outbox",
+        "Idempotency"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Enterprise integration and asynchronous messaging at Kuehne+Nagel, high-load backend services at Taxify (Bolt), and personal archive pipelines.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+        "https://stden.github.io/CV/architecture/"
+      ],
+      "evidenceType": "self-reported-employment+independent-project",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Employer distributed systems and throughput metrics are confidential under NDA; public architecture diagrams are independent educational or personal-project illustrations."
+    },
+    {
+      "id": "microservices",
+      "name": "Microservices",
+      "synonyms": [
+        "Service-Oriented Architecture",
+        "REST Services",
+        "Backend Services"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Backend service development for real-time transport workflows at Taxify (now Bolt) and enterprise services at Kuehne+Nagel.",
+      "supportingUrls": [],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported employment experience; internal service topologies and SLAs are private."
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "synonyms": [
+        "Relational Queries",
+        "DML",
+        "DDL",
+        "Transactions",
+        "Row-Level Locking"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Relational data access, schema evolution, and transactional queries at Kuehne+Nagel.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/tech/sql.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Enterprise database schemas and query tuning are self-reported under NDA; educational SQL patterns appear in independent articles."
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "synonyms": [
+        "Postgres",
+        "PG",
+        "MVCC",
+        "Row Locking"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Primary relational datastore at Kuehne+Nagel and metadata persistence in independent personal projects.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/tech/postgresql.html",
+        "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+      ],
+      "evidenceType": "self-reported-employment+independent-project",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Production PostgreSQL clusters and schemas are private; independent article documents reproducible row-level queue locking patterns."
+    },
+    {
+      "id": "jpa-hibernate",
+      "name": "JPA / Hibernate",
+      "synonyms": [
+        "Jakarta Persistence",
+        "Hibernate ORM",
+        "Entity Mapping"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Persistence layer in enterprise Java services at Kuehne+Nagel and public Spring/Hibernate experiment JPA2.",
+      "supportingUrls": [
+        "https://github.com/stden/JPA2",
+        "https://stden.github.io/CV/tech/jpa.html"
+      ],
+      "evidenceType": "self-reported-employment+public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Employer ORM usage is self-reported; public JPA2 repo verifies Maven build and Hibernate 6 entity mapping via CI."
+    },
+    {
+      "id": "enterprise-integration",
+      "name": "Enterprise Integration",
+      "synonyms": [
+        "EDI",
+        "B2B Integration",
+        "Messaging Middleware",
+        "Asynchronous Integration"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Logistics platform messaging, event-driven workflows, and cross-system integrations at Kuehne+Nagel.",
+      "supportingUrls": [],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Customer protocols, partner APIs, and logistics integration workflows are confidential and not publicly documented."
+    },
+    {
+      "id": "software-design-algorithms",
+      "name": "Software Design & Algorithms",
+      "synonyms": [
+        "Algorithms",
+        "Data Structures",
+        "Concurrency Design",
+        "Deadlock Ordering"
+      ],
+      "groupId": "core",
+      "groupTitle": "Core Expertise",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Olympiad programming background, core Java engineering at SDS, and public EntityLocker concurrency design.",
+      "supportingUrls": [
+        "https://github.com/stden/EntityLocker",
+        "https://stden.github.io/CV/projects/#case-entity-concurrency-locking"
+      ],
+      "evidenceType": "self-reported-employment+public-repository",
+      "verificationStatus": "publicly-inspectable",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Demonstrated publicly through EntityLocker and Olympiad background; public repo lacks automated CI."
+    },
+    {
+      "id": "rabbitmq",
+      "name": "RabbitMQ",
+      "synonyms": [
+        "AMQP",
+        "Message Broker",
+        "Dead-Letter Exchanges"
+      ],
+      "groupId": "messaging-data",
+      "groupTitle": "Messaging & Data",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Asynchronous event transport and broker-backed integration at Kuehne+Nagel.",
+      "supportingUrls": [],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Used in private Kuehne+Nagel systems; no public RabbitMQ sample repository exists on GitHub."
+    },
+    {
+      "id": "apache-kafka",
+      "name": "Apache Kafka",
+      "synonyms": [
+        "Kafka",
+        "Spring Kafka",
+        "Kafka Streams",
+        "Kafka Connect",
+        "Schema Registry"
+      ],
+      "groupId": "messaging-data",
+      "groupTitle": "Messaging & Data",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Production engineering at Kuehne+Nagel using Spring Kafka and Kafka clients: topic partitioning, per-key ordering, offsets/rebalancing, idempotent processing, retry/DLQ topics, transactional outbox, Schema Registry, Kafka Streams/Connect, and lag monitoring.",
+      "supportingUrls": [],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Production Kafka usage at Kuehne+Nagel is confirmed by candidate as self-reported employment experience under NDA; no employer codebase or production metrics are publicly inspectable."
+    },
+    {
+      "id": "oracle-database",
+      "name": "Oracle Database",
+      "synonyms": [
+        "Oracle DB",
+        "PL/SQL",
+        "Oracle RDBMS"
+      ],
+      "groupId": "messaging-data",
+      "groupTitle": "Messaging & Data",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Enterprise relational persistence at Kuehne+Nagel.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/tech/oracle.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported employer database experience; no public Oracle sample code published."
+    },
+    {
+      "id": "redis",
+      "name": "Redis",
+      "synonyms": [
+        "In-Memory Cache",
+        "Key-Value Store"
+      ],
+      "groupId": "messaging-data",
+      "groupTitle": "Messaging & Data",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Low-latency caching and backend state in Taxify (now Bolt) services.",
+      "supportingUrls": [],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported employment experience; production topologies remain confidential."
+    },
+    {
+      "id": "valkey",
+      "name": "Valkey",
+      "synonyms": [
+        "Redis-compatible Store"
+      ],
+      "groupId": "messaging-data",
+      "groupTitle": "Messaging & Data",
+      "tier": "familiarity",
+      "experienceCategory": "familiarity",
+      "context": "Listed as secondary familiarity in CV.",
+      "supportingUrls": [],
+      "evidenceType": "listed-familiarity",
+      "verificationStatus": "requires-confirmation",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Listed familiarity only; no public repository or production role explicitly attributes Valkey."
+    },
+    {
+      "id": "qdrant",
+      "name": "Qdrant",
+      "synonyms": [
+        "Vector Search",
+        "HNSW Vector Store"
+      ],
+      "groupId": "messaging-data",
+      "groupTitle": "Messaging & Data",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "Personal independent Messenger Archive & Semantic Search architecture.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+      ],
+      "evidenceType": "independent-project",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Used in an independent personal architecture; no standalone Qdrant benchmark repository is public."
+    },
+    {
+      "id": "vector-databases",
+      "name": "Vector databases",
+      "synonyms": [
+        "Semantic Index",
+        "Embedding Store"
+      ],
+      "groupId": "messaging-data",
+      "groupTitle": "Messaging & Data",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "Independent local retrieval and RAG experimentation.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+      ],
+      "evidenceType": "independent-project",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Independent personal project experience without public dataset benchmarks."
+    },
+    {
+      "id": "docker-compose",
+      "name": "Docker / Compose",
+      "synonyms": [
+        "Docker",
+        "Docker Compose",
+        "Containers",
+        "Containerisation"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Service containerisation at Kuehne+Nagel and Taxify (Bolt) plus public docker-gems utilities.",
+      "supportingUrls": [
+        "https://github.com/stden/docker-gems",
+        "https://stden.github.io/CV/tech/docker.html"
+      ],
+      "evidenceType": "self-reported-employment+public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Employer container orchestration configs are private; public docker-gems includes CI security scans."
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "synonyms": [
+        "K8s",
+        "Container Orchestration"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Deployment platform listed in Kuehne+Nagel role technologies.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/tech/kubernetes.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported additional employer technology; hands-on cluster administration depth should be confirmed in interview."
+    },
+    {
+      "id": "helm",
+      "name": "Helm",
+      "synonyms": [
+        "Helm Charts"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "familiarity",
+      "experienceCategory": "familiarity",
+      "context": "Listed as familiarity in CV.",
+      "supportingUrls": [],
+      "evidenceType": "listed-familiarity",
+      "verificationStatus": "requires-confirmation",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Listed familiarity only; no public Helm charts published."
+    },
+    {
+      "id": "jenkins",
+      "name": "Jenkins",
+      "synonyms": [
+        "Jenkins Pipelines",
+        "CI Server"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Build pipelines and CI automation at Kuehne+Nagel.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/tech/jenkins.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported employer CI tooling; internal Jenkinsfiles are private."
+    },
+    {
+      "id": "gitlab-cicd",
+      "name": "GitLab CI/CD",
+      "synonyms": [
+        "GitLab Pipelines",
+        "CI/CD"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Continuous integration and automated delivery pipelines at Kuehne+Nagel.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/tech/gitlab.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported employer CI/CD tooling; internal pipeline definitions are private."
+    },
+    {
+      "id": "github-actions",
+      "name": "GitHub Actions",
+      "synonyms": [
+        "GHA",
+        "Workflow Automation",
+        "CI/CD"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "Automated build, test, cross-platform release, and security scan workflows across personal open-source repositories.",
+      "supportingUrls": [
+        "https://github.com/stden/RustShot",
+        "https://github.com/stden/SonarQubeChecker",
+        "https://github.com/stden/CV"
+      ],
+      "evidenceType": "public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Workflow runs are publicly verifiable in linked repositories; retention follows GitHub Actions defaults."
+    },
+    {
+      "id": "maven",
+      "name": "Maven",
+      "synonyms": [
+        "Apache Maven",
+        "pom.xml"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Java build automation at Kuehne+Nagel and public Maven CI in JPA2.",
+      "supportingUrls": [
+        "https://github.com/stden/JPA2",
+        "https://stden.github.io/CV/tech/maven.html"
+      ],
+      "evidenceType": "self-reported-employment+public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Employer multi-module builds are private; public Maven build is verified in JPA2."
+    },
+    {
+      "id": "git",
+      "name": "Git",
+      "synonyms": [
+        "Version Control",
+        "Git Workflows"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Version control across all engineering roles and public GitHub repositories.",
+      "supportingUrls": [
+        "https://github.com/stden",
+        "https://stden.github.io/CV/tech/git.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "publicly-inspectable",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Enterprise branching models are internal; public commits are inspectable on GitHub."
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "synonyms": [
+        "Amazon Web Services",
+        "Cloud Infrastructure"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Cloud infrastructure listed in Taxify (now Bolt) role technologies.",
+      "supportingUrls": [],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported additional employer technology from 2017–2018 role; specific managed services and current depth require confirmation."
+    },
+    {
+      "id": "terraform",
+      "name": "Terraform",
+      "synonyms": [
+        "Infrastructure as Code",
+        "IaC",
+        "HCL"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "familiarity",
+      "experienceCategory": "familiarity",
+      "context": "Listed as familiarity in CV.",
+      "supportingUrls": [],
+      "evidenceType": "listed-familiarity",
+      "verificationStatus": "requires-confirmation",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Listed familiarity only; no public Terraform modules exist in portfolio repositories."
+    },
+    {
+      "id": "linux-systemd-bash",
+      "name": "Linux / systemd / bash",
+      "synonyms": [
+        "Linux",
+        "Bash",
+        "systemd",
+        "Shell Scripting"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "Server environments, automation scripts, and public docker-gems tooling.",
+      "supportingUrls": [
+        "https://github.com/stden/docker-gems"
+      ],
+      "evidenceType": "public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Production operations configurations are private; scripting utilities appear in public tooling."
+    },
+    {
+      "id": "nginx-caddy-cloudflare",
+      "name": "Nginx / Caddy / Cloudflare",
+      "synonyms": [
+        "Reverse Proxy",
+        "Edge TLS",
+        "HTTP Routing"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "familiarity",
+      "experienceCategory": "familiarity",
+      "context": "Listed as familiarity in CV.",
+      "supportingUrls": [],
+      "evidenceType": "listed-familiarity",
+      "verificationStatus": "requires-confirmation",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Listed familiarity only; depth should be confirmed in technical discussion."
+    },
+    {
+      "id": "prometheus-grafana",
+      "name": "Prometheus / Grafana",
+      "synonyms": [
+        "Metrics",
+        "Observability",
+        "Monitoring"
+      ],
+      "groupId": "infra-devops",
+      "groupTitle": "Infrastructure & DevOps",
+      "tier": "familiarity",
+      "experienceCategory": "familiarity",
+      "context": "Listed as familiarity in CV.",
+      "supportingUrls": [],
+      "evidenceType": "listed-familiarity",
+      "verificationStatus": "requires-confirmation",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Listed familiarity in CV infrastructure tooling (alongside Prometheus modules in pythorust_tg); dashboarding scale should be confirmed."
+    },
+    {
+      "id": "python",
+      "name": "Python (2 & 3)",
+      "synonyms": [
+        "Python",
+        "Python 3",
+        "CLI Scripting"
+      ],
+      "groupId": "additional-languages",
+      "groupTitle": "Additional Languages & Frameworks",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "JDK quality automation at Oracle, personal retrieval tools, and CI-verified SonarQubeChecker CLI.",
+      "supportingUrls": [
+        "https://github.com/stden/SonarQubeChecker",
+        "https://stden.github.io/CV/tech/python.html"
+      ],
+      "evidenceType": "self-reported-employment+independent-project+public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Oracle test harness scripts are internal; public Python quality is inspectable in SonarQubeChecker."
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "synonyms": [
+        "Cargo",
+        "Systems Programming",
+        "Rust CLI"
+      ],
+      "groupId": "additional-languages",
+      "groupTitle": "Additional Languages & Frameworks",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "Independent open-source desktop, terminal, and archive tooling.",
+      "supportingUrls": [
+        "https://github.com/stden/RustShot",
+        "https://github.com/stden/FunnyFileManager",
+        "https://github.com/stden/pythorust_tg"
+      ],
+      "evidenceType": "independent-project+public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Used in independent personal projects with GitHub Actions CI rather than primary Java enterprise employment."
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "synonyms": [
+        "TS",
+        "Typed JavaScript"
+      ],
+      "groupId": "additional-languages",
+      "groupTitle": "Additional Languages & Frameworks",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Backend service development at Taxify (now Bolt).",
+      "supportingUrls": [],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported employment experience from Taxify (2017–2018); no large public TypeScript codebase linked."
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "synonyms": [
+        "Node",
+        "JavaScript Runtime"
+      ],
+      "groupId": "additional-languages",
+      "groupTitle": "Additional Languages & Frameworks",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Backend service development at Taxify (now Bolt) and static build tooling for this CV portfolio.",
+      "supportingUrls": [
+        "https://github.com/stden/CV"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Employer Node.js services are private; current CV build/test pipeline demonstrates Node 24 scripting."
+    },
+    {
+      "id": "go-gin-grpc",
+      "name": "Go (Gin, gRPC)",
+      "synonyms": [
+        "Golang",
+        "gRPC"
+      ],
+      "groupId": "additional-languages",
+      "groupTitle": "Additional Languages & Frameworks",
+      "tier": "familiarity",
+      "experienceCategory": "familiarity",
+      "context": "Listed as familiarity in CV.",
+      "supportingUrls": [],
+      "evidenceType": "listed-familiarity",
+      "verificationStatus": "requires-confirmation",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Listed familiarity only; no public Go repository is included in the portfolio."
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "synonyms": [
+        "React UI",
+        "Frontend"
+      ],
+      "groupId": "additional-languages",
+      "groupTitle": "Additional Languages & Frameworks",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Supporting UI work at Kuehne+Nagel.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/tech/react.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported secondary frontend exposure within primarily backend Java role."
+    },
+    {
+      "id": "angularjs",
+      "name": "AngularJS",
+      "synonyms": [
+        "Angular",
+        "Legacy Frontend"
+      ],
+      "groupId": "additional-languages",
+      "groupTitle": "Additional Languages & Frameworks",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Supporting UI maintenance at Kuehne+Nagel.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/tech/angular.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported secondary UI maintenance; not positioned as primary frontend specialty."
+    },
+    {
+      "id": "svelte-sveltekit",
+      "name": "Svelte / SvelteKit",
+      "synonyms": [
+        "Svelte",
+        "SvelteKit"
+      ],
+      "groupId": "additional-languages",
+      "groupTitle": "Additional Languages & Frameworks",
+      "tier": "familiarity",
+      "experienceCategory": "familiarity",
+      "context": "Listed as familiarity in CV.",
+      "supportingUrls": [],
+      "evidenceType": "listed-familiarity",
+      "verificationStatus": "requires-confirmation",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Listed familiarity only; no public Svelte project published."
+    },
+    {
+      "id": "model-context-protocol",
+      "name": "Model Context Protocol (MCP)",
+      "synonyms": [
+        "MCP",
+        "MCP Server",
+        "Agent Tooling"
+      ],
+      "groupId": "ai-engineering",
+      "groupTitle": "AI Engineering",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "Independent tooling modules for read-only archive query and agent integration.",
+      "supportingUrls": [
+        "https://github.com/stden/pythorust_tg",
+        "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+      ],
+      "evidenceType": "independent-project+public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Independent experimentation rather than enterprise production deployment."
+    },
+    {
+      "id": "rag-embeddings-semantic-search",
+      "name": "RAG / Embeddings / Semantic Search",
+      "synonyms": [
+        "RAG",
+        "Hybrid Search",
+        "Vector Retrieval",
+        "Embeddings"
+      ],
+      "groupId": "ai-engineering",
+      "groupTitle": "AI Engineering",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "Personal archive indexing pipeline combining lexical and semantic search in pythorust_tg and independent studies.",
+      "supportingUrls": [
+        "https://github.com/stden/pythorust_tg",
+        "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+      ],
+      "evidenceType": "independent-project+public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Personal project experience without published retrieval precision/recall benchmarks."
+    },
+    {
+      "id": "local-llms-ollama",
+      "name": "Local LLMs / Ollama",
+      "synonyms": [
+        "Ollama",
+        "Local Inference"
+      ],
+      "groupId": "ai-engineering",
+      "groupTitle": "AI Engineering",
+      "tier": "familiarity",
+      "experienceCategory": "familiarity",
+      "context": "Listed as familiarity for local experimentation.",
+      "supportingUrls": [],
+      "evidenceType": "listed-familiarity",
+      "verificationStatus": "requires-confirmation",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Listed familiarity only; not backed by published benchmarks or production deployment."
+    },
+    {
+      "id": "large-language-models",
+      "name": "Large Language Models (Claude, GPT, Gemini)",
+      "synonyms": [
+        "LLMs",
+        "Claude API",
+        "GPT",
+        "Gemini"
+      ],
+      "groupId": "ai-engineering",
+      "groupTitle": "AI Engineering",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "Personal automation and archive synthesis tooling via pythorust_tg.",
+      "supportingUrls": [
+        "https://github.com/stden/pythorust_tg"
+      ],
+      "evidenceType": "independent-project+public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Independent project integration; not an enterprise ML research background."
+    },
+    {
+      "id": "ai-assisted-development",
+      "name": "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)",
+      "synonyms": [
+        "Coding Agents",
+        "Spec-Driven AI Workflows"
+      ],
+      "groupId": "ai-engineering",
+      "groupTitle": "AI Engineering",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "Workflow experimentation and verification specs in public anygen repository.",
+      "supportingUrls": [
+        "https://github.com/stden/anygen"
+      ],
+      "evidenceType": "public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Public experimentation repo; requires human architectural review and test gates."
+    },
+    {
+      "id": "junit",
+      "name": "JUnit",
+      "synonyms": [
+        "JUnit 4",
+        "JUnit 5",
+        "Java Unit Testing"
+      ],
+      "groupId": "quality-engineering",
+      "groupTitle": "Quality Engineering",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Automated testing in JDK SQE work at Oracle, enterprise Java at Kuehne+Nagel, and public EntityLocker/JPA2 tests.",
+      "supportingUrls": [
+        "https://github.com/stden/EntityLocker/blob/main/src/test/java/EntityLockerTest.java",
+        "https://github.com/stden/JPA2"
+      ],
+      "evidenceType": "self-reported-employment+public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Oracle test suites are proprietary; public JUnit tests are directly inspectable in EntityLocker and JPA2."
+    },
+    {
+      "id": "mockito-jmockit-easymock",
+      "name": "Mockito / JMockit / EasyMock",
+      "synonyms": [
+        "Mocking Frameworks",
+        "Unit Isolation"
+      ],
+      "groupId": "quality-engineering",
+      "groupTitle": "Quality Engineering",
+      "tier": "additional",
+      "experienceCategory": "additional-professional",
+      "context": "Unit test isolation across Oracle SQE and Kuehne+Nagel backend engineering.",
+      "supportingUrls": [
+        "https://stden.github.io/CV/tech/mockito.html",
+        "https://stden.github.io/CV/tech/jmockit.html",
+        "https://stden.github.io/CV/tech/easymock.html"
+      ],
+      "evidenceType": "self-reported-employment",
+      "verificationStatus": "self-reported",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Self-reported employment experience; internal test suites are private."
+    },
+    {
+      "id": "tdd",
+      "name": "Test-Driven Development (TDD)",
+      "synonyms": [
+        "Red-Green-Refactor",
+        "Unit-First Design"
+      ],
+      "groupId": "quality-engineering",
+      "groupTitle": "Quality Engineering",
+      "tier": "familiarity",
+      "experienceCategory": "familiarity",
+      "context": "Listed as familiarity in quality engineering practice.",
+      "supportingUrls": [],
+      "evidenceType": "listed-familiarity",
+      "verificationStatus": "requires-confirmation",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Listed familiarity; team adherence varies across roles."
+    },
+    {
+      "id": "integration-e2e-testing",
+      "name": "Integration & E2E Testing",
+      "synonyms": [
+        "End-to-End Testing",
+        "CI Integration Tests",
+        "Playwright"
+      ],
+      "groupId": "quality-engineering",
+      "groupTitle": "Quality Engineering",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "Automated integration tests in SonarQubeChecker, RustShot, and Playwright/Axe test gates in stden/CV.",
+      "supportingUrls": [
+        "https://github.com/stden/SonarQubeChecker",
+        "https://github.com/stden/RustShot",
+        "https://github.com/stden/CV"
+      ],
+      "evidenceType": "public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Public integration/E2E harnesses are verifiable in CI; enterprise test harnesses remain private."
+    },
+    {
+      "id": "cucumber-gherkin-bdd",
+      "name": "Cucumber / Gherkin (BDD)",
+      "synonyms": [
+        "BDD",
+        "Gherkin Scenarios",
+        "Cucumber"
+      ],
+      "groupId": "quality-engineering",
+      "groupTitle": "Quality Engineering",
+      "tier": "personal",
+      "experienceCategory": "independent-engineering",
+      "context": "BDD test workflows in public anygen and FunnyFileManager repositories.",
+      "supportingUrls": [
+        "https://github.com/stden/anygen",
+        "https://github.com/stden/FunnyFileManager"
+      ],
+      "evidenceType": "public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Publicly verified in independent repositories rather than primary Java roles."
+    },
+    {
+      "id": "playwright-vitest-selenide",
+      "name": "Playwright / Vitest / Selenide",
+      "synonyms": [
+        "Browser E2E",
+        "UI Automation"
+      ],
+      "groupId": "quality-engineering",
+      "groupTitle": "Quality Engineering",
+      "tier": "familiarity",
+      "experienceCategory": "familiarity",
+      "context": "Playwright + Axe WCAG verification in stden/CV; listed familiarity for Vitest and Selenide.",
+      "supportingUrls": [
+        "https://github.com/stden/CV"
+      ],
+      "evidenceType": "listed-familiarity",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Playwright E2E tests are CI-verified in stden/CV; Vitest and Selenide are listed familiarity requiring confirmation."
+    },
+    {
+      "id": "continuous-integration",
+      "name": "Continuous Integration",
+      "synonyms": [
+        "CI",
+        "Build Gates",
+        "Automated Verification"
+      ],
+      "groupId": "quality-engineering",
+      "groupTitle": "Quality Engineering",
+      "tier": "core",
+      "experienceCategory": "primary-professional",
+      "context": "Jenkins/GitLab pipelines at Kuehne+Nagel plus GitHub Actions build, security, and test gates across public repos.",
+      "supportingUrls": [
+        "https://github.com/stden/RustShot",
+        "https://github.com/stden/CV",
+        "https://github.com/stden/docker-gems"
+      ],
+      "evidenceType": "self-reported-employment+public-repository",
+      "verificationStatus": "ci-verified",
+      "lastVerificationDate": "2026-11-27",
+      "limitations": "Enterprise CI configs are private; public GitHub Actions workflows are inspectable."
+    }
+  ]
+}

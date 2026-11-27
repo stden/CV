@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PostgreSQL Row-Level Locking for Concurrent Worker Queues — Denis Stepulenok</title>
+  <meta name="description" content="Comparing SELECT FOR UPDATE, NOWAIT, and FOR UPDATE SKIP LOCKED when implementing multi-worker job claims on top of a relational database.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/articles/postgresql-row-level-locking/">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/postgresql-row-level-locking/">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <link rel="alternate" type="text/markdown" title="Markdown Resume" href="../../resume.md">
+  <link rel="alternate" type="text/plain" title="Plain Text Resume" href="../../resume.txt">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="../../llms.txt">
+  <link rel="describedby" type="application/json" title="Candidate Profile JSON" href="../../candidate.json">
+  <link rel="describedby" type="application/json" title="Skills Evidence JSON" href="../../skills-evidence.json">
+  <link rel="describedby" type="application/json" title="Role Alignment JSON" href="../../role-alignment.json">
+  <meta property="og:locale" content="en_GB">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="PostgreSQL Row-Level Locking for Concurrent Worker Queues — Denis Stepulenok">
+  <meta property="og:description" content="Comparing SELECT FOR UPDATE, NOWAIT, and FOR UPDATE SKIP LOCKED when implementing multi-worker job claims on top of a relational database.">
+  <meta property="og:url" content="https://stden.github.io/CV/articles/postgresql-row-level-locking/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="PostgreSQL Row-Level Locking for Concurrent Worker Queues — Denis Stepulenok">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PostgreSQL Row-Level Locking for Concurrent Worker Queues — Denis Stepulenok">
+  <meta name="twitter:description" content="Comparing SELECT FOR UPDATE, NOWAIT, and FOR UPDATE SKIP LOCKED when implementing multi-worker job claims on top of a relational database.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="preload" href="../../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","@id":"https://stden.github.io/CV/articles/postgresql-row-level-locking/#article","url":"https://stden.github.io/CV/articles/postgresql-row-level-locking/","inLanguage":"en","headline":"PostgreSQL Row-Level Locking for Concurrent Worker Queues","description":"Comparing SELECT FOR UPDATE, NOWAIT, and FOR UPDATE SKIP LOCKED when implementing multi-worker job claims on top of a relational database.","datePublished":"2026-11-27","dateModified":"2026-11-27","author":{"@id":"https://stden.github.io/CV/#person"},"keywords":["PostgreSQL","SQL","SKIP LOCKED","Concurrency"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfolio","item":"https://stden.github.io/CV/"},{"@type":"ListItem","position":2,"name":"Technical Articles","item":"https://stden.github.io/CV/articles/"},{"@type":"ListItem","position":3,"name":"PostgreSQL Row-Level Locking for Concurrent Worker Queues","item":"https://stden.github.io/CV/articles/postgresql-row-level-locking/"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../../index.html#overview">Overview</a></li>
+        <li><a href="../../experience/">Experience</a></li>
+        <li><a href="../../skills/">Skills</a></li>
+        <li><a href="../../projects/">Projects</a></li>
+        <li><a href="../../architecture/">Architecture</a></li>
+        <li><a href="../../cv/">CV Versions</a></li>
+        <li><a href="../../contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Dark · Switch to dark theme"
+        data-light-label="Light" data-dark-label="Dark"
+        data-to-light="Light · Switch to light theme"
+        data-to-dark="Dark · Switch to dark theme">
+        <span class="theme-label">Dark</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menu · Toggle navigation menu">
+        Menu
+      </button>
+    </div>
+    <nav class="language-menu" aria-label="Website language"><a href="../../articles/postgresql-row-level-locking/" hreflang="en" lang="en" aria-label="EN · English" data-locale="en" aria-current="page">EN</a><a href="../../et/cv/index.html" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../../de/cv/index.html" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../../ru/cv/index.html" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../../index.html#overview">Overview</a></li>
+        <li><a href="../../experience/">Experience</a></li>
+        <li><a href="../../skills/">Skills</a></li>
+        <li><a href="../../projects/">Projects</a></li>
+        <li><a href="../../architecture/">Architecture</a></li>
+        <li><a href="../../cv/">CV Versions</a></li>
+        <li><a href="../../contact/">Contact</a></li>
+      <li><a href="../../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<article>
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../../index.html">Portfolio</a> / <a href="../index.html">Technical Articles</a> / PostgreSQL Row-Level Locking for Concurrent Worker Queues</p>
+    <p class="article-meta">2026-11-27 &middot; Author: Denis Stepulenok &middot; 5 min read</p>
+    <h1>PostgreSQL Row-Level Locking for Concurrent Worker Queues</h1>
+    <p class="section-lead">Comparing SELECT FOR UPDATE, NOWAIT, and FOR UPDATE SKIP LOCKED when implementing multi-worker job claims on top of a relational database.</p>
+    <p class="provenance">Independent PostgreSQL concurrency note using reproducible standard SQL; excludes employer schemas and non-public benchmarks.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container article-body">
+    <section class="article-section">
+      <h2>Blocking vs Non-Blocking Claim Queries</h2>
+      <p>Naive SELECT followed by UPDATE lets two workers claim the same queued row concurrently. Adding FOR UPDATE prevents double claims, yet causes subsequent workers to block waiting on the first worker&#39;s transaction commit.</p>
+      <p>Adding SKIP LOCKED allows each concurrent worker session to atomically claim the next unlocked eligible row without waiting on rows locked by active transactions.</p>
+      <pre class="code-block"><code>WITH next_job AS (
+  SELECT id FROM job_queue
+  WHERE status = &#39;PENDING&#39; AND run_at &lt;= CURRENT_TIMESTAMP
+  ORDER BY run_at, id
+  FOR UPDATE SKIP LOCKED
+  LIMIT 1
+)
+UPDATE job_queue q
+SET status = &#39;CLAIMED&#39;, claimed_at = CURRENT_TIMESTAMP
+FROM next_job
+WHERE q.id = next_job.id
+RETURNING q.id;</code></pre>
+    </section>
+    <section class="article-section">
+      <h2>Engineering Trade-offs</h2>
+      <ul class="bullet-list">
+        <li>SKIP LOCKED simplifies transactional enqueue-with-domain-state without operating a dedicated broker, but high update churn creates dead tuples requiring tuned autovacuum.</li>
+        <li>Holding transactions open during external HTTP calls exhausts database connections; fast claim-to-LEASED transactions with visibility timeouts scale much better.</li>
+      </ul>
+    </section>
+    <section class="article-section">
+      <h2>Limitations &amp; Boundaries</h2>
+      <ul class="bullet-list">
+        <li>Relational queues do not match dedicated log brokers like Apache Kafka for multi-consumer fan-out or high-throughput event replay.</li>
+        <li>Reproducible experiment tests lock semantics rather than production cluster sizing.</li>
+      </ul>
+    </section>
+    <section class="article-section">
+      <h2>Reproducible Verification</h2>
+      <p>Open two psql sessions on the same PostgreSQL database, execute the CTE claim without committing in Session 1, and observe Session 2 claim row 2 immediately.</p>
+      <pre class="code-block"><code>Session 1: BEGIN; SELECT id FROM job_queue WHERE status = &#39;PENDING&#39; ORDER BY id FOR UPDATE SKIP LOCKED LIMIT 1;
+Session 2: BEGIN; SELECT id FROM job_queue WHERE status = &#39;PENDING&#39; ORDER BY id FOR UPDATE SKIP LOCKED LIMIT 1;</code></pre>
+    </section>
+    <section class="article-section">
+      <h2>Public References</h2>
+      <ul class="bullet-list">
+        <li><a href="https://stden.github.io/CV/tech/postgresql.html">https://stden.github.io/CV/tech/postgresql.html</a></li>
+      </ul>
+    </section>
+  </div>
+</section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
+    <div class="footer-links">
+      <a href="../../index.html">Portfolio</a>
+      <a href="../../cv/">All CV versions</a>
+      <a href="../../roles/" hreflang="en">Role Alignment</a>
+      <a href="../../articles/" hreflang="en">Technical Articles</a>
+      <a href="../../llms.txt">llms.txt</a>
+      <a href="../../candidate.json">JSON</a>
+      <a href="../../resume.md">Markdown</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

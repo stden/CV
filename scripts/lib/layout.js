@@ -96,12 +96,18 @@ ${navLinks}
 
 function renderFooter(data, { depth = 0 } = {}) {
     const prefix = relPrefix(depth);
+    const rootPrefix = assetPrefix(data, depth);
     return `<footer class="site-footer">
   <div class="container footer-inner">
     <p>&copy; ${new Date().getFullYear()} ${escapeHtml(data.profile.name)} &middot; ${escapeHtml(data.profile.location)}</p>
     <div class="footer-links">
       <a href="${prefix}index.html">${ui(data, 'common.portfolio')}</a>
       <a href="${prefix}cv/">${ui(data, 'common.allCv')}</a>
+      <a href="${rootPrefix}roles/" hreflang="en">${ui(data, 'common.roles')}</a>
+      <a href="${rootPrefix}articles/" hreflang="en">${ui(data, 'common.articles')}</a>
+      <a href="${rootPrefix}llms.txt">llms.txt</a>
+      <a href="${rootPrefix}candidate.json">JSON</a>
+      <a href="${rootPrefix}resume.md">Markdown</a>
       <a href="${escapeHtml(data.profile.contact.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="${escapeHtml(data.profile.contact.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:${escapeHtml(data.profile.contact.email)}">${ui(data, 'common.email')}</a>
@@ -146,6 +152,12 @@ function renderDocument(data, options) {
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}">
 ${alternates}
   <link rel="alternate" hreflang="x-default" href="${pageUrl(data, '', 'en')}">
+  <link rel="alternate" type="text/markdown" title="Markdown Resume" href="${prefix}resume.md">
+  <link rel="alternate" type="text/plain" title="Plain Text Resume" href="${prefix}resume.txt">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="${prefix}llms.txt">
+  <link rel="describedby" type="application/json" title="Candidate Profile JSON" href="${prefix}candidate.json">
+  <link rel="describedby" type="application/json" title="Skills Evidence JSON" href="${prefix}skills-evidence.json">
+  <link rel="describedby" type="application/json" title="Role Alignment JSON" href="${prefix}role-alignment.json">
   <meta property="og:locale" content="${LOCALES[data.locale].og}">
 ${ogLocales}
   <meta property="og:type" content="${escapeHtml(ogType)}">

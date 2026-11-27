@@ -255,6 +255,41 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
   </url>
   <url>
+    <loc>https://stden.github.io/CV/roles/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/roles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/articles/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/articles/java-keyed-entity-locking/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/java-keyed-entity-locking/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/articles/kafka-consumer-idempotency-outbox/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/kafka-consumer-idempotency-outbox/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/articles/postgresql-row-level-locking/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/postgresql-row-level-locking/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/articles/rust-mcp-local-retrieval/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/rust-mcp-local-retrieval/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/articles/automated-testing-software-reliability/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/automated-testing-software-reliability/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
     <loc>https://stden.github.io/CV/et/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/"/>

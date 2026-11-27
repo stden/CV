@@ -864,7 +864,26 @@
               "kind": "employment",
               "ref": "oracle"
             }
-          ]
+          ],
+          "id": "java",
+          "synonyms": [
+            "Java",
+            "JDK",
+            "Java SE",
+            "Core Java",
+            "Java 6 to Java 25"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Primary backend language across Kuehne+Nagel, Oracle (SQE/JDK), SDS, and public repositories.",
+          "supportingUrls": [
+            "https://github.com/stden/EntityLocker",
+            "https://github.com/stden/JPA2",
+            "https://stden.github.io/CV/tech/java.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Production Java services at employers are self-reported and private; only EntityLocker and JPA2 (Maven CI) are publicly inspectable."
         },
         {
           "name": "JVM & Concurrency",
@@ -879,7 +898,26 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/EntityLocker"
             }
-          ]
+          ],
+          "id": "jvm-concurrency",
+          "synonyms": [
+            "Multithreading",
+            "ReentrantLock",
+            "ConcurrentHashMap",
+            "Deadlock Prevention",
+            "JVM"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "JDK concurrency defects and thread-safety analysis at Oracle plus independent keyed locking utility EntityLocker.",
+          "supportingUrls": [
+            "https://github.com/stden/EntityLocker",
+            "https://github.com/stden/EntityLocker/blob/main/src/main/java/EntityLocker.java",
+            "https://github.com/stden/EntityLocker/blob/main/src/test/java/EntityLockerTest.java"
+          ],
+          "evidenceType": "self-reported-employment+public-repository",
+          "verificationStatus": "publicly-inspectable",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "EntityLocker has JUnit 4 unit tests but no automated GitHub Actions CI workflow; its CountLock registry eviction path has a documented non-atomic race under competing acquire/release."
         },
         {
           "name": "Spring Framework",
@@ -890,7 +928,24 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "spring-framework",
+          "synonyms": [
+            "Spring",
+            "Spring MVC",
+            "Spring Core",
+            "Spring Data"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Enterprise Java application development and dependency injection at Kuehne+Nagel plus public Spring MVC / JPA2 experiment.",
+          "supportingUrls": [
+            "https://github.com/stden/JPA2",
+            "https://stden.github.io/CV/tech/spring.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Production Spring systems at Kuehne+Nagel are self-reported; public Spring/JPA2 repository is a small academic/experimental codebase."
         },
         {
           "name": "Spring Boot",
@@ -901,7 +956,22 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "spring-boot",
+          "synonyms": [
+            "Spring Boot",
+            "Spring Kafka",
+            "Spring AMQP"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Enterprise microservices and asynchronous integration services built at Kuehne+Nagel.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/tech/spring-boot.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Used in private employer systems at Kuehne+Nagel; no public Spring Boot repository is linked."
         },
         {
           "name": "Distributed Systems",
@@ -919,7 +989,24 @@
               "kind": "independent",
               "ref": "messenger-archive-search"
             }
-          ]
+          ],
+          "id": "distributed-systems",
+          "synonyms": [
+            "Event-Driven Architecture",
+            "Asynchronous Messaging",
+            "Transactional Outbox",
+            "Idempotency"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Enterprise integration and asynchronous messaging at Kuehne+Nagel, high-load backend services at Taxify (Bolt), and personal archive pipelines.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+            "https://stden.github.io/CV/architecture/"
+          ],
+          "evidenceType": "self-reported-employment+independent-project",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Employer distributed systems and throughput metrics are confidential under NDA; public architecture diagrams are independent educational or personal-project illustrations."
         },
         {
           "name": "Microservices",
@@ -929,7 +1016,20 @@
               "kind": "employment",
               "ref": "taxify-bolt"
             }
-          ]
+          ],
+          "id": "microservices",
+          "synonyms": [
+            "Service-Oriented Architecture",
+            "REST Services",
+            "Backend Services"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Backend service development for real-time transport workflows at Taxify (now Bolt) and enterprise services at Kuehne+Nagel.",
+          "supportingUrls": [],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported employment experience; internal service topologies and SLAs are private."
         },
         {
           "name": "SQL",
@@ -940,7 +1040,24 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "sql",
+          "synonyms": [
+            "Relational Queries",
+            "DML",
+            "DDL",
+            "Transactions",
+            "Row-Level Locking"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Relational data access, schema evolution, and transactional queries at Kuehne+Nagel.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/tech/sql.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Enterprise database schemas and query tuning are self-reported under NDA; educational SQL patterns appear in independent articles."
         },
         {
           "name": "PostgreSQL",
@@ -955,7 +1072,24 @@
               "kind": "independent",
               "ref": "messenger-archive-search"
             }
-          ]
+          ],
+          "id": "postgresql",
+          "synonyms": [
+            "Postgres",
+            "PG",
+            "MVCC",
+            "Row Locking"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Primary relational datastore at Kuehne+Nagel and metadata persistence in independent personal projects.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/tech/postgresql.html",
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+          ],
+          "evidenceType": "self-reported-employment+independent-project",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Production PostgreSQL clusters and schemas are private; independent article documents reproducible row-level queue locking patterns."
         },
         {
           "name": "JPA / Hibernate",
@@ -970,7 +1104,23 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/JPA2"
             }
-          ]
+          ],
+          "id": "jpa-hibernate",
+          "synonyms": [
+            "Jakarta Persistence",
+            "Hibernate ORM",
+            "Entity Mapping"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Persistence layer in enterprise Java services at Kuehne+Nagel and public Spring/Hibernate experiment JPA2.",
+          "supportingUrls": [
+            "https://github.com/stden/JPA2",
+            "https://stden.github.io/CV/tech/jpa.html"
+          ],
+          "evidenceType": "self-reported-employment+public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Employer ORM usage is self-reported; public JPA2 repo verifies Maven build and Hibernate 6 entity mapping via CI."
         },
         {
           "name": "Enterprise Integration",
@@ -980,7 +1130,21 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "enterprise-integration",
+          "synonyms": [
+            "EDI",
+            "B2B Integration",
+            "Messaging Middleware",
+            "Asynchronous Integration"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Logistics platform messaging, event-driven workflows, and cross-system integrations at Kuehne+Nagel.",
+          "supportingUrls": [],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Customer protocols, partner APIs, and logistics integration workflows are confidential and not publicly documented."
         },
         {
           "name": "Software Design & Algorithms",
@@ -994,7 +1158,24 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/EntityLocker"
             }
-          ]
+          ],
+          "id": "software-design-algorithms",
+          "synonyms": [
+            "Algorithms",
+            "Data Structures",
+            "Concurrency Design",
+            "Deadlock Ordering"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Olympiad programming background, core Java engineering at SDS, and public EntityLocker concurrency design.",
+          "supportingUrls": [
+            "https://github.com/stden/EntityLocker",
+            "https://stden.github.io/CV/projects/#case-entity-concurrency-locking"
+          ],
+          "evidenceType": "self-reported-employment+public-repository",
+          "verificationStatus": "publicly-inspectable",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Demonstrated publicly through EntityLocker and Olympiad background; public repo lacks automated CI."
         }
       ]
     },
@@ -1011,7 +1192,20 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "rabbitmq",
+          "synonyms": [
+            "AMQP",
+            "Message Broker",
+            "Dead-Letter Exchanges"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Asynchronous event transport and broker-backed integration at Kuehne+Nagel.",
+          "supportingUrls": [],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Used in private Kuehne+Nagel systems; no public RabbitMQ sample repository exists on GitHub."
         },
         {
           "name": "Apache Kafka",
@@ -1021,7 +1215,22 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "apache-kafka",
+          "synonyms": [
+            "Kafka",
+            "Spring Kafka",
+            "Kafka Streams",
+            "Kafka Connect",
+            "Schema Registry"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Production engineering at Kuehne+Nagel using Spring Kafka and Kafka clients: topic partitioning, per-key ordering, offsets/rebalancing, idempotent processing, retry/DLQ topics, transactional outbox, Schema Registry, Kafka Streams/Connect, and lag monitoring.",
+          "supportingUrls": [],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Production Kafka usage at Kuehne+Nagel is confirmed by candidate as self-reported employment experience under NDA; no employer codebase or production metrics are publicly inspectable."
         },
         {
           "name": "Oracle Database",
@@ -1032,7 +1241,22 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "oracle-database",
+          "synonyms": [
+            "Oracle DB",
+            "PL/SQL",
+            "Oracle RDBMS"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Enterprise relational persistence at Kuehne+Nagel.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/tech/oracle.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported employer database experience; no public Oracle sample code published."
         },
         {
           "name": "Redis",
@@ -1042,7 +1266,19 @@
               "kind": "employment",
               "ref": "taxify-bolt"
             }
-          ]
+          ],
+          "id": "redis",
+          "synonyms": [
+            "In-Memory Cache",
+            "Key-Value Store"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Low-latency caching and backend state in Taxify (now Bolt) services.",
+          "supportingUrls": [],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported employment experience; production topologies remain confidential."
         },
         {
           "name": "Valkey",
@@ -1052,7 +1288,18 @@
               "kind": "listed",
               "ref": "https://stden.github.io/CV/"
             }
-          ]
+          ],
+          "id": "valkey",
+          "synonyms": [
+            "Redis-compatible Store"
+          ],
+          "experienceCategory": "familiarity",
+          "context": "Listed as secondary familiarity in CV.",
+          "supportingUrls": [],
+          "evidenceType": "listed-familiarity",
+          "verificationStatus": "requires-confirmation",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Listed familiarity only; no public repository or production role explicitly attributes Valkey."
         },
         {
           "name": "Qdrant",
@@ -1062,7 +1309,21 @@
               "kind": "independent",
               "ref": "messenger-archive-search"
             }
-          ]
+          ],
+          "id": "qdrant",
+          "synonyms": [
+            "Vector Search",
+            "HNSW Vector Store"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "Personal independent Messenger Archive & Semantic Search architecture.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+          ],
+          "evidenceType": "independent-project",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Used in an independent personal architecture; no standalone Qdrant benchmark repository is public."
         },
         {
           "name": "Vector databases",
@@ -1072,7 +1333,21 @@
               "kind": "independent",
               "ref": "messenger-archive-search"
             }
-          ]
+          ],
+          "id": "vector-databases",
+          "synonyms": [
+            "Semantic Index",
+            "Embedding Store"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "Independent local retrieval and RAG experimentation.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+          ],
+          "evidenceType": "independent-project",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Independent personal project experience without public dataset benchmarks."
         }
       ]
     },
@@ -1098,7 +1373,24 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/docker-gems"
             }
-          ]
+          ],
+          "id": "docker-compose",
+          "synonyms": [
+            "Docker",
+            "Docker Compose",
+            "Containers",
+            "Containerisation"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Service containerisation at Kuehne+Nagel and Taxify (Bolt) plus public docker-gems utilities.",
+          "supportingUrls": [
+            "https://github.com/stden/docker-gems",
+            "https://stden.github.io/CV/tech/docker.html"
+          ],
+          "evidenceType": "self-reported-employment+public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Employer container orchestration configs are private; public docker-gems includes CI security scans."
         },
         {
           "name": "Kubernetes",
@@ -1109,7 +1401,21 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "kubernetes",
+          "synonyms": [
+            "K8s",
+            "Container Orchestration"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Deployment platform listed in Kuehne+Nagel role technologies.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/tech/kubernetes.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported additional employer technology; hands-on cluster administration depth should be confirmed in interview."
         },
         {
           "name": "Helm",
@@ -1119,7 +1425,18 @@
               "kind": "listed",
               "ref": "https://stden.github.io/CV/"
             }
-          ]
+          ],
+          "id": "helm",
+          "synonyms": [
+            "Helm Charts"
+          ],
+          "experienceCategory": "familiarity",
+          "context": "Listed as familiarity in CV.",
+          "supportingUrls": [],
+          "evidenceType": "listed-familiarity",
+          "verificationStatus": "requires-confirmation",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Listed familiarity only; no public Helm charts published."
         },
         {
           "name": "Jenkins",
@@ -1130,7 +1447,21 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "jenkins",
+          "synonyms": [
+            "Jenkins Pipelines",
+            "CI Server"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Build pipelines and CI automation at Kuehne+Nagel.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/tech/jenkins.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported employer CI tooling; internal Jenkinsfiles are private."
         },
         {
           "name": "GitLab CI/CD",
@@ -1141,7 +1472,21 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "gitlab-cicd",
+          "synonyms": [
+            "GitLab Pipelines",
+            "CI/CD"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Continuous integration and automated delivery pipelines at Kuehne+Nagel.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/tech/gitlab.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported employer CI/CD tooling; internal pipeline definitions are private."
         },
         {
           "name": "GitHub Actions",
@@ -1155,7 +1500,24 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/SonarQubeChecker"
             }
-          ]
+          ],
+          "id": "github-actions",
+          "synonyms": [
+            "GHA",
+            "Workflow Automation",
+            "CI/CD"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "Automated build, test, cross-platform release, and security scan workflows across personal open-source repositories.",
+          "supportingUrls": [
+            "https://github.com/stden/RustShot",
+            "https://github.com/stden/SonarQubeChecker",
+            "https://github.com/stden/CV"
+          ],
+          "evidenceType": "public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Workflow runs are publicly verifiable in linked repositories; retention follows GitHub Actions defaults."
         },
         {
           "name": "Maven",
@@ -1170,7 +1532,22 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/JPA2"
             }
-          ]
+          ],
+          "id": "maven",
+          "synonyms": [
+            "Apache Maven",
+            "pom.xml"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Java build automation at Kuehne+Nagel and public Maven CI in JPA2.",
+          "supportingUrls": [
+            "https://github.com/stden/JPA2",
+            "https://stden.github.io/CV/tech/maven.html"
+          ],
+          "evidenceType": "self-reported-employment+public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Employer multi-module builds are private; public Maven build is verified in JPA2."
         },
         {
           "name": "Git",
@@ -1181,7 +1558,22 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "git",
+          "synonyms": [
+            "Version Control",
+            "Git Workflows"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Version control across all engineering roles and public GitHub repositories.",
+          "supportingUrls": [
+            "https://github.com/stden",
+            "https://stden.github.io/CV/tech/git.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "publicly-inspectable",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Enterprise branching models are internal; public commits are inspectable on GitHub."
         },
         {
           "name": "AWS",
@@ -1191,7 +1583,19 @@
               "kind": "employment",
               "ref": "taxify-bolt"
             }
-          ]
+          ],
+          "id": "aws",
+          "synonyms": [
+            "Amazon Web Services",
+            "Cloud Infrastructure"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Cloud infrastructure listed in Taxify (now Bolt) role technologies.",
+          "supportingUrls": [],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported additional employer technology from 2017–2018 role; specific managed services and current depth require confirmation."
         },
         {
           "name": "Terraform",
@@ -1201,7 +1605,20 @@
               "kind": "listed",
               "ref": "https://stden.github.io/CV/"
             }
-          ]
+          ],
+          "id": "terraform",
+          "synonyms": [
+            "Infrastructure as Code",
+            "IaC",
+            "HCL"
+          ],
+          "experienceCategory": "familiarity",
+          "context": "Listed as familiarity in CV.",
+          "supportingUrls": [],
+          "evidenceType": "listed-familiarity",
+          "verificationStatus": "requires-confirmation",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Listed familiarity only; no public Terraform modules exist in portfolio repositories."
         },
         {
           "name": "Linux / systemd / bash",
@@ -1211,7 +1628,23 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/docker-gems"
             }
-          ]
+          ],
+          "id": "linux-systemd-bash",
+          "synonyms": [
+            "Linux",
+            "Bash",
+            "systemd",
+            "Shell Scripting"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "Server environments, automation scripts, and public docker-gems tooling.",
+          "supportingUrls": [
+            "https://github.com/stden/docker-gems"
+          ],
+          "evidenceType": "public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Production operations configurations are private; scripting utilities appear in public tooling."
         },
         {
           "name": "Nginx / Caddy / Cloudflare",
@@ -1221,7 +1654,20 @@
               "kind": "listed",
               "ref": "https://stden.github.io/CV/"
             }
-          ]
+          ],
+          "id": "nginx-caddy-cloudflare",
+          "synonyms": [
+            "Reverse Proxy",
+            "Edge TLS",
+            "HTTP Routing"
+          ],
+          "experienceCategory": "familiarity",
+          "context": "Listed as familiarity in CV.",
+          "supportingUrls": [],
+          "evidenceType": "listed-familiarity",
+          "verificationStatus": "requires-confirmation",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Listed familiarity only; depth should be confirmed in technical discussion."
         },
         {
           "name": "Prometheus / Grafana",
@@ -1231,7 +1677,20 @@
               "kind": "listed",
               "ref": "https://stden.github.io/CV/"
             }
-          ]
+          ],
+          "id": "prometheus-grafana",
+          "synonyms": [
+            "Metrics",
+            "Observability",
+            "Monitoring"
+          ],
+          "experienceCategory": "familiarity",
+          "context": "Listed as familiarity in CV.",
+          "supportingUrls": [],
+          "evidenceType": "listed-familiarity",
+          "verificationStatus": "requires-confirmation",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Listed familiarity in CV infrastructure tooling (alongside Prometheus modules in pythorust_tg); dashboarding scale should be confirmed."
         }
       ]
     },
@@ -1257,7 +1716,23 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/SonarQubeChecker"
             }
-          ]
+          ],
+          "id": "python",
+          "synonyms": [
+            "Python",
+            "Python 3",
+            "CLI Scripting"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "JDK quality automation at Oracle, personal retrieval tools, and CI-verified SonarQubeChecker CLI.",
+          "supportingUrls": [
+            "https://github.com/stden/SonarQubeChecker",
+            "https://stden.github.io/CV/tech/python.html"
+          ],
+          "evidenceType": "self-reported-employment+independent-project+public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Oracle test harness scripts are internal; public Python quality is inspectable in SonarQubeChecker."
         },
         {
           "name": "Rust",
@@ -1275,7 +1750,24 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/FunnyFileManager"
             }
-          ]
+          ],
+          "id": "rust",
+          "synonyms": [
+            "Cargo",
+            "Systems Programming",
+            "Rust CLI"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "Independent open-source desktop, terminal, and archive tooling.",
+          "supportingUrls": [
+            "https://github.com/stden/RustShot",
+            "https://github.com/stden/FunnyFileManager",
+            "https://github.com/stden/pythorust_tg"
+          ],
+          "evidenceType": "independent-project+public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Used in independent personal projects with GitHub Actions CI rather than primary Java enterprise employment."
         },
         {
           "name": "TypeScript",
@@ -1285,7 +1777,19 @@
               "kind": "employment",
               "ref": "taxify-bolt"
             }
-          ]
+          ],
+          "id": "typescript",
+          "synonyms": [
+            "TS",
+            "Typed JavaScript"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Backend service development at Taxify (now Bolt).",
+          "supportingUrls": [],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported employment experience from Taxify (2017–2018); no large public TypeScript codebase linked."
         },
         {
           "name": "Node.js",
@@ -1295,7 +1799,21 @@
               "kind": "employment",
               "ref": "taxify-bolt"
             }
-          ]
+          ],
+          "id": "nodejs",
+          "synonyms": [
+            "Node",
+            "JavaScript Runtime"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Backend service development at Taxify (now Bolt) and static build tooling for this CV portfolio.",
+          "supportingUrls": [
+            "https://github.com/stden/CV"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Employer Node.js services are private; current CV build/test pipeline demonstrates Node 24 scripting."
         },
         {
           "name": "Go (Gin, gRPC)",
@@ -1305,7 +1823,19 @@
               "kind": "listed",
               "ref": "https://stden.github.io/CV/"
             }
-          ]
+          ],
+          "id": "go-gin-grpc",
+          "synonyms": [
+            "Golang",
+            "gRPC"
+          ],
+          "experienceCategory": "familiarity",
+          "context": "Listed as familiarity in CV.",
+          "supportingUrls": [],
+          "evidenceType": "listed-familiarity",
+          "verificationStatus": "requires-confirmation",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Listed familiarity only; no public Go repository is included in the portfolio."
         },
         {
           "name": "React",
@@ -1316,7 +1846,21 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "react",
+          "synonyms": [
+            "React UI",
+            "Frontend"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Supporting UI work at Kuehne+Nagel.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/tech/react.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported secondary frontend exposure within primarily backend Java role."
         },
         {
           "name": "AngularJS",
@@ -1327,7 +1871,21 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "angularjs",
+          "synonyms": [
+            "Angular",
+            "Legacy Frontend"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Supporting UI maintenance at Kuehne+Nagel.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/tech/angular.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported secondary UI maintenance; not positioned as primary frontend specialty."
         },
         {
           "name": "Svelte / SvelteKit",
@@ -1337,7 +1895,19 @@
               "kind": "listed",
               "ref": "https://stden.github.io/CV/"
             }
-          ]
+          ],
+          "id": "svelte-sveltekit",
+          "synonyms": [
+            "Svelte",
+            "SvelteKit"
+          ],
+          "experienceCategory": "familiarity",
+          "context": "Listed as familiarity in CV.",
+          "supportingUrls": [],
+          "evidenceType": "listed-familiarity",
+          "verificationStatus": "requires-confirmation",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Listed familiarity only; no public Svelte project published."
         }
       ]
     },
@@ -1358,7 +1928,23 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/pythorust_tg"
             }
-          ]
+          ],
+          "id": "model-context-protocol",
+          "synonyms": [
+            "MCP",
+            "MCP Server",
+            "Agent Tooling"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "Independent tooling modules for read-only archive query and agent integration.",
+          "supportingUrls": [
+            "https://github.com/stden/pythorust_tg",
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+          ],
+          "evidenceType": "independent-project+public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Independent experimentation rather than enterprise production deployment."
         },
         {
           "name": "RAG / Embeddings / Semantic Search",
@@ -1372,7 +1958,24 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/pythorust_tg"
             }
-          ]
+          ],
+          "id": "rag-embeddings-semantic-search",
+          "synonyms": [
+            "RAG",
+            "Hybrid Search",
+            "Vector Retrieval",
+            "Embeddings"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "Personal archive indexing pipeline combining lexical and semantic search in pythorust_tg and independent studies.",
+          "supportingUrls": [
+            "https://github.com/stden/pythorust_tg",
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+          ],
+          "evidenceType": "independent-project+public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Personal project experience without published retrieval precision/recall benchmarks."
         },
         {
           "name": "Local LLMs / Ollama",
@@ -1382,7 +1985,19 @@
               "kind": "listed",
               "ref": "https://stden.github.io/CV/"
             }
-          ]
+          ],
+          "id": "local-llms-ollama",
+          "synonyms": [
+            "Ollama",
+            "Local Inference"
+          ],
+          "experienceCategory": "familiarity",
+          "context": "Listed as familiarity for local experimentation.",
+          "supportingUrls": [],
+          "evidenceType": "listed-familiarity",
+          "verificationStatus": "requires-confirmation",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Listed familiarity only; not backed by published benchmarks or production deployment."
         },
         {
           "name": "Large Language Models (Claude, GPT, Gemini)",
@@ -1396,7 +2011,23 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/pythorust_tg"
             }
-          ]
+          ],
+          "id": "large-language-models",
+          "synonyms": [
+            "LLMs",
+            "Claude API",
+            "GPT",
+            "Gemini"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "Personal automation and archive synthesis tooling via pythorust_tg.",
+          "supportingUrls": [
+            "https://github.com/stden/pythorust_tg"
+          ],
+          "evidenceType": "independent-project+public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Independent project integration; not an enterprise ML research background."
         },
         {
           "name": "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)",
@@ -1406,7 +2037,21 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/anygen"
             }
-          ]
+          ],
+          "id": "ai-assisted-development",
+          "synonyms": [
+            "Coding Agents",
+            "Spec-Driven AI Workflows"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "Workflow experimentation and verification specs in public anygen repository.",
+          "supportingUrls": [
+            "https://github.com/stden/anygen"
+          ],
+          "evidenceType": "public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Public experimentation repo; requires human architectural review and test gates."
         }
       ]
     },
@@ -1431,7 +2076,23 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/JPA2"
             }
-          ]
+          ],
+          "id": "junit",
+          "synonyms": [
+            "JUnit 4",
+            "JUnit 5",
+            "Java Unit Testing"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Automated testing in JDK SQE work at Oracle, enterprise Java at Kuehne+Nagel, and public EntityLocker/JPA2 tests.",
+          "supportingUrls": [
+            "https://github.com/stden/EntityLocker/blob/main/src/test/java/EntityLockerTest.java",
+            "https://github.com/stden/JPA2"
+          ],
+          "evidenceType": "self-reported-employment+public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Oracle test suites are proprietary; public JUnit tests are directly inspectable in EntityLocker and JPA2."
         },
         {
           "name": "Mockito / JMockit / EasyMock",
@@ -1446,7 +2107,23 @@
               "kind": "employment",
               "ref": "kuehne-nagel"
             }
-          ]
+          ],
+          "id": "mockito-jmockit-easymock",
+          "synonyms": [
+            "Mocking Frameworks",
+            "Unit Isolation"
+          ],
+          "experienceCategory": "additional-professional",
+          "context": "Unit test isolation across Oracle SQE and Kuehne+Nagel backend engineering.",
+          "supportingUrls": [
+            "https://stden.github.io/CV/tech/mockito.html",
+            "https://stden.github.io/CV/tech/jmockit.html",
+            "https://stden.github.io/CV/tech/easymock.html"
+          ],
+          "evidenceType": "self-reported-employment",
+          "verificationStatus": "self-reported",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Self-reported employment experience; internal test suites are private."
         },
         {
           "name": "Test-Driven Development (TDD)",
@@ -1456,7 +2133,19 @@
               "kind": "listed",
               "ref": "https://stden.github.io/CV/"
             }
-          ]
+          ],
+          "id": "tdd",
+          "synonyms": [
+            "Red-Green-Refactor",
+            "Unit-First Design"
+          ],
+          "experienceCategory": "familiarity",
+          "context": "Listed as familiarity in quality engineering practice.",
+          "supportingUrls": [],
+          "evidenceType": "listed-familiarity",
+          "verificationStatus": "requires-confirmation",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Listed familiarity; team adherence varies across roles."
         },
         {
           "name": "Integration & E2E Testing",
@@ -1470,7 +2159,24 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/RustShot"
             }
-          ]
+          ],
+          "id": "integration-e2e-testing",
+          "synonyms": [
+            "End-to-End Testing",
+            "CI Integration Tests",
+            "Playwright"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "Automated integration tests in SonarQubeChecker, RustShot, and Playwright/Axe test gates in stden/CV.",
+          "supportingUrls": [
+            "https://github.com/stden/SonarQubeChecker",
+            "https://github.com/stden/RustShot",
+            "https://github.com/stden/CV"
+          ],
+          "evidenceType": "public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Public integration/E2E harnesses are verifiable in CI; enterprise test harnesses remain private."
         },
         {
           "name": "Cucumber / Gherkin (BDD)",
@@ -1480,7 +2186,23 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/anygen"
             }
-          ]
+          ],
+          "id": "cucumber-gherkin-bdd",
+          "synonyms": [
+            "BDD",
+            "Gherkin Scenarios",
+            "Cucumber"
+          ],
+          "experienceCategory": "independent-engineering",
+          "context": "BDD test workflows in public anygen and FunnyFileManager repositories.",
+          "supportingUrls": [
+            "https://github.com/stden/anygen",
+            "https://github.com/stden/FunnyFileManager"
+          ],
+          "evidenceType": "public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Publicly verified in independent repositories rather than primary Java roles."
         },
         {
           "name": "Playwright / Vitest / Selenide",
@@ -1490,7 +2212,21 @@
               "kind": "listed",
               "ref": "https://stden.github.io/CV/"
             }
-          ]
+          ],
+          "id": "playwright-vitest-selenide",
+          "synonyms": [
+            "Browser E2E",
+            "UI Automation"
+          ],
+          "experienceCategory": "familiarity",
+          "context": "Playwright + Axe WCAG verification in stden/CV; listed familiarity for Vitest and Selenide.",
+          "supportingUrls": [
+            "https://github.com/stden/CV"
+          ],
+          "evidenceType": "listed-familiarity",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Playwright E2E tests are CI-verified in stden/CV; Vitest and Selenide are listed familiarity requiring confirmation."
         },
         {
           "name": "Continuous Integration",
@@ -1504,7 +2240,24 @@
               "kind": "public-repository",
               "ref": "https://github.com/stden/RustShot"
             }
-          ]
+          ],
+          "id": "continuous-integration",
+          "synonyms": [
+            "CI",
+            "Build Gates",
+            "Automated Verification"
+          ],
+          "experienceCategory": "primary-professional",
+          "context": "Jenkins/GitLab pipelines at Kuehne+Nagel plus GitHub Actions build, security, and test gates across public repos.",
+          "supportingUrls": [
+            "https://github.com/stden/RustShot",
+            "https://github.com/stden/CV",
+            "https://github.com/stden/docker-gems"
+          ],
+          "evidenceType": "self-reported-employment+public-repository",
+          "verificationStatus": "ci-verified",
+          "lastVerificationDate": "2026-11-27",
+          "limitations": "Enterprise CI configs are private; public GitHub Actions workflows are inspectable."
         }
       ]
     }
@@ -2281,6 +3034,612 @@
       ],
       "includeCompactRoles": true,
       "expectedPages": 3
+    }
+  ],
+  "meta": {
+    "schemaVersion": "1.0.0",
+    "contentRevisionDate": "2026-11-27",
+    "canonicalLanguage": "en",
+    "profilePolicy": "Public recruiter and agent profile generated exclusively from explicit allowlisted fields in data/cv.json."
+  },
+  "roleAlignment": [
+    {
+      "id": "senior-java-backend-engineer",
+      "title": "Senior Java Backend Engineer",
+      "summary": "Core career focus since 2012 across enterprise Java (6–25), Spring Boot, JVM concurrency, SQL/PostgreSQL, JPA/Hibernate, and JUnit testing.",
+      "relevantCompetencies": [
+        {
+          "id": "java",
+          "name": "Java (6–25)"
+        },
+        {
+          "id": "jvm-concurrency",
+          "name": "JVM & Concurrency"
+        },
+        {
+          "id": "spring-boot",
+          "name": "Spring Boot"
+        },
+        {
+          "id": "postgresql",
+          "name": "PostgreSQL"
+        },
+        {
+          "id": "jpa-hibernate",
+          "name": "JPA / Hibernate"
+        },
+        {
+          "id": "junit",
+          "name": "JUnit"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "self-reported-employment",
+          "ref": "kuehne-nagel",
+          "label": "Kuehne+Nagel (May 2018 – Present): Senior Java Developer",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "self-reported-employment",
+          "ref": "oracle",
+          "label": "Oracle (Jan 2014 – May 2017): SQE / Java Developer (JDK fixes & concurrency)",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/EntityLocker",
+          "label": "EntityLocker public Java keyed locking utility & JUnit 4 tests",
+          "verificationStatus": "publicly-inspectable"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/JPA2",
+          "label": "JPA2 Spring/Hibernate 6 Maven project with CI",
+          "verificationStatus": "ci-verified"
+        }
+      ],
+      "limitations": "Production Java codebases at Kuehne+Nagel and Oracle are proprietary; EntityLocker lacks a GitHub Actions CI workflow and its CountLock eviction path requires thread-safety hardening.",
+      "areasRequiringConfirmation": [
+        "Depth with Java 21+ virtual threads vs classical thread-pool executors in production.",
+        "Team leadership, architecture ownership, and system scale parameters under NDA-safe interview discussion."
+      ]
+    },
+    {
+      "id": "senior-software-engineer",
+      "title": "Senior Software Engineer",
+      "summary": "Long-running backend and systems engineering background combining enterprise Java platforms, polyglot services (TypeScript/Node.js, Python, Rust), and automated delivery pipelines.",
+      "relevantCompetencies": [
+        {
+          "id": "java",
+          "name": "Java (6–25)"
+        },
+        {
+          "id": "distributed-systems",
+          "name": "Distributed Systems"
+        },
+        {
+          "id": "python",
+          "name": "Python (2 & 3)"
+        },
+        {
+          "id": "rust",
+          "name": "Rust"
+        },
+        {
+          "id": "docker-compose",
+          "name": "Docker / Compose"
+        },
+        {
+          "id": "continuous-integration",
+          "name": "Continuous Integration"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "self-reported-employment",
+          "ref": "kuehne-nagel",
+          "label": "Kuehne+Nagel: enterprise Java services & CI/CD",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "self-reported-employment",
+          "ref": "taxify-bolt",
+          "label": "Taxify (now Bolt): Senior Backend Developer on real-time services",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/RustShot",
+          "label": "RustShot with GitHub Actions CI & release pipelines",
+          "verificationStatus": "ci-verified"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/SonarQubeChecker",
+          "label": "SonarQubeChecker Python CLI with CI & SonarCloud analysis",
+          "verificationStatus": "ci-verified"
+        }
+      ],
+      "limitations": "Recorded employment does not include public metrics on traffic volume, latency targets, or team size; public Go/Svelte items are familiarity only.",
+      "areasRequiringConfirmation": [
+        "Product domain ownership, cross-team technical mentorship, and on-call operational responsibilities.",
+        "Frontend proficiency outside backend-focused React/AngularJS support."
+      ]
+    },
+    {
+      "id": "distributed-systems-engineer",
+      "title": "Distributed Systems Engineer",
+      "summary": "Practical production experience in event-driven integration with Apache Kafka and RabbitMQ alongside independent design patterns for outbox delivery, idempotency, and keyed concurrency.",
+      "relevantCompetencies": [
+        {
+          "id": "distributed-systems",
+          "name": "Distributed Systems"
+        },
+        {
+          "id": "apache-kafka",
+          "name": "Apache Kafka"
+        },
+        {
+          "id": "rabbitmq",
+          "name": "RabbitMQ"
+        },
+        {
+          "id": "microservices",
+          "name": "Microservices"
+        },
+        {
+          "id": "postgresql",
+          "name": "PostgreSQL"
+        },
+        {
+          "id": "redis",
+          "name": "Redis"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "self-reported-employment",
+          "ref": "kuehne-nagel",
+          "label": "Kuehne+Nagel: Apache Kafka (Spring Kafka, partitioning, per-key ordering, offsets/rebalancing, DLQ, outbox, Schema Registry, Streams/Connect, lag monitoring) & RabbitMQ",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "self-reported-employment",
+          "ref": "taxify-bolt",
+          "label": "Taxify (now Bolt): distributed backend microservices & Redis",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "independent-project",
+          "ref": "https://stden.github.io/CV/architecture/",
+          "label": "Independent architecture diagrams and educational transactional-outbox write-ups",
+          "verificationStatus": "publicly-inspectable"
+        }
+      ],
+      "limitations": "Production Kafka clusters, Schema Registry setups, and Bolt microservices cannot be inspected publicly; public architecture diagrams use independent educational examples.",
+      "areasRequiringConfirmation": [
+        "Consensus protocols (Raft/Paxos), multi-region replication, or large-scale Kafka Streams state-store operations.",
+        "Production observability stack depth beyond listed Prometheus/Grafana familiarity."
+      ]
+    },
+    {
+      "id": "enterprise-integration-engineer",
+      "title": "Enterprise Integration Engineer",
+      "summary": "Direct alignment with global logistics system-to-system integration using Java, Spring Boot, Apache Kafka, RabbitMQ, PostgreSQL, and Oracle Database.",
+      "relevantCompetencies": [
+        {
+          "id": "enterprise-integration",
+          "name": "Enterprise Integration"
+        },
+        {
+          "id": "apache-kafka",
+          "name": "Apache Kafka"
+        },
+        {
+          "id": "rabbitmq",
+          "name": "RabbitMQ"
+        },
+        {
+          "id": "spring-boot",
+          "name": "Spring Boot"
+        },
+        {
+          "id": "oracle-database",
+          "name": "Oracle Database"
+        },
+        {
+          "id": "sql",
+          "name": "SQL"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "self-reported-employment",
+          "ref": "kuehne-nagel",
+          "label": "Kuehne+Nagel (2018–Present): enterprise B2B/logistics Java integrations, Kafka & RabbitMQ",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/JPA2",
+          "label": "JPA2 relational persistence demonstration with Maven CI",
+          "verificationStatus": "ci-verified"
+        }
+      ],
+      "limitations": "Partner message formats, EDI/API contracts, and enterprise integration topologies at Kuehne+Nagel are covered by NDA.",
+      "areasRequiringConfirmation": [
+        "Specific financial messaging standards (ISO 20022, SEPA, SWIFT) if required by fintech employers vs logistics messaging experience."
+      ]
+    },
+    {
+      "id": "software-reliability-engineer",
+      "title": "Software Reliability Engineer",
+      "summary": "Focus on deterministic testing, defect reproduction, CI/CD release gates, container security checks, and automated quality validation.",
+      "relevantCompetencies": [
+        {
+          "id": "junit",
+          "name": "JUnit"
+        },
+        {
+          "id": "integration-e2e-testing",
+          "name": "Integration & E2E Testing"
+        },
+        {
+          "id": "continuous-integration",
+          "name": "Continuous Integration"
+        },
+        {
+          "id": "github-actions",
+          "name": "GitHub Actions"
+        },
+        {
+          "id": "docker-compose",
+          "name": "Docker / Compose"
+        },
+        {
+          "id": "playwright-vitest-selenide",
+          "name": "Playwright / Vitest / Selenide"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "self-reported-employment",
+          "ref": "oracle",
+          "label": "Oracle SQE (2014–2017): JDK defect reproduction, regression suites & Java/Python tooling",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/CV",
+          "label": "stden/CV deterministic static, PDF, confidentiality, and Playwright/Axe CI gates",
+          "verificationStatus": "ci-verified"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/docker-gems",
+          "label": "docker-gems with GitHub Actions container security scan",
+          "verificationStatus": "ci-verified"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/SonarQubeChecker",
+          "label": "SonarQubeChecker automated code-quality reporting with CI",
+          "verificationStatus": "ci-verified"
+        }
+      ],
+      "limitations": "Role history is Software Quality & Backend Engineering rather than dedicated 24/7 Infrastructure SRE; Terraform and Kubernetes cluster operations need confirmation.",
+      "areasRequiringConfirmation": [
+        "Production SLO/error-budget ownership, incident commander experience, and Infrastructure-as-Code depth (Terraform/Helm)."
+      ]
+    },
+    {
+      "id": "ai-integration-engineer",
+      "title": "AI Integration Engineer",
+      "summary": "Independent engineering experience connecting structured tool interfaces (MCP), hybrid vector/lexical search, and LLM workflows with deterministic validation.",
+      "relevantCompetencies": [
+        {
+          "id": "model-context-protocol",
+          "name": "Model Context Protocol (MCP)"
+        },
+        {
+          "id": "rag-embeddings-semantic-search",
+          "name": "RAG / Embeddings / Semantic Search"
+        },
+        {
+          "id": "large-language-models",
+          "name": "Large Language Models (Claude, GPT, Gemini)"
+        },
+        {
+          "id": "ai-assisted-development",
+          "name": "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)"
+        },
+        {
+          "id": "python",
+          "name": "Python (2 & 3)"
+        },
+        {
+          "id": "rust",
+          "name": "Rust"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/pythorust_tg",
+          "label": "pythorust_tg Rust/Python archive, RAG & MCP modules with CI/CD",
+          "verificationStatus": "ci-verified"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/anygen",
+          "label": "anygen AI-assisted spec/BDD verification repository with CI",
+          "verificationStatus": "ci-verified"
+        },
+        {
+          "kind": "independent-project",
+          "ref": "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+          "label": "Messenger Archive & Semantic Search personal architecture study",
+          "verificationStatus": "publicly-inspectable"
+        }
+      ],
+      "limitations": "AI/MCP/RAG engineering comes from independent open-source and personal projects rather than large-scale enterprise ML/AI production roles; Local LLMs/Ollama is listed familiarity only.",
+      "areasRequiringConfirmation": [
+        "Production LLM evaluation, token cost/latency budgeting, and model serving architecture at commercial scale."
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "slug": "java-keyed-entity-locking",
+      "title": "Java Concurrency and Keyed Entity Locking",
+      "publishedDate": "2026-11-27",
+      "updatedDate": "2026-11-27",
+      "author": "Denis Stepulenok",
+      "readingTime": "6 min read",
+      "provenance": "Independent engineering write-up grounded in the public stden/EntityLocker repository; no employer code or production metrics.",
+      "topics": [
+        "Java",
+        "Concurrency",
+        "ReentrantLock",
+        "Deadlock Avoidance"
+      ],
+      "summary": "Designing per-entity mutex synchronization in JVM memory using ConcurrentHashMap, per-key ReentrantLock instances, and canonical key ordering — plus an honest look at lock-registry eviction races.",
+      "relatedRepoUrls": [
+        "https://github.com/stden/EntityLocker",
+        "https://github.com/stden/EntityLocker/blob/main/src/test/java/EntityLockerTest.java"
+      ],
+      "sections": [
+        {
+          "heading": "Why Keyed Locking Instead of a Global Lock",
+          "paragraphs": [
+            "When in-memory workers update domain aggregates keyed by entity ID, coarse synchronization on a shared collection serializes unrelated entities and limits throughput.",
+            "A keyed lock registry maintains one ReentrantLock per active key in a ConcurrentHashMap so threads operating on distinct IDs proceed concurrently while threads targeting the same ID coordinate cleanly."
+          ],
+          "codeLanguage": "java",
+          "code": "ReentrantLock lock = locks.computeIfAbsent(key, k -> new ReentrantLock());\nlock.lock();\ntry {\n    work.run();\n} finally {\n    lock.unlock();\n}"
+        },
+        {
+          "heading": "Preventing Deadlocks Across Multiple Keys",
+          "paragraphs": [
+            "If Thread A locks entity 10 then 20 while Thread B locks 20 then 10, lock-order inversion triggers a classic deadlock.",
+            "Sorting keys canonically before acquisition establishes a strict global total order across threads. Because ReentrantLock is reentrant per thread, deduplicating identical keys or acquiring in ascending comparable order eliminates two-key cycles."
+          ]
+        }
+      ],
+      "tradeoffs": [
+        "Per-key in-memory locks avoid database round-trips for single-JVM coordination, but provide zero protection across multiple application replicas (distributed workloads require database row locks or external leases).",
+        "Keeping lock entries forever leaks memory on unbounded ID spaces, whereas eager eviction introduces race conditions if not synchronized atomically with reference counts."
+      ],
+      "limitations": [
+        "In public stden/EntityLocker, CountLock maintains an enter counter separately from map removal, creating a documented non-atomic race under simultaneous acquire and eviction.",
+        "EntityLocker includes JUnit 4 tests in src/test/java/EntityLockerTest.java but does not yet configure an automated GitHub Actions CI workflow."
+      ],
+      "reproducibleExperiment": {
+        "summary": "Clone stden/EntityLocker and run its Maven/JUnit test suite locally under two concurrent stress scenarios (same-key contention vs swapped multi-key acquisition).",
+        "commands": [
+          "git clone https://github.com/stden/EntityLocker.git",
+          "cd EntityLocker && mvn test"
+        ]
+      }
+    },
+    {
+      "slug": "kafka-consumer-idempotency-outbox",
+      "title": "Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox",
+      "publishedDate": "2026-11-27",
+      "updatedDate": "2026-11-27",
+      "author": "Denis Stepulenok",
+      "readingTime": "7 min read",
+      "provenance": "Independent educational analysis of Apache Kafka delivery semantics and outbox patterns; contains no employer topology or proprietary broker configuration.",
+      "topics": [
+        "Apache Kafka",
+        "Idempotency",
+        "Transactional Outbox",
+        "DLQ"
+      ],
+      "summary": "Why consumer rebalances and dual writes break naive event pipelines, how partitioned key ordering interacts with retry topics, and where transactional outbox plus idempotent consumers restore safety.",
+      "relatedRepoUrls": [
+        "https://stden.github.io/CV/architecture/#arch-tab-ref-event-driven-outbox"
+      ],
+      "sections": [
+        {
+          "heading": "At-Least-Once Delivery Across Consumer Rebalances",
+          "paragraphs": [
+            "When a Kafka consumer processes a batch, writes side effects to a database, and crashes before committing offsets, the next rebalance replays those records to another consumer instance.",
+            "Even with enable.auto.commit=false and manual acknowledgment, network timeouts or poll interval expiry (max.poll.interval.ms) can evict a consumer mid-batch and cause duplicate delivery."
+          ]
+        },
+        {
+          "heading": "Avoiding Dual Writes with Transactional Outbox + Idempotency",
+          "paragraphs": [
+            "Updating local state and calling producer.send() in separate steps creates a dual-write window where one succeeds and the other fails. Writing both the domain change and an outbox row inside one ACID database transaction closes that window.",
+            "On the consumer side, persisting a deterministic event_id in a deduplication table (with a unique constraint) in the same local transaction guarantees idempotent state transitions even across broker retries or consumer rebalances."
+          ],
+          "codeLanguage": "sql",
+          "code": "INSERT INTO processed_events (event_id, processed_at)\nVALUES (:eventId, CURRENT_TIMESTAMP)\nON CONFLICT (event_id) DO NOTHING;"
+        }
+      ],
+      "tradeoffs": [
+        "Non-blocking retry topics avoid stalling healthy keys behind a single poison pill, but weaken strict per-key ordering while a failing key sits in a delayed retry topic.",
+        "CDC-based outbox publishing (e.g., log tailing) reduces polling load compared to database polling relays, at the cost of extra connector operational complexity."
+      ],
+      "limitations": [
+        "Deduplication tables grow over time and require bounded retention aligned with Kafka topic retention or downstream replay windows.",
+        "Examples are vendor-neutral educational patterns and exclude employer-specific topic names, partition counts, or SLAs."
+      ],
+      "reproducibleExperiment": {
+        "summary": "Verify idempotent deduplication in any local PostgreSQL instance by simulating a replayed event batch inside a transaction that aborts after state mutation but before offset acknowledgement.",
+        "commands": [
+          "CREATE TABLE processed_events (event_id UUID PRIMARY KEY, processed_at TIMESTAMPTZ NOT NULL);",
+          "Run duplicate INSERT ... ON CONFLICT (event_id) DO NOTHING and verify row count stays 1."
+        ]
+      }
+    },
+    {
+      "slug": "postgresql-row-level-locking",
+      "title": "PostgreSQL Row-Level Locking for Concurrent Worker Queues",
+      "publishedDate": "2026-11-27",
+      "updatedDate": "2026-11-27",
+      "author": "Denis Stepulenok",
+      "readingTime": "5 min read",
+      "provenance": "Independent PostgreSQL concurrency note using reproducible standard SQL; excludes employer schemas and non-public benchmarks.",
+      "topics": [
+        "PostgreSQL",
+        "SQL",
+        "SKIP LOCKED",
+        "Concurrency"
+      ],
+      "summary": "Comparing SELECT FOR UPDATE, NOWAIT, and FOR UPDATE SKIP LOCKED when implementing multi-worker job claims on top of a relational database.",
+      "relatedRepoUrls": [
+        "https://stden.github.io/CV/tech/postgresql.html"
+      ],
+      "sections": [
+        {
+          "heading": "Blocking vs Non-Blocking Claim Queries",
+          "paragraphs": [
+            "Naive SELECT followed by UPDATE lets two workers claim the same queued row concurrently. Adding FOR UPDATE prevents double claims, yet causes subsequent workers to block waiting on the first worker's transaction commit.",
+            "Adding SKIP LOCKED allows each concurrent worker session to atomically claim the next unlocked eligible row without waiting on rows locked by active transactions."
+          ],
+          "codeLanguage": "sql",
+          "code": "WITH next_job AS (\n  SELECT id FROM job_queue\n  WHERE status = 'PENDING' AND run_at <= CURRENT_TIMESTAMP\n  ORDER BY run_at, id\n  FOR UPDATE SKIP LOCKED\n  LIMIT 1\n)\nUPDATE job_queue q\nSET status = 'CLAIMED', claimed_at = CURRENT_TIMESTAMP\nFROM next_job\nWHERE q.id = next_job.id\nRETURNING q.id;"
+        }
+      ],
+      "tradeoffs": [
+        "SKIP LOCKED simplifies transactional enqueue-with-domain-state without operating a dedicated broker, but high update churn creates dead tuples requiring tuned autovacuum.",
+        "Holding transactions open during external HTTP calls exhausts database connections; fast claim-to-LEASED transactions with visibility timeouts scale much better."
+      ],
+      "limitations": [
+        "Relational queues do not match dedicated log brokers like Apache Kafka for multi-consumer fan-out or high-throughput event replay.",
+        "Reproducible experiment tests lock semantics rather than production cluster sizing."
+      ],
+      "reproducibleExperiment": {
+        "summary": "Open two psql sessions on the same PostgreSQL database, execute the CTE claim without committing in Session 1, and observe Session 2 claim row 2 immediately.",
+        "commands": [
+          "Session 1: BEGIN; SELECT id FROM job_queue WHERE status = 'PENDING' ORDER BY id FOR UPDATE SKIP LOCKED LIMIT 1;",
+          "Session 2: BEGIN; SELECT id FROM job_queue WHERE status = 'PENDING' ORDER BY id FOR UPDATE SKIP LOCKED LIMIT 1;"
+        ]
+      }
+    },
+    {
+      "slug": "rust-mcp-local-retrieval",
+      "title": "Rust and Model Context Protocol (MCP) for Local Archive Retrieval",
+      "publishedDate": "2026-11-27",
+      "updatedDate": "2026-11-27",
+      "author": "Denis Stepulenok",
+      "readingTime": "6 min read",
+      "provenance": "Based on independent personal archive experimentation and public modules in stden/pythorust_tg.",
+      "topics": [
+        "Rust",
+        "Model Context Protocol",
+        "RAG",
+        "Privacy"
+      ],
+      "summary": "Structuring read-only stdio MCP tools in front of a hybrid lexical and vector retrieval index so coding or research agents inspect narrow evidence without exfiltrating raw archives.",
+      "relatedRepoUrls": [
+        "https://github.com/stden/pythorust_tg",
+        "https://stden.github.io/CV/projects/#case-messenger-archive-search"
+      ],
+      "sections": [
+        {
+          "heading": "Why Expose Narrow Read-Only Tools Instead of Raw File Access",
+          "paragraphs": [
+            "Giving an LLM agent unrestricted filesystem or database access mixes unrelated personal records into context windows and increases accidental leakage.",
+            "A narrow read-only MCP tool contract (search metadata filters, top-k chunk retrieval with explicit source IDs, and bounded payload size) enforces least privilege at the boundary."
+          ]
+        },
+        {
+          "heading": "Separating Indexing from Deterministic Query Execution",
+          "paragraphs": [
+            "Hybrid retrieval pairs exact keyword filters with dense vector similarity so proper nouns and identifiers do not disappear in semantic-only matching.",
+            "Keeping ingestion idempotent and schema-validated ensures incremental updates do not corrupt existing embeddings or citations."
+          ]
+        }
+      ],
+      "tradeoffs": [
+        "Local stdio MCP servers avoid hosting credentials or exposing public network endpoints, while trading away remote multi-user sharing.",
+        "Chunk size optimization balances citation precision against surrounding conversational context."
+      ],
+      "limitations": [
+        "Independent personal tooling without public retrieval recall/precision benchmark datasets.",
+        "No personal archive records, prompts, or private identifiers are published."
+      ],
+      "reproducibleExperiment": {
+        "summary": "Inspect the modular CLI, retrieval, and MCP tool layout in stden/pythorust_tg and verify its GitHub Actions test pipeline.",
+        "commands": [
+          "git clone https://github.com/stden/pythorust_tg.git",
+          "Inspect repository CI workflows and module boundaries."
+        ]
+      }
+    },
+    {
+      "slug": "automated-testing-software-reliability",
+      "title": "Automated Testing, Deterministic Validation Gates, and Software Reliability",
+      "publishedDate": "2026-11-27",
+      "updatedDate": "2026-11-27",
+      "author": "Denis Stepulenok",
+      "readingTime": "5 min read",
+      "provenance": "Grounded in public quality gates in stden/CV, SonarQubeChecker, RustShot, and public JUnit experience.",
+      "topics": [
+        "Testing",
+        "CI/CD",
+        "Confidentiality Gates",
+        "Playwright"
+      ],
+      "summary": "Treating static HTML, ATS PDFs, confidentiality scanning, and WCAG accessibility as machine-checked build gates rather than manual post-hoc checklists.",
+      "relatedRepoUrls": [
+        "https://github.com/stden/CV",
+        "https://github.com/stden/SonarQubeChecker"
+      ],
+      "sections": [
+        {
+          "heading": "Shifting Verification into Reproducible Pipeline Stages",
+          "paragraphs": [
+            "Manual checklists fail under time pressure: broken relative links under /CV/, overflowing mobile layouts, clipped PDF text, or unintended file inclusions slip through unless checked automatically on every change.",
+            "Building an explicit allowlist staging step before validation ensures that deployment tests inspect the exact artifact set destined for production rather than stale working-tree leftovers."
+          ]
+        },
+        {
+          "heading": "Combining Fast Unit Checks with Real Browser & PDF Inspection",
+          "paragraphs": [
+            "Fast Node unit tests verify pure domain logic (JSON schemas, locale key parity, confidentiality regexes, and matching rules) in under a second.",
+            "Playwright browser checks and Poppler PDF bounds verification then validate real rendering, no-JavaScript fallbacks, keyboard focus, and WCAG 2.1 AA contrast across desktop and mobile viewports."
+          ]
+        }
+      ],
+      "tradeoffs": [
+        "Strict allowlist staging rejects unexpected files immediately, requiring explicit manifest updates whenever a new output format is introduced.",
+        "End-to-end browser and PDF checks take several seconds in CI compared to pure unit tests, so keeping clean separation preserves fast local feedback."
+      ],
+      "limitations": [
+        "Automated gates verify structural correctness, link integrity, contrast, and policy patterns; domain accuracy of claims still requires human review."
+      ],
+      "reproducibleExperiment": {
+        "summary": "Run the staged artifact check, Node unit suite, and Playwright accessibility checks locally inside stden/CV.",
+        "commands": [
+          "npm run build:all && npm run stage:public",
+          "npm test && CV_PUBLIC_ROOT=_site npm run test:e2e"
+        ]
+      }
     }
   ]
 }

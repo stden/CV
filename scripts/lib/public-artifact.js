@@ -15,24 +15,39 @@ function localizedVariants(data, code) {
 }
 
 function availableLanguages(contentPath) {
+    if (contentPath === 'roles/' || contentPath === 'articles/' || contentPath.startsWith('articles/')) {
+        return ['en'];
+    }
     return /^cv\/(?!index\.html$|general\.html$).*\.html$/.test(contentPath) ? ['en'] : localeCodes;
 }
 
 function contentRoutes(data, code) {
-    return [
+    const routes = [
         '', 'cv/index.html', ...DETAIL_PAGES.map((route) => `${route}/`),
         ...localizedVariants(data, code).map(({ slug }) => `cv/${slug}.html`),
         ...data.technologies.map(({ slug }) => `tech/${slug}.html`),
     ];
+    if (code === 'en') {
+        routes.push(
+            'roles/',
+            'articles/',
+            ...(data.articles || []).map(({ slug }) => `articles/${slug}/`),
+        );
+    }
+    return routes;
 }
 
 
 function publicFiles(data) {
     const slug = (value) => checkedName(value, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     const photo = checkedName(data.profile.photo, /^assets\/images\/[a-z0-9-]+\.(?:jpg|jpeg|png|webp)$/);
-    for (const item of [...data.variants, ...data.technologies, ...data.architectureDiagrams]) slug(item.slug);
+    for (const item of [...data.variants, ...data.technologies, ...data.architectureDiagrams, ...(data.articles || [])]) {
+        slug(item.slug);
+    }
     return [...new Set([
         '.nojekyll', 'robots.txt', 'sitemap.xml', 'favicon.ico',
+        'llms.txt', 'resume.md', 'resume.txt',
+        'candidate.json', 'skills-evidence.json', 'role-alignment.json',
         ...localeCodes.flatMap((code) => contentRoutes(data, code).map((route) =>
             localizedPath(code, route.endsWith('.html') ? route : `${route}index.html`))),
         'assets/css/style.css', 'assets/js/main.js',
@@ -62,6 +77,9 @@ function references(file, content) {
         ...[...content.matchAll(/\bhref="([^"]+)"/gi)].map(([, ref]) => ref),
     ];
     if (file === 'robots.txt') return [...content.matchAll(/^Sitemap:\s*(\S+)/gim)].map(([, ref]) => ref);
+    if (/\.(?:json|md|txt)$/i.test(file)) {
+        return [...content.matchAll(/https?:\/\/[^\s"'<>\\)]+/gi)].map(([ref]) => ref);
+    }
     return [];
 }
 
@@ -69,7 +87,7 @@ function validatePublicLinks(root, baseUrl, files) {
     const base = new URL(baseUrl.endsWith('/') ? baseUrl : baseUrl + '/');
     const allowed = new Set(files);
     const documentIds = new Map();
-    for (const file of files.filter((value) => /(?:\.(?:html|svg|css|xml)|^robots\.txt)$/i.test(value))) {
+    for (const file of files.filter((value) => /\.(?:html|svg|css|xml|json|md|txt)$/i.test(value))) {
         const source = fs.readFileSync(path.join(root, file), 'utf8');
         const pageUrl = new URL(file, base);
         for (const reference of references(file, source)) {

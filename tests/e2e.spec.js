@@ -339,8 +339,37 @@ test('SEO metadata, JSON-LD, sitemap, and robots.txt are valid', async ({ page, 
     expect(sitemap.ok()).toBe(true);
     const sitemapContent = await sitemap.text();
     expect(sitemapContent).toContain(`${CANONICAL}cv/wise.html`);
+    expect(sitemapContent).toContain(`<loc>${CANONICAL}roles/</loc>`);
+    expect(sitemapContent).toContain(`<loc>${CANONICAL}articles/</loc>`);
     for (const route of DETAIL_ROUTES) {
         expect(sitemapContent).toContain(`<loc>${CANONICAL}${route}/</loc>`);
+    }
+
+    for (const rel of ['llms.txt', 'resume.md', 'resume.txt', 'candidate.json', 'skills-evidence.json', 'role-alignment.json']) {
+        const res = await request.get(`${HOME}${rel}`);
+        expect(res.ok(), rel).toBe(true);
+    }
+    const candidateRes = await request.get(`${HOME}candidate.json`);
+    const candidate = await candidateRes.json();
+    expect(candidate.identity.openToWorkDisclosed).toBe(false);
+    expect(candidate.publicProjects).toHaveLength(6);
+    await expect(page.locator('link[rel="describedby"][href$="candidate.json"]')).toHaveCount(1);
+    await expect(page.locator('link[rel="alternate"][href$="llms.txt"]')).toHaveCount(1);
+});
+
+test('role alignment and technical articles render cleanly under /CV/ without JavaScript', async ({ browser, baseURL }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false, baseURL });
+    const page = await context.newPage();
+    try {
+        await page.goto(`${HOME}roles/`);
+        await expect(page.getByRole('heading', { level: 1 })).toHaveText('Role Alignment');
+        await expect(page.locator('#role-align-senior-java-backend-engineer')).toContainText('Senior Java Backend Engineer');
+        await page.goto(`${HOME}articles/`);
+        await expect(page.getByRole('heading', { level: 1 })).toHaveText('Technical Articles');
+        await page.goto(`${HOME}articles/java-keyed-entity-locking/`);
+        await expect(page.getByRole('heading', { level: 1 })).toHaveText('Java Concurrency and Keyed Entity Locking');
+    } finally {
+        await context.close();
     }
 });
 
@@ -373,7 +402,7 @@ for (const theme of ['light', 'dark']) {
             await page.locator('#theme-toggle').click();
             await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
         }
-        for (const route of ['', ...DETAIL_ROUTES.map((name) => name + '/')]) {
+        for (const route of ['', ...DETAIL_ROUTES.map((name) => name + '/'), 'roles/', 'articles/', 'articles/java-keyed-entity-locking/']) {
             if (route) await page.goto(HOME + route);
             const results = await new AxeBuilder({ page })
                 .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox — Denis Stepulenok</title>
+  <meta name="description" content="Why consumer rebalances and dual writes break naive event pipelines, how partitioned key ordering interacts with retry topics, and where transactional outbox plus idempotent consumers restore safety.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/articles/kafka-consumer-idempotency-outbox/">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/kafka-consumer-idempotency-outbox/">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <link rel="alternate" type="text/markdown" title="Markdown Resume" href="../../resume.md">
+  <link rel="alternate" type="text/plain" title="Plain Text Resume" href="../../resume.txt">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="../../llms.txt">
+  <link rel="describedby" type="application/json" title="Candidate Profile JSON" href="../../candidate.json">
+  <link rel="describedby" type="application/json" title="Skills Evidence JSON" href="../../skills-evidence.json">
+  <link rel="describedby" type="application/json" title="Role Alignment JSON" href="../../role-alignment.json">
+  <meta property="og:locale" content="en_GB">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox — Denis Stepulenok">
+  <meta property="og:description" content="Why consumer rebalances and dual writes break naive event pipelines, how partitioned key ordering interacts with retry topics, and where transactional outbox plus idempotent consumers restore safety.">
+  <meta property="og:url" content="https://stden.github.io/CV/articles/kafka-consumer-idempotency-outbox/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox — Denis Stepulenok">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox — Denis Stepulenok">
+  <meta name="twitter:description" content="Why consumer rebalances and dual writes break naive event pipelines, how partitioned key ordering interacts with retry topics, and where transactional outbox plus idempotent consumers restore safety.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="preload" href="../../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","@id":"https://stden.github.io/CV/articles/kafka-consumer-idempotency-outbox/#article","url":"https://stden.github.io/CV/articles/kafka-consumer-idempotency-outbox/","inLanguage":"en","headline":"Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox","description":"Why consumer rebalances and dual writes break naive event pipelines, how partitioned key ordering interacts with retry topics, and where transactional outbox plus idempotent consumers restore safety.","datePublished":"2026-11-27","dateModified":"2026-11-27","author":{"@id":"https://stden.github.io/CV/#person"},"keywords":["Apache Kafka","Idempotency","Transactional Outbox","DLQ"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfolio","item":"https://stden.github.io/CV/"},{"@type":"ListItem","position":2,"name":"Technical Articles","item":"https://stden.github.io/CV/articles/"},{"@type":"ListItem","position":3,"name":"Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox","item":"https://stden.github.io/CV/articles/kafka-consumer-idempotency-outbox/"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../../index.html#overview">Overview</a></li>
+        <li><a href="../../experience/">Experience</a></li>
+        <li><a href="../../skills/">Skills</a></li>
+        <li><a href="../../projects/">Projects</a></li>
+        <li><a href="../../architecture/">Architecture</a></li>
+        <li><a href="../../cv/">CV Versions</a></li>
+        <li><a href="../../contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Dark · Switch to dark theme"
+        data-light-label="Light" data-dark-label="Dark"
+        data-to-light="Light · Switch to light theme"
+        data-to-dark="Dark · Switch to dark theme">
+        <span class="theme-label">Dark</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menu · Toggle navigation menu">
+        Menu
+      </button>
+    </div>
+    <nav class="language-menu" aria-label="Website language"><a href="../../articles/kafka-consumer-idempotency-outbox/" hreflang="en" lang="en" aria-label="EN · English" data-locale="en" aria-current="page">EN</a><a href="../../et/cv/index.html" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../../de/cv/index.html" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../../ru/cv/index.html" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../../index.html#overview">Overview</a></li>
+        <li><a href="../../experience/">Experience</a></li>
+        <li><a href="../../skills/">Skills</a></li>
+        <li><a href="../../projects/">Projects</a></li>
+        <li><a href="../../architecture/">Architecture</a></li>
+        <li><a href="../../cv/">CV Versions</a></li>
+        <li><a href="../../contact/">Contact</a></li>
+      <li><a href="../../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<article>
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../../index.html">Portfolio</a> / <a href="../index.html">Technical Articles</a> / Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox</p>
+    <p class="article-meta">2026-11-27 &middot; Author: Denis Stepulenok &middot; 7 min read</p>
+    <h1>Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox</h1>
+    <p class="section-lead">Why consumer rebalances and dual writes break naive event pipelines, how partitioned key ordering interacts with retry topics, and where transactional outbox plus idempotent consumers restore safety.</p>
+    <p class="provenance">Independent educational analysis of Apache Kafka delivery semantics and outbox patterns; contains no employer topology or proprietary broker configuration.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container article-body">
+    <section class="article-section">
+      <h2>At-Least-Once Delivery Across Consumer Rebalances</h2>
+      <p>When a Kafka consumer processes a batch, writes side effects to a database, and crashes before committing offsets, the next rebalance replays those records to another consumer instance.</p>
+      <p>Even with enable.auto.commit=false and manual acknowledgment, network timeouts or poll interval expiry (max.poll.interval.ms) can evict a consumer mid-batch and cause duplicate delivery.</p>
+    </section>
+    <section class="article-section">
+      <h2>Avoiding Dual Writes with Transactional Outbox + Idempotency</h2>
+      <p>Updating local state and calling producer.send() in separate steps creates a dual-write window where one succeeds and the other fails. Writing both the domain change and an outbox row inside one ACID database transaction closes that window.</p>
+      <p>On the consumer side, persisting a deterministic event_id in a deduplication table (with a unique constraint) in the same local transaction guarantees idempotent state transitions even across broker retries or consumer rebalances.</p>
+      <pre class="code-block"><code>INSERT INTO processed_events (event_id, processed_at)
+VALUES (:eventId, CURRENT_TIMESTAMP)
+ON CONFLICT (event_id) DO NOTHING;</code></pre>
+    </section>
+    <section class="article-section">
+      <h2>Engineering Trade-offs</h2>
+      <ul class="bullet-list">
+        <li>Non-blocking retry topics avoid stalling healthy keys behind a single poison pill, but weaken strict per-key ordering while a failing key sits in a delayed retry topic.</li>
+        <li>CDC-based outbox publishing (e.g., log tailing) reduces polling load compared to database polling relays, at the cost of extra connector operational complexity.</li>
+      </ul>
+    </section>
+    <section class="article-section">
+      <h2>Limitations &amp; Boundaries</h2>
+      <ul class="bullet-list">
+        <li>Deduplication tables grow over time and require bounded retention aligned with Kafka topic retention or downstream replay windows.</li>
+        <li>Examples are vendor-neutral educational patterns and exclude employer-specific topic names, partition counts, or SLAs.</li>
+      </ul>
+    </section>
+    <section class="article-section">
+      <h2>Reproducible Verification</h2>
+      <p>Verify idempotent deduplication in any local PostgreSQL instance by simulating a replayed event batch inside a transaction that aborts after state mutation but before offset acknowledgement.</p>
+      <pre class="code-block"><code>CREATE TABLE processed_events (event_id UUID PRIMARY KEY, processed_at TIMESTAMPTZ NOT NULL);
+Run duplicate INSERT ... ON CONFLICT (event_id) DO NOTHING and verify row count stays 1.</code></pre>
+    </section>
+    <section class="article-section">
+      <h2>Public References</h2>
+      <ul class="bullet-list">
+        <li><a href="https://stden.github.io/CV/architecture/#arch-tab-ref-event-driven-outbox">https://stden.github.io/CV/architecture/#arch-tab-ref-event-driven-outbox</a></li>
+      </ul>
+    </section>
+  </div>
+</section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
+    <div class="footer-links">
+      <a href="../../index.html">Portfolio</a>
+      <a href="../../cv/">All CV versions</a>
+      <a href="../../roles/" hreflang="en">Role Alignment</a>
+      <a href="../../articles/" hreflang="en">Technical Articles</a>
+      <a href="../../llms.txt">llms.txt</a>
+      <a href="../../candidate.json">JSON</a>
+      <a href="../../resume.md">Markdown</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

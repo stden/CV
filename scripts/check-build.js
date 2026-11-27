@@ -10,7 +10,7 @@ const { withValidatedPublicArtifact } = require('./stage-public');
 const { ConfidentialityCheckError } = require('./check-confidentiality');
 
 function runBuild() {
-    for (const script of ['build-project-diagrams.js', 'build-tech-pages.js', 'build-site.js']) {
+    for (const script of ['build-project-diagrams.js', 'build-tech-pages.js', 'build-site.js', 'build-machine-readable.js']) {
         execFileSync(process.execPath, [path.join(ROOT_DIR, 'scripts', script)], {
             cwd: ROOT_DIR,
             stdio: 'pipe',
@@ -23,6 +23,8 @@ function checkDataIntegrity(data) {
     assert.equal(data.githubProjects.length, 6, 'Expected 6 selected GitHub projects');
     assert.equal(data.architectureDiagrams.length, 4, 'Expected 4 architecture diagrams');
     assert.equal(data.technologies.length, 20, 'Expected 20 technology pages');
+    assert.equal(data.roleAlignment.length, 6, 'Expected 6 role alignment entries');
+    assert.equal(data.articles.length, 5, 'Expected 5 technical articles');
     assert.deepEqual(data.variants.map(({ slug }) => slug), [
         'general', 'senior-java', 'distributed-systems', 'fintech-integrations', 'wise', 'ai-mcp', 'full',
     ]);
@@ -83,8 +85,15 @@ function checkAssetsAndDiscovery(data) {
     assert.ok(fs.existsSync(path.join(ROOT_DIR, 'assets', 'images', 'og-preview.png')), 'OG preview PNG missing');
     assert.ok(fs.existsSync(path.join(ROOT_DIR, 'sitemap.xml')), 'sitemap.xml missing');
     assert.ok(fs.existsSync(path.join(ROOT_DIR, 'robots.txt')), 'robots.txt missing');
+    for (const filename of ['llms.txt', 'resume.md', 'resume.txt', 'candidate.json', 'skills-evidence.json', 'role-alignment.json', 'roles/index.html', 'articles/index.html']) {
+        assert.ok(fs.existsSync(path.join(ROOT_DIR, filename)), `Missing discovery artifact: ${filename}`);
+    }
+    const indexHtml = fs.readFileSync(path.join(ROOT_DIR, 'index.html'), 'utf8');
+    assert.ok(indexHtml.includes('rel="describedby"'), 'Homepage missing describedby link relations');
     const sitemap = fs.readFileSync(path.join(ROOT_DIR, 'sitemap.xml'), 'utf8');
     assert.ok(sitemap.includes(`${data.site.baseUrl}/cv/wise.html`), 'sitemap.xml must include wise CV URL');
+    assert.ok(sitemap.includes(`<loc>${data.site.baseUrl}/roles/</loc>`), 'sitemap.xml must include roles/');
+    assert.ok(sitemap.includes(`<loc>${data.site.baseUrl}/articles/</loc>`), 'sitemap.xml must include articles/');
     for (const code of localeCodes) {
         for (const route of contentRoutes(data, code)) {
             assert.ok(sitemap.includes(`<loc>${data.site.baseUrl}/${localizedPath(code, route)}</loc>`), 'PUBLIC_SITEMAP_DETAIL_MISSING');

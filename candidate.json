@@ -1,0 +1,494 @@
+{
+  "schemaVersion": "1.0.0",
+  "canonicalProfileUrl": "https://stden.github.io/CV/",
+  "contentRevisionDate": "2026-11-27",
+  "canonicalLanguage": "en",
+  "profilePolicy": "Public allowlisted candidate summary. Excludes private application history, unapproved metrics, and confidential employer details.",
+  "identity": {
+    "name": "Denis Stepulenok",
+    "title": "Senior Software Engineer — Java & Distributed Systems",
+    "location": "Tallinn, Estonia",
+    "summary": "I build Java backend services and asynchronous integrations. At Kuehne+Nagel I work on enterprise Java services and delivery automation. I previously built high-load services at Taxify (now Bolt) and investigated JDK defects at Oracle.",
+    "coreTopics": [
+      "Java",
+      "Spring Boot",
+      "Distributed systems",
+      "Apache Kafka & RabbitMQ",
+      "PostgreSQL"
+    ],
+    "canonicalPdf": "https://stden.github.io/CV/assets/pdf/Denis-Stepulenok-CV-EN.pdf",
+    "links": {
+      "portfolio": "https://stden.github.io/CV/",
+      "github": "https://github.com/stden",
+      "linkedin": "https://www.linkedin.com/in/denis-stepulenok-2149b514/",
+      "telegram": "https://t.me/stdenx",
+      "email": "mailto:super.denis@gmail.com"
+    },
+    "openToWorkDisclosed": false
+  },
+  "languages": [
+    {
+      "name": "Russian",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Intermediate"
+    }
+  ],
+  "education": [
+    {
+      "id": "education-1",
+      "degree": "Specialist in Computer Science",
+      "institution": "Saint-Petersburg Electrotechnical University \"LETI\"",
+      "period": "1999 – 2005"
+    }
+  ],
+  "employmentHistory": [
+    {
+      "id": "kuehne-nagel",
+      "company": "Kuehne+Nagel",
+      "role": "Senior Java Developer",
+      "period": "May 2018 – Present",
+      "location": "Tallinn, Estonia",
+      "summary": "Develop and maintain enterprise Java backend services and integrations, and support automated software delivery.",
+      "responsibilities": [
+        "Develop Java and Spring Boot services used in enterprise workflows.",
+        "Build event-driven pipelines with Apache Kafka (Spring Kafka producers/consumers, partitioning, per-key ordering, offsets/rebalancing, Schema Registry, Kafka Streams/Connect) and RabbitMQ.",
+        "Implement reliable messaging with transactional outbox, idempotent processing, retry/DLQ topics, consumer lag monitoring, and broker operations.",
+        "Integrate backend services with PostgreSQL and relational databases using SQL, JPA, and Hibernate.",
+        "Automate builds, tests, and containerised deployments with JUnit, Jenkins, GitLab CI/CD, Docker, and Kubernetes."
+      ],
+      "primaryTechnologies": [
+        "Java",
+        "Spring Boot",
+        "RabbitMQ",
+        "Apache Kafka",
+        "SQL",
+        "PostgreSQL",
+        "Oracle Database",
+        "Jenkins",
+        "GitLab CI/CD",
+        "Docker",
+        "Kubernetes"
+      ],
+      "additionalTechnologies": [
+        "Maven",
+        "Git",
+        "Python",
+        "React",
+        "AngularJS"
+      ],
+      "verificationStatus": "self-reported",
+      "evidenceNote": "Employer experience is self-reported; private employer systems and metrics are covered by NDA and not publicly inspectable."
+    },
+    {
+      "id": "taxify-bolt",
+      "company": "Taxify (now Bolt)",
+      "role": "Senior Backend Developer",
+      "period": "May 2017 – May 2018",
+      "location": "Tallinn, Estonia",
+      "summary": "Developed high-load Node.js backend services and internal web tools.",
+      "responsibilities": [
+        "Developed backend services in Node.js with JavaScript and TypeScript.",
+        "Built and maintained REST interfaces for backend services.",
+        "Developed internal administration tools backed by MySQL.",
+        "Worked with cloud-hosted services and Docker."
+      ],
+      "primaryTechnologies": [
+        "Node.js",
+        "TypeScript",
+        "REST APIs",
+        "MySQL",
+        "Redis",
+        "Docker",
+        "AWS"
+      ],
+      "additionalTechnologies": [
+        "JavaScript",
+        "PHP",
+        "Microsoft Azure",
+        "Google App Engine",
+        "Neo4j"
+      ],
+      "verificationStatus": "self-reported",
+      "evidenceNote": "Employer experience is self-reported; private employer systems and metrics are covered by NDA and not publicly inspectable."
+    },
+    {
+      "id": "oracle",
+      "company": "Oracle (Oracle Russia & CIS)",
+      "role": "SQE / Java Developer",
+      "period": "January 2014 – May 2017",
+      "location": "Saint Petersburg",
+      "summary": "Investigated JDK defects and developed automated tests for Java platform releases.",
+      "responsibilities": [
+        "Developed Java, JUnit and Jemmy tests and stabilised existing test suites.",
+        "Analysed scheduled test runs and verified fixes in the JDK and test code.",
+        "Investigated failures involving concurrency, the Java Memory Model and class loading.",
+        "Maintained a distributed testing lab using Python, PowerShell and Puppet."
+      ],
+      "primaryTechnologies": [
+        "Java",
+        "JVM",
+        "JDK",
+        "JUnit",
+        "Jemmy",
+        "Python"
+      ],
+      "additionalTechnologies": [
+        "Mockito",
+        "PowerShell",
+        "Puppet"
+      ],
+      "verificationStatus": "self-reported",
+      "evidenceNote": "Employer experience is self-reported; private employer systems and metrics are covered by NDA and not publicly inspectable."
+    },
+    {
+      "id": "sds",
+      "company": "Software Development & Solutions",
+      "role": "Senior Java Developer",
+      "period": "August 2013 – January 2014",
+      "location": "Saint Petersburg",
+      "summary": "Developed Java software for business information management.",
+      "responsibilities": [
+        "Contributed to requirements, technical design, testing and release support."
+      ],
+      "primaryTechnologies": [
+        "Java",
+        "Spring Framework",
+        "JUnit",
+        "Hibernate",
+        "Oracle Database"
+      ],
+      "additionalTechnologies": [],
+      "verificationStatus": "self-reported",
+      "evidenceNote": "Employer experience is self-reported; private employer systems and metrics are covered by NDA and not publicly inspectable."
+    },
+    {
+      "id": "bonus-club",
+      "company": "Bonus Club",
+      "role": "C/C++ / Java / Android Developer",
+      "period": "September 2012 – August 2013",
+      "location": "Saint Petersburg",
+      "summary": "Developed and maintained software for point-of-sale and loyalty applications.",
+      "responsibilities": [
+        "Contributed to application libraries, service integration and Android development."
+      ],
+      "primaryTechnologies": [
+        "C/C++",
+        "Java",
+        "Android",
+        "REST APIs"
+      ],
+      "additionalTechnologies": [],
+      "verificationStatus": "self-reported",
+      "evidenceNote": "Employer experience is self-reported; private employer systems and metrics are covered by NDA and not publicly inspectable."
+    },
+    {
+      "id": "early-engineering-2005",
+      "company": "OAO INRUSKOM",
+      "role": "Software Developer",
+      "period": "November 2005 – February 2007",
+      "location": "Saint Petersburg",
+      "summary": "Developed database and desktop software.",
+      "responsibilities": [
+        "Built user interfaces and supported relational data access."
+      ],
+      "primaryTechnologies": [
+        "C# .NET",
+        "Microsoft SQL Server"
+      ],
+      "additionalTechnologies": [],
+      "verificationStatus": "self-reported",
+      "evidenceNote": "Employer experience is self-reported; private employer systems and metrics are covered by NDA and not publicly inspectable."
+    },
+    {
+      "id": "i-free",
+      "company": "i-Free",
+      "role": "Software Developer",
+      "period": "March 2005 – October 2005",
+      "location": "Saint Petersburg",
+      "summary": "Developed software for content management.",
+      "responsibilities": [
+        "Built user interfaces and automated data import."
+      ],
+      "primaryTechnologies": [
+        "Java",
+        "C# .NET",
+        "Microsoft SQL Server"
+      ],
+      "additionalTechnologies": [],
+      "verificationStatus": "self-reported",
+      "evidenceNote": "Employer experience is self-reported; private employer systems and metrics are covered by NDA and not publicly inspectable."
+    },
+    {
+      "id": "spb-etu-research",
+      "company": "Research & Engineering Center of SPb ETU",
+      "role": "Software Engineer Intern",
+      "period": "September 2001 – March 2005",
+      "location": "Saint Petersburg",
+      "summary": "Worked on data processing and visualisation as a software engineering intern.",
+      "responsibilities": [
+        "Contributed to data analysis and visualisation software."
+      ],
+      "primaryTechnologies": [
+        "Java",
+        "Delphi",
+        "C++ Builder",
+        "MATLAB",
+        "SQL"
+      ],
+      "additionalTechnologies": [],
+      "verificationStatus": "self-reported",
+      "evidenceNote": "Employer experience is self-reported; private employer systems and metrics are covered by NDA and not publicly inspectable."
+    }
+  ],
+  "publicProjects": [
+    {
+      "id": "pythorust-tg",
+      "name": "pythorust_tg",
+      "url": "https://github.com/stden/pythorust_tg",
+      "language": "Rust",
+      "description": "Telegram automation toolkit with export, indexing and analysis utilities.",
+      "topics": [
+        "Command-line tooling",
+        "Rust and Python integration",
+        "Retrieval pipelines"
+      ],
+      "verificationStatus": "ci-verified",
+      "ciStatus": "Passing",
+      "ciUrl": "https://github.com/stden/pythorust_tg/actions/runs/44781298887",
+      "lastVerifiedDate": "2026-11-27",
+      "latestActivityDate": "2026-11-23"
+    },
+    {
+      "id": "funnyfilemanager",
+      "name": "FunnyFileManager",
+      "url": "https://github.com/stden/FunnyFileManager",
+      "language": "Rust",
+      "description": "Terminal file manager with two-panel navigation, keyboard controls, and file operations.",
+      "topics": [
+        "Terminal UI",
+        "Filesystem operations",
+        "Keyboard navigation"
+      ],
+      "verificationStatus": "ci-verified",
+      "ciStatus": "Passing",
+      "ciUrl": "https://github.com/stden/FunnyFileManager/actions/runs/45808977368",
+      "lastVerifiedDate": "2026-11-27",
+      "latestActivityDate": "2026-11-26"
+    },
+    {
+      "id": "rustshot",
+      "name": "RustShot",
+      "url": "https://github.com/stden/RustShot",
+      "language": "Rust",
+      "description": "Desktop screenshot utility for Windows, Linux and macOS with screen recording on Windows.",
+      "topics": [
+        "Platform adapters",
+        "Image output",
+        "Desktop portals"
+      ],
+      "verificationStatus": "ci-verified",
+      "ciStatus": "Passing",
+      "ciUrl": "https://github.com/stden/RustShot/actions/runs/45880377478",
+      "lastVerifiedDate": "2026-11-27",
+      "latestActivityDate": "2026-11-26"
+    },
+    {
+      "id": "sonarqubechecker",
+      "name": "SonarQubeChecker",
+      "url": "https://github.com/stden/SonarQubeChecker",
+      "language": "Python",
+      "description": "CLI that reads SonarQube or SonarCloud analysis data and produces Markdown reports.",
+      "topics": [
+        "API clients",
+        "Report generation",
+        "Internationalisation"
+      ],
+      "verificationStatus": "ci-verified",
+      "ciStatus": "Passing",
+      "ciUrl": "https://github.com/stden/SonarQubeChecker/actions/runs/44781449306",
+      "lastVerifiedDate": "2026-11-27",
+      "latestActivityDate": "2026-11-20"
+    },
+    {
+      "id": "entitylocker",
+      "name": "EntityLocker",
+      "url": "https://github.com/stden/EntityLocker",
+      "language": "Java",
+      "description": "Java utility for exploring JVM-local, keyed locking and nested acquisition order.",
+      "topics": [
+        "Reentrant locks",
+        "Key ordering",
+        "JUnit"
+      ],
+      "verificationStatus": "publicly-inspectable",
+      "ciStatus": "Not verified",
+      "ciUrl": null,
+      "lastVerifiedDate": "2026-11-27",
+      "latestActivityDate": "2026-11-13"
+    },
+    {
+      "id": "jpa2",
+      "name": "JPA2",
+      "url": "https://github.com/stden/JPA2",
+      "language": "Java",
+      "description": "Educational JPA and Hibernate examples with persistence tests.",
+      "topics": [
+        "Object-relational mapping",
+        "Entity relationships",
+        "Persistence testing"
+      ],
+      "verificationStatus": "ci-verified",
+      "ciStatus": "Passing",
+      "ciUrl": "https://github.com/stden/JPA2/actions/runs/43380363549",
+      "lastVerifiedDate": "2026-11-27",
+      "latestActivityDate": "2026-11-13"
+    }
+  ],
+  "caseStudies": [
+    {
+      "id": "messenger-archive-search",
+      "title": "Messenger Archive & Semantic Search",
+      "url": "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+      "provenanceKind": "independent-personal",
+      "provenanceSummary": "Independent personal project. The diagram describes software components and contains no example messages or account records.",
+      "sourceUrl": null,
+      "summary": "Search text and transcribed audio by meaning in a private message archive.",
+      "stack": [
+        "Rust",
+        "Python",
+        "MTProto",
+        "PostgreSQL",
+        "Whisper",
+        "Qdrant",
+        "MCP"
+      ]
+    },
+    {
+      "id": "entity-concurrency-locking",
+      "title": "EntityLocker — Row-Level Entity Concurrency Utility",
+      "url": "https://stden.github.io/CV/projects/#case-entity-concurrency-locking",
+      "provenanceKind": "authorised-open-source",
+      "provenanceSummary": "Public source and JUnit tests for a Java locking experiment maintained by Denis Stepulenok.",
+      "sourceUrl": "https://github.com/stden/EntityLocker",
+      "summary": "Explore how Java threads can coordinate by an entity key within one process.",
+      "stack": [
+        "Java",
+        "ConcurrentHashMap",
+        "ReentrantLock",
+        "JUnit"
+      ]
+    },
+    {
+      "id": "rust-desktop-tooling",
+      "title": "RustShot Desktop Capture",
+      "url": "https://stden.github.io/CV/projects/#case-rust-desktop-tooling",
+      "provenanceKind": "authorised-open-source",
+      "provenanceSummary": "Public RustShot capture guide and source maintained by Denis Stepulenok.",
+      "sourceUrl": "https://github.com/stden/RustShot",
+      "summary": "Capture screenshots across different desktop environments with a common command-line interface.",
+      "stack": [
+        "Rust",
+        "Desktop capture APIs",
+        "Image processing"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "java-keyed-entity-locking",
+      "title": "Java Concurrency and Keyed Entity Locking",
+      "url": "https://stden.github.io/CV/articles/java-keyed-entity-locking/",
+      "publishedDate": "2026-11-27",
+      "updatedDate": "2026-11-27",
+      "author": "Denis Stepulenok",
+      "topics": [
+        "Java",
+        "Concurrency",
+        "ReentrantLock",
+        "Deadlock Avoidance"
+      ],
+      "summary": "Designing per-entity mutex synchronization in JVM memory using ConcurrentHashMap, per-key ReentrantLock instances, and canonical key ordering — plus an honest look at lock-registry eviction races."
+    },
+    {
+      "id": "kafka-consumer-idempotency-outbox",
+      "title": "Kafka Consumer Behaviour, Idempotency, and the Transactional Outbox",
+      "url": "https://stden.github.io/CV/articles/kafka-consumer-idempotency-outbox/",
+      "publishedDate": "2026-11-27",
+      "updatedDate": "2026-11-27",
+      "author": "Denis Stepulenok",
+      "topics": [
+        "Apache Kafka",
+        "Idempotency",
+        "Transactional Outbox",
+        "DLQ"
+      ],
+      "summary": "Why consumer rebalances and dual writes break naive event pipelines, how partitioned key ordering interacts with retry topics, and where transactional outbox plus idempotent consumers restore safety."
+    },
+    {
+      "id": "postgresql-row-level-locking",
+      "title": "PostgreSQL Row-Level Locking for Concurrent Worker Queues",
+      "url": "https://stden.github.io/CV/articles/postgresql-row-level-locking/",
+      "publishedDate": "2026-11-27",
+      "updatedDate": "2026-11-27",
+      "author": "Denis Stepulenok",
+      "topics": [
+        "PostgreSQL",
+        "SQL",
+        "SKIP LOCKED",
+        "Concurrency"
+      ],
+      "summary": "Comparing SELECT FOR UPDATE, NOWAIT, and FOR UPDATE SKIP LOCKED when implementing multi-worker job claims on top of a relational database."
+    },
+    {
+      "id": "rust-mcp-local-retrieval",
+      "title": "Rust and Model Context Protocol (MCP) for Local Archive Retrieval",
+      "url": "https://stden.github.io/CV/articles/rust-mcp-local-retrieval/",
+      "publishedDate": "2026-11-27",
+      "updatedDate": "2026-11-27",
+      "author": "Denis Stepulenok",
+      "topics": [
+        "Rust",
+        "Model Context Protocol",
+        "RAG",
+        "Privacy"
+      ],
+      "summary": "Structuring read-only stdio MCP tools in front of a hybrid lexical and vector retrieval index so coding or research agents inspect narrow evidence without exfiltrating raw archives."
+    },
+    {
+      "id": "automated-testing-software-reliability",
+      "title": "Automated Testing, Deterministic Validation Gates, and Software Reliability",
+      "url": "https://stden.github.io/CV/articles/automated-testing-software-reliability/",
+      "publishedDate": "2026-11-27",
+      "updatedDate": "2026-11-27",
+      "author": "Denis Stepulenok",
+      "topics": [
+        "Testing",
+        "CI/CD",
+        "Confidentiality Gates",
+        "Playwright"
+      ],
+      "summary": "Treating static HTML, ATS PDFs, confidentiality scanning, and WCAG accessibility as machine-checked build gates rather than manual post-hoc checklists."
+    }
+  ],
+  "machineReadableFormats": {
+    "htmlProfile": "https://stden.github.io/CV/",
+    "llmsTxt": "https://stden.github.io/CV/llms.txt",
+    "resumeMarkdown": "https://stden.github.io/CV/resume.md",
+    "resumeText": "https://stden.github.io/CV/resume.txt",
+    "candidateJson": "https://stden.github.io/CV/candidate.json",
+    "skillsEvidenceJson": "https://stden.github.io/CV/skills-evidence.json",
+    "roleAlignmentJson": "https://stden.github.io/CV/role-alignment.json",
+    "roleAlignmentHtml": "https://stden.github.io/CV/roles/",
+    "articlesHtml": "https://stden.github.io/CV/articles/",
+    "sitemapXml": "https://stden.github.io/CV/sitemap.xml"
+  },
+  "availableLocales": [
+    "en",
+    "et",
+    "de",
+    "ru"
+  ]
+}

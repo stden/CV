@@ -195,6 +195,26 @@ test('architecture requires explicit matching independent provenance', (t) => {
     expectViolation(options, 'invalid-provenance', ['fictional-example']);
 });
 
+test('root canonical markdown and text resumes are allowed while nested or binary application files stay blocked', (t) => {
+    const allowed = fixture(t, {
+        'resume.md': '# Public Canonical Summary\n',
+        'resume.txt': 'PUBLIC CANONICAL SUMMARY\n',
+    });
+    assert.equal(runConfidentialityCheck(allowed).files, 2);
+
+    for (const blockedPath of [
+        'resume.pdf',
+        'resume.html',
+        'nested/resume.md',
+        'applications/example/resume.txt',
+        'cover-letter.md',
+    ]) {
+        const content = blockedPath.endsWith('.pdf') ? pdf() : 'Private application draft';
+        const denied = fixture(t, { [blockedPath]: content });
+        expectViolation(denied, 'private-application', [blockedPath]);
+    }
+});
+
 test('invalid CLI arguments are rejected without printing user-supplied values', () => {
     const sentinel = 'fictional-secret-argument';
     const result = spawnSync(process.execPath, [path.resolve(__dirname, '../scripts/check-confidentiality.js'), '--unsupported', sentinel], {

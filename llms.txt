@@ -1,0 +1,36 @@
+# Denis Stepulenok
+
+> Senior Software Engineer — Java & Distributed Systems in Tallinn, Estonia. Canonical English portfolio and structured CV profile (https://stden.github.io/CV/), last revised 2026-11-27.
+
+Employer experience entries are self-reported under NDA; public GitHub repositories are linked separately for independent inspection.
+
+## Primary Profile & Resumes
+
+- [Canonical Portfolio (English)](https://stden.github.io/CV/): Recruiter-first HTML overview, Schema.org metadata, and PDF download
+- [Markdown Resume](https://stden.github.io/CV/resume.md): Clean English resume in Markdown
+- [Plain Text Resume](https://stden.github.io/CV/resume.txt): Plain-text ATS/crawler-friendly resume
+- [Canonical PDF Resume](https://stden.github.io/CV/assets/pdf/Denis-Stepulenok-CV-EN.pdf): Printable A4 English PDF
+- [All CV Variants](https://stden.github.io/CV/cv/): Targeted web and PDF profiles
+
+## Machine-Readable JSON Exports
+
+- [Candidate Profile JSON](https://stden.github.io/CV/candidate.json): Allowlisted identity, employment history, education, and public repositories (schema v1.0.0)
+- [Skills Evidence JSON](https://stden.github.io/CV/skills-evidence.json): Skill inventory with synonyms, context, verification status, supporting URLs, and limitations
+- [Role Alignment JSON](https://stden.github.io/CV/role-alignment.json): Structured role mapping across six target engineering roles with confirmation notes and zero synthetic scores
+
+## Evidence, Roles & Technical Articles
+
+- [Experience Details](https://stden.github.io/CV/experience/): Full chronological timeline, education, and languages
+- [Skills & Verification](https://stden.github.io/CV/skills/): Skills grouped by evidence tier
+- [Public Projects](https://stden.github.io/CV/projects/): Independent case studies and six verified GitHub repositories
+- [Role Alignment](https://stden.github.io/CV/roles/): Target role competencies, public evidence, and confirmation questions
+- [Technical Articles](https://stden.github.io/CV/articles/): Independently researched notes on Java locking, Kafka idempotency/outbox, PostgreSQL row locking, Rust/MCP, and CI verification
+
+## Verified Public Repositories
+
+- [pythorust_tg](https://github.com/stden/pythorust_tg): Rust (ci-verified) — Telegram automation toolkit with export, indexing and analysis utilities.
+- [FunnyFileManager](https://github.com/stden/FunnyFileManager): Rust (ci-verified) — Terminal file manager with two-panel navigation, keyboard controls, and file operations.
+- [RustShot](https://github.com/stden/RustShot): Rust (ci-verified) — Desktop screenshot utility for Windows, Linux and macOS with screen recording on Windows.
+- [SonarQubeChecker](https://github.com/stden/SonarQubeChecker): Python (ci-verified) — CLI that reads SonarQube or SonarCloud analysis data and produces Markdown reports.
+- [EntityLocker](https://github.com/stden/EntityLocker): Java (publicly-inspectable) — Java utility for exploring JVM-local, keyed locking and nested acquisition order.
+- [JPA2](https://github.com/stden/JPA2): Java (ci-verified) — Educational JPA and Hibernate examples with persistence tests.

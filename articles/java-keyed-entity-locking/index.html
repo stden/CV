@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Concurrency and Keyed Entity Locking — Denis Stepulenok</title>
+  <meta name="description" content="Designing per-entity mutex synchronization in JVM memory using ConcurrentHashMap, per-key ReentrantLock instances, and canonical key ordering — plus an honest look at lock-registry eviction races.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/articles/java-keyed-entity-locking/">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/java-keyed-entity-locking/">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <link rel="alternate" type="text/markdown" title="Markdown Resume" href="../../resume.md">
+  <link rel="alternate" type="text/plain" title="Plain Text Resume" href="../../resume.txt">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="../../llms.txt">
+  <link rel="describedby" type="application/json" title="Candidate Profile JSON" href="../../candidate.json">
+  <link rel="describedby" type="application/json" title="Skills Evidence JSON" href="../../skills-evidence.json">
+  <link rel="describedby" type="application/json" title="Role Alignment JSON" href="../../role-alignment.json">
+  <meta property="og:locale" content="en_GB">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Java Concurrency and Keyed Entity Locking — Denis Stepulenok">
+  <meta property="og:description" content="Designing per-entity mutex synchronization in JVM memory using ConcurrentHashMap, per-key ReentrantLock instances, and canonical key ordering — plus an honest look at lock-registry eviction races.">
+  <meta property="og:url" content="https://stden.github.io/CV/articles/java-keyed-entity-locking/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="Java Concurrency and Keyed Entity Locking — Denis Stepulenok">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Java Concurrency and Keyed Entity Locking — Denis Stepulenok">
+  <meta name="twitter:description" content="Designing per-entity mutex synchronization in JVM memory using ConcurrentHashMap, per-key ReentrantLock instances, and canonical key ordering — plus an honest look at lock-registry eviction races.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="preload" href="../../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","@id":"https://stden.github.io/CV/articles/java-keyed-entity-locking/#article","url":"https://stden.github.io/CV/articles/java-keyed-entity-locking/","inLanguage":"en","headline":"Java Concurrency and Keyed Entity Locking","description":"Designing per-entity mutex synchronization in JVM memory using ConcurrentHashMap, per-key ReentrantLock instances, and canonical key ordering — plus an honest look at lock-registry eviction races.","datePublished":"2026-11-27","dateModified":"2026-11-27","author":{"@id":"https://stden.github.io/CV/#person"},"keywords":["Java","Concurrency","ReentrantLock","Deadlock Avoidance"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfolio","item":"https://stden.github.io/CV/"},{"@type":"ListItem","position":2,"name":"Technical Articles","item":"https://stden.github.io/CV/articles/"},{"@type":"ListItem","position":3,"name":"Java Concurrency and Keyed Entity Locking","item":"https://stden.github.io/CV/articles/java-keyed-entity-locking/"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../../index.html#overview">Overview</a></li>
+        <li><a href="../../experience/">Experience</a></li>
+        <li><a href="../../skills/">Skills</a></li>
+        <li><a href="../../projects/">Projects</a></li>
+        <li><a href="../../architecture/">Architecture</a></li>
+        <li><a href="../../cv/">CV Versions</a></li>
+        <li><a href="../../contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Dark · Switch to dark theme"
+        data-light-label="Light" data-dark-label="Dark"
+        data-to-light="Light · Switch to light theme"
+        data-to-dark="Dark · Switch to dark theme">
+        <span class="theme-label">Dark</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menu · Toggle navigation menu">
+        Menu
+      </button>
+    </div>
+    <nav class="language-menu" aria-label="Website language"><a href="../../articles/java-keyed-entity-locking/" hreflang="en" lang="en" aria-label="EN · English" data-locale="en" aria-current="page">EN</a><a href="../../et/cv/index.html" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../../de/cv/index.html" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../../ru/cv/index.html" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../../index.html#overview">Overview</a></li>
+        <li><a href="../../experience/">Experience</a></li>
+        <li><a href="../../skills/">Skills</a></li>
+        <li><a href="../../projects/">Projects</a></li>
+        <li><a href="../../architecture/">Architecture</a></li>
+        <li><a href="../../cv/">CV Versions</a></li>
+        <li><a href="../../contact/">Contact</a></li>
+      <li><a href="../../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<article>
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../../index.html">Portfolio</a> / <a href="../index.html">Technical Articles</a> / Java Concurrency and Keyed Entity Locking</p>
+    <p class="article-meta">2026-11-27 &middot; Author: Denis Stepulenok &middot; 6 min read</p>
+    <h1>Java Concurrency and Keyed Entity Locking</h1>
+    <p class="section-lead">Designing per-entity mutex synchronization in JVM memory using ConcurrentHashMap, per-key ReentrantLock instances, and canonical key ordering — plus an honest look at lock-registry eviction races.</p>
+    <p class="provenance">Independent engineering write-up grounded in the public stden/EntityLocker repository; no employer code or production metrics.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container article-body">
+    <section class="article-section">
+      <h2>Why Keyed Locking Instead of a Global Lock</h2>
+      <p>When in-memory workers update domain aggregates keyed by entity ID, coarse synchronization on a shared collection serializes unrelated entities and limits throughput.</p>
+      <p>A keyed lock registry maintains one ReentrantLock per active key in a ConcurrentHashMap so threads operating on distinct IDs proceed concurrently while threads targeting the same ID coordinate cleanly.</p>
+      <pre class="code-block"><code>ReentrantLock lock = locks.computeIfAbsent(key, k -&gt; new ReentrantLock());
+lock.lock();
+try {
+    work.run();
+} finally {
+    lock.unlock();
+}</code></pre>
+    </section>
+    <section class="article-section">
+      <h2>Preventing Deadlocks Across Multiple Keys</h2>
+      <p>If Thread A locks entity 10 then 20 while Thread B locks 20 then 10, lock-order inversion triggers a classic deadlock.</p>
+      <p>Sorting keys canonically before acquisition establishes a strict global total order across threads. Because ReentrantLock is reentrant per thread, deduplicating identical keys or acquiring in ascending comparable order eliminates two-key cycles.</p>
+    </section>
+    <section class="article-section">
+      <h2>Engineering Trade-offs</h2>
+      <ul class="bullet-list">
+        <li>Per-key in-memory locks avoid database round-trips for single-JVM coordination, but provide zero protection across multiple application replicas (distributed workloads require database row locks or external leases).</li>
+        <li>Keeping lock entries forever leaks memory on unbounded ID spaces, whereas eager eviction introduces race conditions if not synchronized atomically with reference counts.</li>
+      </ul>
+    </section>
+    <section class="article-section">
+      <h2>Limitations &amp; Boundaries</h2>
+      <ul class="bullet-list">
+        <li>In public stden/EntityLocker, CountLock maintains an enter counter separately from map removal, creating a documented non-atomic race under simultaneous acquire and eviction.</li>
+        <li>EntityLocker includes JUnit 4 tests in src/test/java/EntityLockerTest.java but does not yet configure an automated GitHub Actions CI workflow.</li>
+      </ul>
+    </section>
+    <section class="article-section">
+      <h2>Reproducible Verification</h2>
+      <p>Clone stden/EntityLocker and run its Maven/JUnit test suite locally under two concurrent stress scenarios (same-key contention vs swapped multi-key acquisition).</p>
+      <pre class="code-block"><code>git clone https://github.com/stden/EntityLocker.git
+cd EntityLocker &amp;&amp; mvn test</code></pre>
+    </section>
+    <section class="article-section">
+      <h2>Public References</h2>
+      <ul class="bullet-list">
+        <li><a href="https://github.com/stden/EntityLocker" target="_blank" rel="noopener noreferrer">https://github.com/stden/EntityLocker</a></li>
+        <li><a href="https://github.com/stden/EntityLocker/blob/main/src/test/java/EntityLockerTest.java" target="_blank" rel="noopener noreferrer">https://github.com/stden/EntityLocker/blob/main/src/test/java/EntityLockerTest.java</a></li>
+      </ul>
+    </section>
+  </div>
+</section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
+    <div class="footer-links">
+      <a href="../../index.html">Portfolio</a>
+      <a href="../../cv/">All CV versions</a>
+      <a href="../../roles/" hreflang="en">Role Alignment</a>
+      <a href="../../articles/" hreflang="en">Technical Articles</a>
+      <a href="../../llms.txt">llms.txt</a>
+      <a href="../../candidate.json">JSON</a>
+      <a href="../../resume.md">Markdown</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>
