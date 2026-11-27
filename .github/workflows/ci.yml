@@ -1,0 +1,61 @@
+name: CV
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build pages, diagrams and PDFs
+        run: npm run build
+
+      - name: Committed HTML and SVG match a fresh build
+        # PDFs are excluded: Chromium writes a creation date into each file.
+        run: |
+          changes="$(git status --porcelain -- . ':!downloads' ':!test-results')"
+          if [ -n "$changes" ]; then
+            echo "The generated files are out of date. Run npm run build and commit the result:"
+            echo "$changes"
+            git diff --stat -- . ':!downloads'
+            exit 1
+          fi
+
+      - name: Install poppler for PDF tests
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Unit tests
+        run: npm run test:unit
+
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Browser tests
+        run: npm run test:e2e
+
+      - name: Keep test output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-site-and-test-output
+          path: |
+            downloads/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 14

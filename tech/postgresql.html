@@ -1,47 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>PostgreSQL - Denis Stepulenok CV</title>
-  <meta content="Open-source relational database used for application back ends." name="description">
-  <link href="../favicon.ico" rel="shortcut icon">
-  <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet">
-  <link href="../assets/css/style.css" id="theme-style" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PostgreSQL — skills | Denis Stepulenok</title>
+<meta name="description" content="Open-source relational database used for application back ends.">
+<meta name="author" content="Denis Stepulenok">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://stden.github.io/CV/tech/postgresql.html">
+<meta property="og:site_name" content="Denis Stepulenok">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostgreSQL — skills | Denis Stepulenok">
+<meta property="og:description" content="Open-source relational database used for application back ends.">
+<meta property="og:url" content="https://stden.github.io/CV/tech/postgresql.html">
+<meta property="og:image" content="https://stden.github.io/CV/assets/images/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PostgreSQL — skills | Denis Stepulenok">
+<meta name="twitter:description" content="Open-source relational database used for application back ends.">
+<meta name="twitter:image" content="https://stden.github.io/CV/assets/images/social-card.png">
+<link rel="icon" href="../favicon.ico">
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('cv-theme');
+    if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+  } catch (error) {}
+})();
+</script>
+
 </head>
-
-<body>
-<div class="container tech-page">
-  <p><a href="../index.html">&larr; Back to CV</a></p>
-  <div class="tech-header"><img alt="" class="tech-logo" src="../assets/images/tech/postgresql.svg"><h1>PostgreSQL</h1></div>
-  <p class="lead">Open-source relational database used for application back ends.</p>
-
-  <h2>How it works</h2>
-  <ol class="flow">
-    <li>Client query</li>
-    <li>Parser</li>
-    <li>Planner</li>
-    <li>Executor</li>
-    <li>Table storage (MVCC)</li>
-  </ol>
-
-  <h2>Capabilities</h2>
-  <ul>
-    <li>Relational schemas with constraints, indexes and MVCC transactions</li>
-    <li>JSON and array column types</li>
-    <li>Extensions such as pgvector for embeddings and vector search</li>
-    <li>Access from Java through JDBC and JPA, and from Python</li>
-  </ul>
-
-  <h2>Where I used it</h2>
-  <ul>
-    <li>Kuehne+Nagel (2018 - now): PostgreSQL alongside Oracle for iOPM</li>
-    <li>Public examples: PostgreSQL usage notes</li>
-  </ul>
-
-  <p><a href="https://www.postgresql.org" target="_blank" rel="noopener">Official site</a></p>
-</div>
+<body class="page-tech">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="../">Denis Stepulenok</a>
+    <nav aria-label="Sections">
+        <a href="../#overview">Overview</a>
+        <a href="../#experience">Experience</a>
+        <a href="../#projects">Projects</a>
+        <a href="../#skills">Skills</a>
+        <a href="../#architecture">Architecture</a>
+        <a href="../#education">Education</a>
+        <a href="../#contact">Contact</a>
+    </nav>
+    <div class="site-header__actions">
+      <a class="button button--primary" href="../downloads/Denis-Stepulenok-Full-CV.pdf" download>Download CV</a>
+      <button type="button" class="icon-button js-only" data-theme-toggle aria-label="Switch to dark theme">
+        <span aria-hidden="true">◐</span>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<article class="tech-page">
+  <div class="container tech-page__inner">
+    <p><a class="text-link" href="../#skills">← Back to skills</a></p>
+    <header class="tech-header"><img class="tech-logo" alt="" width="48" height="48" src="../assets/images/tech/postgresql.svg"><h1>PostgreSQL</h1></header>
+    <p class="lead">Open-source relational database used for application back ends.</p>
+    <section aria-labelledby="flow-title">
+      <h2 id="flow-title">How it works</h2>
+      <ol class="flow">
+      <li>Client query</li>
+      <li>Parser</li>
+      <li>Planner</li>
+      <li>Executor</li>
+      <li>Table storage (MVCC)</li>
+      </ol>
+    </section>
+    <section aria-labelledby="capabilities-title">
+      <h2 id="capabilities-title">Capabilities</h2>
+      <ul>
+      <li>Relational schemas with constraints, indexes and MVCC transactions</li>
+      <li>JSON and array column types</li>
+      <li>Extensions such as pgvector for embeddings and vector search</li>
+      <li>Access from Java through JDBC and JPA, and from Python</li>
+      </ul>
+    </section>
+    <section aria-labelledby="used-title">
+      <h2 id="used-title">Where I used it</h2>
+      <ul>
+      <li>Kuehne+Nagel (2018 - now): PostgreSQL alongside Oracle for iOPM</li>
+      <li>Public examples: PostgreSQL usage notes</li>
+      </ul>
+    </section>
+    <p><a class="text-link" href="https://www.postgresql.org" rel="noopener">Official site</a></p>
+  </div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>Last updated 2026-11-27. Source: <a href="https://github.com/stden/CV" rel="noopener">github.com/stden/CV</a>.
+    Plain HTML and CSS, generated by <code>npm run build</code>.</p>
+    <p><a href="../cv/full/">Full CV online</a> · <a href="../downloads/Denis-Stepulenok-Full-CV.pdf" download>Full CV as PDF</a></p>
+  </div>
+</footer>
+<script src="../assets/js/site.js" defer></script>
 </body>
 </html>

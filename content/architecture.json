@@ -1,0 +1,193 @@
+{
+  "diagrams": [
+    {
+      "id": "xml-transformation-pipeline",
+      "title": "Event-driven XML processing",
+      "label": "XML transformation pipeline: RabbitMQ queues, routing, XSLT transformation and failure handling",
+      "summary": "Messages are routed and transformed asynchronously. Plugins extend the transformation without restarting the service.",
+      "components": [
+        {
+          "title": "Upstream systems",
+          "detail": "Send XML requests through RabbitMQ",
+          "role": "Producers of XML requests."
+        },
+        {
+          "title": "Request queue",
+          "detail": "Messages wait until a worker takes them",
+          "role": "Decouples producers from processing; messages are not processed inline."
+        },
+        {
+          "title": "Router",
+          "detail": "Picks the destination queue per message",
+          "role": "Routing is a separate step, so it can change without touching transformations."
+        },
+        {
+          "title": "XSLT transformer",
+          "detail": "XSLT (Saxon) with Java extension functions",
+          "role": "Transforms the message. Each plugin jar has its own classloader."
+        },
+        {
+          "title": "Destination queues",
+          "detail": "Transformed messages are passed on",
+          "role": "Delivery to the consuming systems."
+        },
+        {
+          "title": "Failure path",
+          "detail": "Failed messages are kept, not dropped",
+          "role": "Failure handling: a message that cannot be processed is not lost."
+        }
+      ],
+      "concepts": [
+        "delivery-guarantees",
+        "failure-handling"
+      ]
+    },
+    {
+      "id": "document-link-gateway",
+      "title": "Secure document delivery and distributed background processing",
+      "label": "Document link flow: link service, database, background downloader, local file store and stateless gateway",
+      "summary": "Time-limited, encrypted links let a gateway serve documents without a lookup. Background jobs keep the local store in step with link lifetimes.",
+      "components": [
+        {
+          "title": "Business application",
+          "detail": "Requests a time-limited link to a document",
+          "role": "The caller; it never receives the remote document location."
+        },
+        {
+          "title": "Link service",
+          "detail": "Issues AES-GCM links with their own expiry",
+          "role": "Creates links. The expiry is part of the encrypted link."
+        },
+        {
+          "title": "PostgreSQL",
+          "detail": "Stores link records",
+          "role": "The record of issued links, used by background jobs."
+        },
+        {
+          "title": "Background downloader",
+          "detail": "Fetches the document into the local store",
+          "role": "Runs outside the request path."
+        },
+        {
+          "title": "Local file store",
+          "detail": "Holds documents until their links expire",
+          "role": "The cache that background jobs keep consistent."
+        },
+        {
+          "title": "Link gateway",
+          "detail": "Decrypts the link and streams the document",
+          "role": "Stateless: it validates the link itself and needs no database lookup."
+        },
+        {
+          "title": "Scheduled jobs",
+          "detail": "Remove expired documents on each scheduler",
+          "role": "Keep the cache consistent with link lifetimes."
+        }
+      ],
+      "concepts": [
+        "security",
+        "cache-consistency",
+        "distributed-coordination"
+      ]
+    },
+    {
+      "id": "messenger-archive-search",
+      "title": "Semantic search and MCP integration",
+      "label": "Messenger archive: sync, transcription, Qdrant index and MCP search",
+      "summary": "A personal project. Sync, transcription and indexing run as separate workers, and an MCP server exposes search to LLM agents.",
+      "components": [
+        {
+          "title": "Messenger account",
+          "detail": "History is fetched over the MTProto API",
+          "role": "The source of messages."
+        },
+        {
+          "title": "Sync service (Rust)",
+          "detail": "Backs off on flood-wait; bounded retries",
+          "role": "Writes messages and chats to PostgreSQL."
+        },
+        {
+          "title": "PostgreSQL",
+          "detail": "Messages, chats and the transcription queue",
+          "role": "The system of record for the archive."
+        },
+        {
+          "title": "Transcription worker (Python)",
+          "detail": "Claims rows with SKIP LOCKED; runs Whisper",
+          "role": "Lets several workers share one queue."
+        },
+        {
+          "title": "Indexer (Rust)",
+          "detail": "Batched embeddings; checkpoint after upserts",
+          "role": "Builds the vector index."
+        },
+        {
+          "title": "Qdrant",
+          "detail": "Vectors with deterministic UUIDv5 point IDs",
+          "role": "Stores embeddings; the same message always maps to the same point."
+        },
+        {
+          "title": "MCP server",
+          "detail": "Search over stdio and HTTP for LLM agents",
+          "role": "The interface for LLM agents."
+        }
+      ],
+      "concepts": [
+        "idempotency",
+        "eventual-consistency",
+        "distributed-coordination",
+        "failure-handling"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "idempotency",
+      "title": "Idempotency",
+      "text": "Repeating an operation leaves the same result. Deterministic UUIDv5 point IDs mean a retried index step overwrites the same points instead of creating duplicates.",
+      "where": "Messenger archive"
+    },
+    {
+      "id": "eventual-consistency",
+      "title": "Eventual consistency",
+      "text": "No single transaction spans PostgreSQL, Qdrant and the checkpoint. The systems converge because each write can be retried safely.",
+      "where": "Messenger archive"
+    },
+    {
+      "id": "delivery-guarantees",
+      "title": "Message delivery guarantees",
+      "text": "A message that fails is kept for handling, not dropped. A retry can deliver the same message twice, so consumers must be idempotent.",
+      "where": "XML transformation pipeline"
+    },
+    {
+      "id": "failure-handling",
+      "title": "Failure handling",
+      "text": "Failures are handled on purpose: rate limits trigger backoff, retries are bounded, and failed messages have their own path.",
+      "where": "XML pipeline, messenger archive"
+    },
+    {
+      "id": "distributed-coordination",
+      "title": "Distributed coordination",
+      "text": "Workers coordinate through the database instead of a central scheduler. SKIP LOCKED lets several transcription workers share one queue without taking the same row twice. Several schedulers keep the document cache consistent.",
+      "where": "Messenger archive, document gateway"
+    },
+    {
+      "id": "cache-consistency",
+      "title": "Cache consistency",
+      "text": "The local document store follows link lifetimes, so cached files are removed when the links that need them expire.",
+      "where": "Document link gateway"
+    },
+    {
+      "id": "observability",
+      "title": "Observability",
+      "text": "Operations need metrics and checks. The public Telegram automation toolkit exports Prometheus metrics for its CLI commands and includes an HTTP benchmark and a site availability monitor.",
+      "where": "Public project: pythorust_tg"
+    },
+    {
+      "id": "security",
+      "title": "Security",
+      "text": "Document links are AES-GCM encrypted and time-limited. The gateway checks the link itself, so access ends at the expiry time that the link carries.",
+      "where": "Document link gateway"
+    }
+  ]
+}

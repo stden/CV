@@ -2,3 +2,6 @@
 .idea
 node_modules
 *.log
+# Browser test output (screenshots, traces, reports)
+test-results/
+playwright-report/
