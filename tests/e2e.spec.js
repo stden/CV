@@ -8,6 +8,7 @@ const CANONICAL = 'https://stden.github.io/CV/';
 const SCREENSHOT_DIR = path.resolve(__dirname, '..', 'docs', 'screenshots');
 const VIEWPORTS = [375, 390, 768, 1024, 1440, 1920];
 const SECTIONS = ['overview', 'experience', 'projects', 'skills', 'architecture', 'education', 'contact'];
+const HOME_SECTIONS = ['overview', 'experience', 'skills', 'projects', 'contact'];
 const GENERAL_PDF = 'Denis-Stepulenok-Senior-Software-Engineer.pdf';
 const VARIANTS = [
     { slug: 'general', pdf: GENERAL_PDF },
@@ -62,7 +63,7 @@ for (const width of VIEWPORTS) {
         await expect(download).toBeVisible();
         await expect(download).toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
         await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
-        await expect(page.locator('#contact').getByRole('link', { name: 'Download General CV', exact: true }))
+        await expect(page.locator('#contact').getByRole('link', { name: 'Download CV (PDF)', exact: true }))
             .toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
 
         await page.evaluate(async () => {
@@ -103,16 +104,18 @@ test('navigation, mobile menu, earlier roles disclosure, skills filter, theme sw
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(HOME);
 
-    for (const id of SECTIONS) {
+    for (const id of HOME_SECTIONS) {
         await expect(page.locator(`#${id}`)).toBeAttached();
     }
 
-    // Earlier experience expandable <details>
+    // Earlier experience expandable <details> lives on the experience page
+    await page.goto(`${HOME}experience/index.html`);
     const firstCompact = page.locator('details.compact-role').first();
     await firstCompact.locator('summary').click();
     await expect(firstCompact).toHaveAttribute('open', '');
 
-    // Skill tier filter and zero percentage bars
+    // Skill tier filter lives on the skills page; no percentage bars anywhere
+    await page.goto(`${HOME}skills/index.html`);
     await expect(page.locator('.level-bar-inner')).toHaveCount(0);
     const personalFilter = page.getByRole('button', { name: 'Personal', exact: true });
     await personalFilter.click();
@@ -130,9 +133,8 @@ test('navigation, mobile menu, earlier roles disclosure, skills filter, theme sw
     await themeBtn.click();
     await expect(page.locator('html')).not.toHaveAttribute('data-theme', 'dark');
 
-    // Copy email action + contact links
-    await page.getByRole('button', { name: 'Copy Email Address' }).click();
-    await expect(page.locator('#copy-email-status')).toContainText('super.denis@gmail.com');
+    // Contact links on the homepage
+    await page.goto(HOME);
     await expect(page.locator('#contact a[href="mailto:super.denis@gmail.com"]')).toBeVisible();
     await expect(page.locator('#contact a[href*="linkedin.com"]')).toBeVisible();
     await expect(page.locator('#contact a[href="https://github.com/stden"]')).toBeVisible();
@@ -160,6 +162,7 @@ test('interactive architecture tabs and component inspector update cleanly', asy
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(HOME);
 
+    await page.goto(`${HOME}architecture/index.html`);
     const archSection = page.locator('#architecture');
     await archSection.scrollIntoViewIfNeeded();
 
@@ -241,6 +244,7 @@ test('content and downloads remain usable with JavaScript disabled', async ({ br
         await expect(page.getByRole('heading', { level: 1 })).toHaveText('Denis Stepulenok');
         await expect(page.locator('#experience')).toContainText('Kuehne+Nagel');
         await expect(page.locator('#overview a[download]')).toBeVisible();
+        await page.goto(`${HOME}experience/index.html`);
         const details = page.locator('details.compact-role').first();
         await details.locator('summary').click();
         await expect(details).toHaveAttribute('open', '');

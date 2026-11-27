@@ -80,12 +80,12 @@ function renderHero(data) {
       <h1 class="hero-name">${escapeHtml(profile.name)}</h1>
       <p class="hero-role">${escapeHtml(profile.title)}</p>${availabilityHtml}
       <p class="hero-summary">${escapeHtml(profile.summary)}</p>
+      <p class="hero-intro">${escapeHtml(profile.homeIntro)}</p>
+      <p class="hero-languages">Languages: ${data.languages.map((l) => `${escapeHtml(l.name)} (${escapeHtml(l.level)})`).join(', ')}</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data))}" download>Download CV (PDF)</a>
-        <a class="btn btn-secondary" href="#contact">Contact</a>
         <a class="btn btn-ghost" href="${escapeHtml(profile.contact.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="btn btn-ghost" href="${escapeHtml(profile.contact.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn btn-ghost" href="cv/index.html">Targeted CVs</a>
       </div>
       <ul class="badge-list" aria-label="Core technologies">
         ${badges}
@@ -98,27 +98,7 @@ function renderHero(data) {
 </section>`;
 }
 
-function renderExpertise(data) {
-    const cards = data.expertise.map((card) => `      <article class="card">
-        <h3 class="card-title">${escapeHtml(card.title)}</h3>
-        <p class="card-body">${escapeHtml(card.description)}</p>
-      </article>`).join('\n');
-
-    return `<section class="section section-alt" aria-labelledby="expertise-heading">
-  <div class="container">
-    <div class="section-header">
-      <p class="section-eyebrow">Core Capabilities</p>
-      <h2 id="expertise-heading" class="section-title">Key Engineering Expertise</h2>
-      <p class="section-lead">Backend systems, asynchronous integration, and production reliability built on enterprise Java and polyglot tooling.</p>
-    </div>
-    <div class="expertise-grid">
-${cards}
-    </div>
-  </div>
-</section>`;
-}
-
-function renderExperience(data, techLookup) {
+function renderExperience(data, techLookup, depth = 0) {
     const primary = data.experience.filter((r) => !r.compact);
     const earlier = data.experience.filter((r) => r.compact);
 
@@ -131,7 +111,7 @@ function renderExperience(data, techLookup) {
         const additionalBlock = role.additionalTechnologies?.length
             ? `<div class="tech-group">
             <span class="tech-group-label">Additional role technologies</span>
-            <ul class="badge-list">${renderTechChips(role.additionalTechnologies, techLookup, 0)}</ul>
+            <ul class="badge-list">${renderTechChips(role.additionalTechnologies, techLookup, depth)}</ul>
           </div>`
             : '';
 
@@ -147,7 +127,7 @@ ${bullets}
         </ul>
         <div class="tech-group">
           <span class="tech-group-label">Primary technologies in role</span>
-          <ul class="badge-list">${renderTechChips(role.projectTechnologies, techLookup, 0)}</ul>
+          <ul class="badge-list">${renderTechChips(role.projectTechnologies, techLookup, depth)}</ul>
         </div>
         ${additionalBlock}
       </article>`;
@@ -172,7 +152,7 @@ ${bullets}
             <ul class="bullet-list">
 ${bullets}
             </ul>
-            <ul class="badge-list">${renderTechChips(role.projectTechnologies, techLookup, 0)}</ul>
+            <ul class="badge-list">${renderTechChips(role.projectTechnologies, techLookup, depth)}</ul>
           </div>
         </details>`;
     }).join('\n');
@@ -197,7 +177,7 @@ ${earlierHtml}
 </section>`;
 }
 
-function renderProjects(data) {
+function renderProjects(data, depth = 0) {
     const casesHtml = data.caseStudies.map((cs) => {
         const scopeClass = cs.scopeType === 'personal' ? 'case-scope case-scope-personal' : 'case-scope';
         const stackBadges = cs.stack.map((s) => `<li><span class="badge">${escapeHtml(s)}</span></li>`).join('');
@@ -226,7 +206,7 @@ function renderProjects(data) {
             </div>
           </div>
           <div class="case-diagram-box">
-            <img src="assets/images/projects/${escapeHtml(cs.diagramSlug)}.svg" alt="${escapeHtml(cs.title)} architecture flow diagram" loading="lazy" width="420" height="580">
+            <img src="${relPrefix(depth)}assets/images/projects/${escapeHtml(cs.diagramSlug)}.svg" alt="${escapeHtml(cs.title)} architecture flow diagram" loading="lazy" width="420" height="580">
             <p class="case-diagram-caption"><a href="#architecture">Inspect interactive component breakdown &rarr;</a></p>
           </div>
         </div>
@@ -276,7 +256,7 @@ ${reposHtml}
 </section>`;
 }
 
-function renderArchitecture(data) {
+function renderArchitecture(data, depth = 0) {
     const tabsHtml = data.architectureDiagrams.map((d, idx) => `      <button type="button" class="arch-tab" role="tab" aria-selected="${idx === 0 ? 'true' : 'false'}" aria-controls="arch-panel-${escapeHtml(d.slug)}" id="arch-tab-${escapeHtml(d.slug)}" data-arch-tab="${escapeHtml(d.slug)}">${escapeHtml(d.tabTitle)}</button>`).join('\n');
 
     const panelsHtml = data.architectureDiagrams.map((d, idx) => {
@@ -350,7 +330,7 @@ ${conceptsHtml}
 </section>`;
 }
 
-function renderSkills(data) {
+function renderSkills(data, depth = 0) {
     const tierLabels = {
         core: 'Core professional',
         additional: 'Additional professional',
@@ -361,7 +341,7 @@ function renderSkills(data) {
         const itemsHtml = cat.items.map((item) => {
             const cls = `tier-pill tier-${escapeHtml(item.tier)}`;
             const inner = item.techSlug
-                ? `<a class="${cls}" href="tech/${escapeHtml(item.techSlug)}.html">${escapeHtml(item.name)}</a>`
+                ? `<a class="${cls}" href="${relPrefix(depth)}tech/${escapeHtml(item.techSlug)}.html">${escapeHtml(item.name)}</a>`
                 : `<span class="${cls}">${escapeHtml(item.name)}</span>`;
             return `          <li data-tier="${escapeHtml(item.tier)}">${inner}</li>`;
         }).join('\n');
@@ -433,52 +413,100 @@ ${eduCards}
 </section>`;
 }
 
-function renderContact(data) {
-    const { contact } = data.profile;
-    const variantCards = data.variants.map((v) => `      <article class="variant-card">
-        <div>
-          <h3>${escapeHtml(v.shortLabel)}</h3>
-          <p>${escapeHtml(v.targetAudience)}</p>
-        </div>
-        <div class="variant-actions">
-          <a class="btn btn-secondary btn-sm" href="cv/${escapeHtml(v.slug)}.html">View CV</a>
-          <a class="btn btn-primary btn-sm" href="assets/pdf/${escapeHtml(v.pdfFilename)}" download>PDF</a>
-        </div>
-      </article>`).join('\n');
+const HOME_EXPERIENCE_IDS = ['kuehne-nagel', 'taxify-bolt', 'oracle'];
 
-    return `<section id="contact" class="section section-alt" aria-labelledby="contact-heading">
+function renderHomeExperience(data) {
+    const roles = HOME_EXPERIENCE_IDS.map((id) => data.experience.find((r) => r.id === id)).filter(Boolean);
+    const items = roles.map((role) => {
+        const companyLabel = role.url
+            ? `<a href="${escapeHtml(role.url)}" rel="noopener noreferrer">${escapeHtml(role.company)}</a>`
+            : escapeHtml(role.company);
+        const bullets = role.homeBullets.map((b) => `          <li>${escapeHtml(b)}</li>`).join('\n');
+        return `      <article class="home-role">
+        <div class="role-header">
+          <h3 class="role-title">${escapeHtml(role.role)}</h3>
+          <span class="role-period">${escapeHtml(role.period)}</span>
+        </div>
+        <p class="role-company">${companyLabel} &middot; ${escapeHtml(role.location)}</p>
+        <p class="role-summary">${escapeHtml(role.homeSummary)}</p>
+        <ul class="bullet-list">
+${bullets}
+        </ul>
+        <p class="tech-list"><strong>Technologies:</strong> ${role.projectTechnologies.slice(0, 8).map(escapeHtml).join(', ')}</p>
+      </article>`;
+    }).join('\n');
+
+    return `<section id="experience" class="section" aria-labelledby="experience-heading">
   <div class="container">
-    <div class="contact-panel">
-      <p class="section-eyebrow">Recruiter &amp; Hiring Contact</p>
-      <h2 id="contact-heading" class="section-title">Get in Touch &amp; Download CVs</h2>
-      <p class="section-lead">Based in ${escapeHtml(data.profile.location)}. Direct contact channels and role-specific ATS-friendly PDF resumes generated from a single verified profile.</p>
-      <div class="contact-actions">
-        <a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data))}" download>Download General CV</a>
-        <a class="btn btn-secondary" href="mailto:${escapeHtml(contact.email)}">Send Email</a>
-        <button type="button" class="btn btn-secondary" data-copy-email="${escapeHtml(contact.email)}" data-status-target="copy-email-status">Copy Email Address</button>
-        <a class="btn btn-ghost" href="${escapeHtml(contact.linkedin)}" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
-        <a class="btn btn-ghost" href="${escapeHtml(contact.github)}" target="_blank" rel="noopener noreferrer">View GitHub</a>
-        <a class="btn btn-ghost" href="${escapeHtml(contact.telegram)}" target="_blank" rel="noopener noreferrer">Telegram (${escapeHtml(contact.telegramHandle)})</a>
-      </div>
-      <p id="copy-email-status" class="copy-status" aria-live="polite"></p>
+    <h2 id="experience-heading" class="section-title">Professional Experience</h2>
+    <p class="section-lead">The three most recent roles. Earlier roles and full responsibilities are on the experience page.</p>
+    <div class="home-roles">
+${items}
     </div>
-    <div class="variants-grid" aria-label="CV versions">
-${variantCards}
-    </div>
+    <p class="section-more"><a class="btn btn-ghost btn-sm" href="experience/index.html">Full employment history</a></p>
   </div>
 </section>`;
 }
 
-function renderHomePage(data, techLookup) {
+function renderHomeSkills(data) {
+    const groups = data.profile.coreSkillGroups.map((group) => `      <div class="skill-group-home">
+        <h3 class="skill-group-title">${escapeHtml(group.title)}</h3>
+        <p class="muted">${escapeHtml(group.description)}</p>
+        <ul class="badge-list" aria-label="${escapeHtml(group.title)} skills">${group.items.map((s) => `<li><span class="badge">${escapeHtml(s)}</span></li>`).join('')}</ul>
+      </div>`).join('\n');
+    return `<section id="skills" class="section section-alt" aria-labelledby="skills-heading">
+  <div class="container">
+    <h2 id="skills-heading" class="section-title">Core Skills</h2>
+    <p class="section-lead">Grouped by area. Each skill is labelled by where it was used on the skills page.</p>
+${groups}
+    <p class="section-more"><a class="btn btn-ghost btn-sm" href="skills/index.html">All skills and evidence</a></p>
+  </div>
+</section>`;
+}
+
+function renderHomeProjects(data) {
+    const items = data.githubProjects.filter((g) => g.featured).map((g) => `      <article class="home-project">
+        <h3 class="case-title"><a href="${escapeHtml(g.url)}" rel="noopener noreferrer">${escapeHtml(g.name)}</a></h3>
+        <p>${escapeHtml(g.homeSummary)}</p>
+        <p class="role-company">${escapeHtml(g.language)} &middot; Stack: ${g.homeStack.map(escapeHtml).join(', ')} &middot; CI: ${escapeHtml(g.ciStatus)}</p>
+      </article>`).join('\n');
+
+    return `<section id="projects" class="section section-alt" aria-labelledby="projects-heading">
+  <div class="container">
+    <h2 id="projects-heading" class="section-title">Selected Projects</h2>
+    <p class="section-lead">Independent work in Java, Rust and Python. The repositories are public; the case studies and architecture diagrams are on the projects and architecture pages. Each card shows the stack and the CI status.</p>
+    <div class="home-projects">
+${items}
+    </div>
+    <p class="section-more"><a class="btn btn-ghost btn-sm" href="projects/index.html">All projects and case studies</a></p>
+  </div>
+</section>`;
+}
+
+function renderHomeContact(data) {
+    const { contact } = data.profile;
+    return `<section id="contact" class="section" aria-labelledby="contact-heading">
+  <div class="container">
+    <h2 id="contact-heading" class="section-title">Contact</h2>
+    <p class="section-lead">Based in ${escapeHtml(data.profile.location)}. Email is the quickest way to reach me.</p>
+    <ul class="contact-list">
+      <li><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></li>
+      <li><a href="${escapeHtml(contact.linkedin)}" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="${escapeHtml(contact.github)}" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="${escapeHtml(contact.telegram)}" rel="noopener noreferrer">Telegram ${escapeHtml(contact.telegramHandle)}</a></li>
+    </ul>
+    <p class="actions"><a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data))}" download>Download CV (PDF)</a> <a class="btn btn-ghost" href="cv/index.html">CV versions for specific roles</a></p>
+  </div>
+</section>`;
+}
+
+function renderHomePage(data) {
     const bodyHtml = [
         renderHero(data),
-        renderExpertise(data),
-        renderExperience(data, techLookup),
-        renderProjects(data),
-        renderArchitecture(data),
-        renderSkills(data),
-        renderEducation(data),
-        renderContact(data),
+        renderHomeExperience(data),
+        renderHomeSkills(data),
+        renderHomeProjects(data),
+        renderHomeContact(data),
     ].join('\n');
 
     const jsonLd = {
@@ -492,31 +520,9 @@ function renderHomePage(data, techLookup) {
                 description: data.profile.summary,
                 url: `${data.site.baseUrl}/`,
                 image: `${data.site.baseUrl}/${data.profile.photo}`,
-                email: `mailto:${data.profile.contact.email}`,
-                address: {
-                    '@type': 'PostalAddress',
-                    addressLocality: 'Tallinn',
-                    addressCountry: 'EE',
-                },
-                sameAs: [
-                    data.profile.contact.github,
-                    data.profile.contact.linkedin,
-                    data.profile.contact.telegram,
-                ],
-                knowsAbout: [
-                    'Java',
-                    'Spring Boot',
-                    'Distributed Systems',
-                    'RabbitMQ',
-                    'Apache Kafka',
-                    'PostgreSQL',
-                    'Oracle Database',
-                    'Docker',
-                    'Kubernetes',
-                    'Python',
-                    'Rust',
-                    'Model Context Protocol',
-                ],
+                address: { '@type': 'PostalAddress', addressLocality: 'Tallinn', addressCountry: 'EE' },
+                sameAs: [data.profile.contact.github, data.profile.contact.linkedin, data.profile.contact.telegram],
+                knowsAbout: data.profile.coreSkillGroups.flatMap((group) => group.items),
             },
             {
                 '@type': 'ProfilePage',
@@ -537,6 +543,66 @@ function renderHomePage(data, techLookup) {
         jsonLd,
         bodyHtml,
     });
+}
+
+// Secondary pages keep the full detail. They share the homepage frame and navigation.
+function renderSubPage(data, { slug, title, lead, bodyHtml }) {
+    const header = `<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">${escapeHtml(title)}</h1>
+    <p class="section-lead">${escapeHtml(lead)}</p>
+  </div>
+</header>`;
+    return renderDocument(data, {
+        depth: 1,
+        title: `${title} | ${data.profile.name}`,
+        description: lead,
+        canonicalPath: `${slug}/`,
+        ogType: 'website',
+        jsonLd: null,
+        bodyHtml: header + bodyHtml,
+    });
+}
+
+function renderSecondaryPages(data, techLookup) {
+    return [
+        {
+            dir: 'experience',
+            html: renderSubPage(data, {
+                slug: 'experience',
+                title: 'Experience',
+                lead: 'Full employment history with responsibilities and technologies by role.',
+                bodyHtml: renderExperience(data, techLookup, 1) + renderEducation(data),
+            }),
+        },
+        {
+            dir: 'projects',
+            html: renderSubPage(data, {
+                slug: 'projects',
+                title: 'Projects',
+                lead: 'Case studies and public repositories. Independent work only; no employer systems are described.',
+                bodyHtml: renderProjects(data, 1),
+            }),
+        },
+        {
+            dir: 'skills',
+            html: renderSubPage(data, {
+                slug: 'skills',
+                title: 'Skills',
+                lead: 'The complete skills catalogue. Each skill is labelled by where it was used.',
+                bodyHtml: renderSkills(data, 1),
+            }),
+        },
+        {
+            dir: 'architecture',
+            html: renderSubPage(data, {
+                slug: 'architecture',
+                title: 'Architecture',
+                lead: 'Independent example architectures and the engineering concepts behind them.',
+                bodyHtml: renderArchitecture(data, 1),
+            }),
+        },
+    ];
 }
 
 function renderCvIndexPage(data) {
@@ -723,6 +789,10 @@ function writeDiscoveryFiles(data) {
     const base = data.site.baseUrl;
     const urls = [
         `${base}/`,
+        `${base}/experience/index.html`,
+        `${base}/projects/index.html`,
+        `${base}/skills/index.html`,
+        `${base}/architecture/index.html`,
         `${base}/cv/index.html`,
         ...data.variants.map((v) => `${base}/cv/${v.slug}.html`),
         ...data.technologies.map((t) => `${base}/tech/${t.slug}.html`),
@@ -749,7 +819,12 @@ function main() {
 
     copyFonts();
 
-    fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderHomePage(data, techLookup));
+    fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderHomePage(data));
+
+    for (const page of renderSecondaryPages(data, techLookup)) {
+        fs.mkdirSync(path.join(ROOT_DIR, page.dir), { recursive: true });
+        fs.writeFileSync(path.join(ROOT_DIR, page.dir, 'index.html'), page.html);
+    }
 
     const cvDir = path.join(ROOT_DIR, 'cv');
     fs.mkdirSync(cvDir, { recursive: true });

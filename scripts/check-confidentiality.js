@@ -94,7 +94,8 @@ function collectPublicTextFiles() {
         const p = path.join(ROOT_DIR, rel);
         if (fs.existsSync(p)) files.push(rel);
     }
-    for (const dir of ['cv', 'tech', 'assets/css', 'assets/js', 'assets/images']) {
+    // Every published page and asset directory; new secondary pages must not escape the scan.
+    for (const dir of ['cv', 'tech', 'experience', 'projects', 'skills', 'architecture', 'assets/css', 'assets/js', 'assets/images']) {
         const absDir = path.join(ROOT_DIR, dir);
         if (!fs.existsSync(absDir)) continue;
         const walk = (cur) => {

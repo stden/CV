@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architecture | Denis Stepulenok</title>
+  <meta name="description" content="Independent example architectures and the engineering concepts behind them.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/architecture/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Architecture | Denis Stepulenok">
+  <meta property="og:description" content="Independent example architectures and the engineering concepts behind them.">
+  <meta property="og:url" content="https://stden.github.io/CV/architecture/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Architecture | Denis Stepulenok">
+  <meta name="twitter:description" content="Independent example architectures and the engineering concepts behind them.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../experience/index.html">Experience</a></li>
+        <li><a href="../projects/index.html">Projects</a></li>
+        <li><a href="../skills/index.html">Skills</a></li>
+        <li><a href="../architecture/index.html">Architecture</a></li>
+        <li><a href="../cv/index.html">CVs</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <span class="theme-label">Dark</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
+        Menu
+      </button>
+    </div>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+      <li><a href="../experience/index.html">Experience</a></li>
+      <li><a href="../projects/index.html">Projects</a></li>
+      <li><a href="../skills/index.html">Skills</a></li>
+      <li><a href="../architecture/index.html">Architecture</a></li>
+      <li><a href="../cv/index.html">CVs</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">Architecture</h1>
+    <p class="section-lead">Independent example architectures and the engineering concepts behind them.</p>
+  </div>
+</header><section id="architecture" class="section" aria-labelledby="architecture-heading">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Systems Design</p>
+      <h2 id="architecture-heading" class="section-title">Architecture Portfolio</h2>
+      <p class="section-lead">Interactive component flows based exclusively on independent personal projects, open-source software, and educational reference architectures—unrelated to any employer systems.</p>
+    </div>
+    <div class="arch-tabs" role="tablist" aria-label="Architecture diagrams">
+      <button type="button" class="arch-tab" role="tab" aria-selected="true" aria-controls="arch-panel-messenger-archive-search" id="arch-tab-messenger-archive-search" data-arch-tab="messenger-archive-search">Semantic Search &amp; MCP</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" aria-controls="arch-panel-entity-concurrency-locking" id="arch-tab-entity-concurrency-locking" data-arch-tab="entity-concurrency-locking">Entity Concurrency Locking</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" aria-controls="arch-panel-ref-event-driven-outbox" id="arch-tab-ref-event-driven-outbox" data-arch-tab="ref-event-driven-outbox">Outbox &amp; Idempotent Events</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" aria-controls="arch-panel-ref-async-job-pipeline" id="arch-tab-ref-async-job-pipeline" data-arch-tab="ref-async-job-pipeline">Async Job Queue &amp; Backpressure</button>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-messenger-archive-search" aria-labelledby="arch-tab-messenger-archive-search" data-arch-panel="messenger-archive-search">
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 644" role="group" aria-label="Independent personal project architecture: MTProto sync service in Rust, PostgreSQL queue, Python Whisper worker, batched Rust indexer, Qdrant vector DB, and MCP server">
+  <defs>
+    <marker id="inline-arrow-messenger-archive-search" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="mtproto">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Messenger API (MTProto)</text>
+    <text class="node-detail" x="38" y="68">Source message &amp; voice history</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="rust-sync">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Sync Service (Rust)</text>
+    <text class="node-detail" x="38" y="158">Flood-wait backoff &amp; retries</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="postgres-queue">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. PostgreSQL Store &amp; Queue</text>
+    <text class="node-detail" x="38" y="248">Messages + SKIP LOCKED queue</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="whisper-worker">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Transcription Worker (Python)</text>
+    <text class="node-detail" x="38" y="338">Whisper speech-to-text</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="rust-indexer">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Batch Indexer (Rust)</text>
+    <text class="node-detail" x="38" y="428">Local embeddings + checkpoint</text>
+  </g>
+  <line x1="210" y1="444" x2="210" y2="468" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="qdrant">
+    <rect x="20" y="470" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="497">6. Vector Store (Qdrant)</text>
+    <text class="node-detail" x="38" y="518">Deterministic UUIDv5 point IDs</text>
+  </g>
+  <line x1="210" y1="534" x2="210" y2="558" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="mcp-server">
+    <rect x="20" y="560" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="587">7. MCP Server (stdio / HTTP)</text>
+    <text class="node-detail" x="38" y="608">Read-only agent interface</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Independent personal project (outside employer work)</span>
+            <h3>Semantic Search &amp; MCP Integration</h3>
+            <p class="section-lead">Cross-language personal ingestion pipeline bridging PostgreSQL and Qdrant with idempotent UUIDv5 upserts and read-only MCP tool exposure.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Selected Component</p>
+            <h4 class="card-title" data-field="title">Messenger API (MTProto)</h4>
+            <p class="card-body" data-field="responsibility">Provides incremental message history and voice attachments subject to upstream rate limits.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Engineering Concepts</p>
+            <p class="card-body" data-field="concepts">Failure handling</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Design Trade-off</p>
+            <p class="card-body" data-field="tradeoffs">Rate-limited upstream API requires persistent cursor checkpoints to avoid costly full re-syncs.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Inspect Components (Click or Enter)</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="mtproto" data-node-json="{&quot;title&quot;:&quot;Messenger API (MTProto)&quot;,&quot;responsibility&quot;:&quot;Provides incremental message history and voice attachments subject to upstream rate limits.&quot;,&quot;concepts&quot;:[&quot;Failure handling&quot;],&quot;tradeoffs&quot;:&quot;Rate-limited upstream API requires persistent cursor checkpoints to avoid costly full re-syncs.&quot;}" aria-pressed="true">
+              <strong>1. Messenger API (MTProto)</strong>
+              <span>Provides incremental message history and voice attachments subject to upstream rate limits.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="rust-sync" data-node-json="{&quot;title&quot;:&quot;Sync Service (Rust)&quot;,&quot;responsibility&quot;:&quot;Fetches history with exponential/flood-wait backoff and stores raw messages in PostgreSQL.&quot;,&quot;concepts&quot;:[&quot;Failure handling&quot;,&quot;Idempotency&quot;],&quot;tradeoffs&quot;:&quot;Rust async runtime handles long-running sync sessions with predictable memory footprint.&quot;}" aria-pressed="false">
+              <strong>2. Sync Service (Rust)</strong>
+              <span>Fetches history with exponential/flood-wait backoff and stores raw messages in PostgreSQL.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="postgres-queue" data-node-json="{&quot;title&quot;:&quot;PostgreSQL Store &amp; Queue&quot;,&quot;responsibility&quot;:&quot;Stores canonical chat records and coordinates voice transcription jobs via FOR UPDATE SKIP LOCKED.&quot;,&quot;concepts&quot;:[&quot;Distributed coordination&quot;,&quot;Eventual consistency&quot;],&quot;tradeoffs&quot;:&quot;Using PostgreSQL for both storage and job queuing removes an extra broker dependency at personal scale.&quot;}" aria-pressed="false">
+              <strong>3. PostgreSQL Store &amp; Queue</strong>
+              <span>Stores canonical chat records and coordinates voice transcription jobs via FOR UPDATE SKIP LOCKED.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="whisper-worker" data-node-json="{&quot;title&quot;:&quot;Transcription Worker (Python)&quot;,&quot;responsibility&quot;:&quot;Claims un-transcribed voice attachments and writes transcripts back to PostgreSQL.&quot;,&quot;concepts&quot;:[&quot;Failure handling&quot;,&quot;Idempotency&quot;],&quot;tradeoffs&quot;:&quot;Separating Python ML execution keeps the core Rust sync and indexing paths lightweight.&quot;}" aria-pressed="false">
+              <strong>4. Transcription Worker (Python)</strong>
+              <span>Claims un-transcribed voice attachments and writes transcripts back to PostgreSQL.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="rust-indexer" data-node-json="{&quot;title&quot;:&quot;Batch Indexer (Rust)&quot;,&quot;responsibility&quot;:&quot;Generates local text embeddings in batches and saves the indexing cursor only after upsert confirmation.&quot;,&quot;concepts&quot;:[&quot;Idempotency&quot;,&quot;Eventual consistency&quot;],&quot;tradeoffs&quot;:&quot;Checkpoint-after-upsert avoids distributed 2PC transactions across PostgreSQL and Qdrant.&quot;}" aria-pressed="false">
+              <strong>5. Batch Indexer (Rust)</strong>
+              <span>Generates local text embeddings in batches and saves the indexing cursor only after upsert confirmation.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="qdrant" data-node-json="{&quot;title&quot;:&quot;Vector Store (Qdrant)&quot;,&quot;responsibility&quot;:&quot;Stores semantic embeddings keyed by deterministic UUIDv5 identifiers derived from message identity.&quot;,&quot;concepts&quot;:[&quot;Idempotency&quot;,&quot;Observability&quot;],&quot;tradeoffs&quot;:&quot;Deterministic IDs make replay after crash completely safe without duplicate vector entries.&quot;}" aria-pressed="false">
+              <strong>6. Vector Store (Qdrant)</strong>
+              <span>Stores semantic embeddings keyed by deterministic UUIDv5 identifiers derived from message identity.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="mcp-server" data-node-json="{&quot;title&quot;:&quot;MCP Server (stdio / HTTP)&quot;,&quot;responsibility&quot;:&quot;Exposes semantic search and thread retrieval tools to LLM assistants over Model Context Protocol.&quot;,&quot;concepts&quot;:[&quot;Security&quot;,&quot;Observability&quot;],&quot;tradeoffs&quot;:&quot;Read-only query tools isolate LLM agents from direct database or session credentials.&quot;}" aria-pressed="false">
+              <strong>7. MCP Server (stdio / HTTP)</strong>
+              <span>Exposes semantic search and thread retrieval tools to LLM assistants over Model Context Protocol.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-entity-concurrency-locking" aria-labelledby="arch-tab-entity-concurrency-locking" data-arch-panel="entity-concurrency-locking" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 464" role="group" aria-label="Open-source Java library EntityLocker: caller threads, lock registry, per-ID lock entry, protected critical section, and lock reclamation">
+  <defs>
+    <marker id="inline-arrow-entity-concurrency-locking" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="caller-threads">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Concurrent Caller Threads</text>
+    <text class="node-detail" x="38" y="68">Request work for Entity ID</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="lock-registry">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Concurrent Lock Registry</text>
+    <text class="node-detail" x="38" y="158">ConcurrentHashMap&lt;ID, Entry&gt;</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="entity-lock">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Per-ID Reentrant Lock</text>
+    <text class="node-detail" x="38" y="248">Mutual exclusion &amp; timeout</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="critical-section">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Protected Critical Section</text>
+    <text class="node-detail" x="38" y="338">Cache / repository mutation</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="reclaim">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Reference-Safe Eviction</text>
+    <text class="node-detail" x="38" y="428">Reclaims idle lock entries</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Open-source Java project (github.com/stden/EntityLocker)</span>
+            <h3>Fine-Grained Entity Concurrency Locking (EntityLocker)</h3>
+            <p class="section-lead">Public Java concurrency design providing row-level mutual exclusion keyed by entity identifier without blocking unrelated keys.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Selected Component</p>
+            <h4 class="card-title" data-field="title">Concurrent Caller Threads</h4>
+            <p class="card-body" data-field="responsibility">Multiple application threads contend on reads or mutations identified solely by generic entity IDs.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Engineering Concepts</p>
+            <p class="card-body" data-field="concepts">Distributed coordination</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Design Trade-off</p>
+            <p class="card-body" data-field="tradeoffs">Key-based locking preserves parallelism across distinct entities compared to coarse class-level locks.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Inspect Components (Click or Enter)</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="caller-threads" data-node-json="{&quot;title&quot;:&quot;Concurrent Caller Threads&quot;,&quot;responsibility&quot;:&quot;Multiple application threads contend on reads or mutations identified solely by generic entity IDs.&quot;,&quot;concepts&quot;:[&quot;Distributed coordination&quot;],&quot;tradeoffs&quot;:&quot;Key-based locking preserves parallelism across distinct entities compared to coarse class-level locks.&quot;}" aria-pressed="true">
+              <strong>1. Concurrent Caller Threads</strong>
+              <span>Multiple application threads contend on reads or mutations identified solely by generic entity IDs.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="lock-registry" data-node-json="{&quot;title&quot;:&quot;Concurrent Lock Registry&quot;,&quot;responsibility&quot;:&quot;Atomically resolves or creates the synchronization entry for a given entity key.&quot;,&quot;concepts&quot;:[&quot;Cache consistency&quot;,&quot;Idempotency&quot;],&quot;tradeoffs&quot;:&quot;Atomic map updates prevent duplicate lock instances for the same key under high contention.&quot;}" aria-pressed="false">
+              <strong>2. Concurrent Lock Registry</strong>
+              <span>Atomically resolves or creates the synchronization entry for a given entity key.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="entity-lock" data-node-json="{&quot;title&quot;:&quot;Per-ID Reentrant Lock&quot;,&quot;responsibility&quot;:&quot;Serialises access per entity ID while allowing optional global escalation or lock acquisition timeouts.&quot;,&quot;concepts&quot;:[&quot;Failure handling&quot;,&quot;Distributed coordination&quot;],&quot;tradeoffs&quot;:&quot;Timeouts protect caller threads against deadlock or slow downstream operations.&quot;}" aria-pressed="false">
+              <strong>3. Per-ID Reentrant Lock</strong>
+              <span>Serialises access per entity ID while allowing optional global escalation or lock acquisition timeouts.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="critical-section" data-node-json="{&quot;title&quot;:&quot;Protected Critical Section&quot;,&quot;responsibility&quot;:&quot;Executes the guarded state update while holding only the target entity&#39;s lock.&quot;,&quot;concepts&quot;:[&quot;Cache consistency&quot;],&quot;tradeoffs&quot;:&quot;Keeps critical sections short and deterministic to minimise tail latency.&quot;}" aria-pressed="false">
+              <strong>4. Protected Critical Section</strong>
+              <span>Executes the guarded state update while holding only the target entity&#39;s lock.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="reclaim" data-node-json="{&quot;title&quot;:&quot;Reference-Safe Eviction&quot;,&quot;responsibility&quot;:&quot;Decrements active waiter counts on unlock and safely removes unreferenced entries from the registry.&quot;,&quot;concepts&quot;:[&quot;Observability&quot;,&quot;Failure handling&quot;],&quot;tradeoffs&quot;:&quot;Careful reference checks prevent evicting an entry while another thread is acquiring it.&quot;}" aria-pressed="false">
+              <strong>5. Reference-Safe Eviction</strong>
+              <span>Decrements active waiter counts on unlock and safely removes unreferenced entries from the registry.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-ref-event-driven-outbox" aria-labelledby="arch-tab-ref-event-driven-outbox" data-arch-panel="ref-event-driven-outbox" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 554" role="group" aria-label="Educational reference architecture: application service, relational outbox transaction, outbox relay, message broker, idempotent consumer, and dead-letter queue">
+  <defs>
+    <marker id="inline-arrow-ref-event-driven-outbox" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="app-service">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Domain Service (Java / Spring)</text>
+    <text class="node-detail" x="38" y="68">Handles API command</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="db-outbox">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Relational DB + Outbox Table</text>
+    <text class="node-detail" x="38" y="158">Atomic state &amp; event commit</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="outbox-relay">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Outbox Relay Publisher</text>
+    <text class="node-detail" x="38" y="248">Polls / streams &amp; publishes</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="broker">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Message Broker (Kafka / AMQP)</text>
+    <text class="node-detail" x="38" y="338">Partitioned event topic</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="idempotent-consumer">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Idempotent Consumer</text>
+    <text class="node-detail" x="38" y="428">Deduplication key store</text>
+  </g>
+  <line x1="210" y1="444" x2="210" y2="468" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="dlq">
+    <rect x="20" y="470" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="497">6. Retry &amp; Dead-Letter Queue</text>
+    <text class="node-detail" x="38" y="518">Bounded retries + alerting</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Independent educational reference architecture — unrelated to any employer system</span>
+            <h3>Transactional Outbox &amp; Idempotent Event Consumer</h3>
+            <p class="section-lead">Standard educational distributed-systems pattern guaranteeing atomic database writes and reliable at-least-once event publishing.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Selected Component</p>
+            <h4 class="card-title" data-field="title">Domain Service (Java / Spring)</h4>
+            <p class="card-body" data-field="responsibility">Validates incoming requests and executes domain state transitions inside a single local transaction.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Engineering Concepts</p>
+            <p class="card-body" data-field="concepts">Security · Failure handling</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Design Trade-off</p>
+            <p class="card-body" data-field="tradeoffs">Avoids brittle two-phase commit across database and message broker.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Inspect Components (Click or Enter)</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="app-service" data-node-json="{&quot;title&quot;:&quot;Domain Service (Java / Spring)&quot;,&quot;responsibility&quot;:&quot;Validates incoming requests and executes domain state transitions inside a single local transaction.&quot;,&quot;concepts&quot;:[&quot;Security&quot;,&quot;Failure handling&quot;],&quot;tradeoffs&quot;:&quot;Avoids brittle two-phase commit across database and message broker.&quot;}" aria-pressed="true">
+              <strong>1. Domain Service (Java / Spring)</strong>
+              <span>Validates incoming requests and executes domain state transitions inside a single local transaction.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="db-outbox" data-node-json="{&quot;title&quot;:&quot;Relational DB + Outbox Table&quot;,&quot;responsibility&quot;:&quot;Persists domain state and outbox event payload in the same ACID PostgreSQL transaction.&quot;,&quot;concepts&quot;:[&quot;Eventual consistency&quot;,&quot;Message delivery guarantees&quot;],&quot;tradeoffs&quot;:&quot;Guarantees no lost events on crash at the cost of small relational write amplification.&quot;}" aria-pressed="false">
+              <strong>2. Relational DB + Outbox Table</strong>
+              <span>Persists domain state and outbox event payload in the same ACID PostgreSQL transaction.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="outbox-relay" data-node-json="{&quot;title&quot;:&quot;Outbox Relay Publisher&quot;,&quot;responsibility&quot;:&quot;Reads unpublished outbox rows and emits events to the message broker with monotonic checkpoints.&quot;,&quot;concepts&quot;:[&quot;Message delivery guarantees&quot;,&quot;Observability&quot;],&quot;tradeoffs&quot;:&quot;At-least-once relay requires downstream consumers to handle duplicate deliveries safely.&quot;}" aria-pressed="false">
+              <strong>3. Outbox Relay Publisher</strong>
+              <span>Reads unpublished outbox rows and emits events to the message broker with monotonic checkpoints.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="broker" data-node-json="{&quot;title&quot;:&quot;Message Broker (Kafka / AMQP)&quot;,&quot;responsibility&quot;:&quot;Decouples producers and consumers while buffering spikes and preserving per-key ordering.&quot;,&quot;concepts&quot;:[&quot;Distributed coordination&quot;,&quot;Message delivery guarantees&quot;],&quot;tradeoffs&quot;:&quot;Partitioning scales throughput horizontally; cross-partition ordering is not global.&quot;}" aria-pressed="false">
+              <strong>4. Message Broker (Kafka / AMQP)</strong>
+              <span>Decouples producers and consumers while buffering spikes and preserving per-key ordering.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="idempotent-consumer" data-node-json="{&quot;title&quot;:&quot;Idempotent Consumer&quot;,&quot;responsibility&quot;:&quot;Checks deterministic event ID before applying updates so redelivered events are safe no-ops.&quot;,&quot;concepts&quot;:[&quot;Idempotency&quot;,&quot;Eventual consistency&quot;],&quot;tradeoffs&quot;:&quot;Maintaining an idempotency key index trades minor storage overhead for safe retries.&quot;}" aria-pressed="false">
+              <strong>5. Idempotent Consumer</strong>
+              <span>Checks deterministic event ID before applying updates so redelivered events are safe no-ops.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="dlq" data-node-json="{&quot;title&quot;:&quot;Retry &amp; Dead-Letter Queue&quot;,&quot;responsibility&quot;:&quot;Routes poison payloads after bounded backoff retries to a dead-letter queue for inspection.&quot;,&quot;concepts&quot;:[&quot;Failure handling&quot;,&quot;Observability&quot;],&quot;tradeoffs&quot;:&quot;Prevents malformed messages from stalling healthy partition progress.&quot;}" aria-pressed="false">
+              <strong>6. Retry &amp; Dead-Letter Queue</strong>
+              <span>Routes poison payloads after bounded backoff retries to a dead-letter queue for inspection.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-ref-async-job-pipeline" aria-labelledby="arch-tab-ref-async-job-pipeline" data-arch-panel="ref-async-job-pipeline" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 464" role="group" aria-label="Educational reference architecture: API producer, persistent job queue, bounded worker pool, atomic result staging, and observability metrics">
+  <defs>
+    <marker id="inline-arrow-ref-async-job-pipeline" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="api-gateway">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Stateless API Frontend</text>
+    <text class="node-detail" x="38" y="68">Validates &amp; enqueues job</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="job-queue">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Persistent Work Queue</text>
+    <text class="node-detail" x="38" y="158">SKIP LOCKED / Broker queue</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="bounded-workers">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Bounded Worker Pool</text>
+    <text class="node-detail" x="38" y="248">Controlled concurrency</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="atomic-publish">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Staged Write &amp; Atomic Commit</text>
+    <text class="node-detail" x="38" y="338">Write temp, commit state</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="metrics-alerts">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Health, Metrics &amp; Cleanup</text>
+    <text class="node-detail" x="38" y="428">Queue depth &amp; TTL eviction</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Independent educational reference architecture — unrelated to any employer system</span>
+            <h3>Resilient Asynchronous Job Queue &amp; Backpressure</h3>
+            <p class="section-lead">Standard educational pattern for decoupling slow background jobs from synchronous API latency using bounded worker pools and safe retries.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Selected Component</p>
+            <h4 class="card-title" data-field="title">Stateless API Frontend</h4>
+            <p class="card-body" data-field="responsibility">Authenticates requests, enqueues work asynchronously, and returns a job correlation ID immediately.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Engineering Concepts</p>
+            <p class="card-body" data-field="concepts">Security · Observability</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Design Trade-off</p>
+            <p class="card-body" data-field="tradeoffs">Keeps request threads fast and predictable instead of blocking on long-running background work.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Inspect Components (Click or Enter)</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="api-gateway" data-node-json="{&quot;title&quot;:&quot;Stateless API Frontend&quot;,&quot;responsibility&quot;:&quot;Authenticates requests, enqueues work asynchronously, and returns a job correlation ID immediately.&quot;,&quot;concepts&quot;:[&quot;Security&quot;,&quot;Observability&quot;],&quot;tradeoffs&quot;:&quot;Keeps request threads fast and predictable instead of blocking on long-running background work.&quot;}" aria-pressed="true">
+              <strong>1. Stateless API Frontend</strong>
+              <span>Authenticates requests, enqueues work asynchronously, and returns a job correlation ID immediately.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="job-queue" data-node-json="{&quot;title&quot;:&quot;Persistent Work Queue&quot;,&quot;responsibility&quot;:&quot;Durably tracks queued, in-flight, completed, and failed job states with lease/visibility timeouts.&quot;,&quot;concepts&quot;:[&quot;Distributed coordination&quot;,&quot;Message delivery guarantees&quot;],&quot;tradeoffs&quot;:&quot;Explicit lease timeouts allow recovery if a worker crashes mid-execution.&quot;}" aria-pressed="false">
+              <strong>2. Persistent Work Queue</strong>
+              <span>Durably tracks queued, in-flight, completed, and failed job states with lease/visibility timeouts.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="bounded-workers" data-node-json="{&quot;title&quot;:&quot;Bounded Worker Pool&quot;,&quot;responsibility&quot;:&quot;Executes tasks up to a configured concurrency ceiling to protect downstream CPU, memory, and DB pools.&quot;,&quot;concepts&quot;:[&quot;Failure handling&quot;,&quot;Distributed coordination&quot;],&quot;tradeoffs&quot;:&quot;Backpressure caps queue drain rate to prevent cascading overload.&quot;}" aria-pressed="false">
+              <strong>3. Bounded Worker Pool</strong>
+              <span>Executes tasks up to a configured concurrency ceiling to protect downstream CPU, memory, and DB pools.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="atomic-publish" data-node-json="{&quot;title&quot;:&quot;Staged Write &amp; Atomic Commit&quot;,&quot;responsibility&quot;:&quot;Writes output artifacts to staging before marking the job completed so readers never see partial results.&quot;,&quot;concepts&quot;:[&quot;Cache consistency&quot;,&quot;Idempotency&quot;],&quot;tradeoffs&quot;:&quot;Uses brief temporary storage headroom to guarantee clean read consistency.&quot;}" aria-pressed="false">
+              <strong>4. Staged Write &amp; Atomic Commit</strong>
+              <span>Writes output artifacts to staging before marking the job completed so readers never see partial results.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="metrics-alerts" data-node-json="{&quot;title&quot;:&quot;Health, Metrics &amp; Cleanup&quot;,&quot;responsibility&quot;:&quot;Exports queue lag, retry counts, and purges expired temporary artifacts on a predictable schedule.&quot;,&quot;concepts&quot;:[&quot;Observability&quot;,&quot;Cache consistency&quot;],&quot;tradeoffs&quot;:&quot;Scheduled TTL cleanup decouples storage reclamation from user-facing latency.&quot;}" aria-pressed="false">
+              <strong>5. Health, Metrics &amp; Cleanup</strong>
+              <span>Exports queue lag, retry counts, and purges expired temporary artifacts on a predictable schedule.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="concepts-grid" aria-label="Engineering concepts">
+      <article class="concept-card">
+        <h3>Idempotency</h3>
+        <p>Deterministic UUIDv5 point IDs make a retried index write overwrite the same points instead of creating duplicates (personal messenger archive).</p>
+      </article>
+      <article class="concept-card">
+        <h3>Eventual Consistency</h3>
+        <p>No single transaction spans PostgreSQL, Qdrant and the checkpoint. The cursor is saved only after each upsert, so the stores converge through retries.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Message Delivery Guarantees</h3>
+        <p>A retried message can be delivered twice, so consumers must be idempotent. Processing is therefore built around idempotent writes.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Failure Handling</h3>
+        <p>Rate limits trigger backoff and retries are bounded, so a transient failure does not stop the pipeline (personal messenger archive).</p>
+      </article>
+      <article class="concept-card">
+        <h3>Distributed Coordination</h3>
+        <p>Transcription workers claim queue rows with SKIP LOCKED, so several workers share one queue without taking the same row. EntityLocker coordinates work on one entity at a time.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Cache Consistency</h3>
+        <p>EntityLocker removes a per-entity lock when no thread is inside it, so the lock table keeps no entries for entities nobody is using.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Observability</h3>
+        <p>The public Telegram automation toolkit exports Prometheus metrics for its CLI commands. SonarQubeChecker turns quality-gate results into Markdown reports.</p>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
+    <div class="footer-links">
+      <a href="../index.html">Portfolio</a>
+      <a href="../cv/index.html">Targeted CVs</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

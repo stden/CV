@@ -1,14 +1,18 @@
 const { escapeHtml, relPrefix } = require('./utils');
 
+// Compact navigation: four secondary pages, the CV versions, and the contact section on the homepage.
 const NAV_ITEMS = [
-    { id: 'overview', label: 'Overview' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'architecture', label: 'Architecture' },
-    { id: 'education', label: 'Education' },
+    { id: 'experience', label: 'Experience', page: 'experience/index.html' },
+    { id: 'projects', label: 'Projects', page: 'projects/index.html' },
+    { id: 'skills', label: 'Skills', page: 'skills/index.html' },
+    { id: 'architecture', label: 'Architecture', page: 'architecture/index.html' },
+    { id: 'cv', label: 'CVs', page: 'cv/index.html' },
     { id: 'contact', label: 'Contact' },
 ];
+
+function navHref(item, prefix) {
+    return item.page ? `${prefix}${item.page}` : `${prefix}index.html#${item.id}`;
+}
 
 const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();`;
 
@@ -23,11 +27,11 @@ function renderHeader(data, { depth = 0, downloadHref = null } = {}) {
     const pdfHref = downloadHref || defaultCvHref(data, depth);
 
     const navLinks = NAV_ITEMS.map(
-        (item) => `        <li><a href="${homeHref}#${item.id}">${escapeHtml(item.label)}</a></li>`
+        (item) => `        <li><a href="${navHref(item, prefix)}">${escapeHtml(item.label)}</a></li>`
     ).join('\n');
 
     const mobileLinks = NAV_ITEMS.map(
-        (item) => `      <li><a href="${homeHref}#${item.id}">${escapeHtml(item.label)}</a></li>`
+        (item) => `      <li><a href="${navHref(item, prefix)}">${escapeHtml(item.label)}</a></li>`
     ).join('\n');
 
     return `<a class="skip-link" href="#main-content">Skip to main content</a>
