@@ -8,7 +8,9 @@ const CANONICAL = 'https://stden.github.io/CV/';
 const SCREENSHOT_DIR = path.resolve(__dirname, '..', 'docs', 'screenshots');
 const VIEWPORTS = [375, 390, 768, 1024, 1440, 1920];
 const SECTIONS = ['overview', 'experience', 'projects', 'skills', 'architecture', 'education', 'contact'];
+const GENERAL_PDF = 'Denis-Stepulenok-Senior-Software-Engineer.pdf';
 const VARIANTS = [
+    { slug: 'general', pdf: GENERAL_PDF },
     { slug: 'senior-java', pdf: 'Denis-Stepulenok-Senior-Java-Engineer.pdf' },
     { slug: 'distributed-systems', pdf: 'Denis-Stepulenok-Distributed-Systems-Engineer.pdf' },
     { slug: 'fintech-integrations', pdf: 'Denis-Stepulenok-Fintech-Engineer.pdf' },
@@ -56,7 +58,12 @@ for (const width of VIEWPORTS) {
         await expect(overview).toContainText('Kuehne+Nagel');
         await expect(overview).toContainText('Oracle');
         await expect(overview).toContainText('Bolt');
-        await expect(overview.getByRole('link', { name: /Download CV/i })).toBeVisible();
+        const download = overview.getByRole('link', { name: /Download CV/i });
+        await expect(download).toBeVisible();
+        await expect(download).toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
+        await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
+        await expect(page.locator('#contact').getByRole('link', { name: 'Download General CV', exact: true }))
+            .toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
 
         await page.evaluate(async () => {
             await document.fonts.ready;
@@ -171,13 +178,14 @@ test('interactive architecture tabs and component inspector update cleanly', asy
     expect(issues).toEqual([]);
 });
 
-test('all targeted CV variants, PDFs, and 20 technology pages load under /CV/', async ({ page, baseURL, request }) => {
+test('all seven CV variants, PDFs, and 20 technology pages load under /CV/', async ({ page, baseURL, request }) => {
     const issues = attachIssueTracker(page, baseURL);
     await page.setViewportSize({ width: 1440, height: 900 });
 
     const cvIndexRes = await page.goto(`${HOME}cv/index.html`);
     expect(cvIndexRes?.ok()).toBe(true);
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Targeted CV Versions');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('CV Versions');
+    await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `../assets/pdf/${GENERAL_PDF}`);
 
     for (const variant of VARIANTS) {
         const res = await page.goto(`${HOME}cv/${variant.slug}.html`);

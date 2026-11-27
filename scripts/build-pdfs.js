@@ -5,7 +5,7 @@ const { launchChromium } = require('./lib/browser');
 
 const PDF_DIR = path.join(ROOT_DIR, 'assets', 'pdf');
 
-function renderPdfHtml(data, variant, fontBase64) {
+function renderPdfHtml(data, variant, fontBase64, { privateCv = false } = {}) {
     const { profile } = data;
     const skillById = new Map(data.skills.map((s) => [s.id, s]));
     const caseById = new Map(data.caseStudies.map((c) => [c.id, c]));
@@ -16,6 +16,8 @@ function renderPdfHtml(data, variant, fontBase64) {
         : data.experience.filter((r) => !r.compact);
 
     const isFull = variant.slug === 'full';
+    const experienceFirst = privateCv || variant.slug === 'general';
+    const selectedSkills = variant.skillNames ? new Set(variant.skillNames) : null;
     const fontCss = fontBase64
         ? `@font-face { font-family: "Inter"; src: url("data:font/woff2;base64,${fontBase64}") format("woff2"); font-weight: 100 900; font-style: normal; }`
         : '';
@@ -23,14 +25,19 @@ function renderPdfHtml(data, variant, fontBase64) {
     const skillsRows = variant.skillCategoryOrder
         .map((id) => skillById.get(id))
         .filter(Boolean)
+        .map((cat) => ({ ...cat, items: cat.items.filter(({ name }) => !selectedSkills || selectedSkills.has(name)) }))
+        .filter(({ items }) => items.length)
         .map((cat) => `<p class="skill-row"><strong>${escapeHtml(cat.title)}:</strong> ${escapeHtml(cat.items.map((i) => i.name).join(', '))}</p>`)
         .join('\n');
 
     const rolesHtml = roles.map((role) => {
-        const respList = isFull && role.compact
+        const compact = role.compact && experienceFirst;
+        const respList = compact
+            ? `<p class="summary-line">${escapeHtml(role.summary)}</p>`
+            : isFull && role.compact
             ? `<p class="summary-line">${escapeHtml(role.summary)} ${escapeHtml(role.responsibilities.join(' '))}</p>`
             : `<ul class="bullets">${role.responsibilities.map((r) => `<li>${escapeHtml(r)}</li>`).join('')}</ul>`;
-        const techLine = role.projectTechnologies?.length
+        const techLine = !compact && role.projectTechnologies?.length
             ? `<p class="tech-line"><strong>Technologies:</strong> ${escapeHtml(role.projectTechnologies.join(', '))}${role.additionalTechnologies?.length ? `; Additional: ${escapeHtml(role.additionalTechnologies.join(', '))}` : ''}</p>`
             : '';
 
@@ -69,11 +76,20 @@ function renderPdfHtml(data, variant, fontBase64) {
         .join('; ');
     const langLine = data.languages.map((l) => `${escapeHtml(l.name)} (${escapeHtml(l.level)})`).join(', ');
     const highlightsList = variant.focusHighlights.map((h) => `<li>${escapeHtml(h)}</li>`).join('');
+    const skillsSection = `<section>
+  <h2>Technical Skills</h2>
+  ${skillsRows}
+</section>`;
+    const experienceSection = `<section>
+  <h2>Professional Experience</h2>
+  ${rolesHtml}
+</section>`;
 
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+${privateCv ? '<meta name="robots" content="noindex, nofollow">' : ''}
 <title>${escapeHtml(profile.name)} — ${escapeHtml(variant.roleTitle)}</title>
 <style>
   ${fontCss}
@@ -132,28 +148,20 @@ function renderPdfHtml(data, variant, fontBase64) {
 <section>
   <h2>Summary</h2>
   <p class="summary-line">${escapeHtml(variant.summary)}</p>
-  <ul class="bullets">${highlightsList}</ul>
+  ${highlightsList ? `<ul class="bullets">${highlightsList}</ul>` : ''}
 </section>
 
-<section>
-  <h2>Technical Skills</h2>
-  ${skillsRows}
-</section>
+${(experienceFirst ? [experienceSection, skillsSection] : [skillsSection, experienceSection]).join('\n\n')}
 
-<section>
-  <h2>Professional Experience</h2>
-  ${rolesHtml}
-</section>
-
-<section>
+${casesHtml ? `<section>
   <h2>Selected Engineering Projects</h2>
   ${casesHtml}
-</section>
+</section>` : ''}
 
-<section>
+${reposHtml ? `<section>
   <h2>Open-Source Highlights</h2>
   <ul class="bullets">${reposHtml}</ul>
-</section>
+</section>` : ''}
 
 <section>
   <h2>Education &amp; Languages</h2>
@@ -162,6 +170,12 @@ function renderPdfHtml(data, variant, fontBase64) {
 </section>
 </body>
 </html>`;
+}
+
+async function printPdf(page, html, destination) {
+    await page.setContent(html, { waitUntil: 'load' });
+    await page.evaluate(() => document.fonts.ready);
+    await page.pdf({ path: destination, format: 'A4', printBackground: true, preferCSSPageSize: true });
 }
 
 async function main() {
@@ -178,14 +192,7 @@ async function main() {
 
         for (const variant of data.variants) {
             const html = renderPdfHtml(data, variant, fontBase64);
-            await page.setContent(html, { waitUntil: 'load' });
-            const outPath = path.join(PDF_DIR, variant.pdfFilename);
-            await page.pdf({
-                path: outPath,
-                format: 'A4',
-                printBackground: true,
-                preferCSSPageSize: true,
-            });
+            await printPdf(page, html, path.join(PDF_DIR, variant.pdfFilename));
             console.log(`Generated ${variant.pdfFilename}`);
         }
 
@@ -202,6 +209,8 @@ async function main() {
         await browser.close();
     }
 }
+
+module.exports = { renderPdfHtml, printPdf };
 
 if (require.main === module) {
     main().catch((err) => {

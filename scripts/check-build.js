@@ -22,7 +22,9 @@ function checkDataIntegrity(data) {
     assert.equal(data.githubProjects.length, 6, 'Expected 6 selected GitHub projects');
     assert.equal(data.architectureDiagrams.length, 4, 'Expected 4 architecture diagrams');
     assert.equal(data.technologies.length, 20, 'Expected 20 technology pages');
-    assert.ok(data.variants.some((v) => v.slug === 'wise'), 'Wise-targeted CV variant must exist');
+    assert.deepEqual(data.variants.map(({ slug }) => slug), [
+        'general', 'senior-java', 'distributed-systems', 'fintech-integrations', 'wise', 'ai-mcp', 'full',
+    ]);
 }
 
 function collectHtmlPages(data) {
@@ -107,6 +109,13 @@ function checkPdfs(data) {
         const text = execFileSync('pdftotext', [pdfPath, '-'], { encoding: 'utf8' });
         for (const required of ['Denis Stepulenok', 'Kuehne+Nagel', 'Oracle', 'Taxify', 'Bolt', 'Tallinn', 'super.denis@gmail.com']) {
             assert.ok(text.includes(required), `${variant.pdfFilename} extracted text missing "${required}"`);
+        }
+        if (variant.slug === 'general') {
+            assert.equal(pages, 2, 'General CV must have two pages');
+            const normalizedText = text.replace(/\s+/g, ' ');
+            for (const { company } of data.experience) {
+                assert.ok(normalizedText.includes(company), `General CV is missing employer "${company}"`);
+            }
         }
         assert.ok(!/\b9[0-9]%\b/.test(text), `${variant.pdfFilename} must not contain arbitrary skill percentage bars`);
     }

@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { ROOT_DIR, escapeHtml, escapeXml, loadCvData, relPrefix } = require('./lib/utils');
-const { renderDocument } = require('./lib/layout');
+const { defaultCvHref, renderDocument } = require('./lib/layout');
 const { renderInteractiveSvg } = require('./build-project-diagrams');
 
 function copyFonts() {
@@ -81,7 +81,7 @@ function renderHero(data) {
       <p class="hero-role">${escapeHtml(profile.title)}</p>${availabilityHtml}
       <p class="hero-summary">${escapeHtml(profile.summary)}</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="assets/pdf/Denis-Stepulenok-Senior-Java-Engineer.pdf" download>Download CV (PDF)</a>
+        <a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data))}" download>Download CV (PDF)</a>
         <a class="btn btn-secondary" href="#contact">Contact</a>
         <a class="btn btn-ghost" href="${escapeHtml(profile.contact.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="btn btn-ghost" href="${escapeHtml(profile.contact.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -449,10 +449,10 @@ function renderContact(data) {
   <div class="container">
     <div class="contact-panel">
       <p class="section-eyebrow">Recruiter &amp; Hiring Contact</p>
-      <h2 id="contact-heading" class="section-title">Get in Touch &amp; Download Targeted CVs</h2>
+      <h2 id="contact-heading" class="section-title">Get in Touch &amp; Download CVs</h2>
       <p class="section-lead">Based in ${escapeHtml(data.profile.location)}. Direct contact channels and role-specific ATS-friendly PDF resumes generated from a single verified profile.</p>
       <div class="contact-actions">
-        <a class="btn btn-primary" href="assets/pdf/Denis-Stepulenok-Senior-Java-Engineer.pdf" download>Download Senior Java CV</a>
+        <a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data))}" download>Download General CV</a>
         <a class="btn btn-secondary" href="mailto:${escapeHtml(contact.email)}">Send Email</a>
         <button type="button" class="btn btn-secondary" data-copy-email="${escapeHtml(contact.email)}" data-status-target="copy-email-status">Copy Email Address</button>
         <a class="btn btn-ghost" href="${escapeHtml(contact.linkedin)}" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
@@ -461,7 +461,7 @@ function renderContact(data) {
       </div>
       <p id="copy-email-status" class="copy-status" aria-live="polite"></p>
     </div>
-    <div class="variants-grid" aria-label="Targeted CV versions">
+    <div class="variants-grid" aria-label="CV versions">
 ${variantCards}
     </div>
   </div>
@@ -534,7 +534,6 @@ function renderHomePage(data, techLookup) {
         canonicalPath: '',
         ogType: 'profile',
         jsonLd,
-        downloadHref: 'assets/pdf/Denis-Stepulenok-Senior-Java-Engineer.pdf',
         bodyHtml,
     });
 }
@@ -553,8 +552,8 @@ function renderCvIndexPage(data) {
     const bodyHtml = `<section class="subpage-hero">
   <div class="container">
     <p class="breadcrumb"><a href="../index.html">&larr; Back to Main Portfolio</a></p>
-    <h1>Targeted CV Versions</h1>
-    <p class="section-lead">Role-specific web and ATS-friendly A4 PDF resumes generated from a single verified source of truth (${escapeHtml(data.profile.name)}).</p>
+    <h1>CV Versions</h1>
+    <p class="section-lead">General, role-specific and full CVs, available as web pages and ATS-friendly A4 PDFs.</p>
   </div>
 </section>
 <section class="section">
@@ -567,10 +566,9 @@ ${cards}
 
     return renderDocument(data, {
         depth: 1,
-        title: `Targeted CV Versions — ${data.profile.name}`,
-        description: 'Role-specific Senior Java, Distributed Systems, Fintech, Wise, AI/MCP, and Full CV web and PDF versions for Denis Stepulenok.',
+        title: `CV Versions — ${data.profile.name}`,
+        description: 'General, Senior Java, Distributed Systems, Fintech, Wise, AI/MCP, and Full CV web and PDF versions for Denis Stepulenok.',
         canonicalPath: 'cv/index.html',
-        downloadHref: '../assets/pdf/Denis-Stepulenok-Full-CV.pdf',
         bodyHtml,
     });
 }
@@ -585,12 +583,15 @@ function renderVariantPage(data, variant, techLookup) {
         : data.experience.filter((r) => !r.compact);
 
     const highlights = variant.focusHighlights.map((h) => `<li>${escapeHtml(h)}</li>`).join('');
+    const selectedSkills = variant.skillNames && new Set(variant.skillNames);
 
     const skillsHtml = variant.skillCategoryOrder
         .map((id) => skillById.get(id))
         .filter(Boolean)
         .map((cat) => {
-            const pills = cat.items.map((item) => {
+            const items = selectedSkills ? cat.items.filter(({ name }) => selectedSkills.has(name)) : cat.items;
+            if (!items.length) return '';
+            const pills = items.map((item) => {
                 const cls = `tier-pill tier-${escapeHtml(item.tier)}`;
                 return item.techSlug
                     ? `<li><a class="${cls}" href="../tech/${escapeHtml(item.techSlug)}.html">${escapeHtml(item.name)}</a></li>`

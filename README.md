@@ -9,7 +9,7 @@ Static engineering portfolio, interactive architecture showcase, technology note
 
 1. **Zero-Framework Static Generation (`data/cv.json` -> HTML + SVG + PDF):**
    - Removed legacy Gulp 5, Sass, Bootstrap 3, jQuery 1.11.3, Font Awesome 4, and IE8/IE9 shims.
-   - Single JSON source of truth (`data/cv.json`) drives the main portfolio (`index.html`), 6 targeted CV web pages (`cv/*.html`), 20 technology detail pages (`tech/*.html`), 4 architecture SVGs (`assets/images/projects/*.svg`), `sitemap.xml`, `robots.txt`, and 6 ATS-friendly A4 PDF resumes (`assets/pdf/*.pdf`).
+   - A single source (`data/cv.json`) drives the portfolio, the general CV and six additional versions, 20 technology pages, four architecture diagrams, the sitemap and seven A4 PDFs. The general Senior Software Engineer CV is the primary download.
 2. **GitHub Pages `/CV/` Subpath Compatibility:**
    - All HTML/CSS asset and page references are strictly relative (`assets/...`, `../assets/...`, `tech/...`) with zero root-relative `/...` URLs.
    - Local preview and Playwright tests mount the repository at `http://127.0.0.1:4174/CV/` (`scripts/serve-subpath.js`) so subpath regressions fail immediately.
@@ -25,7 +25,7 @@ Static engineering portfolio, interactive architecture showcase, technology note
 - `scripts/build-project-diagrams.js` — Generates standalone and inline interactive SVG diagrams.
 - `scripts/build-tech-pages.js` — Generates the 20 `tech/*.html` pages.
 - `scripts/build-site.js` — Generates `index.html`, `cv/index.html`, `cv/*.html`, `sitemap.xml`, `robots.txt`, and `og-preview.svg`.
-- `scripts/build-pdfs.js` — Generates all 6 A4 PDF resumes in `assets/pdf/` and `assets/images/og-preview.png`.
+- `scripts/build-pdfs.js` — Generates the public A4 PDFs in `assets/pdf/` and `assets/images/og-preview.png`.
 - `scripts/check-build.js` — Static validator checking data rules, relative paths, missing assets, SEO/JSON-LD, `pdfinfo` page counts, and `pdftotext` extraction.
 - `scripts/serve-subpath.js` — Local `/CV/` subpath HTTP server for preview and testing.
 - `scripts/run-lighthouse.js` — Runs headless Lighthouse mobile and desktop audits against `/CV/`.
@@ -36,7 +36,7 @@ Static engineering portfolio, interactive architecture showcase, technology note
 ```bash
 npm ci                    # Install dependencies
 npm run build             # Build SVG diagrams, tech pages, and HTML site
-npm run build:pdfs        # Generate all 6 ATS-friendly PDFs + og-preview.png
+npm run build:pdfs        # Generate the public PDFs and og-preview.png
 npm run build:all         # Run build + build:pdfs
 npm test                  # Rebuild static site and run static + PDF validation
 npm run test:e2e          # Run Playwright E2E + Axe accessibility tests
@@ -48,6 +48,23 @@ npm run preview           # Serve locally at http://127.0.0.1:4174/CV/
 
 Edit `data/cv.json`, then run `npm run build:all && npm test`:
 - To show an open-to-work / relocation / work-authorisation banner in the hero section, update `profile.availability.showOpenToWork` to `true` and populate `statusText`, `relocation`, and `workAuthorisation`.
+
+## Build a private CV for a vacancy
+
+Create a local JSON selection with the vacancy URL, a short factual summary, an existing profile slug, and relevant skill names and project IDs from `data/cv.json`. The renderer keeps the sourced timeline and reuses the existing PDF format.
+
+```json
+{
+  "slug": "example-java-backend-1234",
+  "source": "https://careers.example.org/jobs/1234",
+  "profile": "senior-java",
+  "summary": "Java backend engineer with Spring Boot and asynchronous messaging experience.",
+  "skills": ["Java (6–25)", "Spring Boot", "PostgreSQL", "RabbitMQ / Spring AMQP"],
+  "projects": ["xml-transformation-pipeline", "document-link-gateway"]
+}
+```
+
+Run `npm run cv:job -- /path/to/vacancy.json`. The PDF, self-contained HTML and selection file are written to a new local folder under `applications/`. Git ignores this directory and the Pages workflow packages the public site assets.
 
 ## Deployment
 
