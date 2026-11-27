@@ -92,7 +92,7 @@
             <dl class="case-dl">
               <div><dt>Probleemi kirjeldus</dt><dd>Pikaajalised isiklikud vestlusarhiivid ühendavad tekst- ja häälsõnumeid tuhandetes lõimedes. Märksõnaotsing ei aita konteksti meenutada ega anna LLM-agentidele struktureeritud ajalugu.</dd></div>
               <div><dt>Engineering Context</dt><dd>Iseseisev isiklik insenerprojekt, mis on tehtud väljaspool tööandja töö. Eesmärk on uurida Rusti ja Pythoni koostööd, kohalikku kõnetuvastust, vektorindekseerimist ja Model Context Protocoli (MCP) tööriistu.</dd></div>
-              <div><dt>Architecture</dt><dd>Rusti sünkroonimisteenus laeb isikliku vestlusajaloo MTProto kaudu PostgreSQL-i, kasutades flood-wait tagasilangemist. Pythoni töötaja võtab ootel häälread PostgreSQL-i SKIP LOCKED abil ja transkribeerib need Whisperiga. Rusti indekseerija arvutab partiidena kohalikke sõnaasendeid ja salvestab punktid Qdrant&#39;i. LLM-agendid pääsevad neile ligi ainult lugemisõigusega MCP-serveri kaudu (stdio ja HTTP).</dd></div>
+              <div><dt>Architecture</dt><dd>Rusti sünkroonimisteenus laeb isikliku vestlusajaloo MTProto kaudu PostgreSQL-i, kasutades flood-wait tagasilangemist. Pythoni töötaja võtab ootel häälread PostgreSQL-i SKIP LOCKED abil ja transkribeerib need Whisperiga. Rusti indekseerija arvutab partiidena kohalikke vektor-esitusi ja salvestab punktid Qdrant&#39;i. LLM-agendid pääsevad neile ligi ainult lugemisõigusega MCP-serveri kaudu (stdio ja HTTP).</dd></div>
               <div><dt>Tehnilised väljakutsed</dt><dd><ul class="bullet-list"><li>Ühtegi hajustehingut ei hõlma PostgreSQL, Qdrant ja sünkroonimise kursori kontrollpunkt.</li><li>Ülesvoolu MTProto piirangute järgimine ja puhas taastumine partii katkemisel.</li></ul></dd></div>
               <div><dt>Disainiotsused</dt><dd><ul class="bullet-list"><li>Arvutasin Qdrant&#39;i punktide deterministlikud UUIDv5 ID-d sõnumi identiteedist, nii et kordused kirjutavad üle ega loo duplikaate.</li><li>Indekseerimise kontrollpunkt salvestatakse alles pärast iga Qdrant&#39;i partii edukat üleslaadimist.</li><li>Kasutasin PostgreSQL-i SELECT ... FOR UPDATE SKIP LOCKED häälte transkribeerimise lukuvabaks samaaegseks tööks.</li></ul></dd></div>
               <div><dt>Töökindluse kaalutlused</dt><dd><ul class="bullet-list"><li>Vähemalt üks kord töötlemine koos deterministlike UUIDv5 üleslaadimistega annab idempotentse lõpliku konsistentsuse ilma kahefaasilise lõpetamiseta.</li><li>Flood-wait tagasilangemine ja piiratud kordused kaitsevad ülesvoolu API seansse.</li></ul></dd></div>
@@ -226,7 +226,7 @@
             <h4 class="repo-name"><a href="https://github.com/stden/SonarQubeChecker" target="_blank" rel="noopener noreferrer">SonarQubeChecker</a></h4>
             <span class="repo-lang">Python</span>
           </div>
-          <p class="repo-desc">Automatiseeritud kvaliteediväravate kontrollija, mis päringu SonarCloudi / SonarQube&#39;i mõõdikuid vigade, koodilõhnade ja kvaliteediväravate oleku kohta.</p>
+          <p class="repo-desc">Automatiseeritud kvaliteediväravate kontrollija, mis pärib SonarCloudi / SonarQube&#39;i mõõdikuid vigade, koodilõhnade ja kvaliteediväravate oleku kohta.</p>
         </div>
         <div>
           <div class="repo-meta">

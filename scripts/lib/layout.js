@@ -131,6 +131,9 @@ function renderDocument(data, options) {
         ].join('\n')
         : '';
 
+    const langHint = isTranslatedPage(pageKey)
+        ? `<div class="lang-hint" data-lang-hint data-template="${escapeHtml(ui('langHint', { language: '{language}' }))}" hidden><a href="#"></a></div>`
+        : '';
     const jsonLdBlock = jsonLd
         ? `\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`
         : '';
@@ -162,7 +165,7 @@ ${alternates}
 </head>
 <body>
 ${renderHeader(data, { depth, localeDepth, downloadHref, outputPath, pageKey })}
-<div class="lang-hint" data-lang-hint data-template="${escapeHtml(ui('langHint', { language: '{language}' }))}" hidden><a href="#"></a></div>
+${langHint}
 <main id="main-content">
 ${bodyHtml}
 </main>
