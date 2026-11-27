@@ -219,7 +219,7 @@ function renderCoverLetterMarkdown(data, vacancy, matchResult) {
         `I am writing to express my interest in the ${vacancy.jobTitle} role (${vacancy.url}). I am a Senior Software Engineer based in ${data.profile.location} specialising in Java backend development, distributed systems, enterprise integration, JVM concurrency, and production reliability.`,
         '',
         'Across my professional career, I have contributed to:',
-        '- **Kuehne+Nagel (May 2018 – Present):** Developing and maintaining enterprise Java and Spring Boot services, asynchronous RabbitMQ integrations, PostgreSQL and Oracle persistence layers, automated JUnit/Mockito test suites, and containerised CI/CD pipelines.',
+        '- **Kuehne+Nagel (May 2018 – Present):** Developing and maintaining enterprise Java and Spring Boot services, event-driven Apache Kafka (Spring Kafka, partitioning, outbox, idempotency, retry/DLQ, Schema Registry, Streams/Connect) and RabbitMQ integrations, PostgreSQL and Oracle persistence layers, automated JUnit/Mockito test suites, and containerised CI/CD pipelines.',
         '- **Taxify, now Bolt (May 2017 – May 2018):** Building high-load backend REST APIs and microservices in Node.js and TypeScript alongside Redis caching and Dockerised deployments.',
         '- **Oracle (January 2014 – May 2017):** Investigating Java Core defects across the Java Memory Model, concurrency, and class loading, and automating distributed test execution in Java and Python.',
         '',

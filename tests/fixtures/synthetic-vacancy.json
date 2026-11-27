@@ -19,7 +19,8 @@
   "preferredTechnologies": [
     "Apache Kafka",
     "Kubernetes",
-    "Python"
+    "Python",
+    "Terraform"
   ],
   "requiredCompetencies": [
     "Distributed systems and idempotency",

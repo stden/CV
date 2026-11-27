@@ -80,7 +80,7 @@
         <a class="btn btn-ghost" href="cv/index.html">CV Versions</a>
       </div>
       <ul class="badge-list" aria-label="Core technologies">
-        <li><span class="badge">Java (6–25)</span></li><li><span class="badge">Spring Boot</span></li><li><span class="badge">Distributed Systems</span></li><li><span class="badge">RabbitMQ</span></li><li><span class="badge">PostgreSQL &amp; Oracle</span></li><li><span class="badge">JVM Concurrency</span></li><li><span class="badge">Docker &amp; Kubernetes</span></li><li><span class="badge">Python, Rust &amp; AI/MCP</span></li>
+        <li><span class="badge">Java (6–25)</span></li><li><span class="badge">Spring Boot</span></li><li><span class="badge">Distributed Systems</span></li><li><span class="badge">Apache Kafka &amp; RabbitMQ</span></li><li><span class="badge">PostgreSQL &amp; Oracle</span></li><li><span class="badge">JVM Concurrency</span></li><li><span class="badge">Docker &amp; Kubernetes</span></li><li><span class="badge">Python, Rust &amp; AI/MCP</span></li>
       </ul>
     </div>
     <div class="hero-photo-wrap">
@@ -106,7 +106,7 @@
       </article>
       <article class="card">
         <h3 class="card-title">Event-Driven Architecture</h3>
-        <p class="card-body">Asynchronous messaging with RabbitMQ, bounded worker pools, outbox-style publishing with at-least-once delivery awareness, and dead-letter handling.</p>
+        <p class="card-body">Production event-driven services with Apache Kafka and RabbitMQ: Spring Kafka producers/consumers, partitioned per-key ordering, offset/rebalancing management, transactional outbox, idempotent consumers, retry/DLQ topics, Schema Registry, Kafka Streams/Connect, and consumer lag monitoring.</p>
       </article>
       <article class="card">
         <h3 class="card-title">Enterprise Integration</h3>
@@ -144,16 +144,16 @@
         <p class="role-summary">Senior Java backend engineer developing and maintaining enterprise integration services, distributed workloads, and automated CI/CD pipelines.</p>
         <ul class="bullet-list">
           <li>Developed and maintained enterprise Java backend services across Java LTS releases using Spring Framework and Spring Boot.</li>
-          <li>Implemented and maintained distributed, asynchronous, and event-driven integration workloads using RabbitMQ and REST APIs.</li>
+          <li>Built event-driven integration workloads with Apache Kafka (Spring Kafka producers/consumers, partitioning, per-key ordering, offset/rebalancing management, Schema Registry, Kafka Streams/Connect) and RabbitMQ.</li>
+          <li>Implemented reliable asynchronous pipelines using transactional outbox, idempotent consumption, retry topics, dead-letter queues (DLQ), and consumer lag monitoring alongside broker operations.</li>
           <li>Integrated PostgreSQL and Oracle Database persistence layers using SQL, JPA, and Hibernate.</li>
           <li>Automated unit and integration test suites using JUnit, Mockito, JMockit, and EasyMock.</li>
-          <li>Modernised build and containerised deployment pipelines across Maven, Jenkins, GitLab CI/CD, Docker, and Kubernetes.</li>
-          <li>Investigated production issues and automated operational support workflows using Python.</li>
+          <li>Modernised build and containerised CI/CD pipelines across Maven, Jenkins, GitLab CI/CD, Docker, and Kubernetes, and automated operational workflows with Python.</li>
         </ul>
         
         <div class="tech-group">
           <span class="tech-group-label">Primary technologies in role</span>
-          <ul class="badge-list"><li><a class="badge" href="tech/java.html">Java (6–25)</a></li><li><a class="badge" href="tech/spring.html">Spring Framework</a></li><li><a class="badge" href="tech/spring-boot.html">Spring Boot</a></li><li><span class="badge">RabbitMQ</span></li><li><a class="badge" href="tech/jpa.html">JPA / Hibernate</a></li><li><a class="badge" href="tech/postgresql.html">PostgreSQL</a></li><li><a class="badge" href="tech/oracle.html">Oracle Database</a></li><li><a class="badge" href="tech/sql.html">SQL</a></li><li><a class="badge" href="tech/maven.html">Maven</a></li><li><a class="badge" href="tech/docker.html">Docker</a></li><li><a class="badge" href="tech/jenkins.html">Jenkins</a></li><li><a class="badge" href="tech/gitlab.html">GitLab</a></li><li><a class="badge" href="tech/git.html">Git</a></li></ul>
+          <ul class="badge-list"><li><a class="badge" href="tech/java.html">Java (6–25)</a></li><li><a class="badge" href="tech/spring.html">Spring Framework</a></li><li><a class="badge" href="tech/spring-boot.html">Spring Boot</a></li><li><span class="badge">RabbitMQ</span></li><li><span class="badge">Apache Kafka</span></li><li><a class="badge" href="tech/jpa.html">JPA / Hibernate</a></li><li><a class="badge" href="tech/postgresql.html">PostgreSQL</a></li><li><a class="badge" href="tech/oracle.html">Oracle Database</a></li><li><a class="badge" href="tech/sql.html">SQL</a></li><li><a class="badge" href="tech/maven.html">Maven</a></li><li><a class="badge" href="tech/docker.html">Docker</a></li><li><a class="badge" href="tech/jenkins.html">Jenkins</a></li><li><a class="badge" href="tech/gitlab.html">GitLab</a></li><li><a class="badge" href="tech/git.html">Git</a></li></ul>
         </div>
         <div class="tech-group">
             <span class="tech-group-label">Additional role technologies</span>
@@ -1043,7 +1043,7 @@
         <p class="skill-card-desc">Asynchronous brokering, relational persistence, caching, and vector stores.</p>
         <ul class="skill-items">
           <li data-tier="primary"><span class="tier-pill tier-primary" title="Kuehne+Nagel asynchronous integration workloads">RabbitMQ</span></li>
-          <li data-tier="familiarity"><span class="tier-pill tier-familiarity" title="Explored; production depth requires confirmation">Apache Kafka</span></li>
+          <li data-tier="primary"><span class="tier-pill tier-primary" title="Kuehne+Nagel: Spring Kafka, partitioning, offsets/rebalancing, outbox, idempotent consumers, retry/DLQ, Schema Registry, Streams/Connect &amp; lag monitoring">Apache Kafka</span></li>
           <li data-tier="additional"><span class="tier-pill tier-additional" title="Taxify (Bolt) backend caching infrastructure">Redis / Valkey</span></li>
           <li data-tier="independent"><span class="tier-pill tier-independent" title="Personal semantic archive pipeline with deterministic UUIDv5 upserts">Qdrant</span></li>
           <li data-tier="familiarity"><span class="tier-pill tier-familiarity" title="Explored alongside personal Qdrant semantic search work">Vector Databases (pgvector, Weaviate)</span></li>

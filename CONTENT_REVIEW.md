@@ -21,9 +21,9 @@ Before merging or deploying updates to the public website, please review and app
 
 ## 3. Factual Claims Requiring Confirmation
 Please confirm or update each item before public merge:
-1. **Employer summaries & high-level technologies:** Confirm that listing Kuehne+Nagel, Taxify (now Bolt), Oracle, dates, locations, and high-level stacks (`Java`, `Spring Boot`, `RabbitMQ`, `PostgreSQL`, `Oracle Database`, `Docker`, `Node.js`, `TypeScript`, `Redis`) at a generic competency level complies with all employer agreements.
+1. **Employer summaries & high-level technologies:** Confirm that listing Kuehne+Nagel, Taxify (now Bolt), Oracle, dates, locations, and high-level stacks (`Java`, `Spring Boot`, `Apache Kafka`, `RabbitMQ`, `PostgreSQL`, `Oracle Database`, `Docker`, `Node.js`, `TypeScript`, `Redis`) at a generic competency level complies with all employer agreements.
 2. **Skill depth confirmations (`Familiarity` vs `Additional` vs `Primary`):**
-   - `Apache Kafka`: currently categorised as **Familiarity** (`Explored; production depth requires confirmation`). Confirm whether verified professional usage supports upgrading it.
+   - `Apache Kafka` is confirmed at **Kuehne+Nagel** (Spring Kafka / Kafka client producers & consumers, topic partitioning, per-key ordering, offsets & rebalancing, idempotent consumption, retry/DLQ topics, transactional outbox, Schema Registry, Kafka Streams/Connect, and consumer lag monitoring / broker operations) and upgraded to **Primary professional**.
    - `Kubernetes / Helm`: currently categorised as **Additional professional** (team-level container deployment). Confirm practical depth (writing manifests/Helm charts vs using existing cluster deployments).
    - `AWS`, `Terraform`, `Prometheus / Grafana`, `Go (Gin, gRPC)`: currently categorised as **Familiarity**. Confirm if any have deeper verified production evidence.
 3. **English proficiency level:** `data/cv.json` preserves `Intermediate` from the original CV. Confirm whether your current working level (e.g. `B2` / `Upper-Intermediate` or `C1`) should be updated.

@@ -18,7 +18,7 @@
       "Java (6–25)",
       "Spring Boot",
       "Distributed Systems",
-      "RabbitMQ",
+      "Apache Kafka & RabbitMQ",
       "PostgreSQL & Oracle",
       "JVM Concurrency",
       "Docker & Kubernetes",
@@ -52,7 +52,7 @@
     {
       "id": "event-driven",
       "title": "Event-Driven Architecture",
-      "description": "Asynchronous messaging with RabbitMQ, bounded worker pools, outbox-style publishing with at-least-once delivery awareness, and dead-letter handling."
+      "description": "Production event-driven services with Apache Kafka and RabbitMQ: Spring Kafka producers/consumers, partitioned per-key ordering, offset/rebalancing management, transactional outbox, idempotent consumers, retry/DLQ topics, Schema Registry, Kafka Streams/Connect, and consumer lag monitoring."
     },
     {
       "id": "enterprise-integration",
@@ -89,11 +89,11 @@
       "summary": "Senior Java backend engineer developing and maintaining enterprise integration services, distributed workloads, and automated CI/CD pipelines.",
       "responsibilities": [
         "Developed and maintained enterprise Java backend services across Java LTS releases using Spring Framework and Spring Boot.",
-        "Implemented and maintained distributed, asynchronous, and event-driven integration workloads using RabbitMQ and REST APIs.",
+        "Built event-driven integration workloads with Apache Kafka (Spring Kafka producers/consumers, partitioning, per-key ordering, offset/rebalancing management, Schema Registry, Kafka Streams/Connect) and RabbitMQ.",
+        "Implemented reliable asynchronous pipelines using transactional outbox, idempotent consumption, retry topics, dead-letter queues (DLQ), and consumer lag monitoring alongside broker operations.",
         "Integrated PostgreSQL and Oracle Database persistence layers using SQL, JPA, and Hibernate.",
         "Automated unit and integration test suites using JUnit, Mockito, JMockit, and EasyMock.",
-        "Modernised build and containerised deployment pipelines across Maven, Jenkins, GitLab CI/CD, Docker, and Kubernetes.",
-        "Investigated production issues and automated operational support workflows using Python."
+        "Modernised build and containerised CI/CD pipelines across Maven, Jenkins, GitLab CI/CD, Docker, and Kubernetes, and automated operational workflows with Python."
       ],
       "verifiedAchievements": [],
       "projectTechnologies": [
@@ -101,6 +101,7 @@
         "Spring Framework",
         "Spring Boot",
         "RabbitMQ",
+        "Apache Kafka",
         "JPA / Hibernate",
         "PostgreSQL",
         "Oracle Database",
@@ -987,8 +988,8 @@
         },
         {
           "name": "Apache Kafka",
-          "tier": "familiarity",
-          "evidence": "Explored; production depth requires confirmation"
+          "tier": "primary",
+          "evidence": "Kuehne+Nagel: Spring Kafka, partitioning, offsets/rebalancing, outbox, idempotent consumers, retry/DLQ, Schema Registry, Streams/Connect & lag monitoring"
         },
         {
           "name": "Redis / Valkey",
@@ -1714,7 +1715,7 @@
       "pdfFilename": "Denis-Stepulenok-Senior-Software-Engineer.pdf",
       "summary": "Senior Software Engineer specialising in Java backend engineering, distributed systems, enterprise integration, JVM concurrency, and production reliability across Kuehne+Nagel, Taxify (Bolt), and Oracle, complemented by independent work in Python, Rust, and AI/MCP tooling.",
       "focusHighlights": [
-        "Enterprise Java & Spring Boot backend services, RabbitMQ asynchronous integration, and PostgreSQL / Oracle persistence at Kuehne+Nagel.",
+        "Enterprise Java & Spring Boot backend services, Apache Kafka (Spring Kafka, partitioning, outbox, DLQ, Schema Registry, Streams/Connect), RabbitMQ, and PostgreSQL / Oracle persistence at Kuehne+Nagel.",
         "High-load microservices at Taxify (Bolt) and JVM internals, concurrency, and test automation at Oracle."
       ],
       "skillCategoryOrder": [
@@ -1733,6 +1734,7 @@
         "PostgreSQL",
         "Enterprise Integration",
         "RabbitMQ",
+        "Apache Kafka",
         "Docker / Compose",
         "Maven",
         "Jenkins",
@@ -1755,9 +1757,9 @@
       "roleTitle": "Senior Java Backend Engineer",
       "targetAudience": "International Java / Spring Boot backend engineering teams",
       "pdfFilename": "Denis-Stepulenok-Senior-Java-Engineer.pdf",
-      "summary": "Senior Java Backend Engineer with production experience across Java 6–25, Spring Framework, Spring Boot, JPA/Hibernate, relational persistence (PostgreSQL, Oracle Database), and asynchronous integration across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering.",
+      "summary": "Senior Java Backend Engineer with production experience across Java 6–25, Spring Framework, Spring Boot, Apache Kafka, RabbitMQ, and relational persistence (PostgreSQL, Oracle Database) across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering.",
       "focusHighlights": [
-        "Enterprise Java backend services (Java 6–25), Spring Boot, JPA/Hibernate, and SQL across PostgreSQL and Oracle Database.",
+        "Enterprise Java backend services (Java 6–25), Spring Boot, Apache Kafka, RabbitMQ, JPA/Hibernate, and SQL across PostgreSQL and Oracle Database.",
         "JVM internals grounded in Oracle JDK quality work: Java Memory Model, concurrency, collections, generics, and class loading.",
         "Open-source Java projects including EntityLocker (JVM-local entity concurrency) and JPA2 (Spring 6 / Hibernate 6).",
         "Containerised CI/CD delivery with Maven, Jenkins, GitLab CI/CD, and Docker."
@@ -1782,6 +1784,7 @@
         "JPA / Hibernate",
         "Enterprise Integration",
         "RabbitMQ",
+        "Apache Kafka",
         "JUnit",
         "Mockito / JMockit / EasyMock",
         "Test-Driven Development (TDD)",
@@ -1813,7 +1816,7 @@
       "pdfFilename": "Denis-Stepulenok-Distributed-Systems-Engineer.pdf",
       "summary": "Senior Software Engineer focused on distributed backend services, asynchronous messaging, concurrency, failure recovery, and production reliability across Kuehne+Nagel, Taxify (Bolt), and Oracle, backed by independent concurrency and indexing projects.",
       "focusHighlights": [
-        "Enterprise experience with distributed, asynchronous, and event-driven Java services, RabbitMQ, and relational persistence.",
+        "Production Apache Kafka (Spring Kafka, partitioning, per-key ordering, offsets/rebalancing, transactional outbox, retry/DLQ, Schema Registry, Streams/Connect, lag monitoring) and RabbitMQ integration at Kuehne+Nagel.",
         "Independent archive pipeline combining PostgreSQL FOR UPDATE SKIP LOCKED row-locked queues, deterministic UUIDv5 keys, and checkpoint-after-upsert recovery.",
         "Open-source EntityLocker utility providing JVM-local per-ID mutual exclusion, timeouts, and Comparable ID-order deadlock prevention.",
         "High-load Node.js microservices at Taxify (Bolt) and distributed test infrastructure automation at Oracle."
@@ -1867,7 +1870,7 @@
       "pdfFilename": "Denis-Stepulenok-Fintech-Engineer.pdf",
       "summary": "Senior Software Engineer bringing enterprise Java, Spring Boot, SQL/PostgreSQL, enterprise integration, and production reliability experience across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering.",
       "focusHighlights": [
-        "Enterprise Java integration engineering with Spring Boot, relational databases (PostgreSQL, Oracle), and RabbitMQ.",
+        "Enterprise Java integration engineering with Spring Boot, Apache Kafka (idempotent consumption, transactional outbox, retry/DLQ, Schema Registry), RabbitMQ, and relational databases (PostgreSQL, Oracle).",
         "Reliability patterns demonstrated in independent projects: idempotent UUIDv5 upserts, retry checkpoints, and JVM-local concurrency locking.",
         "High-load backend API and microservice delivery experience from Taxify (Bolt).",
         "Rigorous testing discipline from Oracle JDK defect investigation, concurrency testing, and automated CI quality gates."
@@ -1892,6 +1895,7 @@
         "JPA / Hibernate",
         "Enterprise Integration",
         "RabbitMQ",
+        "Apache Kafka",
         "JUnit",
         "Mockito / JMockit / EasyMock",
         "Integration & E2E Testing",
@@ -1921,12 +1925,12 @@
       "roleTitle": "Senior Java Backend Engineer",
       "targetAudience": "High-scale Java / distributed backend engineering teams (reference template; use npm run cv:job for private applications)",
       "pdfFilename": "Denis-Stepulenok-Wise-Senior-Java-Engineer.pdf",
-      "summary": "Senior Java Backend Engineer specialising in Java Core, Spring Boot, SQL/PostgreSQL, concurrency, distributed integration, and production reliability across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering, with Kafka familiarity and AI automation tooling.",
+      "summary": "Senior Java Backend Engineer specialising in Java Core, Spring Boot, Apache Kafka, SQL/PostgreSQL, concurrency, distributed integration, and production reliability across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering.",
       "focusHighlights": [
         "Oracle JDK quality engineering: deep Java Core, Java Memory Model, concurrency, class loading, and automated test suites.",
-        "Taxify (Bolt) high-load backend API and microservice delivery alongside Kuehne+Nagel NDA-safe enterprise Java, Spring Boot, RabbitMQ, and SQL/PostgreSQL integration.",
-        "Concurrency & idempotency in independent code: EntityLocker JVM-local per-ID locking and deterministic UUIDv5 upserts with at-least-once checkpoints.",
-        "Automated testing and CI/CD discipline across JUnit, Mockito, Maven, Jenkins, GitLab, and Docker (plus Apache Kafka familiarity)."
+        "Kuehne+Nagel event-driven Java & Spring Boot services: Apache Kafka (Spring Kafka, per-key partitioning, offsets/rebalancing, outbox, idempotent consumers, retry/DLQ, Schema Registry, Streams/Connect, lag monitoring) and RabbitMQ.",
+        "Taxify (Bolt) high-load backend API and microservice delivery alongside SQL/PostgreSQL, Oracle, and Docker CI/CD.",
+        "Concurrency & idempotency in independent code: EntityLocker JVM-local per-ID locking and deterministic UUIDv5 upserts."
       ],
       "skillCategoryOrder": [
         "core",

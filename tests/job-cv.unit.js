@@ -31,7 +31,7 @@ test('a legacy vacancy CV uses curated facts and can be rendered privately', () 
     assert.equal(variant.includeCompactRoles, true);
     const html = renderPdfHtml(tailored, variant, '', { privateCv: true });
     assert.match(html, /name="robots" content="noindex, nofollow"/);
-    assert.doesNotMatch(html, /Apache Kafka|rel="canonical"/);
+    assert.doesNotMatch(html, /Terraform|rel="canonical"/);
     assert.ok(html.indexOf('Professional Experience') < html.indexOf('Technical Skills'));
 });
 
@@ -46,8 +46,9 @@ test('vacancy matcher classifies evidence honestly without speculative scores', 
     const { classifications } = matchVacancy(data, syntheticVacancy);
     assert.ok(classifications['Strong evidence'].some((i) => i.requirement === 'Java'));
     assert.ok(classifications['Strong evidence'].some((i) => i.requirement === 'Spring Boot'));
+    assert.ok(classifications['Strong evidence'].some((i) => i.requirement === 'Apache Kafka'));
     assert.ok(classifications['Partial evidence'].some((i) => i.requirement === 'Kubernetes'));
-    assert.ok(classifications.Familiarity.some((i) => i.requirement === 'Apache Kafka'));
+    assert.ok(classifications.Familiarity.some((i) => i.requirement === 'Terraform'));
     assert.ok(classifications['Missing evidence'].some((i) => /Payment processing|AML/i.test(i.requirement)));
     assert.ok(classifications['Requires confirmation'].some((i) => /Language requirement/i.test(i.requirement)));
 });
