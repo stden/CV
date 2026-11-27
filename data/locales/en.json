@@ -25,7 +25,7 @@
   "experience.kuehne-nagel.responsibilities.1": "Develop Java and Spring Boot services used in enterprise workflows.",
   "experience.kuehne-nagel.responsibilities.2": "Build event-driven pipelines with Apache Kafka (Spring Kafka producers/consumers, partitioning, per-key ordering, offsets/rebalancing, Schema Registry, Kafka Streams/Connect) and RabbitMQ.",
   "experience.kuehne-nagel.responsibilities.3": "Implement reliable messaging with transactional outbox, idempotent processing, retry/DLQ topics, consumer lag monitoring, and broker operations.",
-  "experience.kuehne-nagel.responsibilities.4": "Integrate backend services with PostgreSQL and Oracle Database using SQL, JPA, and Hibernate.",
+  "experience.kuehne-nagel.responsibilities.4": "Integrate backend services with PostgreSQL and relational databases using SQL, JPA, and Hibernate.",
   "experience.kuehne-nagel.responsibilities.5": "Automate builds, tests, and containerised deployments with JUnit, Jenkins, GitLab CI/CD, Docker, and Kubernetes.",
   "experience.taxify-bolt.role": "Senior Backend Developer",
   "experience.taxify-bolt.location": "Tallinn, Estonia",

@@ -193,10 +193,14 @@ test('earlier roles, evidence tiers, and engineering disclosures remain usable',
     await personalFilter.click();
     await expect(personalFilter).toHaveAttribute('aria-pressed', 'true');
     await expect(page.locator('.skill-items li[data-tier="core"]:not([hidden])')).toHaveCount(0);
+    const core = page.getByRole('button', { name: 'Core', exact: true });
+    await core.click();
+    await expect(core).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.skill-items li[data-tier="core"]:not([hidden])').filter({ hasText: 'Apache Kafka' })).toBeVisible();
     const familiarity = page.getByRole('button', { name: 'Familiarity', exact: true });
     await familiarity.click();
     await expect(familiarity).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('.skill-items li[data-tier="familiarity"]:not([hidden])').filter({ hasText: 'Apache Kafka' })).toBeVisible();
+    await expect(page.locator('.skill-items li[data-tier="familiarity"]:not([hidden])').filter({ hasText: 'Terraform' })).toBeVisible();
     await page.getByRole('button', { name: 'All', exact: true }).click();
 
     await page.goto(`${HOME}projects/`);

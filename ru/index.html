@@ -30,7 +30,7 @@
   <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://stden.github.io/CV/#person","name":"Denis Stepulenok","jobTitle":"Старший инженер-программист — Java и распределённые системы","description":"Разрабатываю бэкенд-сервисы на Java и асинхронные интеграции. В Kuehne+Nagel занимаюсь корпоративными Java-сервисами и автоматизацией поставки ПО. Ранее создавал высоконагруженные сервисы в Taxify (сейчас Bolt) и исследовал дефекты JDK в Oracle.","url":"https://stden.github.io/CV/","image":"https://stden.github.io/CV/assets/images/photo.jpg","email":"mailto:super.denis@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"sameAs":["https://github.com/stden","https://www.linkedin.com/in/denis-stepulenok-2149b514/","https://t.me/stdenx"],"knowsAbout":["Java","Spring Boot","Distributed systems","RabbitMQ","PostgreSQL"]},{"@type":"ProfilePage","@id":"https://stden.github.io/CV/ru/#profilepage","url":"https://stden.github.io/CV/ru/","inLanguage":"ru","name":"Denis Stepulenok — старший инженер-программист, Java и распределённые системы","mainEntity":{"@id":"https://stden.github.io/CV/#person"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://stden.github.io/CV/#person","name":"Denis Stepulenok","jobTitle":"Старший инженер-программист — Java и распределённые системы","description":"Разрабатываю бэкенд-сервисы на Java и асинхронные интеграции. В Kuehne+Nagel занимаюсь корпоративными Java-сервисами и автоматизацией поставки ПО. Ранее создавал высоконагруженные сервисы в Taxify (сейчас Bolt) и исследовал дефекты JDK в Oracle.","url":"https://stden.github.io/CV/","image":"https://stden.github.io/CV/assets/images/photo.jpg","email":"mailto:super.denis@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"sameAs":["https://github.com/stden","https://www.linkedin.com/in/denis-stepulenok-2149b514/","https://t.me/stdenx"],"knowsAbout":["Java","Spring Boot","Distributed systems","Apache Kafka & RabbitMQ","PostgreSQL"]},{"@type":"ProfilePage","@id":"https://stden.github.io/CV/ru/#profilepage","url":"https://stden.github.io/CV/ru/","inLanguage":"ru","name":"Denis Stepulenok — старший инженер-программист, Java и распределённые системы","mainEntity":{"@id":"https://stden.github.io/CV/#person"}}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
@@ -86,7 +86,7 @@
       <h1 class="hero-name">Denis Stepulenok</h1>
       <p class="hero-role">Старший инженер-программист — Java и распределённые системы</p>
       <p class="hero-summary">Разрабатываю бэкенд-сервисы на Java и асинхронные интеграции. В Kuehne+Nagel занимаюсь корпоративными Java-сервисами и автоматизацией поставки ПО. Ранее создавал высоконагруженные сервисы в Taxify (сейчас Bolt) и исследовал дефекты JDK в Oracle.</p>
-      <p class="hero-secondary">Java · Spring Boot · Распределённые системы · RabbitMQ · PostgreSQL</p>
+      <p class="hero-secondary">Java · Spring Boot · Распределённые системы · Apache Kafka &amp; RabbitMQ · PostgreSQL</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="../assets/pdf/Denis-Stepulenok-CV-RU.pdf" download>Скачать резюме (PDF)</a>
         <a class="btn btn-secondary" href="#contact">Контакты</a>
@@ -107,7 +107,7 @@
       <p class="recruiter-meta">Старший Java-разработчик · май 2018 – настоящее время · Таллин, Эстония</p>
       <p>Разрабатываю и поддерживаю корпоративные Java-сервисы и интеграции, участвую в автоматизации поставки ПО.</p>
       <ul class="bullet-list">
-        <li>Поддерживаю асинхронную обработку сообщений и интеграции на XML.</li><li>Интегрирую бэкенд-сервисы с реляционными базами через SQL и средства доступа к данным в Java.</li><li>Автоматизирую сборку и развёртывание с помощью Jenkins и GitLab CI/CD.</li><li>Поддерживаю контейнеризированные сервисы и исследую дефекты ПО.</li>
+        <li>Создаю событийные интеграции на Apache Kafka (Spring Kafka producers/consumers, партиционирование, порядок по ключу, управление offsets/rebalancing, Schema Registry, Kafka Streams/Connect) и RabbitMQ.</li><li>Реализую надёжную асинхронную обработку с transactional outbox, идемпотентными консьюмерами, retry/DLQ топиками, мониторингом consumer lag и эксплуатацией брокера.</li><li>Интегрирую бэкенд-сервисы с PostgreSQL и реляционными базами с помощью SQL, JPA и Hibernate.</li><li>Автоматизирую тестирование, сборку и контейнеризированное развёртывание в JUnit, Jenkins, GitLab CI/CD, Docker и Kubernetes.</li>
       </ul>
     </article>
     <article class="recruiter-role" id="role-taxify-bolt">

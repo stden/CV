@@ -25,7 +25,7 @@
   "experience.kuehne-nagel.responsibilities.1": "Arendan ettevõtete töövoogudes kasutatavaid Java ja Spring Booti teenuseid.",
   "experience.kuehne-nagel.responsibilities.2": "Ehitan sündmuspõhiseid liidestusi Apache Kafka (Spring Kafka tootjad/tarbijad, partitsioneerimine, võtmepõhine järjekord, nihete/tasakaalustamise haldus, Schema Registry, Kafka Streams/Connect) ja RabbitMQ abil.",
   "experience.kuehne-nagel.responsibilities.3": "Rakendan töökindlat asünkroonset töötlust transactional outboxi, idempotentse tarbimise, korduste/DLQ teemade, tarbija viivituse jälgimise ja brokeri haldusega.",
-  "experience.kuehne-nagel.responsibilities.4": "Liidestan taustateenuseid PostgreSQL ja Oracle Database’iga SQL-i, JPA ja Hibernate’i abil.",
+  "experience.kuehne-nagel.responsibilities.4": "Liidestan taustateenuseid PostgreSQL-i ja relatsioonandmebaasidega SQL-i, JPA ja Hibernate’i abil.",
   "experience.kuehne-nagel.responsibilities.5": "Automatiseerin teste, koostamist ja konteinerites juurutamist JUniti, Jenkinsi, GitLab CI/CD, Dockeri ja Kubernetese abil.",
   "experience.taxify-bolt.role": "Taustsüsteemide vanemarendaja",
   "experience.taxify-bolt.location": "Tallinn, Eesti",

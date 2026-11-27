@@ -25,7 +25,7 @@
   "experience.kuehne-nagel.responsibilities.1": "Разрабатываю сервисы на Java и Spring Boot для корпоративных процессов.",
   "experience.kuehne-nagel.responsibilities.2": "Создаю событийные интеграции на Apache Kafka (Spring Kafka producers/consumers, партиционирование, порядок по ключу, управление offsets/rebalancing, Schema Registry, Kafka Streams/Connect) и RabbitMQ.",
   "experience.kuehne-nagel.responsibilities.3": "Реализую надёжную асинхронную обработку с transactional outbox, идемпотентными консьюмерами, retry/DLQ топиками, мониторингом consumer lag и эксплуатацией брокера.",
-  "experience.kuehne-nagel.responsibilities.4": "Интегрирую бэкенд-сервисы с PostgreSQL и Oracle Database с помощью SQL, JPA и Hibernate.",
+  "experience.kuehne-nagel.responsibilities.4": "Интегрирую бэкенд-сервисы с PostgreSQL и реляционными базами с помощью SQL, JPA и Hibernate.",
   "experience.kuehne-nagel.responsibilities.5": "Автоматизирую тестирование, сборку и контейнеризированное развёртывание в JUnit, Jenkins, GitLab CI/CD, Docker и Kubernetes.",
   "experience.taxify-bolt.role": "Старший бэкенд-разработчик",
   "experience.taxify-bolt.location": "Таллин, Эстония",
