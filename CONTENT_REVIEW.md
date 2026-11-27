@@ -1,88 +1,38 @@
-# Content review
+# Content Review Checklist
 
-Questions that need the owner's answer before the CV is published as final. The site
-is built on the verified facts in the original CV; each item below is a place where the
-rebuild made a choice, or where the source is silent.
+The portfolio and targeted CV variants strictly use verified facts from the existing CV repository and public GitHub repositories. Please review and confirm the following items before publishing or sending applications:
 
-## Facts and gaps
+## 1. Quantifiable Impact & Scale (Currently Omitted to Avoid Fabrication)
+Can you provide verified numbers for any of these areas?
+- **Kuehne+Nagel (2018 – Present):**
+  - Approximate daily/monthly volume of XML messages transformed or documents served by the link gateway.
+  - Production availability/SLA or incident/latency improvements achieved.
+  - Any measurable CI/CD build/deploy time reductions or infrastructure cost savings.
+  - Team size, mentoring responsibilities, or technical leadership/architecture ownership scope.
+- **Taxify / Bolt (2017 – 2018):**
+  - Approximate request rate or service scale for the high-load Node.js microservices you worked on.
+- **Oracle (2014 – 2017):**
+  - Confirmed `60+ computers` in the distributed lab from the original CV. Any additional verified figures (e.g., suite stabilization improvements or defect count) you want included?
 
-1. **Employment gap, February 2007 – September 2012.** The source CV lists no role
-   between OAO INRUSKOM (ends February 2007) and Bonus Club (starts September 2012).
-   The site does not fill it. Should a note be added, or is the gap fine as it is?
-2. **Work location.** The source CV writes "Kuehne+Nagel @ Tallinn.ee" and
-   "Taxify @ Tallinn.ee". The site shows "Tallinn, Estonia" for both. Confirm the locations.
-3. **Taxify (now Bolt).** The site says the Taxify role was "before it was rebranded as Bolt".
-   This is the requested positioning; confirm the wording.
-4. **Titles and roles.** "Senior Software Engineer" is the requested headline. The three
-   roles keep the titles from the source CV ("Senior Java Developer", "Senior Backend
-   Developer", "SQE / Java Developer").
-5. **Earlier roles.** The 2001–2005 "Software Engineer intern" entry is kept as in the
-   source, with its dates. Confirm it should stay on the public site.
-6. **Languages.** "English (Intermediate)" is kept from the source CV. Confirm the
-   level; it is shown in every PDF.
-7. **Education and interests.** Kept as in the source CV.
-8. **Phone number.** The source CV has the phone number commented out. The WhatsApp page
-   (`whatsapp.html`) still links to the number, as before. Decide whether that page stays
-   public, or should be removed.
-9. **Facebook.** Kept as a secondary contact link, as in the original site.
+## 2. Experience Categorisation & Skill Context
+- **Apache Kafka, AWS, Terraform, Quarkus, Prometheus/Grafana:** These appeared in the `Skills & Proficiency` section of the original CV, but were not explicitly tied to a specific employer role in the Employment text.
+  - Currently they are tagged as **Additional professional** (or **Personal / independent** for Qdrant, Rust, MCP, RAG).
+  - Please confirm which ones were used in production at Kuehne+Nagel or Taxify (Bolt) vs personal/study projects so we can update `data/cv.json` accordingly.
+- **English Proficiency:** Kept at **Intermediate** as listed in the original CV. Please confirm if your current level (e.g., B2 / Upper-Intermediate / C1) should be updated.
 
-## Claims that go beyond the source CV
+## 3. Career Timeline & Links
+- **2007 – 2012 Gap:** The original CV lists OAO INRUSKOM (Nov 2005 – Feb 2007) followed by Bonus Club "All in plus" (Sep 2012 – Aug 2013). Left untouched with no fabricated filler. Should anything (e.g., education/freelance/unrelated work) be noted here, or keep as-is?
+- **Legacy Broken / Repurposed Links Removed:**
+  - Removed `http://www.vsevpluse.ru` (dead domain).
+  - Removed `http://www.inruscom.com` (domain now points to an unrelated special-vehicles site).
+  - Removed `whatsapp.html` / phone `+79117117850` (was commented out in `index.html`, leaked via `whatsapp.html`).
+  - Omitted personal Facebook link from the main contact panel (still available if you explicitly want it restored).
 
-10. **Apache Kafka.** The source CV lists Kafka at 80% in the skills, with no role or
-    project that uses it. The site marks it `other` ("Other skill") and the PDF lists it
-    on the "Other skills" line. Confirm whether Kafka was used professionally. If it was,
-    the evidence changes to `professional` and the Wise and Distributed Systems CVs can
-    name the project.
-11. **Summary wording.** The summary is the one you supplied. Parts of it are only partly
-    backed by the source CV: "event-driven architecture" (supported by the RabbitMQ
-    routing work), "production infrastructure" (Docker, Kubernetes, Jenkins and GitLab),
-    and "production deployments" in the Wise CV. Confirm each one.
-12. **"Fintech & Integrations" CV.** No payments, AML, compliance or financial-product
-    experience appears in the source CV, so that CV describes integration and secure
-    document delivery only. Confirm that the title is acceptable with that content.
-13. **Wise CV.** The file is named `Denis-Stepulenok-Wise-Engineer.pdf` and the page
-    `cv/wise/` names Wise in its title. Confirm the naming, and whether the page should
-    be public.
-14. **Skill evidence classes.** Each skill is classed as `professional`, `personal` or
-    `other` by reading the source CV and the public repositories. The mapping is my
-    judgement. Review `content/cv.json`, in particular the items marked `personal`
-    (Svelte, Rust, Claude Code, Gemini, Prometheus, Linux) and `other`.
-15. **Spring "public experiments".** The Spring technology page keeps the line "Public
-    experiments: Spring MVC with JPA 2" from the original site. It is not in the source
-    CV. Keep it, or remove it?
+## 4. Configurable Recruiter Settings (`data/cv.json`)
+In `data/cv.json` under `profile.availability`:
+- `showOpenToWork` is set to `false` by default (hidden).
+- `relocation` and `workAuthorisation` are empty strings by default.
+Update these fields when you want to surface work-authorisation or relocation details publicly.
 
-## Metrics and results
-
-16. **No measured results.** The source CV has no throughput, user, document or cost
-    figures. Every case study says so. If verified figures exist, give them, and the
-    "Results" section can show them.
-17. **Team size.** "60+ computers" in the Oracle role is kept from the source CV. Confirm
-    that it describes the lab infrastructure the role maintained.
-
-## Confidentiality
-
-18. **Generalised diagrams.** The earlier diagrams contained state names, timer intervals
-    and queue behaviour for the Kuehne+Nagel systems. These were replaced with generic
-    descriptions. Confirm nothing confidential remains in the component descriptions in
-    `content/architecture.json`.
-19. **"iOPM".** The product name appears in the source CV and is used on the site.
-    Confirm it may be published.
-
-## Public GitHub projects
-
-20. **Snapshot data.** Language, last commit and CI status were read from GitHub on
-    2026-11-27 and are stored in `content/github-projects.json`. They are not refreshed
-    automatically.
-21. **EntityLocker activity.** The last commit date (13 November 2026) matches the date
-    on which many old repositories were re-created, so it may not reflect real work.
-    Confirm, or drop the date.
-22. **Selection.** Five repositories were chosen. `wordstat-analyzer` (a specification
-    with no code) and `anygen` (a fork of another author's methodology) were left out.
-
-## Deployment
-
-23. **Gating.** GitHub Pages publishes `main` without waiting for the CI job. To make
-    deployment depend on validation, switch the Pages source to GitHub Actions. This
-    setting was not changed.
-24. **Pages publication.** The site replaces the previous content at
-    https://stden.github.io/CV/ when this branch is merged into `main`.
+## 5. GitHub Pages Deployment Note
+GitHub Pages on `stden/CV` is currently configured for legacy branch publishing (`main` / `/`). Built assets (`index.html`, `cv/`, `tech/`, `assets/`) are committed so branch publishing continues working seamlessly. Once merged, you can optionally switch **Settings -> Pages -> Build and deployment -> Source** to **GitHub Actions** to let `.github/workflows/ci-pages.yml` deploy directly from the validated `_site/` artifact.

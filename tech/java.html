@@ -1,105 +1,125 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Java — skills | Denis Stepulenok</title>
-<meta name="description" content="Main language for back-end services, deployment tooling and test automation, from Java 6 to Java 25.">
-<meta name="author" content="Denis Stepulenok">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://stden.github.io/CV/tech/java.html">
-<meta property="og:site_name" content="Denis Stepulenok">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java — skills | Denis Stepulenok">
-<meta property="og:description" content="Main language for back-end services, deployment tooling and test automation, from Java 6 to Java 25.">
-<meta property="og:url" content="https://stden.github.io/CV/tech/java.html">
-<meta property="og:image" content="https://stden.github.io/CV/assets/images/social-card.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Java — skills | Denis Stepulenok">
-<meta name="twitter:description" content="Main language for back-end services, deployment tooling and test automation, from Java 6 to Java 25.">
-<meta name="twitter:image" content="https://stden.github.io/CV/assets/images/social-card.png">
-<link rel="icon" href="../favicon.ico">
-<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css">
-<script>
-(function () {
-  try {
-    var saved = localStorage.getItem('cv-theme');
-    if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
-  } catch (error) {}
-})();
-</script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java — Denis Stepulenok | Technology Notes</title>
+  <meta name="description" content="Main language for back-end services, deployment tooling and test automation, from Java 6 to Java 25.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/tech/java.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Java — Denis Stepulenok | Technology Notes">
+  <meta property="og:description" content="Main language for back-end services, deployment tooling and test automation, from Java 6 to Java 25.">
+  <meta property="og:url" content="https://stden.github.io/CV/tech/java.html">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Java — Denis Stepulenok | Technology Notes">
+  <meta name="twitter:description" content="Main language for back-end services, deployment tooling and test automation, from Java 6 to Java 25.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
 </head>
-<body class="page-tech">
-<a class="skip-link" href="#main">Skip to content</a>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header">
-  <div class="container site-header__inner">
-    <a class="brand" href="../">Denis Stepulenok</a>
-    <nav aria-label="Sections">
-        <a href="../#overview">Overview</a>
-        <a href="../#experience">Experience</a>
-        <a href="../#projects">Projects</a>
-        <a href="../#skills">Skills</a>
-        <a href="../#architecture">Architecture</a>
-        <a href="../#education">Education</a>
-        <a href="../#contact">Contact</a>
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#architecture">Architecture</a></li>
+        <li><a href="../index.html#education">Education</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
     </nav>
-    <div class="site-header__actions">
-      <a class="button button--primary" href="../downloads/Denis-Stepulenok-Full-CV.pdf" download>Download CV</a>
-      <button type="button" class="icon-button js-only" data-theme-toggle aria-label="Switch to dark theme">
-        <span aria-hidden="true">◐</span>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <span class="theme-label">Dark</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-Senior-Java-Engineer.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
+        Menu
       </button>
     </div>
   </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+      <li><a href="../index.html#overview">Overview</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#architecture">Architecture</a></li>
+      <li><a href="../index.html#education">Education</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../assets/pdf/Denis-Stepulenok-Senior-Java-Engineer.pdf" download>Download CV (PDF)</a></li>
+    </ul>
+  </div>
 </header>
-<main id="main">
-<article class="tech-page">
-  <div class="container tech-page__inner">
-    <p><a class="text-link" href="../#skills">← Back to skills</a></p>
-    <header class="tech-header"><img class="tech-logo" alt="" width="48" height="48" src="../assets/images/tech/java.svg"><h1>Java</h1></header>
-    <p class="lead">Main language for back-end services, deployment tooling and test automation, from Java 6 to Java 25.</p>
-    <section aria-labelledby="flow-title">
-      <h2 id="flow-title">How it works</h2>
-      <ol class="flow">
+<main id="main-content">
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html#skills">&larr; Back to Portfolio &amp; Skills</a></p>
+    <div class="tech-header">
+      <img alt="Java logo" class="tech-logo" src="../assets/images/tech/java.svg" width="48" height="48">
+      <div>
+        <h1>Java</h1>
+      </div>
+    </div>
+    <p class="section-lead">Main language for back-end services, deployment tooling and test automation, from Java 6 to Java 25.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>Execution &amp; architecture flow</h2>
+    <ol class="flow-steps">
       <li>Source (.java)</li>
       <li>javac</li>
       <li>Bytecode (.class)</li>
       <li>JVM</li>
       <li>Machine code (JIT)</li>
-      </ol>
-    </section>
-    <section aria-labelledby="capabilities-title">
-      <h2 id="capabilities-title">Capabilities</h2>
-      <ul>
+    </ol>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <h2>Engineering capabilities</h2>
+    <ul class="bullet-list">
       <li>Language features from generics and lambdas (Java 8) to records, sealed classes and pattern matching (Java 17 and later)</li>
       <li>Virtual threads (Java 21) for high-concurrency server code</li>
       <li>Core libraries: collections, concurrency utilities, JDBC, Swing and JavaFX</li>
       <li>Diagnosing problems in the Java Memory Model, class loading and concurrency</li>
-      </ul>
-    </section>
-    <section aria-labelledby="used-title">
-      <h2 id="used-title">Where I used it</h2>
-      <ul>
-      <li>Kuehne+Nagel (2018 - now): Java deployment for iOPM, Java 6 to 25</li>
+    </ul>
+    <h2>Where used</h2>
+    <ul class="bullet-list">
+      <li>Kuehne+Nagel (2018 - now): Enterprise Java services and deployment tooling, Java 6 to 25</li>
+      <li>Oracle Russia (2014 - 2017): test development and bug fixing in tests and the JDK</li>
       <li>Software Development &amp; Solutions (2013 - 2014): Java and JUnit on the Forward project</li>
       <li>Bonus Club &quot;All in plus&quot; (2012 - 2013): core library, services and billing software</li>
-      <li>Oracle Russia (2014 - 2017): test development and bug fixing in tests and the JDK</li>
-      </ul>
-    </section>
-    <p><a class="text-link" href="https://openjdk.org/" rel="noopener">Official site</a></p>
+    </ul>
+    <p><a class="btn btn-secondary btn-sm" href="https://openjdk.org/" target="_blank" rel="noopener noreferrer">Official documentation</a></p>
   </div>
-</article>
+</section>
 </main>
 <footer class="site-footer">
-  <div class="container">
-    <p>Last updated 2026-11-27. Source: <a href="https://github.com/stden/CV" rel="noopener">github.com/stden/CV</a>.
-    Plain HTML and CSS, generated by <code>npm run build</code>.</p>
-    <p><a href="../cv/full/">Full CV online</a> · <a href="../downloads/Denis-Stepulenok-Full-CV.pdf" download>Full CV as PDF</a></p>
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
+    <div class="footer-links">
+      <a href="../index.html">Portfolio</a>
+      <a href="../cv/index.html">Targeted CVs</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Email</a>
+    </div>
   </div>
 </footer>
-<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>

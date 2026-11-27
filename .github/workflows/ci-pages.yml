@@ -1,0 +1,118 @@
+name: Build, Validate, and Deploy Portfolio
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: portfolio-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: read
+    outputs:
+      pages_source: ${{ steps.pages-source.outputs.mode }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium and PDF inspection tools
+        run: |
+          npx playwright install --with-deps chromium
+          sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Build static site, SVG diagrams, and technology pages
+        run: npm run build
+
+      - name: Generate ATS-friendly PDF resumes and OG image
+        run: npm run build:pdfs
+
+      - name: Run static validation, SEO checks, and PDF text extraction checks
+        run: npm test
+
+      - name: Run Playwright E2E, responsiveness, and Axe accessibility tests
+        run: npm run test:e2e
+
+      - name: Stage and validate public Pages artifact
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          cp index.html robots.txt sitemap.xml favicon.ico _site/
+          cp -r assets cv tech _site/
+          test -f _site/index.html
+          test -f _site/cv/wise.html
+          test -f _site/assets/pdf/Denis-Stepulenok-Senior-Java-Engineer.pdf
+          test -f _site/assets/pdf/Denis-Stepulenok-Wise-Senior-Java-Engineer.pdf
+
+      - name: Upload Playwright report and screenshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-test-artifacts
+          path: |
+            docs/screenshots/
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Upload PR preview bundle
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-preview-site
+          path: _site/
+          retention-days: 14
+
+      - name: Check repository GitHub Pages source configuration
+        if: github.ref == 'refs/heads/main'
+        id: pages-source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mode="$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.build_type')"
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          if [[ "$mode" != "workflow" ]]; then
+            echo "::notice::GitHub Pages is currently configured for branch publishing ($mode). Generated files are committed in the repository so branch publishing continues working; switch Settings -> Pages -> Source to GitHub Actions to publish via deploy-pages."
+          fi
+
+      - name: Upload GitHub Pages artifact
+        if: github.ref == 'refs/heads/main' && steps.pages-source.outputs.mode == 'workflow'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && needs.validate.outputs.pages_source == 'workflow'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: publish
+        uses: actions/deploy-pages@v4

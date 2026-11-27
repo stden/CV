@@ -1,7 +1,8 @@
-# Created by .ignore support plugin (hsz.mobi)
 .idea
 node_modules
 *.log
-# Browser test output (screenshots, traces, reports)
+.build/
+_site/
+.lighthouse/
 test-results/
 playwright-report/

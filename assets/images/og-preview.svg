@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b1120"/>
+  <rect x="48" y="48" width="1104" height="534" rx="18" fill="#111827" stroke="#1e293b" stroke-width="2"/>
+  <rect x="48" y="48" width="12" height="534" rx="6" fill="#2dd4bf"/>
+  <text x="102" y="130" fill="#5eead4" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="700" letter-spacing="2">SENIOR SOFTWARE ENGINEER PORTFOLIO</text>
+  <text x="102" y="218" fill="#f1f5f9" font-family="Inter, system-ui, sans-serif" font-size="60" font-weight="800">Denis Stepulenok</text>
+  <text x="102" y="280" fill="#cbd5e1" font-family="Inter, system-ui, sans-serif" font-size="30" font-weight="600">Senior Software Engineer | Java, Distributed Systems &amp; AI Engineering</text>
+  <text x="102" y="346" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="25" font-weight="400">Tallinn, Estonia · Kuehne+Nagel · Bolt (Taxify) · Oracle</text>
+  <text x="102" y="438" fill="#cbd5e1" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="500">Java (6–25) · Spring Boot · RabbitMQ · PostgreSQL · Docker · Kubernetes · Rust · MCP</text>
+  <text x="102" y="520" fill="#5eead4" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">https://stden.github.io/CV/</text>
+</svg>
