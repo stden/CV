@@ -6,6 +6,7 @@ import { loadContent } from '../scripts/lib/content.mjs';
 
 const content = loadContent();
 const EMAIL = content.cv.contact.email;
+const GENERAL_PDF = 'Denis-Stepulenok-Senior-Software-Engineer.pdf';
 const WIDTHS = [375, 390, 768, 1024, 1440, 1920];
 const SCREENSHOTS = join('test-results', 'screenshots');
 const PAGES = ['./', 'cv/full/', 'cv/senior-java-backend/', 'projects/messenger-archive-search/', 'tech/java.html'];
@@ -31,7 +32,13 @@ test.describe('home page', () => {
     await expect(page.getByRole('heading', { level: 1, name: 'Denis Stepulenok' })).toBeVisible();
     await expect(page.getByText('Senior Software Engineer | Java, Distributed Systems & AI Engineering')).toBeVisible();
     await expect(page.getByText('Tallinn, Estonia').first()).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Download CV (PDF)' })).toBeVisible();
+    const heroDownload = page.locator('#overview').getByRole('link', { name: 'Download CV (PDF)' });
+    await expect(heroDownload).toBeVisible();
+    await expect(heroDownload).toHaveAttribute('href', `downloads/${GENERAL_PDF}`);
+    await expect(page.locator('.site-header').getByRole('link', { name: 'Download CV', exact: true }))
+      .toHaveAttribute('href', `downloads/${GENERAL_PDF}`);
+    await expect(page.locator('#contact').getByRole('link', { name: 'Download general CV (PDF)' }))
+      .toHaveAttribute('href', `downloads/${GENERAL_PDF}`);
     await expect(page.getByRole('link', { name: 'Contact' }).first()).toBeVisible();
   });
 

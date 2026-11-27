@@ -3,7 +3,7 @@
 Static engineering portfolio and CV, published at https://stden.github.io/CV/.
 
 - `index.html`: the portfolio (overview, experience, projects, skills, architecture, education, contact).
-- `cv/<version>/`: six targeted CVs, each with a PDF in `downloads/`.
+- `cv/<version>/`: the general CV, five targeted versions and a detailed CV, each with a PDF in `downloads/`.
 - `projects/<id>/`: case studies for the three selected projects.
 - `tech/*.html`: one page per technology listed in the skills.
 
@@ -16,7 +16,7 @@ Every page is generated from the JSON files in `content/`. Nothing is written by
 | `content/` | The source of truth: `cv.json` (profile, experience, projects, skills), `variants.json` (targeted CVs), `architecture.json` (diagrams and concepts), `github-projects.json` (selected public repositories), `site.json` (URL, date, optional availability), `technologies.json` (technology pages). |
 | `scripts/` | Build code. `build.mjs` is the entry point; `lib/` holds validation, the page frame and the static server; `render/` holds one renderer per page type. |
 | `assets/` | Hand-written CSS (`css/site.css`), the small progressive-enhancement script (`js/site.js`), fonts, images and SVG diagrams (generated). |
-| `downloads/` | The six PDF resumes (generated). |
+| `downloads/` | The seven published PDF resumes (generated). |
 | `tests/` | Unit tests for the content, the built pages and the PDFs (`node:test`). |
 | `e2e/` | Browser tests (Playwright): navigation, layout at six widths, theme, copy button, downloads, accessibility, console errors. |
 
@@ -46,6 +46,28 @@ npm run serve          # http://127.0.0.1:4173/CV/
 3. To change a targeted CV, edit `content/variants.json`: its focus tags, skill groups, projects and how many highlights it keeps. The facts stay the same across versions.
 4. Run `npm run build`. Validation stops the build when a reference is wrong, a skill percentage appears, or a duplicate id exists.
 5. Commit the regenerated HTML, SVG and PDF files together with the content change. The CI job checks that the committed HTML and SVG match a fresh build.
+
+## Create a CV for a specific vacancy
+
+Prepare a local JSON file with the vacancy URL, a factual summary, a base profile, exact skill names and the project IDs relevant to the position. The optional focus tags rank existing job highlights. The employment history and evidence labels come from the shared CV.
+
+```json
+{
+  "slug": "example-backend-1234",
+  "source": "https://careers.example.org/jobs/1234",
+  "profile": "senior-java-backend",
+  "summary": "Java backend engineer working with Spring Boot and asynchronous messaging.",
+  "skills": ["Java", "Spring Boot", "PostgreSQL", "RabbitMQ"],
+  "projects": ["xml-transformation-pipeline", "document-link-gateway"],
+  "focus": ["messaging", "integration"]
+}
+```
+
+```bash
+npm run cv:job -- /path/to/vacancy.json
+```
+
+The local output includes the PDF, a self-contained HTML copy and the selection file. Each run writes a new folder under `applications/`, which is excluded from Git and the public site build.
 
 ## Deployment
 

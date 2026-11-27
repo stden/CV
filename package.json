@@ -20,6 +20,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:html": "node scripts/build.mjs --no-pdf",
+    "cv:job": "node scripts/build-job-cv.mjs",
     "serve": "node scripts/serve.mjs",
     "test:unit": "node --test \"tests/**/*.test.mjs\"",
     "test:e2e": "playwright test",

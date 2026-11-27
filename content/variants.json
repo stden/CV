@@ -1,5 +1,35 @@
 [
   {
+    "slug": "general",
+    "title": "Senior Software Engineer",
+    "pdf": "Denis-Stepulenok-Senior-Software-Engineer.pdf",
+    "summary": "Senior software engineer specialising in enterprise Java, distributed systems and backend integrations. Experience includes Spring Boot services, asynchronous messaging, relational databases, production deployments and JVM testing. Independent projects use Rust and Python for data processing, semantic search and AI integrations.",
+    "focus": [
+      "java",
+      "spring",
+      "integration",
+      "distributed",
+      "concurrency",
+      "data",
+      "testing",
+      "devops",
+      "backend"
+    ],
+    "skillGroups": [
+      "core",
+      "messaging",
+      "infra",
+      "quality",
+      "languages"
+    ],
+    "projects": [
+      "document-link-gateway",
+      "xml-transformation-pipeline",
+      "messenger-archive-search"
+    ],
+    "maxHighlights": 3
+  },
+  {
     "slug": "senior-java-backend",
     "title": "Senior Java Backend Engineer",
     "pdf": "Denis-Stepulenok-Senior-Java-Engineer.pdf",

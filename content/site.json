@@ -1,6 +1,7 @@
 {
   "origin": "https://stden.github.io",
   "basePath": "/CV/",
+  "defaultCvPdf": "Denis-Stepulenok-Senior-Software-Engineer.pdf",
   "updated": "2026-11-27",
   "availability": {
     "showOpenToWork": false,

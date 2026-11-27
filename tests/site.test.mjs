@@ -112,11 +112,29 @@ describe('built pages', () => {
     }
   });
 
-  test('the hero shows the agreed title, location and the Download CV button', () => {
-    const text = textOf(read('index.html'));
+  test('the hero shows the agreed title, location and the general CV download', () => {
+    const home = read('index.html');
+    const overview = home.match(/<section id="overview"[^>]*>[\s\S]*?<\/section>/)[0];
+    const text = textOf(overview);
     assert.ok(text.includes('Senior Software Engineer | Java, Distributed Systems & AI Engineering'));
     assert.ok(text.includes('Tallinn, Estonia'));
-    assert.ok(read('index.html').includes('href="downloads/Denis-Stepulenok-Full-CV.pdf"'));
+    assert.match(overview, /href="downloads\/Denis-Stepulenok-Senior-Software-Engineer\.pdf" download>Download CV \(PDF\)/);
+  });
+
+  test('the contact section lists the general CV first and keeps the existing editions', () => {
+    assert.deepEqual(content.variants.map(({ slug }) => slug), [
+      'general', 'senior-java-backend', 'distributed-systems', 'fintech-integrations', 'ai-mcp-engineer', 'full', 'wise'
+    ]);
+    const contact = read('index.html').match(/<section id="contact"[^>]*>[\s\S]*?<\/section>/)[0];
+    assert.match(contact, /<ul class="plain-list cv-links">\s*<li><a href="cv\/general\/">Senior Software Engineer<\/a>/);
+    assert.match(contact, /href="downloads\/Denis-Stepulenok-Senior-Software-Engineer\.pdf" download>Download general CV \(PDF\)/);
+    assert.equal(content.site.defaultCvPdf, content.variants[0].pdf);
+  });
+
+  test('the shared header offers the general CV and the footer still offers the full CV', () => {
+    const nested = read('cv/wise/index.html');
+    assert.match(nested, /href="\.\.\/\.\.\/downloads\/Denis-Stepulenok-Senior-Software-Engineer\.pdf" download>Download CV<\/a>/);
+    assert.match(nested, /href="\.\.\/\.\.\/downloads\/Denis-Stepulenok-Full-CV\.pdf" download>Full CV as PDF<\/a>/);
   });
 
   test('open-to-work is not shown by default', () => {

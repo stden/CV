@@ -5,3 +5,4 @@ node_modules
 # Browser test output (screenshots, traces, reports)
 test-results/
 playwright-report/
+/applications/

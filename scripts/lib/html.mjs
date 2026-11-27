@@ -32,7 +32,7 @@ export function canonicalUrl(site, pagePath) {
   return `${site.origin}${site.basePath}${pagePath}`;
 }
 
-function header(prefix) {
+function header(prefix, defaultCvPdf) {
   const nav = SECTIONS.map((section) => `<a href="${prefix}#${section.id}">${section.label}</a>`).join('\n        ');
   return `<header class="site-header">
   <div class="container site-header__inner">
@@ -41,7 +41,7 @@ function header(prefix) {
         ${nav}
     </nav>
     <div class="site-header__actions">
-      <a class="button button--primary" href="${prefix}downloads/Denis-Stepulenok-Full-CV.pdf" download>Download CV</a>
+      <a class="button button--primary" href="${prefix}downloads/${escapeHtml(defaultCvPdf)}" download>Download CV</a>
       <button type="button" class="icon-button js-only" data-theme-toggle aria-label="Switch to dark theme">
         <span aria-hidden="true">◐</span>
       </button>
@@ -101,7 +101,7 @@ ${schemas.join('\n')}
 </head>
 <body class="${bodyClass}">
 <a class="skip-link" href="#main">Skip to content</a>
-${header(prefix)}
+${header(prefix, site.defaultCvPdf)}
 <main id="main">
 ${body}
 </main>

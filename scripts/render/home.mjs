@@ -23,7 +23,7 @@ function heroSection(cv, site) {
         ${cv.badges.map((badge) => `<li>${escapeHtml(badge)}</li>`).join('\n        ')}
       </ul>
       <div class="actions">
-        <a class="button button--primary" href="downloads/Denis-Stepulenok-Full-CV.pdf" download>Download CV (PDF)</a>
+        <a class="button button--primary" href="downloads/${escapeHtml(site.defaultCvPdf)}" download>Download CV (PDF)</a>
         <a class="button button--ghost" href="#contact">Contact</a>
         <a class="text-link" href="${cv.contact.github}" rel="me noopener">GitHub</a>
         <a class="text-link" href="${cv.contact.linkedin}" rel="me noopener">LinkedIn</a>
@@ -244,7 +244,7 @@ function availabilityList(site) {
 function variantLinks(content) {
   return content.variants
     .map((variant) => `<li><a href="cv/${variant.slug}/">${escapeHtml(variant.title)}</a>
-            <span class="muted">·</span> <a class="text-link" href="downloads/${variant.pdf}" download>PDF</a></li>`)
+            <span class="muted">·</span> <a class="text-link" href="downloads/${variant.pdf}" download>${variant.pdf === content.site.defaultCvPdf ? 'Download general CV (PDF)' : 'PDF'}</a></li>`)
     .join('\n          ');
 }
 
@@ -258,7 +258,7 @@ function contactSection(content) {
   </div>
   <p class="muted">Also on <a href="${cv.contact.facebook}" rel="noopener">Facebook</a>.</p>
   ${availabilityList(site)}
-  <h3 class="subsection-title">Targeted CV versions</h3>
+  <h3 class="subsection-title">CV versions</h3>
   <p class="muted">Each version uses the same verified facts, with a different selection of skills and projects.</p>
   <ul class="plain-list cv-links">
           ${variantLinks(content)}

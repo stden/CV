@@ -59,18 +59,33 @@ function earlierBlock(cv) {
     </section>`;
 }
 
-export function renderCvPage(content, variant) {
+export function renderCvPage(content, variant, { stylesheet } = {}) {
   const { cv, site } = content;
   const experience = cv.experience.map((job) => jobBlock(job, variant)).join('\n      ');
   const projects = projectsFor(cv, variant).map((project) => projectBlock(project, variant)).join('\n      ');
   const languages = cv.languages.map((item) => `${escapeHtml(item.name)} (${escapeHtml(item.level)})`).join(', ');
   const pagePath = `cv/${variant.slug}/`;
   const summary = variant.summary ?? cv.summary;
+  const standalone = stylesheet !== undefined;
+  const portfolioUrl = standalone ? `${site.origin}${site.basePath}` : '../../';
+  const pdfUrl = (standalone ? '' : '../../downloads/') + variant.pdf;
+  const title = `${cv.name} — ${variant.title}`;
+  const skillsSection = `<section aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+      ${skillsBlock(cv, variant)}
+    </section>`;
+  const experienceSection = `<section aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+      ${experience}
+    </section>`;
+  const prioritySections = standalone || variant.slug === 'general'
+    ? [experienceSection, skillsSection]
+    : [skillsSection, experienceSection];
   const body = `<article class="resume" aria-labelledby="resume-title">
   <div class="container resume__inner">
     <div class="resume__actions no-print">
-      <a class="button button--primary" href="../../downloads/${variant.pdf}" download>Download PDF</a>
-      <a class="text-link" href="../../#overview">Back to portfolio</a>
+      <a class="button button--primary" href="${escapeHtml(pdfUrl)}" download>Download PDF</a>
+      <a class="text-link" href="${escapeHtml(portfolioUrl)}#overview">Back to portfolio</a>
     </div>
     <header class="resume__header">
       <h1 id="resume-title">${escapeHtml(cv.name)}</h1>
@@ -82,19 +97,12 @@ export function renderCvPage(content, variant) {
       <h2 id="summary-title">Summary</h2>
       <p>${escapeHtml(summary)}</p>
     </section>
-    <section aria-labelledby="skills-title">
-      <h2 id="skills-title">Skills</h2>
-      ${skillsBlock(cv, variant)}
-    </section>
-    <section aria-labelledby="experience-title">
-      <h2 id="experience-title">Experience</h2>
-      ${experience}
-    </section>
+    ${prioritySections.join('\n    ')}
     ${earlierBlock(cv)}
-    <section aria-labelledby="projects-title">
+    ${projects ? `<section aria-labelledby="projects-title">
       <h2 id="projects-title">Selected projects</h2>
       ${projects}
-    </section>
+    </section>` : ''}
     <section aria-labelledby="education-title">
       <h2 id="education-title">Education</h2>
       ${cv.education.map((item) => `<p><strong>${escapeHtml(item.degree)}</strong>, ${escapeHtml(item.school)} <span class="meta">(${escapeHtml(item.period)})</span></p>`).join('\n      ')}
@@ -105,8 +113,20 @@ export function renderCvPage(content, variant) {
     </section>
   </div>
 </article>`;
+  if (standalone) return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>${escapeHtml(title)}</title>
+<style>${stylesheet}</style>
+</head>
+<body class="page-resume"><main>${body}</main></body>
+</html>
+`;
   return documentShell({
-    title: `${cv.name} — ${variant.title}`,
+    title,
     description: `${variant.title}: ${summary.slice(0, 150)}`,
     pagePath,
     prefix: '../../',
