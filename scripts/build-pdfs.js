@@ -22,13 +22,17 @@ function renderPdfHtml(data, variant, fontBase64, { privateCv = false } = {}) {
         ? `@font-face { font-family: "Inter"; src: url("data:font/woff2;base64,${fontBase64}") format("woff2"); font-weight: 100 900; font-style: normal; }`
         : '';
 
-    const skillsRows = variant.skillCategoryOrder
+    const selectedCategories = variant.skillCategoryOrder
         .map((id) => skillById.get(id))
         .filter(Boolean)
-        .map((cat) => ({ ...cat, items: cat.items.filter(({ name }) => !selectedSkills || selectedSkills.has(name)) }))
-        .filter(({ items }) => items.length)
-        .map((cat) => `<p class="skill-row"><strong>${escapeHtml(cat.title)}:</strong> ${escapeHtml(cat.items.map((i) => i.name).join(', '))}</p>`)
-        .join('\n');
+        .map((cat) => ({ ...cat, items: cat.items.filter(({ name }) => !selectedSkills || selectedSkills.has(name)) }));
+    const familiarity = selectedCategories.flatMap(({ items }) => items.filter(({ tier }) => tier === 'familiarity'));
+    const skillRows = selectedCategories
+        .map(({ title, items }) => ({ title, items: items.filter(({ tier }) => tier !== 'familiarity') }))
+        .filter(({ items }) => items.length);
+    if (familiarity.length) skillRows.push({ title: 'Familiarity', items: familiarity });
+    const skillsRows = skillRows.map(({ title, items }) =>
+        `<p class="skill-row"><strong>${escapeHtml(title)}:</strong> ${escapeHtml(items.map((item) => item.name).join(', '))}</p>`).join('\n');
 
     const rolesHtml = roles.map((role) => {
         const compact = role.compact && experienceFirst;
@@ -89,6 +93,7 @@ function renderPdfHtml(data, variant, fontBase64, { privateCv = false } = {}) {
 <html lang="en">
 <head>
 <meta charset="utf-8">
+${privateCv ? '<meta name="viewport" content="width=device-width, initial-scale=1">' : ''}
 ${privateCv ? '<meta name="robots" content="noindex, nofollow">' : ''}
 <title>${escapeHtml(profile.name)} — ${escapeHtml(variant.roleTitle)}</title>
 <style>
@@ -100,8 +105,8 @@ ${privateCv ? '<meta name="robots" content="noindex, nofollow">' : ''}
     color: #0f172a;
     background: #ffffff;
     font-family: "Inter", Arial, Helvetica, sans-serif;
-    font-size: ${isFull ? '8.7pt' : '8.85pt'};
-    line-height: 1.34;
+    font-size: ${isFull ? '8.7pt' : '9.45pt'};
+    line-height: ${isFull ? '1.34' : '1.38'};
   }
   a { color: #0f5257; text-decoration: none; }
   header { border-bottom: 1.5pt solid #0f766e; padding-bottom: 5pt; margin-bottom: 6.5pt; }
@@ -113,7 +118,7 @@ ${privateCv ? '<meta name="robots" content="noindex, nofollow">' : ''}
     margin: 0 0 3.5pt;
     padding-bottom: 1pt;
     border-bottom: 0.75pt solid #cbd5e1;
-    font-size: 9.5pt;
+    font-size: ${isFull ? '9.5pt' : '10pt'};
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -123,13 +128,14 @@ ${privateCv ? '<meta name="robots" content="noindex, nofollow">' : ''}
   p { margin: 0 0 3pt; }
   .entry { margin-bottom: 5.5pt; break-inside: avoid; }
   .entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8pt; }
-  h3 { margin: 0; font-size: 9.2pt; font-weight: 700; color: #0f172a; }
+  h3 { margin: 0; font-size: ${isFull ? '9.2pt' : '9.6pt'}; font-weight: 700; color: #0f172a; }
   .period { font-size: 8.2pt; font-weight: 600; color: #334155; white-space: nowrap; }
   .meta { font-size: 8.2pt; color: #475569; margin-bottom: 2pt; }
   .summary-line { color: #1e293b; }
   .tech-line, .skill-row { font-size: 8.4pt; color: #1e293b; margin-bottom: 2pt; }
   .bullets { margin: 1.5pt 0 2.5pt; padding-left: 12pt; }
   .bullets li { margin-bottom: 1.4pt; color: #1e293b; }
+  ${privateCv ? '@media screen { body { max-width: 52rem; margin-inline: auto; padding: 1.2rem; font-size: .93rem; } .entry-head { flex-wrap: wrap; gap: .1rem .5rem; } }' : ''}
 </style>
 </head>
 <body>
@@ -175,7 +181,9 @@ ${reposHtml ? `<section>
 async function printPdf(page, html, destination) {
     await page.setContent(html, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
-    await page.pdf({ path: destination, format: 'A4', printBackground: true, preferCSSPageSize: true });
+    await page.pdf({
+        path: destination, format: 'A4', printBackground: true, preferCSSPageSize: true, tagged: true, outline: true,
+    });
 }
 
 async function main() {

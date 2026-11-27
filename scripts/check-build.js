@@ -3,13 +3,15 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const { ROOT_DIR, loadCvData } = require('./lib/utils');
-const { runConfidentialityCheck } = require('./check-confidentiality');
+const { DETAIL_PAGES } = require('./lib/public-artifact');
+const { withValidatedPublicArtifact } = require('./stage-public');
+const { ConfidentialityCheckError } = require('./check-confidentiality');
 
 function runBuild() {
     for (const script of ['build-project-diagrams.js', 'build-tech-pages.js', 'build-site.js']) {
         execFileSync(process.execPath, [path.join(ROOT_DIR, 'scripts', script)], {
             cwd: ROOT_DIR,
-            stdio: 'inherit',
+            stdio: 'pipe',
         });
     }
 }
@@ -28,6 +30,7 @@ function collectHtmlPages(data) {
     return [
         'index.html',
         'cv/index.html',
+        ...DETAIL_PAGES.map((route) => `${route}/index.html`),
         ...data.variants.map((v) => `cv/${v.slug}.html`),
         ...data.technologies.map((t) => `tech/${t.slug}.html`),
     ];
@@ -75,6 +78,9 @@ function checkAssetsAndDiscovery(data) {
     assert.ok(fs.existsSync(path.join(ROOT_DIR, 'robots.txt')), 'robots.txt missing');
     const sitemap = fs.readFileSync(path.join(ROOT_DIR, 'sitemap.xml'), 'utf8');
     assert.ok(sitemap.includes(`${data.site.baseUrl}/cv/wise.html`), 'sitemap.xml must include wise CV URL');
+    for (const route of DETAIL_PAGES) {
+        assert.ok(sitemap.includes(`<loc>${data.site.baseUrl}/${route}/</loc>`), 'PUBLIC_SITEMAP_DETAIL_MISSING');
+    }
     for (const d of data.architectureDiagrams) {
         const svgPath = path.join(ROOT_DIR, 'assets', 'images', 'projects', `${d.slug}.svg`);
         assert.ok(fs.existsSync(svgPath), `Missing SVG diagram: ${d.slug}.svg`);
@@ -91,6 +97,8 @@ function checkPdfs(data) {
         assert.equal(header, '%PDF-', `${variant.pdfFilename} must start with %PDF-`);
 
         const info = execFileSync('pdfinfo', [pdfPath], { encoding: 'utf8' });
+        assert.match(info, /^Page size:\s+[^\n]+\(A4\)/m, 'PUBLIC_PDF_FORMAT');
+        assert.match(info, /^Title:\s+\S+/m, 'PUBLIC_PDF_METADATA');
         const pagesMatch = info.match(/^Pages:\s+(\d+)/m);
         assert.ok(pagesMatch, `Could not read page count for ${variant.pdfFilename}`);
         const pages = Number(pagesMatch[1]);
@@ -111,6 +119,29 @@ function checkPdfs(data) {
             }
         }
         assert.ok(!/\b9[0-9]%\b/.test(text), `${variant.pdfFilename} must not contain arbitrary skill percentage bars`);
+        for (const heading of ['Summary', 'Technical Skills', 'Professional Experience', 'Education', 'Languages']) {
+            assert.ok(text.toLowerCase().includes(heading.toLowerCase()), 'PUBLIC_PDF_HEADING_MISSING');
+        }
+        const links = execFileSync('pdfinfo', ['-url', pdfPath], { encoding: 'utf8' });
+        for (const href of [`mailto:${data.profile.contact.email}`, data.profile.contact.github, data.profile.contact.linkedin]) {
+            assert.ok(links.includes(href), 'PUBLIC_PDF_LINK_MISSING');
+        }
+        const fonts = execFileSync('pdffonts', [pdfPath], { encoding: 'utf8' }).trim().split('\n').slice(2);
+        assert.ok(fonts.length && fonts.every((line) => /\byes\s+(?:yes|no)\s+(?:yes|no)\s+\d+\s+\d+$/.test(line.trim())), 'PUBLIC_PDF_FONT_NOT_EMBEDDED');
+        checkPdfBounds(pdfPath, pages);
+    }
+}
+
+function checkPdfBounds(pdfPath, count) {
+    const layout = execFileSync('pdftotext', ['-bbox-layout', pdfPath, '-'], { encoding: 'utf8' });
+    const pages = [...layout.matchAll(/<page width="([\d.]+)" height="([\d.]+)">([\s\S]*?)<\/page>/g)];
+    assert.equal(pages.length, count, 'PUBLIC_PDF_TEXT_PAGE_MISSING');
+    for (const [, width, height, page] of pages) {
+        const words = [...page.matchAll(/<word xMin="([\d.-]+)" yMin="([\d.-]+)" xMax="([\d.-]+)" yMax="([\d.-]+)">/g)];
+        assert.ok(words.length, 'PUBLIC_PDF_PAGE_EMPTY');
+        for (const [, x0, y0, x1, y1] of words) {
+            assert.ok(+x0 >= 0 && +y0 >= 0 && +x1 <= +width && +y1 <= +height, 'PUBLIC_PDF_TEXT_OUTSIDE_PAGE');
+        }
     }
 }
 
@@ -118,12 +149,18 @@ function main() {
     runBuild();
     const data = loadCvData();
     checkDataIntegrity(data);
+    withValidatedPublicArtifact(data, () => {});
     const pages = collectHtmlPages(data);
     checkHtmlPages(data, pages);
     checkAssetsAndDiscovery(data);
     checkPdfs(data);
-    runConfidentialityCheck();
     console.log(`Static & PDF validation passed: ${pages.length} HTML pages, ${data.architectureDiagrams.length} SVG diagrams, ${data.variants.length} ATS PDFs.`);
 }
 
-main();
+try {
+    main();
+} catch (error) {
+    const safe = error instanceof ConfidentialityCheckError || /^PUBLIC_[A-Z_]+$/.test(error.message);
+    console.error(safe ? error.message : 'PUBLIC_BUILD_OR_VALIDATION_FAILED');
+    process.exitCode = 1;
+}

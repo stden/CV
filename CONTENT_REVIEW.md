@@ -1,26 +1,24 @@
-# Content & Confidentiality Review Checklist
+# Content approval checklist
 
-Before merging or deploying updates to the public website, please review and approve the sanitised content below:
+The portfolio is for international software engineering recruitment. Review the release checklist before approving a public deployment.
 
-## 1. Employer & Technology Disclosure Approval
-- **Employment summaries:** All employer entries (Kuehne+Nagel, Taxify/Bolt, Oracle, and earlier roles) have been rewritten to describe general engineering competencies and responsibilities only, without internal system names, architecture details, metrics, or proprietary implementations.
-  - Please confirm whether the listed employer names, dates, locations, and high-level technology names (`Java`, `Spring Boot`, `RabbitMQ`, `PostgreSQL`, `Oracle Database`, `Docker`, `Kubernetes`, `Jenkins`, `GitLab`, `Node.js`, `TypeScript`, `Redis`) are approved for public display.
-- **Additional technologies:** Items such as `Apache Kafka`, `AWS`, `Terraform`, and `Prometheus / Grafana` are categorised as **Additional professional** rather than claimed as core production deployments at a specific employer. Please confirm if any should be removed or recategorised.
+## Employment and professional claims
 
-## 2. Independent Projects & Architecture Diagrams
-- All case studies and architecture diagrams on the public website and in all 6 PDF resumes are strictly based on:
-  - Independent personal projects (`Messenger Archive & Semantic Search`)
-  - Open-source public repositories (`EntityLocker`, `FunnyFileManager`, `RustShot`)
-  - Generic educational reference patterns (`Transactional Outbox & Idempotent Event Consumer`, `Resilient Asynchronous Job Queue & Backpressure`)
-- Confirm that none of your personal/open-source repositories contain employer-derived material before linking them.
+- Confirm that the employer names, role titles, dates, locations and broad technology groupings are approved for public use. Each recent role now uses general responsibilities. The internships and earlier employers remain separate entries.
+- Confirm who owned each service or delivery process and what collaboration or mentoring can be described publicly. Provide a source and permission for any proposed claim about leadership or outcomes.
+- For a proposed measurable achievement, confirm its baseline, comparison period and the exact wording approved for publication. An approved item can be added to the relevant role’s `verifiedAchievements` list with `text` and `publicApproved: true`. The current public data has no approved metric entries.
+- The recorded date ranges contain 185 whole calendar months of professional work under a conservative count as of November 2026. The count excludes the internship and the boundary months of each role, including the current partial month. Confirm the employment dates before replacing the date ranges with a headline total.
 
-## 3. Private Confidentiality Denylist (Optional Local / CI Check)
-To avoid storing any confidential identifiers in the public repository:
-- Create an untracked `.confidential-denylist` file locally (gitignored) with one sensitive term per line and run `npm run check:confidentiality`.
-- Optionally add a `CONFIDENTIAL_DENYLIST` repository secret in GitHub Actions so CI checks every PR and push against private employer terms without exposing them in code or logs.
+## Skills and public projects
 
-## 4. Profile Details & Publication Sign-off
-- **English proficiency:** Kept as `Intermediate` from the original CV. Confirm if an updated level should be shown.
-- **Timeline:** Preserved factual dates as previously published.
-- **Optional recruiter settings (`data/cv.json` → `profile.availability`):** `showOpenToWork` is `false` by default; `relocation` and `workAuthorisation` are empty.
-- **Git history notice:** Previous commits on `main` still contain earlier public CV content. Do not rewrite history without explicit authorisation; let us know if you want a repository-history scrub procedure prepared separately.
+- Kafka remains familiarity until a verified and publishable example demonstrates practical use. Confirm the extent of hands-on use for Kubernetes, AWS, Terraform, Helm, Go, Quarkus, frontend frameworks and AI tools. Kubernetes and AWS currently appear as additional professional technology based on the recorded roles. Other uncertain technologies remain listed or omitted.
+- Confirm that the independent project and public repositories can be presented as personal material. The portfolio uses component-level descriptions for the personal archive and publishes no example messages, identities or account records.
+- Review the EntityLocker write-up against its public implementation. Existing tests cover common locking behaviours. Registry retirement needs further testing under competing acquisitions and releases. [EntityLocker tests](https://github.com/stden/EntityLocker/blob/main/src/test/java/EntityLockerTest.java)
+- Confirm the educational outbox and asynchronous job examples were authored independently for teaching. Review any new diagram against the same provenance criteria before inclusion.
+
+## Recruitment settings
+
+- Confirm the public English level. The CV retains “Intermediate” from the earlier version. Keep any external test results in private application materials until approved.
+- Confirm any public relocation or work-authorisation wording separately. Availability remains off by default.
+- Confirm that the general Senior Software Engineer CV should stay the default. The existing Wise URL and PDF remain public. Review whether to adopt a generic backend profile at those URLs in a separate approved change, with actual vacancy-specific materials kept local.
+- Review links and PDF text before approving release. Keep application history, vacancy documents, personal credentials and private supporting evidence outside the published portfolio.

@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { ROOT_DIR, escapeHtml, escapeXml, loadCvData, relPrefix } = require('./lib/utils');
 const { defaultCvHref, renderDocument } = require('./lib/layout');
+const { DETAIL_PAGES } = require('./lib/public-artifact');
 const { renderInteractiveSvg } = require('./build-project-diagrams');
 
 function copyFonts() {
@@ -69,10 +70,6 @@ function renderHero(data) {
         ? `\n      <p class="hero-availability">${escapeHtml(avail.statusText)}${avail.workAuthorisation ? ` &middot; ${escapeHtml(avail.workAuthorisation)}` : ''}${avail.relocation ? ` &middot; ${escapeHtml(avail.relocation)}` : ''}</p>`
         : '';
 
-    const badges = profile.coreBadges
-        .map((b) => `<li><span class="badge">${escapeHtml(b)}</span></li>`)
-        .join('');
-
     return `<section id="overview" class="hero">
   <div class="container hero-grid">
     <div>
@@ -80,16 +77,12 @@ function renderHero(data) {
       <h1 class="hero-name">${escapeHtml(profile.name)}</h1>
       <p class="hero-role">${escapeHtml(profile.title)}</p>${availabilityHtml}
       <p class="hero-summary">${escapeHtml(profile.summary)}</p>
+      <p class="hero-secondary">${profile.coreBadges.map(escapeHtml).join(' · ')}</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data))}" download>Download CV (PDF)</a>
         <a class="btn btn-secondary" href="#contact">Contact</a>
-        <a class="btn btn-ghost" href="${escapeHtml(profile.contact.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a class="btn btn-ghost" href="${escapeHtml(profile.contact.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn btn-ghost" href="cv/index.html">Targeted CVs</a>
       </div>
-      <ul class="badge-list" aria-label="Core technologies">
-        ${badges}
-      </ul>
+      <p class="recruiter-more"><a href="${escapeHtml(profile.contact.linkedin)}">LinkedIn</a> · <a href="${escapeHtml(profile.contact.github)}">GitHub</a></p>
     </div>
     <div class="hero-photo-wrap">
       <img class="hero-photo" src="${escapeHtml(profile.photo)}" alt="${escapeHtml(profile.photoAlt)}" width="${profile.photoWidth}" height="${profile.photoHeight}" decoding="async">
@@ -118,7 +111,7 @@ ${cards}
 </section>`;
 }
 
-function renderExperience(data, techLookup) {
+function renderExperience(data, techLookup, depth) {
     const primary = data.experience.filter((r) => !r.compact);
     const earlier = data.experience.filter((r) => r.compact);
 
@@ -127,15 +120,18 @@ function renderExperience(data, techLookup) {
             ? `<a href="${escapeHtml(role.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(role.company)}</a>`
             : escapeHtml(role.company);
         const note = role.companyNote ? ` &middot; ${escapeHtml(role.companyNote)}` : '';
-        const bullets = role.responsibilities.map((r) => `          <li>${escapeHtml(r)}</li>`).join('\n');
-        const additionalBlock = role.additionalTechnologies?.length
-            ? `<div class="tech-group">
-            <span class="tech-group-label">Additional role technologies</span>
-            <ul class="badge-list">${renderTechChips(role.additionalTechnologies, techLookup, 0)}</ul>
-          </div>`
+        const approved = (role.verifiedAchievements || []).filter(({ publicApproved }) => publicApproved === true);
+        const bullets = [...role.responsibilities, ...approved.map(({ text }) => text)]
+            .map((r) => `          <li>${escapeHtml(r)}</li>`).join('\n');
+        const moreTechnologies = role.additionalTechnologies || [];
+        const additionalBlock = moreTechnologies.length
+            ? `<details class="recruitment-disclosure">
+            <summary>Additional role technologies</summary>
+            <ul class="badge-list">${renderTechChips(moreTechnologies, techLookup, depth)}</ul>
+          </details>`
             : '';
 
-        return `      <article class="role-card">
+        return `      <article class="role-card" id="role-${escapeHtml(role.id)}">
         <div class="role-header">
           <h3 class="role-title">${escapeHtml(role.role)}</h3>
           <span class="role-period">${escapeHtml(role.period)}</span>
@@ -147,7 +143,7 @@ ${bullets}
         </ul>
         <div class="tech-group">
           <span class="tech-group-label">Primary technologies in role</span>
-          <ul class="badge-list">${renderTechChips(role.projectTechnologies, techLookup, 0)}</ul>
+          <ul class="badge-list">${renderTechChips(role.projectTechnologies, techLookup, depth)}</ul>
         </div>
         ${additionalBlock}
       </article>`;
@@ -158,7 +154,7 @@ ${bullets}
             ? `<a href="${escapeHtml(role.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(role.company)}</a>`
             : escapeHtml(role.company);
         const bullets = role.responsibilities.map((r) => `            <li>${escapeHtml(r)}</li>`).join('\n');
-        return `        <details class="compact-role">
+        return `        <details class="compact-role" id="role-${escapeHtml(role.id)}">
           <summary>
             <span class="compact-summary-left">
               <span>${escapeHtml(role.role)}</span>
@@ -172,7 +168,7 @@ ${bullets}
             <ul class="bullet-list">
 ${bullets}
             </ul>
-            <ul class="badge-list">${renderTechChips(role.projectTechnologies, techLookup, 0)}</ul>
+            <ul class="badge-list">${renderTechChips(role.projectTechnologies, techLookup, depth)}</ul>
           </div>
         </details>`;
     }).join('\n');
@@ -197,7 +193,24 @@ ${earlierHtml}
 </section>`;
 }
 
-function renderProjects(data) {
+function renderProvenance(provenance) {
+    const { summary, sourceUrl } = provenance;
+    return `<p class="provenance">${escapeHtml(summary)}${sourceUrl ? ` <a href="${escapeHtml(sourceUrl)}">Source repository</a>` : ''}</p>`;
+}
+
+function renderProjectPreview(repo, prefix = '', includeSource = false) {
+    if (!repo?.previewImage) return '';
+    const source = includeSource && repo.previewSourceUrl
+        ? ` <a href="${escapeHtml(repo.previewSourceUrl)}">Source</a>`
+        : '';
+    return `<figure class="project-preview">
+        <img src="${prefix}${escapeHtml(repo.previewImage)}" alt="${escapeHtml(repo.previewAlt)}" width="640" height="360" loading="lazy" decoding="async">
+        <figcaption>${escapeHtml(repo.previewCaption)}${source}</figcaption>
+      </figure>`;
+}
+
+function renderProjects(data, depth) {
+    const prefix = relPrefix(depth);
     const casesHtml = data.caseStudies.map((cs) => {
         const scopeClass = cs.scopeType === 'personal' ? 'case-scope case-scope-personal' : 'case-scope';
         const stackBadges = cs.stack.map((s) => `<li><span class="badge">${escapeHtml(s)}</span></li>`).join('');
@@ -205,38 +218,48 @@ function renderProjects(data) {
         const decisions = cs.decisions.map((d) => `<li>${escapeHtml(d)}</li>`).join('');
         const reliability = cs.reliability.map((r) => `<li>${escapeHtml(r)}</li>`).join('');
         const results = cs.results.map((r) => `<li>${escapeHtml(r)}</li>`).join('');
+        const diagram = cs.diagramSlug
+            ? `<div class="case-diagram-box">
+            <img src="${prefix}assets/images/projects/${escapeHtml(cs.diagramSlug)}.svg" alt="${escapeHtml(cs.title)} architecture flow diagram" loading="lazy" width="420" height="580">
+            <p class="case-diagram-caption"><a href="${prefix}architecture/#arch-tab-${escapeHtml(cs.diagramSlug)}">Find this diagram in the architecture portfolio</a></p>
+          </div>`
+            : '';
 
-        return `      <article class="case-card">
+        return `      <article class="case-card" id="case-${escapeHtml(cs.id)}">
         <span class="${scopeClass}">${escapeHtml(cs.scope)}</span>
         <h3 class="case-title">${escapeHtml(cs.title)}</h3>
+        <p class="case-intro">${escapeHtml(cs.problem)}</p>
+        ${renderProvenance(cs.provenance)}
+        <details class="recruitment-disclosure">
+          <summary>Engineering details</summary>
         <div class="case-columns">
           <div>
             <dl class="case-dl">
-              <div><dt>Problem Statement</dt><dd>${escapeHtml(cs.problem)}</dd></div>
               <div><dt>Engineering Context</dt><dd>${escapeHtml(cs.context)}</dd></div>
               <div><dt>Architecture</dt><dd>${escapeHtml(cs.architecture)}</dd></div>
               <div><dt>Technical Challenges</dt><dd><ul class="bullet-list">${challenges}</ul></dd></div>
               <div><dt>Design Decisions</dt><dd><ul class="bullet-list">${decisions}</ul></dd></div>
               <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list">${reliability}</ul></dd></div>
-              <div><dt>Verified Outcomes</dt><dd><ul class="bullet-list">${results}</ul></dd></div>
+              <div><dt>What the project does</dt><dd><ul class="bullet-list">${results}</ul></dd></div>
             </dl>
             <div class="tech-group">
               <span class="tech-group-label">Technology stack</span>
               <ul class="badge-list">${stackBadges}</ul>
             </div>
           </div>
-          <div class="case-diagram-box">
-            <img src="assets/images/projects/${escapeHtml(cs.diagramSlug)}.svg" alt="${escapeHtml(cs.title)} architecture flow diagram" loading="lazy" width="420" height="580">
-            <p class="case-diagram-caption"><a href="#architecture">Inspect interactive component breakdown &rarr;</a></p>
-          </div>
+          ${diagram}
         </div>
+        </details>
       </article>`;
     }).join('\n');
 
     const reposHtml = data.githubProjects.map((repo) => {
-        const allLangs = [repo.language, ...(repo.secondaryLanguages || [])].join(' · ');
-        return `      <article class="repo-card">
+        const verification = data.githubProjectVerification?.[repo.name] || {};
+        const ciStatus = escapeHtml(verification.ciStatus || 'Not verified');
+        const ci = verification.ciUrl ? `<a href="${escapeHtml(verification.ciUrl)}">${ciStatus}</a>` : ciStatus;
+        return `      <article class="repo-card" id="repo-${escapeHtml(repo.name)}">
         <div>
+          ${renderProjectPreview(repo, prefix, true)}
           <div class="repo-top">
             <h4 class="repo-name"><a href="${escapeHtml(repo.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(repo.name)}</a></h4>
             <span class="repo-lang">${escapeHtml(repo.language)}</span>
@@ -245,13 +268,15 @@ function renderProjects(data) {
         </div>
         <div>
           <div class="repo-meta">
-            <span>Stack: ${escapeHtml(allLangs)}</span>
-            <span>CI: ${escapeHtml(repo.ciStatus)}</span>
-            <span>Updated: ${escapeHtml(repo.latestActivity)}</span>
+            <span>Concepts: ${escapeHtml(repo.topics.join(', '))}</span>
+            <span>CI: ${ci}</span>
+            ${verification.latestActivity ? `<span>Repository activity: ${escapeHtml(verification.latestActivity)}</span>` : ''}
+            ${verification.verifiedAt ? `<span>Verified: ${escapeHtml(verification.verifiedAt)}</span>` : ''}
           </div>
           <div class="repo-links">
             <a href="${escapeHtml(repo.url)}" target="_blank" rel="noopener noreferrer">Repository</a>
             <a href="${escapeHtml(repo.docsUrl)}" target="_blank" rel="noopener noreferrer">Documentation</a>
+            ${repo.testsUrl ? `<a href="${escapeHtml(repo.testsUrl)}">Tests</a>` : ''}
           </div>
         </div>
       </article>`;
@@ -260,15 +285,12 @@ function renderProjects(data) {
     return `<section id="projects" class="section section-alt" aria-labelledby="projects-heading">
   <div class="container">
     <div class="section-header">
-      <p class="section-eyebrow">Engineering Case Studies</p>
-      <h2 id="projects-heading" class="section-title">Independent Projects &amp; Open Source</h2>
-      <p class="section-lead">Self-directed engineering case studies and verified public repositories spanning Java, Rust, Python, distributed concurrency, semantic search, and AI tooling.</p>
+      <h2 id="projects-heading" class="section-title">Case studies</h2>
     </div>
     <div class="case-grid">
 ${casesHtml}
     </div>
-    <h3 class="repo-section-title">Selected Public GitHub Repositories</h3>
-    <p class="repo-section-lead">Verified public repositories from <a href="${escapeHtml(data.profile.contact.github)}" target="_blank" rel="noopener noreferrer">github.com/stden</a> highlighting Rust, Java concurrency, JPA, quality automation, and MCP/AI tooling.</p>
+    <h3 class="repo-section-title">Selected GitHub Repositories</h3>
     <div class="repo-grid">
 ${reposHtml}
     </div>
@@ -277,7 +299,8 @@ ${reposHtml}
 }
 
 function renderArchitecture(data) {
-    const tabsHtml = data.architectureDiagrams.map((d, idx) => `      <button type="button" class="arch-tab" role="tab" aria-selected="${idx === 0 ? 'true' : 'false'}" aria-controls="arch-panel-${escapeHtml(d.slug)}" id="arch-tab-${escapeHtml(d.slug)}" data-arch-tab="${escapeHtml(d.slug)}">${escapeHtml(d.tabTitle)}</button>`).join('\n');
+    const tabsHtml = data.architectureDiagrams.map((d, idx) => `      <button type="button" class="arch-tab" role="tab" aria-selected="${idx === 0 ? 'true' : 'false'}" tabindex="${idx === 0 ? '0' : '-1'}" aria-controls="arch-panel-${escapeHtml(d.slug)}" id="arch-tab-${escapeHtml(d.slug)}" data-arch-tab="${escapeHtml(d.slug)}">${escapeHtml(d.tabTitle)}</button>`).join('\n');
+    const staticDiagrams = data.architectureDiagrams.map((diagram) => `        <li><a href="../assets/images/projects/${escapeHtml(diagram.slug)}.svg">${escapeHtml(diagram.title)}</a></li>`).join('\n');
 
     const panelsHtml = data.architectureDiagrams.map((d, idx) => {
         const firstNode = d.nodes[0];
@@ -306,6 +329,7 @@ function renderArchitecture(data) {
             <span class="case-scope case-scope-personal">${escapeHtml(d.originLabel)}</span>
             <h3>${escapeHtml(d.title)}</h3>
             <p class="section-lead">${escapeHtml(d.summary)}</p>
+            ${renderProvenance(d.provenance)}
           </div>
           <div class="arch-inspector-box" data-inspector-detail>
             <p class="section-eyebrow">Selected Component</p>
@@ -336,35 +360,54 @@ ${componentButtons}
   <div class="container">
     <div class="section-header">
       <p class="section-eyebrow">Systems Design</p>
-      <h2 id="architecture-heading" class="section-title">Architecture Portfolio</h2>
-      <p class="section-lead">Interactive component flows based exclusively on independent personal projects, open-source software, and educational reference architectures—unrelated to any employer systems.</p>
+      <h2 id="architecture-heading" class="section-title">Interactive diagrams</h2>
     </div>
+    <details class="recruitment-disclosure" id="static-diagrams">
+      <summary>Open static diagrams</summary>
+      <ul class="bullet-list">
+${staticDiagrams}
+      </ul>
+    </details>
     <div class="arch-tabs" role="tablist" aria-label="Architecture diagrams">
 ${tabsHtml}
     </div>
 ${panelsHtml}
-    <div class="concepts-grid" aria-label="Engineering concepts">
+    <details class="recruitment-disclosure architecture-concepts">
+      <summary>Engineering concepts</summary>
+    <div class="concepts-grid">
 ${conceptsHtml}
     </div>
+    </details>
   </div>
 </section>`;
 }
 
-function renderSkills(data) {
+function renderSkills(data, depth) {
+    const prefix = relPrefix(depth);
     const tierLabels = {
-        core: 'Core professional',
+        core: 'Primary professional',
         additional: 'Additional professional',
-        personal: 'Personal / independent',
+        personal: 'Independent engineering',
+        familiarity: 'Familiarity',
+    };
+    const roles = new Map(data.experience.map(({ id, company }) => [id, company]));
+    const cases = new Map(data.caseStudies.map(({ id, title }) => [id, title]));
+    const evidenceLink = ({ kind, ref }) => {
+        if (kind === 'employment') return `<a href="${prefix}experience/#role-${escapeHtml(ref)}">${escapeHtml(roles.get(ref))}</a>`;
+        if (kind === 'independent') return `<a href="${prefix}projects/#case-${escapeHtml(ref)}">${escapeHtml(cases.get(ref))}</a>`;
+        if (kind === 'public-repository') return `<a href="${escapeHtml(ref)}">${escapeHtml(new URL(ref).pathname.split('/').at(-1))}</a>`;
+        return 'Listed in the previous CV.';
     };
 
     const cardsHtml = data.skills.map((cat) => {
         const itemsHtml = cat.items.map((item) => {
             const cls = `tier-pill tier-${escapeHtml(item.tier)}`;
             const inner = item.techSlug
-                ? `<a class="${cls}" href="tech/${escapeHtml(item.techSlug)}.html">${escapeHtml(item.name)}</a>`
+                ? `<a class="${cls}" href="${prefix}tech/${escapeHtml(item.techSlug)}.html">${escapeHtml(item.name)}</a>`
                 : `<span class="${cls}">${escapeHtml(item.name)}</span>`;
             return `          <li data-tier="${escapeHtml(item.tier)}">${inner}</li>`;
         }).join('\n');
+        const evidenceItems = cat.items.map((item) => `<li><strong>${escapeHtml(item.name)}</strong> · ${item.evidence.map(evidenceLink).join(', ')}</li>`).join('');
 
         return `      <article class="skill-card">
         <h3>${escapeHtml(cat.title)}</h3>
@@ -372,27 +415,31 @@ function renderSkills(data) {
         <ul class="skill-items">
 ${itemsHtml}
         </ul>
+        <details class="recruitment-disclosure">
+          <summary>Skill evidence</summary>
+          <ul class="bullet-list">${evidenceItems}</ul>
+        </details>
       </article>`;
     }).join('\n');
 
     return `<section id="skills" class="section section-alt" aria-labelledby="skills-heading">
   <div class="container">
     <div class="section-header">
-      <p class="section-eyebrow">Technical Matrix</p>
       <h2 id="skills-heading" class="section-title">Technical Skills &amp; Evidence</h2>
-      <p class="section-lead">Categorised by engineering domain and backed by role or repository evidence—distinguishing core production skills from additional and personal project technologies.</p>
     </div>
     <div class="skills-toolbar">
       <div class="tier-legend" aria-label="Experience context legend">
         <span class="tier-pill tier-core">${tierLabels.core}</span>
         <span class="tier-pill tier-additional">${tierLabels.additional}</span>
         <span class="tier-pill tier-personal">${tierLabels.personal}</span>
+        <span class="tier-pill tier-familiarity">${tierLabels.familiarity}</span>
       </div>
       <div class="skill-filter-group" role="group" aria-label="Filter skills by experience context">
         <button type="button" class="filter-btn" data-skill-filter="all" aria-pressed="true">All</button>
         <button type="button" class="filter-btn" data-skill-filter="core" aria-pressed="false">Core</button>
         <button type="button" class="filter-btn" data-skill-filter="additional" aria-pressed="false">Additional</button>
-        <button type="button" class="filter-btn" data-skill-filter="personal" aria-pressed="false">Personal</button>
+        <button type="button" class="filter-btn" data-skill-filter="personal" aria-pressed="false">Independent</button>
+        <button type="button" class="filter-btn" data-skill-filter="familiarity" aria-pressed="false">Familiarity</button>
       </div>
     </div>
     <div class="skills-grid">
@@ -433,37 +480,138 @@ ${eduCards}
 </section>`;
 }
 
+function renderRecruiterExperience(data) {
+    const roles = data.experience.filter((role) => !role.compact).map((role) => `    <article class="recruiter-role" id="role-${escapeHtml(role.id)}">
+      <h3>${escapeHtml(role.company)}</h3>
+      <p class="recruiter-meta">${escapeHtml(role.role)} · ${escapeHtml(role.period)} · ${escapeHtml(role.location)}</p>
+      <p>${escapeHtml(role.summary)}</p>
+      <ul class="bullet-list">
+        ${role.responsibilities.slice(1, 5).map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+      </ul>
+    </article>`).join('\n');
+
+    return `<section id="experience" class="section section-alt recruiter-section" aria-labelledby="experience-heading">
+  <div class="container">
+    <h2 id="experience-heading" class="section-title">Professional experience</h2>
+    <div class="recruiter-roles">
+${roles}
+    </div>
+    <p class="recruiter-more"><a href="experience/">Full employment timeline</a> · <a id="education" href="experience/#education"><span id="education-heading">Education and languages</span></a></p>
+  </div>
+</section>`;
+}
+
+function renderRecruiterSkills(data, techLookup) {
+    const coreNames = [
+        'Java (6–25)', 'JVM & Concurrency', 'Spring Boot', 'Distributed Systems', 'Enterprise Integration',
+        'RabbitMQ', 'SQL', 'PostgreSQL', 'Oracle Database', 'Jenkins', 'GitLab CI/CD', 'Docker / Compose', 'JUnit',
+        'Kubernetes', 'Maven',
+    ];
+    const inventory = new Set(data.skills.flatMap(({ items }) => items.map(({ name }) => name)));
+    const skills = coreNames.filter((name) => inventory.has(name));
+    return `<section id="skills" class="section recruiter-section" aria-labelledby="skills-heading">
+  <div class="container">
+    <h2 id="skills-heading" class="section-title">Core technical skills</h2>
+    <p class="section-lead">Backend development is my main focus, from JVM behaviour and message processing to relational persistence, automated testing and deployment.</p>
+    <ul class="badge-list recruiter-skill-list">${renderTechChips(skills, techLookup)}</ul>
+    <p class="recruiter-context">The detailed catalogue links these skills to specific roles and public projects. It also shows which technologies I use in independent work and which I have explored, so readers can assess the scope of each skill. The technology links above open shorter notes on individual tools.</p>
+    <p class="recruiter-more"><a id="expertise" href="skills/#expertise-heading"><span id="expertise-heading">See the evidence behind each skill</span></a></p>
+  </div>
+</section>`;
+}
+
+function renderRecruiterProjects(data) {
+    const repositories = new Map(data.githubProjects.map((repo) => [repo.name, repo]));
+    const projects = [
+        {
+            id: 'entity-concurrency-locking',
+            title: 'EntityLocker',
+            text: 'A Java experiment in coordinating threads that share an entity key. Its public JUnit tests cover nested acquisition, reentrancy and timeouts. The case study looks at why retiring lock objects safely needs separate verification.',
+            detail: 'Each instance has its own lock registry. The design notes distinguish locking within a Java process from coordination across processes.',
+            scope: 'Java · JVM concurrency',
+            href: 'projects/#case-entity-concurrency-locking',
+            link: 'Read the locking case study',
+            repo: repositories.get('EntityLocker'),
+        },
+        {
+            id: 'messenger-archive-search',
+            title: 'Message archive and semantic search',
+            text: 'An independent Rust and Python project that transcribes audio and indexes messages for semantic search through MCP. The indexer writes to a stable vector ID before advancing its checkpoint so interrupted work can be replayed.',
+            detail: 'PostgreSQL row locks let workers skip jobs that other workers have claimed. A repeated write updates the same vector, while other side effects need their own retry policy.',
+            scope: 'Rust and Python · PostgreSQL and Qdrant',
+            href: 'projects/#case-messenger-archive-search',
+            link: 'Read the archive case study',
+        },
+        {
+            id: 'funny-file-manager',
+            title: 'FunnyFileManager',
+            text: 'A Rust terminal file manager with two-panel navigation and keyboard controls for filesystem operations. The built-in editor supports language-server hover.',
+            detail: 'The public repository includes behaviour tests for search and save in the editor, quick search and common file operations.',
+            scope: 'Rust · Terminal interfaces and filesystem operations',
+            href: 'projects/#repo-FunnyFileManager',
+            link: 'View repository and tests',
+            repo: repositories.get('FunnyFileManager'),
+        },
+        {
+            id: 'rust-desktop-tooling',
+            title: 'RustShot',
+            text: 'A Rust screenshot utility for Windows, Linux and macOS. Platform adapters share output handling, and the capture guide documents the supported modes and destinations by operating system.',
+            detail: 'On Wayland, the desktop portal handles full-desktop capture. Windows supports recording as a separate capture path.',
+            scope: 'Rust · Desktop capture and platform adapters',
+            href: 'projects/#case-rust-desktop-tooling',
+            link: 'Read the desktop capture case study',
+            repo: repositories.get('RustShot'),
+        },
+    ];
+    const cards = projects.map(({ id, title, text, detail, scope, href, link, repo }) => `    <article class="recruiter-project" id="case-${escapeHtml(id)}">
+      ${renderProjectPreview(repo)}
+      <div class="recruiter-project-content">
+        <h3>${escapeHtml(title)}</h3>
+        <p class="recruiter-meta">${escapeHtml(scope)}</p>
+        <p>${escapeHtml(text)}</p>
+        <p>${escapeHtml(detail)}</p>
+        <a href="${href}">${escapeHtml(link)}</a>
+        ${repo ? ` · <a href="${escapeHtml(repo.url)}" aria-label="GitHub source for ${escapeHtml(title)}">GitHub source</a>` : ''}
+      </div>
+    </article>`).join('\n');
+
+    const diagramLinks = data.architectureDiagrams.map((diagram) => `      <li id="arch-panel-${escapeHtml(diagram.slug)}"><a id="arch-tab-${escapeHtml(diagram.slug)}" href="architecture/#arch-tab-${escapeHtml(diagram.slug)}">${escapeHtml(diagram.tabTitle)}</a></li>`).join('\n');
+    return `<section id="projects" class="section section-alt recruiter-section" aria-labelledby="projects-heading">
+  <div class="container">
+    <h2 id="projects-heading" class="section-title">Selected independent projects</h2>
+    <div class="recruiter-projects">
+${cards}
+    </div>
+    <p class="recruiter-more"><a href="projects/">All case studies and repositories</a> · <a id="architecture" href="architecture/"><span id="architecture-heading">Architecture portfolio</span></a></p>
+    <details class="recruitment-disclosure">
+      <summary>Individual diagrams</summary>
+      <ul class="bullet-list">
+${diagramLinks}
+      </ul>
+    </details>
+  </div>
+</section>`;
+}
+
 function renderContact(data) {
-    const { contact } = data.profile;
-    const variantCards = data.variants.map((v) => `      <article class="variant-card">
-        <div>
-          <h3>${escapeHtml(v.shortLabel)}</h3>
-          <p>${escapeHtml(v.targetAudience)}</p>
-        </div>
-        <div class="variant-actions">
-          <a class="btn btn-secondary btn-sm" href="cv/${escapeHtml(v.slug)}.html">View CV</a>
-          <a class="btn btn-primary btn-sm" href="assets/pdf/${escapeHtml(v.pdfFilename)}" download>PDF</a>
-        </div>
-      </article>`).join('\n');
+    const { contact, location } = data.profile;
 
     return `<section id="contact" class="section section-alt" aria-labelledby="contact-heading">
   <div class="container">
     <div class="contact-panel">
-      <p class="section-eyebrow">Recruiter &amp; Hiring Contact</p>
-      <h2 id="contact-heading" class="section-title">Get in Touch &amp; Download CVs</h2>
-      <p class="section-lead">Based in ${escapeHtml(data.profile.location)}. Direct contact channels and role-specific ATS-friendly PDF resumes generated from a single verified profile.</p>
+      <h2 id="contact-heading" class="section-title">Contact</h2>
+      <p class="section-lead">${escapeHtml(location)} · <a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></p>
       <div class="contact-actions">
-        <a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data))}" download>Download General CV</a>
-        <a class="btn btn-secondary" href="mailto:${escapeHtml(contact.email)}">Send Email</a>
         <button type="button" class="btn btn-secondary" data-copy-email="${escapeHtml(contact.email)}" data-status-target="copy-email-status">Copy Email Address</button>
-        <a class="btn btn-ghost" href="${escapeHtml(contact.linkedin)}" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
-        <a class="btn btn-ghost" href="${escapeHtml(contact.github)}" target="_blank" rel="noopener noreferrer">View GitHub</a>
-        <a class="btn btn-ghost" href="${escapeHtml(contact.telegram)}" target="_blank" rel="noopener noreferrer">Telegram (${escapeHtml(contact.telegramHandle)})</a>
+        <a href="${escapeHtml(contact.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="${escapeHtml(contact.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="${escapeHtml(contact.telegram)}" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="${escapeHtml(defaultCvHref(data))}" download>General CV PDF</a>
+        <a href="cv/">All CV versions</a>
       </div>
+      <p class="recruiter-context">The general edition is a two-page English CV with selectable text. The version index links both the web pages and the A4 downloads.</p>
+      <p class="recruiter-context">For role-specific applications, see the <a href="cv/senior-java.html">Java backend</a>, <a href="cv/distributed-systems.html">distributed systems</a> and <a href="cv/fintech-integrations.html">integrations</a> editions. The <a href="cv/full.html">full CV</a> includes earlier roles and a broader project record.</p>
       <p id="copy-email-status" class="copy-status" aria-live="polite"></p>
-    </div>
-    <div class="variants-grid" aria-label="CV versions">
-${variantCards}
     </div>
   </div>
 </section>`;
@@ -472,12 +620,9 @@ ${variantCards}
 function renderHomePage(data, techLookup) {
     const bodyHtml = [
         renderHero(data),
-        renderExpertise(data),
-        renderExperience(data, techLookup),
-        renderProjects(data),
-        renderArchitecture(data),
-        renderSkills(data),
-        renderEducation(data),
+        renderRecruiterExperience(data),
+        renderRecruiterSkills(data, techLookup),
+        renderRecruiterProjects(data),
         renderContact(data),
     ].join('\n');
 
@@ -503,20 +648,7 @@ function renderHomePage(data, techLookup) {
                     data.profile.contact.linkedin,
                     data.profile.contact.telegram,
                 ],
-                knowsAbout: [
-                    'Java',
-                    'Spring Boot',
-                    'Distributed Systems',
-                    'RabbitMQ',
-                    'Apache Kafka',
-                    'PostgreSQL',
-                    'Oracle Database',
-                    'Docker',
-                    'Kubernetes',
-                    'Python',
-                    'Rust',
-                    'Model Context Protocol',
-                ],
+                knowsAbout: data.profile.coreBadges,
             },
             {
                 '@type': 'ProfilePage',
@@ -536,6 +668,88 @@ function renderHomePage(data, techLookup) {
         ogType: 'profile',
         jsonLd,
         bodyHtml,
+    });
+}
+
+function detailPageDefinition(data, route, techLookup) {
+    switch (route) {
+    case 'experience':
+        return {
+            title: 'Experience and education',
+            description: 'Employment history, education and languages for Denis Stepulenok, a Senior Software Engineer in Tallinn.',
+            body: renderExperience(data, techLookup, 1) + '\n' + renderEducation(data),
+        };
+    case 'skills':
+        return {
+            title: 'Skills and evidence',
+            description: 'Java, distributed systems, independent engineering work and evidence for the technologies listed in the CV.',
+            body: renderExpertise(data) + '\n' + renderSkills(data, 1),
+        };
+    case 'projects':
+        return {
+            title: 'Independent engineering projects',
+            description: 'Case studies and public repositories in Java concurrency, semantic search and Rust desktop engineering.',
+            body: renderProjects(data, 1),
+            works: data.caseStudies.map((item) => ({ name: item.title, anchor: `case-${item.id}`, description: item.problem })),
+        };
+    case 'architecture':
+        return {
+            title: 'Architecture portfolio',
+            description: 'Interactive diagrams for independent engineering projects and educational examples.',
+            body: renderArchitecture(data),
+            works: data.architectureDiagrams.map((item) => ({ name: item.title, anchor: `arch-tab-${item.slug}`, description: item.summary })),
+        };
+    default:
+        throw new Error('Unknown portfolio detail page');
+    }
+}
+
+function renderDetailPage(data, route, techLookup) {
+    const { title, description, body, works } = detailPageDefinition(data, route, techLookup);
+    const home = `${data.site.baseUrl}/`;
+    const url = `${home}${route}/`;
+    const author = { '@id': `${home}#person` };
+    const breadcrumbs = {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Portfolio', item: home },
+            { '@type': 'ListItem', position: 2, name: title, item: url },
+        ],
+    };
+
+    return renderDocument(data, {
+        depth: 1,
+        title: `${title} — ${data.profile.name}`,
+        description,
+        canonicalPath: `${route}/`,
+        bodyHtml: `<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">Portfolio</a> / ${escapeHtml(title)}</p>
+    <h1>${escapeHtml(title)}</h1>
+    <p class="section-lead">${escapeHtml(description)}</p>
+  </div>
+</section>
+${body}`,
+        jsonLd: {
+            '@context': 'https://schema.org',
+            '@graph': [{
+                '@type': 'CollectionPage',
+                '@id': `${url}#page`,
+                url,
+                name: title,
+                description,
+                author,
+                ...(works ? {
+                    hasPart: works.map(({ name, anchor, description: workDescription }) => ({
+                        '@type': 'CreativeWork',
+                        url: `${url}#${anchor}`,
+                        name,
+                        description: workDescription,
+                        author,
+                    })),
+                } : {}),
+            }, breadcrumbs],
+        },
     });
 }
 
@@ -724,6 +938,7 @@ function writeDiscoveryFiles(data) {
     const urls = [
         `${base}/`,
         `${base}/cv/index.html`,
+        ...DETAIL_PAGES.map((route) => `${base}/${route}/`),
         ...data.variants.map((v) => `${base}/cv/${v.slug}.html`),
         ...data.technologies.map((t) => `${base}/tech/${t.slug}.html`),
     ];
@@ -750,6 +965,12 @@ function main() {
     copyFonts();
 
     fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderHomePage(data, techLookup));
+
+    for (const route of DETAIL_PAGES) {
+        const directory = path.join(ROOT_DIR, route);
+        fs.mkdirSync(directory, { recursive: true });
+        fs.writeFileSync(path.join(directory, 'index.html'), renderDetailPage(data, route, techLookup));
+    }
 
     const cvDir = path.join(ROOT_DIR, 'cv');
     fs.mkdirSync(cvDir, { recursive: true });

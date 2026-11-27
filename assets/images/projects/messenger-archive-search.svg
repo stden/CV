@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 644" width="420" height="644" role="img">
-  <title>Semantic Search &amp; MCP Integration (Independent personal project (outside employer work))</title>
-  <desc>Independent personal project architecture: MTProto sync service in Rust, PostgreSQL queue, Python Whisper worker, batched Rust indexer, Qdrant vector DB, and MCP server</desc>
+  <title>Semantic Search &amp; MCP Integration (Independent personal project)</title>
+  <desc>Personal archive with message import, row-level job claiming, transcription, vector indexing and MCP search.</desc>
   <defs>
     <marker id="arrow-messenger-archive-search" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
       <path d="M0,0 L5,9 L10,0" fill="#0f766e"/>
@@ -22,15 +22,15 @@
   <line class="link" x1="210" y1="174" x2="210" y2="198"/>
   <rect class="box" x="20" y="200" width="380" height="64" rx="8"/>
   <text class="title" x="38" y="227">3. PostgreSQL Store &amp; Queue</text>
-  <text class="detail" x="38" y="248">Messages + SKIP LOCKED queue</text>
+  <text class="detail" x="38" y="248">Claim available rows using row-level locks</text>
   <line class="link" x1="210" y1="264" x2="210" y2="288"/>
   <rect class="box" x="20" y="290" width="380" height="64" rx="8"/>
   <text class="title" x="38" y="317">4. Transcription Worker (Python)</text>
-  <text class="detail" x="38" y="338">Whisper speech-to-text</text>
+  <text class="detail" x="38" y="338">Transcribe a claimed audio job</text>
   <line class="link" x1="210" y1="354" x2="210" y2="378"/>
   <rect class="box" x="20" y="380" width="380" height="64" rx="8"/>
   <text class="title" x="38" y="407">5. Batch Indexer (Rust)</text>
-  <text class="detail" x="38" y="428">Local embeddings + checkpoint</text>
+  <text class="detail" x="38" y="428">Write vectors before advancing progress</text>
   <line class="link" x1="210" y1="444" x2="210" y2="468"/>
   <rect class="box" x="20" y="470" width="380" height="64" rx="8"/>
   <text class="title" x="38" y="497">6. Vector Store (Qdrant)</text>

@@ -2,11 +2,11 @@ const { escapeHtml, relPrefix } = require('./utils');
 
 const NAV_ITEMS = [
     { id: 'overview', label: 'Overview' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'architecture', label: 'Architecture' },
-    { id: 'education', label: 'Education' },
+    { id: 'experience', page: 'experience/', label: 'Experience' },
+    { id: 'skills', page: 'skills/', label: 'Skills' },
+    { id: 'projects', page: 'projects/', label: 'Projects' },
+    { page: 'architecture/', label: 'Architecture' },
+    { page: 'cv/', label: 'CV Versions' },
     { id: 'contact', label: 'Contact' },
 ];
 
@@ -22,13 +22,12 @@ function renderHeader(data, { depth = 0, downloadHref = null } = {}) {
     const homeHref = `${prefix}index.html`;
     const pdfHref = downloadHref || defaultCvHref(data, depth);
 
-    const navLinks = NAV_ITEMS.map(
-        (item) => `        <li><a href="${homeHref}#${item.id}">${escapeHtml(item.label)}</a></li>`
-    ).join('\n');
-
-    const mobileLinks = NAV_ITEMS.map(
-        (item) => `      <li><a href="${homeHref}#${item.id}">${escapeHtml(item.label)}</a></li>`
-    ).join('\n');
+    const navLinks = NAV_ITEMS.map((item) => {
+        const href = item.page && (depth || !item.id)
+            ? `${prefix}${item.page}`
+            : `${homeHref}#${item.id}`;
+        return `        <li><a href="${href}">${escapeHtml(item.label)}</a></li>`;
+    }).join('\n');
 
     return `<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header">
@@ -46,7 +45,7 @@ ${navLinks}
       <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
         <span class="theme-label">Dark</span>
       </button>
-      <a class="btn btn-primary btn-sm header-cv-btn" href="${escapeHtml(pdfHref)}" download>Download CV</a>
+      ${depth ? `<a class="btn btn-primary btn-sm header-cv-btn" href="${escapeHtml(pdfHref)}" download>Download CV</a>` : ''}
       <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
         Menu
       </button>
@@ -54,8 +53,8 @@ ${navLinks}
   </div>
   <div id="mobile-drawer" class="mobile-drawer" hidden>
     <ul>
-${mobileLinks}
-      <li><a href="${escapeHtml(pdfHref)}" download>Download CV (PDF)</a></li>
+${navLinks}
+      ${depth ? `<li><a href="${escapeHtml(pdfHref)}" download>Download CV (PDF)</a></li>` : ''}
     </ul>
   </div>
 </header>`;
@@ -68,7 +67,7 @@ function renderFooter(data, { depth = 0 } = {}) {
     <p>&copy; ${new Date().getFullYear()} ${escapeHtml(data.profile.name)} &middot; ${escapeHtml(data.profile.location)}</p>
     <div class="footer-links">
       <a href="${prefix}index.html">Portfolio</a>
-      <a href="${prefix}cv/index.html">Targeted CVs</a>
+      <a href="${prefix}cv/">CV versions</a>
       <a href="${escapeHtml(data.profile.contact.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="${escapeHtml(data.profile.contact.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:${escapeHtml(data.profile.contact.email)}">Email</a>
@@ -131,7 +130,7 @@ ${renderFooter(data, { depth })}
 <script src="${prefix}assets/js/main.js" defer></script>
 </body>
 </html>
-`;
+`.replace(/[ \t]+$/gm, '');
 }
 
 module.exports = {

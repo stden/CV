@@ -458,6 +458,128 @@ a:hover {
   font-size: 1.03rem;
 }
 
+.hero-secondary {
+  max-width: 43rem;
+  margin: -0.65rem 0 1.4rem;
+  color: var(--text-muted);
+}
+
+.hero .hero-actions {
+  margin-bottom: 0;
+}
+
+.recruiter-roles,
+.recruiter-projects {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.recruiter-role {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.recruiter-role h3,
+.recruiter-project h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.16rem;
+}
+
+.recruiter-role p {
+  margin: 0 0 0.6rem;
+}
+
+.recruiter-role .bullet-list {
+  margin-bottom: 0;
+}
+
+.recruiter-meta,
+.recruiter-context {
+  color: var(--text-muted);
+}
+
+.recruiter-meta {
+  font-size: 0.89rem;
+}
+
+.recruiter-skill-list,
+.recruiter-more {
+  margin-top: 1rem;
+}
+
+.recruiter-more {
+  margin-bottom: 0;
+}
+
+.recruiter-project {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  overflow: hidden;
+}
+
+.recruiter-project-content {
+  padding: 1rem 1.25rem 1.15rem;
+}
+
+.recruiter-project-content p {
+  margin: 0 0 0.7rem;
+}
+
+.project-preview {
+  margin: 0;
+  background: var(--bg-subtle);
+}
+
+.project-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.project-preview figcaption {
+  color: var(--text-muted);
+  padding: 0.55rem 0.8rem;
+  font-size: 0.84rem;
+}
+
+.repo-card .project-preview {
+  margin-bottom: 0.8rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+#contact .contact-actions {
+  align-items: center;
+  column-gap: 1.15rem;
+}
+
+[id].recruiter-role,
+[id].recruiter-project,
+.recruiter-section [id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (min-width: 710px) {
+  .recruiter-projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 2.15rem 0 2.5rem;
+  }
+
+  .recruiter-section {
+    padding: 2.5rem 0;
+  }
+}
+
 .hero-availability {
   margin: 0 0 1.25rem;
   padding: 0.6rem 0.9rem;
@@ -517,9 +639,10 @@ a.badge:hover {
 
 .hero-photo {
   display: block;
-  width: 170px;
-  height: 225px;
+  width: 112px;
+  height: 112px;
   object-fit: cover;
+  object-position: center 25%;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-strong);
   box-shadow: var(--shadow-md);
@@ -529,6 +652,7 @@ a.badge:hover {
   .hero-photo {
     width: 205px;
     height: 271px;
+    object-position: center;
   }
 }
 
@@ -741,6 +865,49 @@ details.compact-role:not([open]) .compact-chevron::after {
   margin: 0 0 0.75rem;
   font-size: 1.22rem;
   font-weight: 700;
+}
+
+.case-intro {
+  margin: 0 0 0.5rem;
+}
+
+.provenance {
+  margin: 0.4rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.recruitment-disclosure {
+  margin-top: 0.8rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border);
+}
+
+.recruitment-disclosure > summary {
+  width: fit-content;
+  color: var(--accent-text);
+  cursor: pointer;
+  font-weight: 650;
+  padding: 0.25rem 0;
+}
+
+.recruitment-disclosure[open] > summary {
+  margin-bottom: 0.75rem;
+}
+
+.skill-card .recruitment-disclosure .bullet-list {
+  font-size: 0.87rem;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .case-grid {
+    gap: 0.85rem;
+  }
+
+  .case-card {
+    padding: 1.05rem;
+  }
 }
 
 .case-columns {
@@ -1088,6 +1255,12 @@ details.compact-role:not([open]) .compact-chevron::after {
   background: var(--badge-personal-bg);
   color: var(--badge-personal-text);
   border-color: var(--badge-personal-border);
+}
+
+.tier-familiarity {
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  border-style: dashed;
 }
 
 .skill-filter-group {

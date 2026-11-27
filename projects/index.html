@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Independent engineering projects — Denis Stepulenok</title>
+  <meta name="description" content="Case studies and public repositories in Java concurrency, semantic search and Rust desktop engineering.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/projects/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Independent engineering projects — Denis Stepulenok">
+  <meta property="og:description" content="Case studies and public repositories in Java concurrency, semantic search and Rust desktop engineering.">
+  <meta property="og:url" content="https://stden.github.io/CV/projects/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Independent engineering projects — Denis Stepulenok">
+  <meta name="twitter:description" content="Case studies and public repositories in Java concurrency, semantic search and Rust desktop engineering.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://stden.github.io/CV/projects/#page","url":"https://stden.github.io/CV/projects/","name":"Independent engineering projects","description":"Case studies and public repositories in Java concurrency, semantic search and Rust desktop engineering.","author":{"@id":"https://stden.github.io/CV/#person"},"hasPart":[{"@type":"CreativeWork","url":"https://stden.github.io/CV/projects/#case-messenger-archive-search","name":"Messenger Archive & Semantic Search","description":"Search text and transcribed audio by meaning in a private message archive.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/projects/#case-entity-concurrency-locking","name":"EntityLocker — Row-Level Entity Concurrency Utility","description":"Explore how Java threads can coordinate by an entity key within one process.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/projects/#case-rust-desktop-tooling","name":"RustShot Desktop Capture","description":"Capture screenshots across different desktop environments with a common command-line interface.","author":{"@id":"https://stden.github.io/CV/#person"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfolio","item":"https://stden.github.io/CV/"},{"@type":"ListItem","position":2,"name":"Independent engineering projects","item":"https://stden.github.io/CV/projects/"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../experience/">Experience</a></li>
+        <li><a href="../skills/">Skills</a></li>
+        <li><a href="../projects/">Projects</a></li>
+        <li><a href="../architecture/">Architecture</a></li>
+        <li><a href="../cv/">CV Versions</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <span class="theme-label">Dark</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
+        Menu
+      </button>
+    </div>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../experience/">Experience</a></li>
+        <li><a href="../skills/">Skills</a></li>
+        <li><a href="../projects/">Projects</a></li>
+        <li><a href="../architecture/">Architecture</a></li>
+        <li><a href="../cv/">CV Versions</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">Portfolio</a> / Independent engineering projects</p>
+    <h1>Independent engineering projects</h1>
+    <p class="section-lead">Case studies and public repositories in Java concurrency, semantic search and Rust desktop engineering.</p>
+  </div>
+</section>
+<section id="projects" class="section section-alt" aria-labelledby="projects-heading">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="projects-heading" class="section-title">Case studies</h2>
+    </div>
+    <div class="case-grid">
+      <article class="case-card" id="case-messenger-archive-search">
+        <span class="case-scope case-scope-personal">Independent personal project</span>
+        <h3 class="case-title">Messenger Archive &amp; Semantic Search</h3>
+        <p class="case-intro">Search text and transcribed audio by meaning in a private message archive.</p>
+        <p class="provenance">Independent personal project. The diagram describes software components and contains no example messages or account records.</p>
+        <details class="recruitment-disclosure">
+          <summary>Engineering details</summary>
+        <div class="case-columns">
+          <div>
+            <dl class="case-dl">
+              <div><dt>Engineering Context</dt><dd>A personal project that separates message import, transcription and indexing so each step can be retried.</dd></div>
+              <div><dt>Architecture</dt><dd>Rust loads message records through MTProto. PostgreSQL stores records and transcription jobs. A Python worker runs Whisper, and a Rust indexer stores embeddings in Qdrant. An MCP interface exposes search.</dd></div>
+              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list"><li>Parallel workers can encounter jobs that another worker already claims.</li><li>The vector store and the indexing checkpoint are separate systems.</li></ul></dd></div>
+              <div><dt>Design Decisions</dt><dd><ul class="bullet-list"><li>Use PostgreSQL row-level locks with FOR UPDATE SKIP LOCKED to let workers skip conflicting rows.</li><li>Map each vector upsert to a deterministic UUIDv5 ID.</li><li>Advance the index checkpoint after the vector write succeeds.</li></ul></dd></div>
+              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list"><li>A retry can repeat a vector write to the same point ID. Unrelated side effects need their own deduplication.</li><li>A crash between stages can leave work to replay. Progress is tracked at each completed stage.</li></ul></dd></div>
+              <div><dt>What the project does</dt><dd><ul class="bullet-list"><li>Combines message and transcript search in an MCP interface.</li></ul></dd></div>
+            </dl>
+            <div class="tech-group">
+              <span class="tech-group-label">Technology stack</span>
+              <ul class="badge-list"><li><span class="badge">Rust</span></li><li><span class="badge">Python</span></li><li><span class="badge">MTProto</span></li><li><span class="badge">PostgreSQL</span></li><li><span class="badge">Whisper</span></li><li><span class="badge">Qdrant</span></li><li><span class="badge">MCP</span></li></ul>
+            </div>
+          </div>
+          <div class="case-diagram-box">
+            <img src="../assets/images/projects/messenger-archive-search.svg" alt="Messenger Archive &amp; Semantic Search architecture flow diagram" loading="lazy" width="420" height="580">
+            <p class="case-diagram-caption"><a href="../architecture/#arch-tab-messenger-archive-search">Find this diagram in the architecture portfolio</a></p>
+          </div>
+        </div>
+        </details>
+      </article>
+      <article class="case-card" id="case-entity-concurrency-locking">
+        <span class="case-scope case-scope-personal">Open-source Java project · github.com/stden/EntityLocker</span>
+        <h3 class="case-title">EntityLocker — Row-Level Entity Concurrency Utility</h3>
+        <p class="case-intro">Explore how Java threads can coordinate by an entity key within one process.</p>
+        <p class="provenance">Public source and JUnit tests for a Java locking experiment maintained by Denis Stepulenok. <a href="https://github.com/stden/EntityLocker">Source repository</a></p>
+        <details class="recruitment-disclosure">
+          <summary>Engineering details</summary>
+        <div class="case-columns">
+          <div>
+            <dl class="case-dl">
+              <div><dt>Engineering Context</dt><dd>EntityLocker is an independent Java utility with JUnit cases for several locking behaviours.</dd></div>
+              <div><dt>Architecture</dt><dd>A concurrent map associates entity IDs with reentrant lock objects. A thread-local value records the current acquisition order and rejects a lower nested ID. Registry removal is attempted when a critical section exits.</dd></div>
+              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list"><li>Nested key acquisition can create dependency cycles.</li><li>Retiring a key safely requires coordination with both current holders and contenders.</li></ul></dd></div>
+              <div><dt>Design Decisions</dt><dd><ul class="bullet-list"><li>Use one ordered key type and reject decreasing acquisitions on the same thread.</li><li>Keep the lock registry inside each EntityLocker instance.</li></ul></dd></div>
+              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list"><li>Tests cover same-key access, reentrancy, timeouts and rejection of decreasing lock order.</li><li>Registry retirement needs additional stress testing. Separate instances or processes do not share these locks.</li></ul></dd></div>
+              <div><dt>What the project does</dt><dd><ul class="bullet-list"><li>Illustrates JVM-local keyed locking and why safe reclamation needs separate verification.</li></ul></dd></div>
+            </dl>
+            <div class="tech-group">
+              <span class="tech-group-label">Technology stack</span>
+              <ul class="badge-list"><li><span class="badge">Java</span></li><li><span class="badge">ConcurrentHashMap</span></li><li><span class="badge">ReentrantLock</span></li><li><span class="badge">JUnit</span></li></ul>
+            </div>
+          </div>
+          <div class="case-diagram-box">
+            <img src="../assets/images/projects/entity-concurrency-locking.svg" alt="EntityLocker — Row-Level Entity Concurrency Utility architecture flow diagram" loading="lazy" width="420" height="580">
+            <p class="case-diagram-caption"><a href="../architecture/#arch-tab-entity-concurrency-locking">Find this diagram in the architecture portfolio</a></p>
+          </div>
+        </div>
+        </details>
+      </article>
+      <article class="case-card" id="case-rust-desktop-tooling">
+        <span class="case-scope case-scope-personal">Independent public repository</span>
+        <h3 class="case-title">RustShot Desktop Capture</h3>
+        <p class="case-intro">Capture screenshots across different desktop environments with a common command-line interface.</p>
+        <p class="provenance">Public RustShot capture guide and source maintained by Denis Stepulenok. <a href="https://github.com/stden/RustShot">Source repository</a></p>
+        <details class="recruitment-disclosure">
+          <summary>Engineering details</summary>
+        <div class="case-columns">
+          <div>
+            <dl class="case-dl">
+              <div><dt>Engineering Context</dt><dd>RustShot is an independent Rust utility for Windows, Linux and macOS.</dd></div>
+              <div><dt>Architecture</dt><dd>Platform-specific adapters acquire an image and send it to the requested output destination. Linux Wayland can use the desktop portal. Windows also supports screen recording.</dd></div>
+              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list"><li>Operating systems expose different capture capabilities.</li><li>Desktop portal workflows depend on the caller’s desktop session and permissions.</li></ul></dd></div>
+              <div><dt>Design Decisions</dt><dd><ul class="bullet-list"><li>Document platform support separately for screenshots, region selection and recording.</li><li>Keep capture and output handling separate.</li></ul></dd></div>
+              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list"><li>Repository tests cover capture helpers and output behaviour. Live desktop checks depend on the platform.</li></ul></dd></div>
+              <div><dt>What the project does</dt><dd><ul class="bullet-list"><li>Provides screenshot capture on three desktop platforms and documents their feature differences.</li></ul></dd></div>
+            </dl>
+            <div class="tech-group">
+              <span class="tech-group-label">Technology stack</span>
+              <ul class="badge-list"><li><span class="badge">Rust</span></li><li><span class="badge">Desktop capture APIs</span></li><li><span class="badge">Image processing</span></li></ul>
+            </div>
+          </div>
+
+        </div>
+        </details>
+      </article>
+    </div>
+    <h3 class="repo-section-title">Selected GitHub Repositories</h3>
+    <div class="repo-grid">
+      <article class="repo-card" id="repo-pythorust_tg">
+        <div>
+
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/pythorust_tg" target="_blank" rel="noopener noreferrer">pythorust_tg</a></h4>
+            <span class="repo-lang">Rust</span>
+          </div>
+          <p class="repo-desc">Telegram automation toolkit with export, indexing and analysis utilities.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Concepts: Command-line tooling, Rust and Python integration, Retrieval pipelines</span>
+            <span>CI: <a href="https://github.com/stden/pythorust_tg/actions/runs/44781298887">Passing</a></span>
+            <span>Repository activity: 2026-11-23</span>
+            <span>Verified: 2026-11-27</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/pythorust_tg" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/pythorust_tg/blob/main/docs/testing.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/pythorust_tg/tree/main/tests">Tests</a>
+          </div>
+        </div>
+      </article>
+      <article class="repo-card" id="repo-FunnyFileManager">
+        <div>
+          <figure class="project-preview">
+        <img src="../assets/images/projects/funny-file-manager-preview.webp" alt="FunnyFileManager’s terminal editor shows a language-server hover panel over a sample Rust function" width="640" height="360" loading="lazy" decoding="async">
+        <figcaption>Built-in editor with language-server hover. <a href="https://github.com/stden/FunnyFileManager/blob/bc3d7a5bcf2f6cfbac23d8f612afc719b68c839a/docs/images/editor-lsp.png">Source</a></figcaption>
+      </figure>
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/FunnyFileManager" target="_blank" rel="noopener noreferrer">FunnyFileManager</a></h4>
+            <span class="repo-lang">Rust</span>
+          </div>
+          <p class="repo-desc">Terminal file manager with two-panel navigation, keyboard controls, and file operations.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Concepts: Terminal UI, Filesystem operations, Keyboard navigation</span>
+            <span>CI: <a href="https://github.com/stden/FunnyFileManager/actions/runs/45808977368">Passing</a></span>
+            <span>Repository activity: 2026-11-26</span>
+            <span>Verified: 2026-11-27</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/FunnyFileManager" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/FunnyFileManager/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/FunnyFileManager/tree/main/tests">Tests</a>
+          </div>
+        </div>
+      </article>
+      <article class="repo-card" id="repo-RustShot">
+        <div>
+          <figure class="project-preview">
+        <img src="../assets/images/projects/rustshot-preview.webp" alt="Illustration of a screen region framed by crop guides" width="640" height="360" loading="lazy" decoding="async">
+        <figcaption>Illustration of region capture. <a href="https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/docs/capture-guide.md">Source</a></figcaption>
+      </figure>
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/RustShot" target="_blank" rel="noopener noreferrer">RustShot</a></h4>
+            <span class="repo-lang">Rust</span>
+          </div>
+          <p class="repo-desc">Desktop screenshot utility for Windows, Linux and macOS with screen recording on Windows.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Concepts: Platform adapters, Image output, Desktop portals</span>
+            <span>CI: <a href="https://github.com/stden/RustShot/actions/runs/45880377478">Passing</a></span>
+            <span>Repository activity: 2026-11-26</span>
+            <span>Verified: 2026-11-27</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/RustShot" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/RustShot/blob/main/docs/capture-guide.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/RustShot/tree/main/tests">Tests</a>
+          </div>
+        </div>
+      </article>
+      <article class="repo-card" id="repo-SonarQubeChecker">
+        <div>
+
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/SonarQubeChecker" target="_blank" rel="noopener noreferrer">SonarQubeChecker</a></h4>
+            <span class="repo-lang">Python</span>
+          </div>
+          <p class="repo-desc">CLI that reads SonarQube or SonarCloud analysis data and produces Markdown reports.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Concepts: API clients, Report generation, Internationalisation</span>
+            <span>CI: <a href="https://github.com/stden/SonarQubeChecker/actions/runs/44781449306">Passing</a></span>
+            <span>Repository activity: 2026-11-20</span>
+            <span>Verified: 2026-11-27</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/SonarQubeChecker" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/SonarQubeChecker/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/SonarQubeChecker/tree/main/tests">Tests</a>
+          </div>
+        </div>
+      </article>
+      <article class="repo-card" id="repo-EntityLocker">
+        <div>
+
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/EntityLocker" target="_blank" rel="noopener noreferrer">EntityLocker</a></h4>
+            <span class="repo-lang">Java</span>
+          </div>
+          <p class="repo-desc">Java utility for exploring JVM-local, keyed locking and nested acquisition order.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Concepts: Reentrant locks, Key ordering, JUnit</span>
+            <span>CI: Not verified</span>
+            <span>Repository activity: 2026-11-13</span>
+            <span>Verified: 2026-11-27</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/EntityLocker" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/EntityLocker/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/EntityLocker/blob/main/src/test/java/EntityLockerTest.java">Tests</a>
+          </div>
+        </div>
+      </article>
+      <article class="repo-card" id="repo-JPA2">
+        <div>
+
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/JPA2" target="_blank" rel="noopener noreferrer">JPA2</a></h4>
+            <span class="repo-lang">Java</span>
+          </div>
+          <p class="repo-desc">Educational JPA and Hibernate examples with persistence tests.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Concepts: Object-relational mapping, Entity relationships, Persistence testing</span>
+            <span>CI: <a href="https://github.com/stden/JPA2/actions/runs/43380363549">Passing</a></span>
+            <span>Repository activity: 2026-11-13</span>
+            <span>Verified: 2026-11-27</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/JPA2" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/JPA2/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/JPA2/tree/main/src/test/java/JPA2/tests">Tests</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
+    <div class="footer-links">
+      <a href="../index.html">Portfolio</a>
+      <a href="../cv/">CV versions</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

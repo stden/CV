@@ -8,3 +8,5 @@ test-results/
 playwright-report/
 .confidential-denylist
 /applications/
+/.private/
+/vacancies/

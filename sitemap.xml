@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://stden.github.io/CV/</loc></url>
   <url><loc>https://stden.github.io/CV/cv/index.html</loc></url>
+  <url><loc>https://stden.github.io/CV/experience/</loc></url>
+  <url><loc>https://stden.github.io/CV/skills/</loc></url>
+  <url><loc>https://stden.github.io/CV/projects/</loc></url>
+  <url><loc>https://stden.github.io/CV/architecture/</loc></url>
   <url><loc>https://stden.github.io/CV/cv/general.html</loc></url>
   <url><loc>https://stden.github.io/CV/cv/senior-java.html</loc></url>
   <url><loc>https://stden.github.io/CV/cv/distributed-systems.html</loc></url>

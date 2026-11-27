@@ -109,17 +109,44 @@
         tabs.forEach(function (tab) {
             const selected = tab.getAttribute('data-arch-tab') === targetSlug;
             tab.setAttribute('aria-selected', String(selected));
+            tab.tabIndex = selected ? 0 : -1;
         });
         panels.forEach(function (panel) {
             panel.hidden = panel.getAttribute('data-arch-panel') !== targetSlug;
         });
     }
 
-    tabs.forEach(function (tab) {
+    tabs.forEach(function (tab, index) {
         tab.addEventListener('click', function () {
             activateTab(tab.getAttribute('data-arch-tab'));
         });
+        tab.addEventListener('keydown', function (event) {
+            let nextIndex;
+            switch (event.key) {
+            case 'ArrowLeft': nextIndex = (index - 1 + tabs.length) % tabs.length; break;
+            case 'ArrowRight': nextIndex = (index + 1) % tabs.length; break;
+            case 'Home': nextIndex = 0; break;
+            case 'End': nextIndex = tabs.length - 1; break;
+            default: return;
+            }
+            event.preventDefault();
+            const nextTab = tabs[nextIndex];
+            activateTab(nextTab.getAttribute('data-arch-tab'));
+            nextTab.focus();
+        });
     });
+
+    function activateLinkedTab() {
+        const linked = tabs.find(function (tab) {
+            return location.hash === '#' + tab.id || location.hash === '#' + tab.getAttribute('aria-controls');
+        });
+        if (linked) activateTab(linked.getAttribute('data-arch-tab'));
+    }
+
+    if (tabs.length) {
+        activateLinkedTab();
+        window.addEventListener('hashchange', activateLinkedTab);
+    }
 
     panels.forEach(function (panel) {
         const inspector = panel.querySelector('[data-inspector-detail]');
