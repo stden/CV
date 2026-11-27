@@ -1,0 +1,163 @@
+[
+  {
+    "slug": "java-backend",
+    "label": "Senior Java Backend Engineer",
+    "title": "Senior Java Backend Engineer",
+    "summary": "Java backend engineer with experience developing enterprise integrations and document-processing services, working across Spring Boot, relational data stores, asynchronous messaging, JVM diagnostics and production delivery.",
+    "filename": "Denis-Stepulenok-Senior-Java-Engineer.pdf",
+    "skills": [
+      "core",
+      "messaging",
+      "quality",
+      "infrastructure"
+    ],
+    "projects": [
+      "document-link-gateway",
+      "xml-transformation-pipeline"
+    ],
+    "skillPriority": [
+      "java",
+      "jvm",
+      "spring-boot",
+      "concurrency",
+      "java-memory-model",
+      "jpa",
+      "jdbc",
+      "rabbitmq",
+      "maven"
+    ]
+  },
+  {
+    "slug": "distributed-systems",
+    "label": "Distributed Systems",
+    "title": "Senior Software Engineer — Distributed Systems",
+    "summary": "Backend engineer with experience in asynchronous enterprise integrations, secure document delivery and distributed testing. Selected work illustrates message routing, operational failure handling, cache consistency and replay-safe processing.",
+    "filename": "Denis-Stepulenok-Distributed-Systems-Engineer.pdf",
+    "skills": [
+      "core",
+      "messaging",
+      "infrastructure",
+      "quality"
+    ],
+    "projects": [
+      "xml-transformation-pipeline",
+      "document-link-gateway",
+      "messenger-archive-search"
+    ],
+    "skillPriority": [
+      "java",
+      "spring-boot",
+      "distributed-systems",
+      "event-driven-architecture",
+      "asynchronous-processing",
+      "concurrency",
+      "idempotency",
+      "cache-consistency",
+      "rabbitmq"
+    ]
+  },
+  {
+    "slug": "fintech-integrations",
+    "label": "Fintech & Integrations",
+    "title": "Senior Software Engineer — Fintech & Integrations",
+    "summary": "Java backend engineer bringing enterprise integration, SQL, secure document delivery and asynchronous processing experience to integration-focused engineering roles. Project work demonstrates decisions around access, data consistency and failure recovery.",
+    "filename": "Denis-Stepulenok-Fintech-Engineer.pdf",
+    "skills": [
+      "core",
+      "messaging",
+      "infrastructure",
+      "quality"
+    ],
+    "projects": [
+      "document-link-gateway",
+      "xml-transformation-pipeline"
+    ],
+    "skillPriority": [
+      "java",
+      "spring-boot",
+      "sql",
+      "postgresql",
+      "enterprise-integration",
+      "rest",
+      "idempotency",
+      "aes-gcm",
+      "rabbitmq",
+      "oracle-database"
+    ]
+  },
+  {
+    "slug": "ai-mcp",
+    "label": "AI Integration & MCP",
+    "title": "AI Integration / MCP Engineer",
+    "summary": "Senior backend engineer with personal projects that combine Rust, Python, speech transcription, vector search and the Model Context Protocol. Enterprise Java work provides a foundation in reliable integrations, asynchronous processing and production delivery.",
+    "filename": "Denis-Stepulenok-AI-Engineer.pdf",
+    "skills": [
+      "ai",
+      "additional",
+      "messaging",
+      "core"
+    ],
+    "projects": [
+      "messenger-archive-search",
+      "xml-transformation-pipeline"
+    ],
+    "skillPriority": [
+      "rust",
+      "python",
+      "mcp",
+      "whisper",
+      "llms",
+      "rag",
+      "semantic-search",
+      "embeddings",
+      "openai-codex",
+      "qdrant"
+    ]
+  },
+  {
+    "slug": "full",
+    "label": "Full professional CV",
+    "title": "Senior Software Engineer | Java, Distributed Systems & AI Engineering",
+    "summary": "",
+    "filename": "Denis-Stepulenok-Full-CV.pdf",
+    "skills": [],
+    "projects": [
+      "document-link-gateway",
+      "xml-transformation-pipeline",
+      "messenger-archive-search"
+    ]
+  },
+  {
+    "slug": "wise",
+    "label": "Wise-targeted CV",
+    "title": "Senior Java Backend Engineer (Wise application)",
+    "summary": "Java backend engineer with Spring Boot, SQL and PostgreSQL experience in enterprise integration and production deployments. Selected projects illustrate asynchronous messaging, secure access, idempotent processing and failure recovery. JVM concurrency and automated testing experience complements practical AI tooling work.",
+    "filename": "Denis-Stepulenok-Wise-Senior-Java-Engineer.pdf",
+    "skills": [
+      "core",
+      "messaging",
+      "quality",
+      "infrastructure",
+      "ai"
+    ],
+    "projects": [
+      "document-link-gateway",
+      "xml-transformation-pipeline",
+      "messenger-archive-search"
+    ],
+    "skillPriority": [
+      "java",
+      "spring-boot",
+      "distributed-systems",
+      "sql",
+      "postgresql",
+      "asynchronous-processing",
+      "concurrency",
+      "idempotency",
+      "apache-kafka",
+      "rabbitmq",
+      "ai-assisted-development",
+      "openai-codex"
+    ]
+  }
+]

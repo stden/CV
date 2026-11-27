@@ -1,104 +1,68 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { escapeHtml: e } = require('../src/html');
 
-const outputDirectory = path.resolve(__dirname, '..', 'assets', 'images', 'projects');
-const WIDTH = 400;
-const BOX_X = 20;
-const BOX_WIDTH = 360;
-const BOX_HEIGHT = 62;
-const GAP = 28;
-const MARGIN = 20;
+const width = 416;
+const boxHeight = 78;
+const gap = 24;
+const margin = 12;
 
-const diagrams = [
-    {
-        slug: 'document-link-gateway',
-        label: 'Document link flow: application, PostgreSQL, downloader, file store and gateway',
-        steps: [
-            { title: 'Business application', detail: 'POST a link request as JSON' },
-            { title: 'Link generator API', detail: 'AES-GCM link with expiry and original URL' },
-            { title: 'PostgreSQL', detail: 'Link table with ACTIVE, BLOCKED and EXPIRED states' },
-            { title: 'Document downloader', detail: 'Fetches the remote file, then moves it into place' },
-            { title: 'Local file store', detail: 'Files grouped by application and file name' },
-            { title: 'Link gateway', detail: 'Decrypts the link and streams the document' },
-            { title: 'Schedulers', detail: 'Housekeeping every 15 s, cleanup every 60 s' },
-        ],
-    },
-    {
-        slug: 'xml-transformation-pipeline',
-        label: 'XML transformation pipeline: RabbitMQ queues, router, XSLT transformer and error path',
-        steps: [
-            { title: 'Upstream systems', detail: 'XML requests over AMQP' },
-            { title: 'RabbitMQ request queue', detail: 'Each message goes to a bounded worker pool' },
-            { title: 'Router', detail: 'Checks the out-queue and routes the message' },
-            { title: 'XSLT transformer', detail: 'Cached stylesheets, Java extensions from plugin jars' },
-            { title: 'Out-queues', detail: 'Messages delivered to destination queues' },
-            { title: 'Error path', detail: 'Failures are emailed and the message is requeued' },
-        ],
-    },
-    {
-        slug: 'messenger-archive-search',
-        label: 'Messenger archive: sync, transcription, Qdrant index and MCP search',
-        steps: [
-            { title: 'Messenger account', detail: 'History fetched over the MTProto API' },
-            { title: 'Sync service (Rust)', detail: 'Flood-wait backoff and bounded retries' },
-            { title: 'PostgreSQL', detail: 'Messages, chats and transcription queue' },
-            { title: 'Transcription worker (Python)', detail: 'Claims rows with SKIP LOCKED, runs Whisper' },
-            { title: 'Indexer (Rust)', detail: 'Batched local embeddings, checkpoint after upsert' },
-            { title: 'Qdrant', detail: 'Vector collection with deterministic UUIDv5 point IDs' },
-            { title: 'MCP server', detail: 'stdio and HTTP access for LLM agents' },
-        ],
-    },
-];
-
-// TODO: escapeHtml in build-tech-pages.js does the same job; extract a shared module
-// when a third script needs it (Rule of Three).
-function escapeXml(text) {
-    return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+function wrap(text, length) {
+    const lines = [''];
+    for (const word of text.split(' ')) {
+        const last = lines.length - 1;
+        const next = lines[last] ? `${lines[last]} ${word}` : word;
+        if (next.length > length && lines[last]) lines.push(word);
+        else lines[last] = next;
+    }
+    return lines;
 }
 
-function renderStep(step, index, count) {
-    const top = MARGIN + index * (BOX_HEIGHT + GAP);
-    const bottom = top + BOX_HEIGHT;
-    const arrow = index < count - 1
-        ? `  <line class="link" x1="${WIDTH / 2}" y1="${bottom}" x2="${WIDTH / 2}" y2="${bottom + GAP}"/>\n`
-        : '';
-    return `  <rect class="box" x="${BOX_X}" y="${top}" width="${BOX_WIDTH}" height="${BOX_HEIGHT}" rx="6"/>
-  <text class="title" x="36" y="${top + 26}">${index + 1}. ${escapeXml(step.title)}</text>
-  <text class="detail" x="36" y="${top + 48}">${escapeXml(step.detail)}</text>
-${arrow}`;
-}
-
-function renderDiagram(diagram) {
-    const count = diagram.steps.length;
-    const height = 2 * MARGIN + count * BOX_HEIGHT + (count - 1) * GAP;
-    const steps = diagram.steps.map((step, index) => renderStep(step, index, count)).join('');
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${WIDTH} ${height}" role="img">
-  <title>${escapeXml(diagram.label)}</title>
-  <defs>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
-      <path d="M0,0 L5,9 L10,0" fill="#35776d"/>
-    </marker>
-  </defs>
-  <style>
-    .box { fill: #fff; stroke: #35776d; stroke-width: 1.5; }
-    .title { fill: #35776d; font: 700 15px Roboto, Arial, sans-serif; }
-    .detail { fill: #545e6c; font: 400 12.5px Roboto, Arial, sans-serif; }
-    .link { stroke: #35776d; stroke-width: 1.5; marker-end: url(#arrow); }
-  </style>
-${steps}</svg>
+function renderDiagram({ id, diagram }) {
+    const steps = diagram.steps.map((step) => ({ ...step, lines: wrap(step.detail, 52) }));
+    let top = margin;
+    const nodes = steps.map((step, index) => {
+        const height = Math.max(boxHeight, 42 + 18 * step.lines.length);
+        const next = index + 1 < steps.length;
+        const arrow = next ? `<path d="M208 ${top + height}v${gap - 5}m-4-4 4 4 4-4" class="arrow"/>` : '';
+        const node = `<g>
+  <rect x="${margin}" y="${top}" width="${width - margin * 2}" height="${height}" rx="7" class="node"/>
+  <circle cx="34" cy="${top + 24}" r="13" class="badge"/>
+  <text x="34" y="${top + 29}" class="number">${index + 1}</text>
+  <text x="56" y="${top + 29}" class="label">${e(step.title)}</text>
+  <text x="26" y="${top + 52}" class="detail">${step.lines.map((line, i) => `<tspan x="26" dy="${i ? 18 : 0}">${e(line)}</tspan>`).join('')}</text>
+  ${arrow}
+</g>`;
+        top += height + (next ? gap : margin);
+        return node;
+    });
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${top}" viewBox="0 0 ${width} ${top}" role="img" aria-labelledby="${id}-title ${id}-description">
+<title id="${id}-title">${e(diagram.label)}</title>
+<desc id="${id}-description">${e(steps.map((step) => `${step.title}. ${step.detail}`).join(' '))}</desc>
+<style>
+  .node { fill: #f7f9f8; stroke: #9aaba6; }
+  .badge { fill: #0d5c4d; }
+  .number { fill: #fff; text-anchor: middle; font: 700 13px system-ui, sans-serif; }
+  .label { fill: #172f2a; font: 700 16px system-ui, sans-serif; }
+  .detail { fill: #344843; font: 400 13px system-ui, sans-serif; }
+  .arrow { fill: none; stroke: #0d5c4d; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+${nodes.join('\n')}
+</svg>
 `;
 }
 
-function main() {
-    fs.mkdirSync(outputDirectory, { recursive: true });
-    for (const diagram of diagrams) {
-        fs.writeFileSync(path.join(outputDirectory, `${diagram.slug}.svg`), renderDiagram(diagram));
+function writeProjectDiagrams(directory, projects) {
+    fs.mkdirSync(directory, { recursive: true });
+    for (const project of projects) {
+        fs.writeFileSync(path.join(directory, `${project.id}.svg`), renderDiagram(project));
     }
-    console.log(`Wrote ${diagrams.length} project diagrams to ${outputDirectory}`);
+    console.log(`Generated ${projects.length} architecture diagrams.`);
 }
 
-main();
+if (require.main === module) {
+    const { cv } = require('../src/cv-data');
+    writeProjectDiagrams(path.resolve(__dirname, '../dist/assets/images/projects'), [...cv.projects, cv.backgroundProcessing]);
+}
+
+module.exports = { writeProjectDiagrams };

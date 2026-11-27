@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const outputDirectory = path.resolve(__dirname, '..', 'tech');
+const { escapeHtml: e, siteUrl } = require('../src/html');
 
 const technologies = [
     {
@@ -67,7 +67,6 @@ const technologies = [
         slug: 'jpa',
         title: 'JPA',
         summary: 'Java standard for object-relational mapping: entities, relations and queries.',
-        icon: 'fa-database',
         flow: ['Entity class', 'EntityManager', 'Persistence context', 'SQL', 'Database'],
         official: 'https://jakarta.ee/specifications/persistence/',
         capabilities: [
@@ -85,7 +84,6 @@ const technologies = [
         slug: 'sql',
         title: 'SQL',
         summary: 'Relational query language used with Oracle and PostgreSQL.',
-        icon: 'fa-database',
         flow: ['FROM and JOIN', 'WHERE', 'GROUP BY', 'HAVING', 'SELECT', 'ORDER BY'],
         capabilities: [
             'SELECT with joins, subqueries, aggregation and window functions',
@@ -103,7 +101,6 @@ const technologies = [
         slug: 'oracle',
         title: 'Oracle Database',
         summary: 'Enterprise relational database used in the Kuehne+Nagel, Bonus Club and Software Development & Solutions projects.',
-        icon: 'fa-database',
         flow: ['Client application', 'Listener', 'Server process', 'SGA (buffer cache)', 'Data files'],
         official: 'https://www.oracle.com/database/',
         capabilities: [
@@ -318,7 +315,6 @@ const technologies = [
         slug: 'mockito',
         title: 'Mockito',
         summary: 'Mocking framework for Java unit tests.',
-        icon: 'fa-flask',
         flow: ['Create mock', 'Stub: when(...).thenReturn', 'Run code under test', 'verify() calls'],
         official: 'https://site.mockito.org',
         capabilities: [
@@ -336,7 +332,6 @@ const technologies = [
         slug: 'jmockit',
         title: 'JMockit',
         summary: 'Java testing toolkit that can mock static methods, constructors and final classes.',
-        icon: 'fa-flask',
         flow: ['Mock static, final or constructor', 'Expectations block', 'Run code under test', 'Verifications block'],
         official: 'https://jmockit.github.io',
         capabilities: [
@@ -353,7 +348,6 @@ const technologies = [
         slug: 'easymock',
         title: 'EasyMock',
         summary: 'Mock object library for Java with a record, replay and verify workflow.',
-        icon: 'fa-flask',
         flow: ['createMock()', 'Record expectations', 'replay()', 'Run code under test', 'verify()'],
         official: 'https://easymock.org',
         capabilities: [
@@ -368,78 +362,66 @@ const technologies = [
     },
 ];
 
-function escapeHtml(text) {
-    return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
-}
-
 function renderList(items) {
-    return items.map((item) => `    <li>${escapeHtml(item)}</li>`).join('\n');
-}
-
-function renderOfficialLink(technology) {
-    if (!technology.official) return '';
-    return `  <p><a href="${technology.official}" target="_blank" rel="noopener">Official site</a></p>\n`;
-}
-
-function renderHeaderIcon(technology) {
-    if (technology.logo) return `<img alt="" class="tech-logo" src="../assets/images/tech/${technology.slug}.svg">`;
-    if (technology.icon) return `<i aria-hidden="true" class="fa ${technology.icon} tech-logo"></i>`;
-    return '';
+    return items.map((item) => `      <li>${e(item)}</li>`).join('\n');
 }
 
 function renderPage(technology) {
-    const title = escapeHtml(technology.title);
-    return `<!DOCTYPE html>
+    const title = e(technology.title);
+    const canonical = `${siteUrl}tech/${technology.slug}.html`;
+    const logo = technology.logo
+        ? `<img src="../assets/images/tech/${technology.slug}.svg" width="48" height="48" alt="">`
+        : '';
+    const official = technology.official ? `<p><a href="${e(technology.official)}">Official documentation</a></p>` : '';
+    return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>${title} - Denis Stepulenok CV</title>
-  <meta content="${escapeHtml(technology.summary)}" name="description">
-  <link href="../favicon.ico" rel="shortcut icon">
-  <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet">
-  <link href="../assets/css/style.css" id="theme-style" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${title} — Denis Stepulenok</title>
+  <meta name="description" content="${e(technology.summary)}">
+  <link rel="canonical" href="${canonical}">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../assets/resume.css">
 </head>
-
 <body>
-<div class="container tech-page">
-  <p><a href="../index.html">&larr; Back to CV</a></p>
-  <div class="tech-header">${renderHeaderIcon(technology)}<h1>${title}</h1></div>
-  <p class="lead">${escapeHtml(technology.summary)}</p>
-
-  <h2>How it works</h2>
-  <ol class="flow">
+  <nav class="resume-actions" aria-label="Technology navigation"><a href="../#skills">Back to skills</a></nav>
+  <main class="tech-page">
+    <header class="tech-heading">${logo}<h1>${title}</h1></header>
+    <p>${e(technology.summary)}</p>
+    <section>
+      <h2>How it works</h2>
+      <ol class="tech-flow">
 ${renderList(technology.flow)}
-  </ol>
-
-  <h2>Capabilities</h2>
-  <ul>
+      </ol>
+    </section>
+    <section>
+      <h2>Capabilities</h2>
+      <ul>
 ${renderList(technology.capabilities)}
-  </ul>
-
-  <h2>Where I used it</h2>
-  <ul>
+      </ul>
+    </section>
+    <section>
+      <h2>Where I used it</h2>
+      <ul>
 ${renderList(technology.usedIn)}
-  </ul>
-
-${renderOfficialLink(technology)}</div>
+      </ul>
+    </section>
+    ${official}
+  </main>
 </body>
 </html>
 `;
 }
 
-function main() {
-    fs.mkdirSync(outputDirectory, { recursive: true });
+function writeTechPages(directory) {
+    fs.mkdirSync(directory, { recursive: true });
     for (const technology of technologies) {
-        fs.writeFileSync(path.join(outputDirectory, `${technology.slug}.html`), renderPage(technology));
+        fs.writeFileSync(path.join(directory, `${technology.slug}.html`), renderPage(technology));
     }
-    console.log(`Wrote ${technologies.length} technology pages to ${outputDirectory}`);
+    console.log(`Generated ${technologies.length} technology pages.`);
 }
 
-main();
+if (require.main === module) writeTechPages(path.resolve(__dirname, '../dist/tech'));
+
+module.exports = { writeTechPages };

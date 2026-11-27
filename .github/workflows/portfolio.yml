@@ -1,0 +1,94 @@
+name: Portfolio
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: portfolio-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: read
+    outputs:
+      pages_source: ${{ steps.pages-source.outputs.mode }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Install Chromium and PDF inspection tools
+        run: |
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y poppler-utils
+      - name: Build the static portfolio and PDF resumes
+        run: npm run build
+      - name: Check static pages, links and PDF text
+        run: npm test
+      - name: Run Playwright end-to-end tests
+        run: npm run test:e2e
+      - name: Upload browser report and screenshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: portfolio-browser-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Upload pull-request preview files
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v5
+        with:
+          name: portfolio-preview
+          path: dist/
+          include-hidden-files: true
+          retention-days: 14
+      - name: Check the existing Pages publishing source
+        if: github.ref == 'refs/heads/main'
+        id: pages-source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mode="$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.build_type')"
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          if [[ "$mode" != "workflow" ]]; then
+            echo "::notice::GitHub Pages currently uses branch publishing. Choose GitHub Actions as the publishing source to enable this workflow's deployment."
+          fi
+      - name: Upload the validated GitHub Pages artifact
+        if: steps.pages-source.outputs.mode == 'workflow'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && needs.validate.outputs.pages_source == 'workflow'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - name: Deploy the validated portfolio
+        id: publish
+        uses: actions/deploy-pages@v4

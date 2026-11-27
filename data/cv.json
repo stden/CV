@@ -1,0 +1,468 @@
+{
+  "name": "Denis Stepulenok",
+  "title": "Senior Software Engineer | Java, Distributed Systems & AI Engineering",
+  "location": "Tallinn, Estonia",
+  "summary": "I build Java backend services, distributed systems and enterprise integrations. My work spans document processing at Kuehne+Nagel, high-load services at Taxify (now Bolt) and JDK quality at Oracle. My independent projects use Rust, Python and AI integrations.",
+  "contact": {
+    "email": "super.denis@gmail.com",
+    "github": "https://github.com/stden",
+    "linkedin": "https://ee.linkedin.com/in/denis-stepulenok",
+    "telegram": "https://t.me/stdenx"
+  },
+  "availability": {
+    "openToWork": false,
+    "relocation": null,
+    "workAuthorization": null
+  },
+  "badges": [
+    "Java & JVM",
+    "Spring Boot",
+    "Distributed systems",
+    "RabbitMQ",
+    "PostgreSQL",
+    "CI/CD"
+  ],
+  "expertise": [
+    {
+      "title": "Java & JVM Engineering",
+      "description": "Spring Boot backend services, Java extension plugins and JDK quality work involving concurrency, the Java Memory Model and class loading."
+    },
+    {
+      "title": "Distributed Systems",
+      "description": "Background jobs for document retrieval and cleanup, and an independent indexing pipeline designed for safe retries across a relational database and a vector store."
+    },
+    {
+      "title": "Event-Driven Architecture",
+      "description": "RabbitMQ routing and asynchronous XSLT transformation in an enterprise integration pipeline, with a separate path for failed messages."
+    },
+    {
+      "title": "Enterprise Integration",
+      "description": "Java services that exchange XML with upstream and downstream systems, integrate with PostgreSQL and Oracle Database, and deliver documents through time-limited encrypted links."
+    },
+    {
+      "title": "Cloud & Infrastructure",
+      "description": "Java deployments and Jenkins and GitLab automation at Kuehne+Nagel, with Docker, Kubernetes and earlier experience with cloud-hosted backend services."
+    },
+    {
+      "title": "Software Quality & Reliability",
+      "description": "JDK bug investigation, automated test development and test-suite stabilisation at Oracle, including maintenance of a distributed test lab."
+    },
+    {
+      "title": "AI Engineering & Automation",
+      "description": "Independent work on Whisper transcription, semantic search and MCP integrations that make search and CRM operations available to AI clients."
+    }
+  ],
+  "experience": [
+    {
+      "id": "kuehne-nagel",
+      "role": "Senior Java Developer",
+      "company": "Kuehne+Nagel",
+      "location": "Tallinn, Estonia",
+      "start": "May 2018",
+      "end": "Present",
+      "summary": "Develop and deploy enterprise Java services for document processing and systems integration.",
+      "highlights": [
+        "Worked on secure document delivery through encrypted, time-limited links, with asynchronous retrieval and cleanup of cached files.",
+        "Developed Java processing for RabbitMQ messages and Saxon XSLT transformations, with isolated plugin classloaders and runtime reloads.",
+        "Worked with PostgreSQL and Oracle Database through SQL, JPA and Hibernate.",
+        "Supported production deployments and used Jenkins and GitLab to automate delivery across Java runtime versions and containerised environments."
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "RabbitMQ",
+        "Saxon XSLT",
+        "PostgreSQL",
+        "Oracle Database",
+        "JPA / Hibernate",
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "GitLab CI/CD",
+        "Maven"
+      ],
+      "url": "https://www.kuehne-nagel.com/"
+    },
+    {
+      "id": "bolt",
+      "role": "Senior Backend Developer",
+      "company": "Taxify (now Bolt)",
+      "location": "Tallinn, Estonia",
+      "start": "May 2017",
+      "end": "May 2018",
+      "summary": "Developed high-load Node.js microservices and internal web tooling.",
+      "highlights": [
+        "Built backend services and REST APIs with Node.js, JavaScript and TypeScript.",
+        "Developed PHP and MySQL administration tools and worked with Docker, Redis and cloud infrastructure."
+      ],
+      "technologies": [
+        "Node.js",
+        "TypeScript",
+        "JavaScript",
+        "REST",
+        "Docker",
+        "Redis",
+        "MySQL",
+        "PHP",
+        "AWS",
+        "Azure",
+        "Google App Engine"
+      ],
+      "url": "https://bolt.eu/en/company/"
+    },
+    {
+      "id": "oracle",
+      "role": "SQE / Java Developer",
+      "company": "Oracle",
+      "location": "Saint Petersburg, Russia",
+      "start": "January 2014",
+      "end": "May 2017",
+      "summary": "Investigated JDK defects and developed automated tests for Java platform releases.",
+      "highlights": [
+        "Analysed nightly test results, verified bug fixes and investigated failures in tests and the JDK.",
+        "Developed and stabilised Java, JUnit and Jemmy test suites, applying Java Core knowledge in the Java Memory Model, concurrency, collections, generics and class loading.",
+        "Maintained distributed testing infrastructure involving 60+ computers using Python, PowerShell and Puppet."
+      ],
+      "technologies": [
+        "Java Core",
+        "JDK",
+        "JUnit",
+        "Jemmy",
+        "Mockito",
+        "Python",
+        "PowerShell",
+        "Puppet"
+      ],
+      "url": "https://www.oracle.com/"
+    },
+    {
+      "id": "software-development-solutions",
+      "role": "Senior Java Developer",
+      "company": "Software Development & Solutions",
+      "location": "Saint Petersburg, Russia",
+      "start": "August 2013",
+      "end": "January 2014",
+      "summary": "Worked on Forward, an information aggregation application for a marketing department.",
+      "highlights": [
+        "Gathered requirements, estimated and planned work, wrote specifications, contributed to design and supported quality checks, releases and maintenance."
+      ],
+      "technologies": [
+        "Java",
+        "JUnit",
+        "Spring",
+        "Play",
+        "GWT",
+        "Hibernate",
+        "JavaScript",
+        "Tomcat",
+        "MySQL",
+        "Oracle Database"
+      ]
+    },
+    {
+      "id": "bonus-club",
+      "role": "C/C++ / Java / Android Developer",
+      "company": "Bonus Club “All in Plus”",
+      "location": "Saint Petersburg, Russia",
+      "start": "September 2012",
+      "end": "August 2013",
+      "summary": "Developed and maintained loyalty bonus processing software, point-of-sale update services and Android features.",
+      "highlights": [
+        "Worked on core libraries and utilities, fixed defects in the billing system and built Android UI and REST API integrations."
+      ],
+      "technologies": [
+        "C/C++",
+        "Java",
+        "JUnit",
+        "Android",
+        "Spring",
+        "Hibernate",
+        "REST",
+        "Oracle Database",
+        "Tomcat"
+      ]
+    },
+    {
+      "id": "inruskom",
+      "role": "Software Developer",
+      "company": "OAO INRUSKOM",
+      "location": "Saint Petersburg, Russia",
+      "start": "November 2005",
+      "end": "February 2007",
+      "summary": "Developed a database and user interface for railway signalling equipment.",
+      "highlights": [
+        "Built the interface for accessing and working with railway equipment data."
+      ],
+      "technologies": [
+        "C# .NET",
+        "Microsoft SQL Server"
+      ]
+    },
+    {
+      "id": "i-free",
+      "role": "Software Developer",
+      "company": "i-Free",
+      "location": "Saint Petersburg, Russia",
+      "start": "March 2005",
+      "end": "October 2005",
+      "summary": "Developed an internal content management system and its user interfaces.",
+      "highlights": [
+        "Automated data imports from game providers into the company database."
+      ],
+      "technologies": [
+        "Java",
+        "JUnit",
+        "C# .NET",
+        "Microsoft SQL Server"
+      ]
+    },
+    {
+      "id": "spb-etu-research",
+      "role": "Software Engineer Intern",
+      "company": "Research & Engineering Centre, SPb ETU",
+      "location": "Saint Petersburg, Russia",
+      "start": "September 2001",
+      "end": "March 2005",
+      "summary": "Worked on data analysis, processing and visualisation in a university research centre.",
+      "highlights": [
+        "Built software for processing and visualising research data."
+      ],
+      "technologies": [
+        "Java",
+        "Delphi",
+        "C++ Builder",
+        "MATLAB",
+        "SQL"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "document-link-gateway",
+      "title": "Secure Document Link Gateway",
+      "context": "Professional project · Kuehne+Nagel",
+      "problem": "Provide time-limited access to documents retrieved from remote storage while keeping the download path separate from retrieval and housekeeping.",
+      "architecture": "A Java and Spring Boot gateway serves documents from a file cache. Links carry an encrypted reference and expiry. Background jobs retrieve documents and clean up expired entries, with PostgreSQL supporting the document lifecycle.",
+      "decisions": [
+        "Use AES-GCM authenticated encryption so the gateway can check the link and its expiry without a per-download database lookup.",
+        "Separate document retrieval and cleanup from the request path so serving a document does not require fetching it from the source."
+      ],
+      "reliability": [
+        "Keep cache availability consistent with link lifetimes across independent scheduled jobs.",
+        "Make a document available only after retrieval finishes and remove cached files when their links expire."
+      ],
+      "technologies": [
+        "Java 17",
+        "Spring Boot",
+        "PostgreSQL",
+        "AES-GCM"
+      ],
+      "diagram": {
+        "label": "Authenticated links, background retrieval and document delivery",
+        "steps": [
+          {
+            "title": "Link service",
+            "detail": "Creates an encrypted document reference with an expiry."
+          },
+          {
+            "title": "Lifecycle store",
+            "detail": "Tracks documents for asynchronous retrieval and cleanup."
+          },
+          {
+            "title": "Retrieval worker",
+            "detail": "Retrieves source files and publishes completed files to the cache."
+          },
+          {
+            "title": "Download gateway",
+            "detail": "Validates the encrypted link and streams the cached file."
+          }
+        ]
+      }
+    },
+    {
+      "id": "xml-transformation-pipeline",
+      "title": "XML Transformation Pipeline",
+      "context": "Professional project · Kuehne+Nagel",
+      "problem": "Exchange XML between systems that use different formats and let integration rules evolve without restarting the service.",
+      "architecture": "RabbitMQ receives XML requests. A router selects the destination and a Saxon XSLT stage transforms the payload before publishing to a downstream queue. Java functions provide extensions for stylesheets.",
+      "decisions": [
+        "Load Java extensions through separate plugin classloaders to isolate their classes.",
+        "Reload the transformation context during redeployment so rule changes do not require a service restart."
+      ],
+      "reliability": [
+        "Use a bounded worker pool to limit concurrent processing.",
+        "Give failed messages a separate handling path and support requeuing so failures are not silently discarded."
+      ],
+      "technologies": [
+        "Java",
+        "Spring AMQP",
+        "RabbitMQ",
+        "Saxon XSLT",
+        "JDBC"
+      ],
+      "diagram": {
+        "label": "Message routing, XML transformation and failure handling",
+        "steps": [
+          {
+            "title": "Input queue",
+            "detail": "RabbitMQ accepts XML work from upstream systems."
+          },
+          {
+            "title": "Message router",
+            "detail": "Assigns messages to a processing path and selects a destination."
+          },
+          {
+            "title": "Transformation",
+            "detail": "Saxon applies XSLT with isolated Java extension plugins."
+          },
+          {
+            "title": "Delivery and failures",
+            "detail": "Publishes transformed data and routes failures for handling."
+          }
+        ]
+      }
+    },
+    {
+      "id": "messenger-archive-search",
+      "title": "Messenger Archive & Semantic Search",
+      "context": "Independent engineering project",
+      "problem": "Make archived text and voice messages searchable by meaning and accessible through an MCP client.",
+      "architecture": "A Rust service syncs messages over MTProto into PostgreSQL. A Python worker transcribes audio with Whisper. A Rust indexer embeds the text and upserts vectors in Qdrant, and an MCP server exposes search to AI clients.",
+      "decisions": [
+        "Use deterministic UUIDv5 vector IDs so reprocessing a message updates the same Qdrant point.",
+        "Advance the checkpoint only after the upsert succeeds so interrupted batches can be processed again."
+      ],
+      "reliability": [
+        "Claim transcription jobs from PostgreSQL without blocking other workers that are handling different rows.",
+        "Handle failures across PostgreSQL, Qdrant and the checkpoint with idempotent writes and resumable indexing."
+      ],
+      "technologies": [
+        "Rust",
+        "Python",
+        "MTProto",
+        "Whisper",
+        "PostgreSQL",
+        "Qdrant",
+        "Embeddings",
+        "MCP"
+      ],
+      "diagram": {
+        "label": "Messenger synchronisation, voice transcription, vector indexing and MCP search",
+        "steps": [
+          {
+            "title": "MTProto sync",
+            "detail": "Fetches messages and writes them to PostgreSQL."
+          },
+          {
+            "title": "Whisper worker",
+            "detail": "Claims voice jobs and writes transcribed text."
+          },
+          {
+            "title": "Vector indexer",
+            "detail": "Upserts embeddings to Qdrant before moving the checkpoint."
+          },
+          {
+            "title": "MCP search",
+            "detail": "Makes semantic retrieval available to AI clients."
+          }
+        ]
+      }
+    }
+  ],
+  "backgroundProcessing": {
+    "id": "distributed-background-processing",
+    "title": "Distributed Background Processing",
+    "diagram": {
+      "label": "Claiming work, committing results and resuming safely after failure",
+      "steps": [
+        {
+          "title": "Persist work",
+          "detail": "Store inputs in a queue or database so processing can run separately."
+        },
+        {
+          "title": "Claim a batch",
+          "detail": "Multiple workers can take separate units of work."
+        },
+        {
+          "title": "Write the result",
+          "detail": "Apply an idempotent update when independent systems cannot share a transaction."
+        },
+        {
+          "title": "Advance progress",
+          "detail": "Commit the checkpoint only once the output succeeds. Resume unfinished work on retry."
+        }
+      ]
+    }
+  },
+  "openSource": [
+    {
+      "name": "SonarQube Checker",
+      "language": "Python / Rust",
+      "description": "Command-line tooling that collects analysis and issues from SonarQube or SonarCloud and generates Markdown reports.",
+      "repository": "https://github.com/stden/SonarQubeChecker",
+      "documentation": "https://github.com/stden/SonarQubeChecker/blob/main/README_RUST.md",
+      "ci": "https://github.com/stden/SonarQubeChecker/actions/workflows/ci.yml",
+      "activity": "2026-11-20",
+      "ciResult": {
+        "date": "2026-11-20",
+        "url": "https://github.com/stden/SonarQubeChecker/actions/runs/44781449306"
+      }
+    },
+    {
+      "name": "docker-gems",
+      "language": "Shell / Dockerfile",
+      "description": "Reusable container images for builds, tests and QA training, with GitHub Actions builds and distribution through Docker Hub.",
+      "repository": "https://github.com/stden/docker-gems",
+      "documentation": "https://github.com/stden/docker-gems#readme",
+      "ci": "https://github.com/stden/docker-gems/actions/workflows/docker-images.yml",
+      "activity": "2026-11-27",
+      "ciResult": {
+        "date": "2026-10-25",
+        "url": "https://github.com/stden/docker-gems/actions/runs/40185929500"
+      }
+    },
+    {
+      "name": "Bitrix24 MCP Server",
+      "language": "TypeScript",
+      "description": "An MCP interface for CRM contacts, deals and tasks, with typed requests, validation and rate limiting for the Bitrix24 API.",
+      "repository": "https://github.com/stden/bitrix24-mcp-server",
+      "documentation": "https://github.com/stden/bitrix24-mcp-server#readme",
+      "activity": "2026-11-20"
+    },
+    {
+      "name": "RustShot",
+      "language": "Rust",
+      "description": "Desktop screen capture for Windows, macOS and Linux. Supports platform-specific capture paths and H.264 recording on Windows.",
+      "repository": "https://github.com/stden/RustShot",
+      "documentation": "https://github.com/stden/RustShot/blob/main/docs/capture-guide.md",
+      "ci": "https://github.com/stden/RustShot/actions/workflows/ci.yml",
+      "activity": "2026-11-26",
+      "ciResult": {
+        "date": "2026-11-26",
+        "url": "https://github.com/stden/RustShot/actions/runs/45880377478"
+      }
+    }
+  ],
+  "education": [
+    {
+      "degree": "Specialist in Computer Science",
+      "institution": "Saint Petersburg Electrotechnical University (LETI)",
+      "start": "1999",
+      "end": "2005"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Russian",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Intermediate"
+    }
+  ],
+  "interests": [
+    "Programming olympiads",
+    "Travel"
+  ]
+}
