@@ -212,10 +212,10 @@ function renderProjects(data, depth = 0) {
               <ul class="badge-list">${stackBadges}</ul>
             </div>
           </div>
-          <div class="case-diagram-box">
+          ${cs.diagramSlug ? `<div class="case-diagram-box">
             <img src="${relPrefix(depth)}assets/images/projects/${escapeHtml(cs.diagramSlug)}.svg" alt="${escapeHtml(cs.title)} architecture flow diagram" loading="lazy" width="420" height="580">
             <p class="case-diagram-caption"><a href="${relPrefix(depth)}architecture/index.html">${escapeHtml(ui('caseInspect'))} &rarr;</a></p>
-          </div>
+          </div>` : ''}
         </div>
       </article>`;
     }).join('\n');
