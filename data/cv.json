@@ -430,7 +430,7 @@
       "origin": "open-source",
       "scope": "Open-source Rust projects · github.com/stden",
       "scopeType": "personal",
-      "diagramSlug": "ref-async-job-pipeline",
+      "diagramSlug": "",
       "problem": "Building responsive cross-platform developer utilities—a keyboard-driven dual-panel terminal file manager and a fast screen-capture/recording tool—with strict test coverage and automated releases.",
       "context": "Independent open-source Rust projects demonstrating native performance, UI responsiveness, BDD acceptance testing, and GitHub Actions release automation.",
       "architecture": "FunnyFileManager (ffm) implements a non-blocking dual-panel TUI on ratatui with async filesystem operations; RustShot captures display frames and encodes H.264 MP4 video natively, both validated via Gherkin BDD suites and automated CI/release workflows.",
@@ -699,7 +699,7 @@
           "detail": "Request work for Entity ID",
           "responsibility": "Multiple application threads contend on reads or mutations identified solely by generic entity IDs.",
           "concepts": [
-            "Distributed coordination"
+            "Cache consistency"
           ],
           "tradeoffs": "Key-based locking preserves parallelism across distinct entities compared to coarse class-level locks."
         },
@@ -720,8 +720,7 @@
           "detail": "Mutual exclusion & timeout",
           "responsibility": "Serialises access per entity ID while allowing optional global escalation or lock acquisition timeouts.",
           "concepts": [
-            "Failure handling",
-            "Distributed coordination"
+            "Failure handling"
           ],
           "tradeoffs": "Timeouts protect caller threads against deadlock or slow downstream operations."
         },
@@ -911,7 +910,7 @@
     },
     {
       "name": "Distributed Coordination",
-      "description": "Transcription workers claim queue rows with SKIP LOCKED, so several workers share one queue without taking the same row. EntityLocker coordinates work on one entity at a time."
+      "description": "Transcription workers claim queue rows with SKIP LOCKED, so several workers share one queue without taking the same row."
     },
     {
       "name": "Cache Consistency",
@@ -1344,7 +1343,7 @@
         "Access from Java through JDBC and JPA"
       ],
       "usedIn": [
-        "Relational database work, 2014 – 2017 and 2018 – present"
+        "Relational database work, 2018 – present"
       ]
     },
     {
@@ -1552,7 +1551,7 @@
         "Recovery workflows with reflog"
       ],
       "usedIn": [
-        "Version control in all roles"
+        "Version control in enterprise work, 2018 – present"
       ]
     },
     {
@@ -1878,7 +1877,7 @@
       "slug": "full",
       "shortLabel": "Full Professional CV",
       "roleTitle": "Senior Software Engineer | Java, Distributed Systems & AI Engineering",
-      "targetAudience": "Comprehensive career history, independent project case studies & open-source record",
+      "targetAudience": "Career history, independent project case studies and open-source record",
       "pdfFilename": "Denis-Stepulenok-Full-CV.pdf",
       "summary": "Senior Software Engineer specialising in Java backend development, distributed systems, event-driven architecture, enterprise integration, and production reliability. Complete career history spanning Kuehne+Nagel, Taxify (Bolt), Oracle, and earlier engineering roles since 2001.",
       "focusHighlights": [

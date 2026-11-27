@@ -253,7 +253,7 @@
             <h4 class="card-title" data-field="title">Concurrent Caller Threads</h4>
             <p class="card-body" data-field="responsibility">Multiple application threads contend on reads or mutations identified solely by generic entity IDs.</p>
             <p class="tech-group-label" style="margin-top:0.75rem">Engineering Concepts</p>
-            <p class="card-body" data-field="concepts">Distributed coordination</p>
+            <p class="card-body" data-field="concepts">Cache consistency</p>
             <p class="tech-group-label" style="margin-top:0.75rem">Design Trade-off</p>
             <p class="card-body" data-field="tradeoffs">Key-based locking preserves parallelism across distinct entities compared to coarse class-level locks.</p>
           </div>
@@ -261,7 +261,7 @@
             <p class="tech-group-label" style="margin-bottom:0.45rem">Inspect Components (Click or Enter)</p>
             <ul class="arch-component-list">
           <li>
-            <button type="button" class="arch-component-btn" data-node-id="caller-threads" data-node-json="{&quot;title&quot;:&quot;Concurrent Caller Threads&quot;,&quot;responsibility&quot;:&quot;Multiple application threads contend on reads or mutations identified solely by generic entity IDs.&quot;,&quot;concepts&quot;:[&quot;Distributed coordination&quot;],&quot;tradeoffs&quot;:&quot;Key-based locking preserves parallelism across distinct entities compared to coarse class-level locks.&quot;}" aria-pressed="true">
+            <button type="button" class="arch-component-btn" data-node-id="caller-threads" data-node-json="{&quot;title&quot;:&quot;Concurrent Caller Threads&quot;,&quot;responsibility&quot;:&quot;Multiple application threads contend on reads or mutations identified solely by generic entity IDs.&quot;,&quot;concepts&quot;:[&quot;Cache consistency&quot;],&quot;tradeoffs&quot;:&quot;Key-based locking preserves parallelism across distinct entities compared to coarse class-level locks.&quot;}" aria-pressed="true">
               <strong>1. Concurrent Caller Threads</strong>
               <span>Multiple application threads contend on reads or mutations identified solely by generic entity IDs.</span>
             </button>
@@ -273,7 +273,7 @@
             </button>
           </li>
           <li>
-            <button type="button" class="arch-component-btn" data-node-id="entity-lock" data-node-json="{&quot;title&quot;:&quot;Per-ID Reentrant Lock&quot;,&quot;responsibility&quot;:&quot;Serialises access per entity ID while allowing optional global escalation or lock acquisition timeouts.&quot;,&quot;concepts&quot;:[&quot;Failure handling&quot;,&quot;Distributed coordination&quot;],&quot;tradeoffs&quot;:&quot;Timeouts protect caller threads against deadlock or slow downstream operations.&quot;}" aria-pressed="false">
+            <button type="button" class="arch-component-btn" data-node-id="entity-lock" data-node-json="{&quot;title&quot;:&quot;Per-ID Reentrant Lock&quot;,&quot;responsibility&quot;:&quot;Serialises access per entity ID while allowing optional global escalation or lock acquisition timeouts.&quot;,&quot;concepts&quot;:[&quot;Failure handling&quot;],&quot;tradeoffs&quot;:&quot;Timeouts protect caller threads against deadlock or slow downstream operations.&quot;}" aria-pressed="false">
               <strong>3. Per-ID Reentrant Lock</strong>
               <span>Serialises access per entity ID while allowing optional global escalation or lock acquisition timeouts.</span>
             </button>
@@ -512,7 +512,7 @@
       </article>
       <article class="concept-card">
         <h3>Distributed Coordination</h3>
-        <p>Transcription workers claim queue rows with SKIP LOCKED, so several workers share one queue without taking the same row. EntityLocker coordinates work on one entity at a time.</p>
+        <p>Transcription workers claim queue rows with SKIP LOCKED, so several workers share one queue without taking the same row.</p>
       </article>
       <article class="concept-card">
         <h3>Cache Consistency</h3>

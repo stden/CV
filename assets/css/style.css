@@ -1428,3 +1428,90 @@ details.compact-role:not([open]) .compact-chevron::after {
     gap: 0.8rem;
   }
 }
+
+/* Homepage and secondary-page blocks (added with the five-section homepage). */
+.hero-intro {
+  margin: 0.85rem 0 0;
+  max-width: 62ch;
+  color: var(--text-muted);
+}
+
+.hero-languages {
+  margin: 0.75rem 0 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.section-more {
+  margin: 1.25rem 0 0;
+}
+
+.tech-list {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.home-roles {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.home-role {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+}
+
+.home-projects {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.home-project {
+  padding: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+}
+
+.skill-group-home {
+  margin-bottom: 1.25rem;
+}
+
+.skill-group-title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.contact-list {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.page-header {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: -0.02em;
+}
