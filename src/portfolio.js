@@ -81,7 +81,7 @@ function renderHeader(cv) {
 </header>`;
 }
 
-function renderOverview(cv, full) {
+function renderOverview(cv, defaultVariant) {
   const availability = [
     cv.availability?.openToWork ? 'Open to work' : null,
     cv.availability?.relocation,
@@ -97,7 +97,7 @@ function renderOverview(cv, full) {
         ${tagList(cv.badges)}
         ${availability.length ? `<p class="availability">${availability.map(escape).join(' · ')}</p>` : ''}
         <div class="action-row hero-actions">
-          ${downloadLink(full, 'Download CV', 'button button-primary')}
+          ${downloadLink(defaultVariant, 'Download CV', 'button button-primary')}
           <a class="button button-outline" href="#contact">Contact</a>
         </div>
         <div class="inline-links">${socialLinks(cv.contact)}</div>
@@ -273,7 +273,7 @@ function renderVariants(variants) {
   </section>`;
 }
 
-function renderContact(cv, full) {
+function renderContact(cv, defaultVariant) {
   const { email, telegram } = cv.contact;
   return `<section class="section contact-section" id="contact" aria-labelledby="contact-heading">
     <div class="contact-panel">
@@ -290,7 +290,7 @@ function renderContact(cv, full) {
         <div class="inline-links">
           ${socialLinks(cv.contact)}
           ${telegram ? `<a href="${escape(telegram)}">Telegram</a>` : ''}
-          ${downloadLink(full, 'Download CV', 'text-link download-link')}
+          ${downloadLink(defaultVariant, 'Download CV', 'text-link download-link')}
         </div>
         <p class="copy-status" role="status" data-copy-status></p>
       </div>
@@ -299,7 +299,7 @@ function renderContact(cv, full) {
 }
 
 function renderPortfolio(cv, variants) {
-  const full = variants.find(({ slug }) => slug === 'full') || variants[0];
+  const defaultVariant = variants.find(({ slug }) => slug === 'general');
   const pageTitle = `${cv.name} · ${cv.title}`;
   const description = `${cv.name}, Senior Software Engineer in ${cv.location}. Java backend development, distributed systems, enterprise integration and AI engineering.`;
   const structuredData = {
@@ -350,14 +350,14 @@ function renderPortfolio(cv, variants) {
 <body>
   ${renderHeader(cv)}
   <main id="main" class="container" tabindex="-1">
-    ${renderOverview(cv, full)}
+    ${renderOverview(cv, defaultVariant)}
     ${renderExperience(cv.experience)}
     ${renderProjects(cv.projects, cv.openSource)}
     ${renderSkills(cv.skills)}
     ${renderArchitecture(cv.projects, cv.backgroundProcessing)}
     ${renderEducation(cv)}
     ${renderVariants(variants)}
-    ${renderContact(cv, full)}
+    ${renderContact(cv, defaultVariant)}
   </main>
   <footer class="site-footer">
     <div class="container footer-inner">

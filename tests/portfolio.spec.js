@@ -5,7 +5,8 @@ const { AxeBuilder } = require('@axe-core/playwright');
 const HOME = '/CV/';
 const CANONICAL = 'https://stden.github.io/CV/';
 const SECTIONS = ['overview', 'experience', 'projects', 'skills', 'architecture', 'education', 'contact'];
-const VARIANTS = ['java-backend', 'distributed-systems', 'fintech-integrations', 'ai-mcp', 'full', 'wise'];
+const VARIANTS = ['general', 'java-backend', 'distributed-systems', 'fintech-integrations', 'ai-mcp', 'full', 'wise'];
+const GENERAL_PDF = 'Denis-Stepulenok-Senior-Software-Engineer.pdf';
 const DIAGRAMS = ['document-link-gateway', 'xml-transformation-pipeline', 'messenger-archive-search', 'distributed-background-processing'];
 const STANDARDS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'];
 
@@ -122,17 +123,21 @@ test('contact links and email copying use the published address', async ({ conte
     await expect.poll(() => page.evaluate(() => navigator.clipboard.readText())).toBe('super.denis@gmail.com');
 });
 
-test('the main CV download produces a PDF file', async ({ page }) => {
+test('the main CV downloads use the general Senior Software Engineer PDF', async ({ page }) => {
     await page.goto(HOME);
+    const downloadLink = page.locator('#overview').getByRole('link', { name: /Download CV/i });
+    await expect(downloadLink).toHaveAttribute('href', `downloads/${GENERAL_PDF}`);
+    await expect(page.locator('#contact').getByRole('link', { name: /Download CV/i }))
+        .toHaveAttribute('href', `downloads/${GENERAL_PDF}`);
     const downloadReady = page.waitForEvent('download');
-    await page.locator('#overview').getByRole('link', { name: /Download CV/i }).click();
+    await downloadLink.click();
     const download = await downloadReady;
-    expect(download.suggestedFilename()).toBe('Denis-Stepulenok-Full-CV.pdf');
+    expect(download.suggestedFilename()).toBe(GENERAL_PDF);
     const buffer = await readFile(await download.path());
     expect(buffer.subarray(0, 5).toString('ascii')).toBe('%PDF-');
 });
 
-test('all six CV variants have distinct canonical pages and PDF assets', async ({ page, request }) => {
+test('all seven CV variants have distinct canonical pages and PDF assets', async ({ page, request }) => {
     await page.goto(HOME);
     const filenames = new Set();
     for (const variant of VARIANTS) {

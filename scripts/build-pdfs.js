@@ -6,6 +6,12 @@ const { variants } = require('../src/cv-data');
 
 const dist = path.resolve(__dirname, '..', 'dist');
 
+async function printResume(page, source, destination) {
+    await page.goto(pathToFileURL(source).href);
+    await page.evaluate(() => document.fonts.ready);
+    await page.pdf({ path: destination, preferCSSPageSize: true, tagged: true });
+}
+
 async function buildPdfs() {
     const directory = path.join(dist, 'downloads');
     await mkdir(directory, { recursive: true });
@@ -19,13 +25,7 @@ async function buildPdfs() {
         const page = await browser.newPage();
         for (const variant of variants) {
             const source = path.join(dist, 'cv', variant.slug, 'index.html');
-            await page.goto(pathToFileURL(source).href);
-            await page.evaluate(() => document.fonts.ready);
-            await page.pdf({
-                path: path.join(directory, variant.filename),
-                preferCSSPageSize: true,
-                tagged: true,
-            });
+            await printResume(page, source, path.join(directory, variant.filename));
         }
     } finally {
         await browser.close();
@@ -39,4 +39,4 @@ if (require.main === module) {
         process.exitCode = 1;
     });
 }
-module.exports = { buildPdfs };
+module.exports = { buildPdfs, printResume };

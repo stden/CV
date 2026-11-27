@@ -2,7 +2,7 @@
 
 [Live portfolio](https://stden.github.io/CV/) · [Content review](CONTENT_REVIEW.md)
 
-The site presents Denis Stepulenok’s Java backend, distributed systems and integration experience. It includes engineering case studies, technology reference pages, a general CV and targeted CVs for Java backend, distributed systems, fintech integrations, AI/MCP and Wise.
+The site presents Denis Stepulenok’s Java backend, distributed systems and integration experience. The primary download is a two-page Senior Software Engineer CV. The detailed CV and role-specific versions for Java backend, distributed systems, fintech integrations, AI/MCP and Wise are available from the CV versions section.
 
 ## Run locally
 
@@ -43,6 +43,27 @@ For each skill, keep the ID stable and cite the strongest available evidence. An
 GitHub renders Markdown in repositories and profile READMEs and lets a profile pin up to six repositories or gists. Repository language statistics come from Linguist’s analysis of files. They describe the repositories and do not measure a person’s proficiency. [Profile README documentation](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme) · [Pinned items](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/pinning-items-to-your-profile) · [Repository languages documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages)
 
 The skills DSL is project data. Jekyll can read JSON, YAML, CSV and TSV from `_data`. This repository uses a Node.js build so the same data can produce the site and printable CVs. Use `npm run skills:markdown` to export a GitHub-compatible Markdown view. [Jekyll data files](https://jekyllrb.com/docs/datafiles/) · [Custom GitHub Pages builds](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
+
+## Tailor a CV to a specific vacancy
+
+Create a local JSON file containing the vacancy URL, a short factual summary, a base profile from `data/variants.json` and the catalogue IDs relevant to the job. Choose evidence against the vacancy's actual requirements. Employer names, dates and descriptions come from the shared CV source.
+
+```json
+{
+  "slug": "example-java-backend-1234",
+  "source": "https://careers.example.org/jobs/1234",
+  "profile": "java-backend",
+  "summary": "Java backend engineer with Spring Boot and asynchronous message processing experience.",
+  "skills": ["java", "spring-boot", "postgresql", "rabbitmq"],
+  "projects": ["xml-transformation-pipeline", "document-link-gateway"]
+}
+```
+
+```sh
+npm run cv:job -- /path/to/vacancy.json
+```
+
+The command writes a PDF, a self-contained HTML copy and the selection file to a new folder in `applications/`. The folder is git-ignored and the Pages build packages only `dist/`.
 
 ## How the build works
 

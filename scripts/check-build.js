@@ -89,7 +89,8 @@ function checkPdf(variant) {
     for (const url of [cv.contact.github, cv.contact.linkedin, 'mailto:' + cv.contact.email, siteUrl]) assert.ok(links.includes(url));
 }
 
-assert.equal(variants.length, 6);
+assert.equal(variants.length, 7);
+assert.equal(variants[0].slug, 'general');
 assert.equal(new Set(variants.map(({ slug }) => slug)).size, variants.length);
 assert.equal(new Set(variants.map(({ filename }) => filename)).size, variants.length);
 assert.equal(htmlFiles.filter((file) => path.dirname(file) === path.join(root, 'tech')).length, 20);
