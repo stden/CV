@@ -22,7 +22,7 @@ test('a vacancy CV uses curated facts and can be rendered privately', () => {
     assert.equal(variant.includeCompactRoles, true);
     const html = renderPdfHtml(tailored, variant, '', { privateCv: true });
     assert.match(html, /name="robots" content="noindex, nofollow"/);
-    assert.doesNotMatch(html, /Apache Kafka|rel="canonical"/);
+    assert.doesNotMatch(html, /Terraform|rel="canonical"/);
     assert.ok(html.indexOf('Professional Experience') < html.indexOf('Technical Skills'));
 });
 
@@ -79,14 +79,16 @@ test('matches every requirement against evidence without turning familiarity int
     assert.equal(results.Java.status, 'Strong evidence');
     assert.equal(results['Spring Boot'].status, 'Strong evidence');
     assert.equal(results['Production experience with Rust'].status, 'Partial evidence');
-    assert.equal(results['Apache Kafka'].status, 'Familiarity');
+    assert.equal(results['Apache Kafka'].status, 'Strong evidence');
+    assert.equal(results.Terraform.status, 'Familiarity');
     assert.equal(results.FictionalDB.status, 'Missing evidence');
     assert.equal(results['English C1'].status, 'Requires confirmation');
     assert.equal(results['5+ years of payments processing'].status, 'Requires confirmation');
     assert.match(results.Java.evidence[0].source, /Kuehne\+Nagel|Oracle/);
-    assert.match(results['Apache Kafka'].reason, /listed|Familiarity/i);
+    assert.match(results['Apache Kafka'].evidence[0].source, /Kuehne\+Nagel/);
+    assert.match(results.Terraform.reason, /listed|Familiarity/i);
     const { data: tailored, variant } = prepareJobCv(data, sample);
-    assert.match(renderPdfHtml(tailored, variant, '', { privateCv: true }), /<strong>Familiarity:<\/strong> Apache Kafka/);
+    assert.match(renderPdfHtml(tailored, variant, '', { privateCv: true }), /<strong>Familiarity:<\/strong> Terraform/);
 });
 
 test('vacancy input cannot overwrite facts or introduce recruiter-facing instructions', () => {
