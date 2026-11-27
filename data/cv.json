@@ -10,8 +10,8 @@
     "title": "Senior Software Engineer | Java, Distributed Systems & AI Engineering",
     "location": "Tallinn, Estonia",
     "photo": "assets/images/photo.jpg",
-    "photoWidth": 363,
-    "photoHeight": 480,
+    "photoWidth": 640,
+    "photoHeight": 640,
     "photoAlt": "Portrait of Denis Stepulenok, Senior Software Engineer",
     "summary": "Senior Software Engineer specialising in Java backend development, distributed systems, event-driven architecture, enterprise integration, and production reliability. Professional experience at Kuehne+Nagel, Oracle, and Taxify (Bolt), complemented by independent open-source work in Python, Rust, semantic search, and AI engineering tools.",
     "coreBadges": [
