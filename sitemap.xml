@@ -1,36 +1,250 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://stden.github.io/CV/</loc></url>
-  <url><loc>https://stden.github.io/CV/experience/index.html</loc></url>
-  <url><loc>https://stden.github.io/CV/projects/index.html</loc></url>
-  <url><loc>https://stden.github.io/CV/skills/index.html</loc></url>
-  <url><loc>https://stden.github.io/CV/architecture/index.html</loc></url>
-  <url><loc>https://stden.github.io/CV/cv/index.html</loc></url>
-  <url><loc>https://stden.github.io/CV/cv/general.html</loc></url>
-  <url><loc>https://stden.github.io/CV/cv/senior-java.html</loc></url>
-  <url><loc>https://stden.github.io/CV/cv/distributed-systems.html</loc></url>
-  <url><loc>https://stden.github.io/CV/cv/fintech-integrations.html</loc></url>
-  <url><loc>https://stden.github.io/CV/cv/wise.html</loc></url>
-  <url><loc>https://stden.github.io/CV/cv/ai-mcp.html</loc></url>
-  <url><loc>https://stden.github.io/CV/cv/full.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/java.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/spring.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/spring-boot.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/jpa.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/sql.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/oracle.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/postgresql.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/angular.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/react.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/maven.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/hibernate.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/jenkins.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/docker.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/kubernetes.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/git.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/gitlab.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/python.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/mockito.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/jmockit.html</loc></url>
-  <url><loc>https://stden.github.io/CV/tech/easymock.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://stden.github.io/CV/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/et/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/experience/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/experience/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/experience/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/experience/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/experience/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/experience/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/et/experience/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/experience/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/experience/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/experience/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/experience/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/experience/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/de/experience/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/experience/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/experience/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/experience/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/experience/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/experience/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/ru/experience/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/experience/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/experience/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/experience/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/experience/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/experience/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/projects/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/projects/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/projects/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/projects/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/et/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/projects/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/projects/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/projects/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/projects/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/de/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/projects/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/projects/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/projects/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/projects/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/ru/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/projects/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/projects/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/projects/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/projects/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/skills/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/skills/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/skills/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/skills/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/skills/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/skills/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/et/skills/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/skills/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/skills/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/skills/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/skills/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/skills/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/de/skills/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/skills/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/skills/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/skills/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/skills/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/skills/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/ru/skills/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/skills/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/skills/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/skills/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/skills/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/skills/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/cv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/cv/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/cv/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/cv/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/cv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/cv/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/et/cv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/cv/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/cv/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/cv/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/cv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/cv/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/de/cv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/cv/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/cv/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/cv/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/cv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/cv/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/ru/cv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stden.github.io/CV/cv/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/cv/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/cv/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/cv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/cv/"/>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/architecture/</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/cv/</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/cv/general.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/cv/senior-java.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/cv/distributed-systems.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/cv/fintech-integrations.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/cv/wise.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/cv/ai-mcp.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/cv/full.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/java.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/spring.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/spring-boot.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/jpa.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/sql.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/oracle.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/postgresql.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/angular.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/react.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/maven.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/hibernate.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/jenkins.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/docker.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/kubernetes.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/git.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/gitlab.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/python.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/mockito.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/jmockit.html</loc>
+  </url>
+  <url>
+    <loc>https://stden.github.io/CV/tech/easymock.html</loc>
+  </url>
 </urlset>

@@ -7,7 +7,13 @@
   <meta name="description" content="Case studies and public repositories. Independent work only; no employer systems are described.">
   <meta name="author" content="Denis Stepulenok">
   <link rel="canonical" href="https://stden.github.io/CV/projects/">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/projects/">
+  <link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/projects/">
+  <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/projects/">
+  <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/projects/">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/projects/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Projects | Denis Stepulenok">
   <meta property="og:description" content="Case studies and public repositories. Independent work only; no employer systems are described.">
   <meta property="og:url" content="https://stden.github.io/CV/projects/">
@@ -40,10 +46,11 @@
       </ul>
     </nav>
     <div class="header-actions">
-      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+      <nav class="lang-switcher" aria-label="Language"><ul><li><a href="index.html" lang="en" hreflang="en" aria-current="true" class="lang-link is-current" title="English"><span aria-hidden="true">EN</span><span class="visually-hidden">English</span></a></li><li><a href="../et/projects/index.html" lang="et" hreflang="et" class="lang-link" title="Eesti"><span aria-hidden="true">ET</span><span class="visually-hidden">Eesti</span></a></li><li><a href="../de/projects/index.html" lang="de" hreflang="de" class="lang-link" title="Deutsch"><span aria-hidden="true">DE</span><span class="visually-hidden">Deutsch</span></a></li><li><a href="../ru/projects/index.html" lang="ru" hreflang="ru" class="lang-link" title="Русский"><span aria-hidden="true">RU</span><span class="visually-hidden">Русский</span></a></li></ul></nav>
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme" data-label-to-dark="Switch to dark theme" data-label-to-light="Switch to light theme" data-text-dark="Dark" data-text-light="Light">
         <span class="theme-label">Dark</span>
       </button>
-      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV</a>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV</a>
       <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
         Menu
       </button>
@@ -57,10 +64,12 @@
       <li><a href="../architecture/index.html">Architecture</a></li>
       <li><a href="../cv/index.html">CVs</a></li>
       <li><a href="../index.html#contact">Contact</a></li>
-      <li><a href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV (PDF)</a></li>
+      <li><a href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV (PDF)</a></li>
     </ul>
+    <nav class="lang-switcher" aria-label="Language"><ul><li><a href="index.html" lang="en" hreflang="en" aria-current="true" class="lang-link is-current" title="English"><span aria-hidden="true">EN</span><span class="visually-hidden">English</span></a></li><li><a href="../et/projects/index.html" lang="et" hreflang="et" class="lang-link" title="Eesti"><span aria-hidden="true">ET</span><span class="visually-hidden">Eesti</span></a></li><li><a href="../de/projects/index.html" lang="de" hreflang="de" class="lang-link" title="Deutsch"><span aria-hidden="true">DE</span><span class="visually-hidden">Deutsch</span></a></li><li><a href="../ru/projects/index.html" lang="ru" hreflang="ru" class="lang-link" title="Русский"><span aria-hidden="true">RU</span><span class="visually-hidden">Русский</span></a></li></ul></nav>
   </div>
 </header>
+<div class="lang-hint" data-lang-hint data-template="Open this page in {language}." hidden><a href="#"></a></div>
 <main id="main-content">
 <header class="page-header">
   <div class="container">
@@ -84,9 +93,9 @@
               <div><dt>Problem Statement</dt><dd>Long-running personal chat archives combine text and voice messages across thousands of threads, making keyword search ineffective for recalling context or supplying structured history to LLM agents.</dd></div>
               <div><dt>Engineering Context</dt><dd>Self-directed personal engineering project built independently outside employer work to explore Rust/Python interoperability, local speech-to-text, vector indexing, and Model Context Protocol (MCP) tooling.</dd></div>
               <div><dt>Architecture</dt><dd>A Rust sync service fetches personal chat history over MTProto with flood-wait backoff into PostgreSQL. A Python worker claims pending voice rows using PostgreSQL SKIP LOCKED and transcribes them with Whisper. A Rust indexer computes batched local embeddings and upserts points into Qdrant, exposed to LLM agents via a read-only MCP server (stdio and HTTP).</dd></div>
-              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list"><li>No distributed transaction spans PostgreSQL, Qdrant, and the sync cursor checkpoint.</li><li>Respecting upstream MTProto rate limits while recovering cleanly from mid-batch interruptions.</li></ul></dd></div>
-              <div><dt>Design Decisions</dt><dd><ul class="bullet-list"><li>Computed deterministic UUIDv5 Qdrant point IDs from message identity so retries overwrite idempotently instead of creating duplicates.</li><li>Persisted the indexing checkpoint only after each Qdrant upsert batch succeeds.</li><li>Used PostgreSQL SELECT ... FOR UPDATE SKIP LOCKED for lock-free concurrent voice transcription workers.</li></ul></dd></div>
-              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list"><li>At-least-once processing paired with deterministic UUIDv5 upserts delivers idempotent eventual consistency without 2PC.</li><li>Flood-wait backoff and bounded retries protect upstream API sessions.</li></ul></dd></div>
+              <div><dt>Technical challenges</dt><dd><ul class="bullet-list"><li>No distributed transaction spans PostgreSQL, Qdrant, and the sync cursor checkpoint.</li><li>Respecting upstream MTProto rate limits while recovering cleanly from mid-batch interruptions.</li></ul></dd></div>
+              <div><dt>Design decisions</dt><dd><ul class="bullet-list"><li>Computed deterministic UUIDv5 Qdrant point IDs from message identity so retries overwrite idempotently instead of creating duplicates.</li><li>Persisted the indexing checkpoint only after each Qdrant upsert batch succeeds.</li><li>Used PostgreSQL SELECT ... FOR UPDATE SKIP LOCKED for lock-free concurrent voice transcription workers.</li></ul></dd></div>
+              <div><dt>Reliability considerations</dt><dd><ul class="bullet-list"><li>At-least-once processing paired with deterministic UUIDv5 upserts delivers idempotent eventual consistency without 2PC.</li><li>Flood-wait backoff and bounded retries protect upstream API sessions.</li></ul></dd></div>
               <div><dt>Verified Outcomes</dt><dd><ul class="bullet-list"><li>End-to-end personal archive searchable semantically across text and transcribed voice messages through standard MCP clients.</li></ul></dd></div>
             </dl>
             <div class="tech-group">
@@ -96,7 +105,7 @@
           </div>
           <div class="case-diagram-box">
             <img src="../assets/images/projects/messenger-archive-search.svg" alt="Messenger Archive &amp; Semantic Search architecture flow diagram" loading="lazy" width="420" height="580">
-            <p class="case-diagram-caption"><a href="#architecture">Inspect interactive component breakdown &rarr;</a></p>
+            <p class="case-diagram-caption"><a href="../architecture/index.html">Inspect interactive component breakdown &rarr;</a></p>
           </div>
         </div>
       </article>
@@ -109,9 +118,9 @@
               <div><dt>Problem Statement</dt><dd>Applications caching or mutating domain entities concurrently often face either coarse global locks that bottleneck throughput or complex ad-hoc per-key lock maps prone to leaks and races.</dd></div>
               <div><dt>Engineering Context</dt><dd>Public open-source Java library demonstrating fine-grained JVM concurrency primitives comparable to row-level database locking.</dd></div>
               <div><dt>Architecture</dt><dd>A generic EntityLocker&lt;ID&gt; coordinator manages per-entity-ID mutual exclusion without coupling to entity payload types, supporting different ID types, reentrant locking semantics, escalation/global locking options, and bounded cleanup of unused lock entries.</dd></div>
-              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list"><li>Preventing race conditions between lock acquisition, reference counting, and map eviction when locks are released.</li><li>Supporting arbitrary generic ID types safely without deadlocks or unbounded memory growth.</li></ul></dd></div>
-              <div><dt>Design Decisions</dt><dd><ul class="bullet-list"><li>Decoupled lock coordination completely from entity storage so components only pass primary key identifiers.</li><li>Used concurrent map atomic operations and reference tracking to reclaim idle lock objects safely.</li></ul></dd></div>
-              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list"><li>Isolates contention to the specific entity ID being mutated rather than blocking unrelated entities.</li><li>Avoids memory leaks under high key cardinality via safe lock entry cleanup.</li></ul></dd></div>
+              <div><dt>Technical challenges</dt><dd><ul class="bullet-list"><li>Preventing race conditions between lock acquisition, reference counting, and map eviction when locks are released.</li><li>Supporting arbitrary generic ID types safely without deadlocks or unbounded memory growth.</li></ul></dd></div>
+              <div><dt>Design decisions</dt><dd><ul class="bullet-list"><li>Decoupled lock coordination completely from entity storage so components only pass primary key identifiers.</li><li>Used concurrent map atomic operations and reference tracking to reclaim idle lock objects safely.</li></ul></dd></div>
+              <div><dt>Reliability considerations</dt><dd><ul class="bullet-list"><li>Isolates contention to the specific entity ID being mutated rather than blocking unrelated entities.</li><li>Avoids memory leaks under high key cardinality via safe lock entry cleanup.</li></ul></dd></div>
               <div><dt>Verified Outcomes</dt><dd><ul class="bullet-list"><li>Published as a standalone reusable Java utility on GitHub (stden/EntityLocker).</li></ul></dd></div>
             </dl>
             <div class="tech-group">
@@ -121,7 +130,7 @@
           </div>
           <div class="case-diagram-box">
             <img src="../assets/images/projects/entity-concurrency-locking.svg" alt="EntityLocker — Row-Level Entity Concurrency Utility architecture flow diagram" loading="lazy" width="420" height="580">
-            <p class="case-diagram-caption"><a href="#architecture">Inspect interactive component breakdown &rarr;</a></p>
+            <p class="case-diagram-caption"><a href="../architecture/index.html">Inspect interactive component breakdown &rarr;</a></p>
           </div>
         </div>
       </article>
@@ -134,9 +143,9 @@
               <div><dt>Problem Statement</dt><dd>Building responsive cross-platform developer utilities—a keyboard-driven dual-panel terminal file manager and a fast screen-capture/recording tool—with strict test coverage and automated releases.</dd></div>
               <div><dt>Engineering Context</dt><dd>Independent open-source Rust projects demonstrating native performance, UI responsiveness, BDD acceptance testing, and GitHub Actions release automation.</dd></div>
               <div><dt>Architecture</dt><dd>FunnyFileManager (ffm) implements a non-blocking dual-panel TUI on ratatui with async filesystem operations; RustShot captures display frames and encodes H.264 MP4 video natively, both validated via Gherkin BDD suites and automated CI/release workflows.</dd></div>
-              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list"><li>Keeping terminal UI and capture pipelines responsive under slow filesystem or high-resolution display workloads.</li><li>Validating desktop and terminal workflows deterministically across CI runs.</li></ul></dd></div>
-              <div><dt>Design Decisions</dt><dd><ul class="bullet-list"><li>Separated UI event loops from blocking I/O and encoding pipelines.</li><li>Added Gherkin behaviour-driven test suites alongside continuous GitHub Actions builds and release pipelines.</li></ul></dd></div>
-              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list"><li>Passing automated CI and Release workflows verify builds and regression tests on every push.</li></ul></dd></div>
+              <div><dt>Technical challenges</dt><dd><ul class="bullet-list"><li>Keeping terminal UI and capture pipelines responsive under slow filesystem or high-resolution display workloads.</li><li>Validating desktop and terminal workflows deterministically across CI runs.</li></ul></dd></div>
+              <div><dt>Design decisions</dt><dd><ul class="bullet-list"><li>Separated UI event loops from blocking I/O and encoding pipelines.</li><li>Added Gherkin behaviour-driven test suites alongside continuous GitHub Actions builds and release pipelines.</li></ul></dd></div>
+              <div><dt>Reliability considerations</dt><dd><ul class="bullet-list"><li>Passing automated CI and Release workflows verify builds and regression tests on every push.</li></ul></dd></div>
               <div><dt>Verified Outcomes</dt><dd><ul class="bullet-list"><li>Publicly maintained repositories with passing CI/Release status on GitHub.</li></ul></dd></div>
             </dl>
             <div class="tech-group">
@@ -146,7 +155,7 @@
           </div>
           <div class="case-diagram-box">
             <img src="../assets/images/projects/ref-async-job-pipeline.svg" alt="FunnyFileManager &amp; RustShot — Systems &amp; Desktop Tooling architecture flow diagram" loading="lazy" width="420" height="580">
-            <p class="case-diagram-caption"><a href="#architecture">Inspect interactive component breakdown &rarr;</a></p>
+            <p class="case-diagram-caption"><a href="../architecture/index.html">Inspect interactive component breakdown &rarr;</a></p>
           </div>
         </div>
       </article>
@@ -283,7 +292,7 @@
     <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
     <div class="footer-links">
       <a href="../index.html">Portfolio</a>
-      <a href="../cv/index.html">Targeted CVs</a>
+      <a href="../cv/index.html">CV versions</a>
       <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:super.denis@gmail.com">Email</a>

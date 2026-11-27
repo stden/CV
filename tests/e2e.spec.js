@@ -10,6 +10,8 @@ const VIEWPORTS = [375, 390, 768, 1024, 1440, 1920];
 const SECTIONS = ['overview', 'experience', 'projects', 'skills', 'architecture', 'education', 'contact'];
 const HOME_SECTIONS = ['overview', 'experience', 'skills', 'projects', 'contact'];
 const GENERAL_PDF = 'Denis-Stepulenok-Senior-Software-Engineer.pdf';
+// The Download CV buttons offer the resume in the language of the page.
+const CV_EN_PDF = 'Denis-Stepulenok-CV-EN.pdf';
 const VARIANTS = [
     { slug: 'general', pdf: GENERAL_PDF },
     { slug: 'senior-java', pdf: 'Denis-Stepulenok-Senior-Java-Engineer.pdf' },
@@ -61,10 +63,10 @@ for (const width of VIEWPORTS) {
         await expect(overview).toContainText('Bolt');
         const download = overview.getByRole('link', { name: /Download CV/i });
         await expect(download).toBeVisible();
-        await expect(download).toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
-        await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
+        await expect(download).toHaveAttribute('href', `assets/pdf/${CV_EN_PDF}`);
+        await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `assets/pdf/${CV_EN_PDF}`);
         await expect(page.locator('#contact').getByRole('link', { name: 'Download CV (PDF)', exact: true }))
-            .toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
+            .toHaveAttribute('href', `assets/pdf/${CV_EN_PDF}`);
 
         await page.evaluate(async () => {
             await document.fonts.ready;
@@ -189,7 +191,7 @@ test('all seven CV variants, PDFs, and 20 technology pages load under /CV/', asy
     const cvIndexRes = await page.goto(`${HOME}cv/index.html`);
     expect(cvIndexRes?.ok()).toBe(true);
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('CV Versions');
-    await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `../assets/pdf/${GENERAL_PDF}`);
+    await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `../assets/pdf/${CV_EN_PDF}`);
 
     for (const variant of VARIANTS) {
         const res = await page.goto(`${HOME}cv/${variant.slug}.html`);

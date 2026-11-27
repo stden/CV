@@ -1,0 +1,467 @@
+{
+  "meta": {
+    "title": "Denis Stepulenok — vanem-tarkvaraarendaja | Java ja hajussüsteemid",
+    "description": "Denis Stepulenok, vanem-tarkvaraarendaja Tallinnas. Java taustarakendused, hajussüsteemid, ettevõtete integratsioon ja tehisintellekti tehnoloogia. Töökogemus ettevõtetes Kuehne+Nagel, Oracle ja Taxify (Bolt)."
+  },
+  "ui": {
+    "skipLink": "Mine põhisisu juurde",
+    "navLabel": "Peamine navigeerimine",
+    "navExperience": "Kogemus",
+    "navProjects": "Projektid",
+    "navSkills": "Oskused",
+    "navArchitecture": "Arhitektuur",
+    "navCvs": "CV-d",
+    "navContact": "Kontakt",
+    "menuButton": "Menüü",
+    "menuLabel": "Ava või sulge navigeerimismenüü",
+    "themeToDark": "Lülita tumedale teemale",
+    "themeToLight": "Lülita heledale teemale",
+    "themeLabelDark": "Tume",
+    "themeLabelLight": "Hele",
+    "downloadCv": "Lae CV alla",
+    "downloadCvPdf": "Lae CV alla (PDF)",
+    "languageLabel": "Keel",
+    "languageCurrent": "Praegune keel",
+    "footerPortfolio": "Portfoolio",
+    "footerCvVersions": "CV versioonid",
+    "footerGitHub": "GitHub",
+    "footerLinkedIn": "LinkedIn",
+    "footerEmail": "E-post",
+    "heroLanguages": "Keeled",
+    "heroGitHub": "GitHub",
+    "heroLinkedIn": "LinkedIn",
+    "experienceTitle": "Töökogemus",
+    "experienceLead": "Kolm viimast ametikohta. Varasemad ametikohad ja täielikud kohustused on kogemuse lehel.",
+    "fullHistory": "Täielik töökäik",
+    "technologiesLabel": "Tehnoloogiad:",
+    "skillsTitle": "Põhioskused",
+    "skillsLead": "Rühmitatud valdkondade kaupa. Iga oskuse juures on märgitud, kus seda kasutati.",
+    "allSkills": "Kõik oskused ja tõendid",
+    "projectsTitle": "Valitud projektid",
+    "projectsLead": "Iseseisev töö Java, Rusti ja Pythoniga. Repositooriumid on avalikud; juhtumiuuringud ja arhitektuuridiagrammid on projektide ja arhitektuuri lehel. Iga kaart näitab tehnoloogiat ja CI olekut.",
+    "allProjects": "Kõik projektid ja juhtumiuuringud",
+    "stackLabel": "Tehnoloogiad",
+    "ciLabel": "CI",
+    "contactTitle": "Kontakt",
+    "contactLead": "Asukoht: {location}. E-post on kiireim viis minuga ühendust võtta.",
+    "contactCvVersions": "CV versioonid konkreetsete ametikohtade jaoks",
+    "telegramLabel": "Telegram",
+    "pageExperienceTitle": "Kogemus",
+    "pageExperienceLead": "Täielik töökäik koos ülesannete ja tehnoloogiatega ametikohtade kaupa.",
+    "pageProjectsTitle": "Projektid",
+    "pageProjectsLead": "Juhtumiuuringud ja avalikud repositooriumid. Ainult iseseisev töö; tööandjate süsteeme ei kirjeldata.",
+    "pageSkillsTitle": "Oskused",
+    "pageSkillsLead": "Täielik oskuste loend. Iga oskus on märgitud, kus seda kasutati.",
+    "pageArchitectureTitle": "Arhitektuur",
+    "pageArchitectureLead": "Iseseisvad näitearhitektuurid ja nende taga olevad tehnilised põhimõtted.",
+    "pageNotTranslated": "Selle lehe tehnilised üksikasjad on saadaval ainult inglise keeles.",
+    "careerTimeline": "Karjääri ajajoon",
+    "experienceFullLead": "Kronoloogiline tehnilise töö ülevaade ettevõtete Java-taustasüsteemide, suure koormusega mikroteenuste ja JDK kvaliteeditaristu kohta.",
+    "earlierRolesHeading": "Varasemad insenerirollid (2001 – 2014)",
+    "primaryTechLabel": "Peamised tehnoloogiad ametikohal",
+    "additionalTechLabel": "Lisatehnoloogiad ametikohal",
+    "educationTitle": "Haridus, keeled ja huvid",
+    "educationLabel": "Haridus",
+    "languagesLabel": "Keeled",
+    "interestsLabel": "Huvid",
+    "tierCore": "Põhiline töökogemus",
+    "tierAdditional": "Lisaks töökogemus",
+    "tierPersonal": "Isiklik / iseseisev",
+    "filterAll": "Kõik",
+    "filterCore": "Põhiline",
+    "filterAdditional": "Lisaks",
+    "filterPersonal": "Isiklik",
+    "caseProblem": "Probleemi kirjeldus",
+    "caseContext": "Insenerikontekst",
+    "caseStack": "Tehnoloogiline pinu",
+    "caseChallenges": "Tehnilised väljakutsed",
+    "caseDecisions": "Disainiotsused",
+    "caseReliability": "Töökindluse kaalutlused",
+    "caseResults": "Tulemused",
+    "pdfSummary": "Kokkuvõte",
+    "pdfSkills": "Tehnilised oskused",
+    "pdfExperience": "Töökogemus",
+    "pdfEarlier": "Varasem kogemus",
+    "pdfProjects": "Valitud projektid",
+    "pdfEducation": "Haridus",
+    "pdfLanguages": "Keeled",
+    "pdfInterests": "Huvid",
+    "pdfStack": "Tehnoloogiad",
+    "heroBadgesLabel": "Põhitehnoloogiad",
+    "caseOutcomes": "Kontrollitud tulemused",
+    "caseInspect": "Vaata komponentide koostist interaktiivselt",
+    "projectsEyebrow": "Insenerijuhtumid",
+    "projectsSectionTitle": "Iseseisvad projektid ja avatud lähtekood",
+    "projectsSectionLead": "Iseseisvad insenerijuhtumid ja kontrollitud avalikud repositooriumid Java, Rusti, Pythoni, hajusa samaaegsuse, semantilise otsingu ja tehisintellekti tööriistade valdkonnas.",
+    "repoSectionTitle": "Valitud avalikud GitHubi repositooriumid",
+    "skillsEyebrow": "Tehniline maatriks",
+    "skillsSectionTitle": "Tehnilised oskused ja tõendid",
+    "skillsSectionLead": "Liigitatud insenerivaldkonna järgi ja toetatud töökoha või repositooriumi tõenditega. Põhilised tootmisoskused on eristatud lisa- ja isikliku projekti tehnoloogiatest.",
+    "legendLabel": "Kogemuse konteksti selgitus",
+    "filterLabel": "Filtreeri oskusi kogemuse konteksti järgi",
+    "educationEyebrow": "Akadeemiline taust",
+    "backToPortfolio": "← Tagasi portfooliosse",
+    "cvIndexTitle": "CV versioonid",
+    "cvIndexLead": "Üldine, ametikohtade kaupa kohandatud ja täielik CV on saadaval veebilehtedena ja ATS-sõbralike A4 PDF-idena.",
+    "pdfEngineeringProjects": "Valitud insenerprojektid",
+    "pdfOpenSource": "Avatud lähtekoodi esiletõstud",
+    "pdfEducationLanguages": "Haridus ja keeled",
+    "pdfKeyDecisions": "Peamised otsused ja tehnoloogiad:",
+    "langHint": "Ava see leht keeles: {language}."
+  },
+  "profile": {
+    "title": "Vanem-tarkvaraarendaja | Java, hajussüsteemid ja tehisintellekt",
+    "location": "Tallinn, Eesti",
+    "photoAlt": "Denis Stepulenok, portree",
+    "summary": "Vanem-tarkvaraarendaja, kes on spetsialiseerunud Java taustarakenduste arendusele, hajussüsteemidele, sündmuspõhisele arhitektuurile, ettevõtete integratsioonile ja tootmise töökindlusele. Töökogemus ettevõtetes Kuehne+Nagel, Oracle ja Taxify (Bolt), täiendatud iseseisva avatud lähtekoodiga tööga Pythonis, Rustis, semantilises otsingus ja tehisintellekti tööriistades.",
+    "homeIntro": "Rohkem kui kümme aastat Java-arendust, alates ettevõtete taustasüsteemidest kuni kvaliteeditehnikani Java Core'is. Praegune fookus on usaldusväärsed hajusteenused: kordamisturvaline töötlemine, samaaegsuse juhtimine ja automatiseeritud testimine. Viimased iseseisvad tööd hõlmavad Java-samaaegsuse utiliiti, Rust-esmast automatiseerimise tööriistakomplekti ja semantilise otsingu torustikku isikliku messengeriarhiivi peal."
+  },
+  "experience": {
+    "kuehne-nagel": {
+      "role": "Vanem-Java-arendaja",
+      "location": "Tallinn, Eesti",
+      "summary": "Vanem taustaarendaja, kes arendab ja hooldab ettevõtte Java-taustarakendusi, hajusaid integratsioonitöökoormusi ja automatiseeritud juurutusprotsesse.",
+      "responsibilities": [
+        "Arendasin ja hooldasin ettevõtte Java-taustarakendusi mitmes Java LTS-versioonis, kasutades Spring Frameworki ja Spring Bootit.",
+        "Töötasin hajusate, asünkroonsete ja sündmuspõhiste süsteemidega, et toetada usaldusväärseid ettevõttelahendusi integratsiooniks.",
+        "Integreerisin relatsioonilisi andmebaase (PostgreSQL ja Oracle Database), kasutades SQL-i, JPA-d ja Hibernate'i.",
+        "Realiseerisin automatiseeritud ühik- ja integratsioonitestid, kasutades JUnitit, Mockitot, JMockitit ja EasyMocki.",
+        "Panustasin CI/CD automatiseerimisse, konteineriseeritud juurutustesse ja rakenduste moderniseerimisse, kasutades Mavenit, Jenkinsit, GitLabi, Dockerit ja Kubernetest.",
+        "Toetasin tootmise töökindlust, tõrkeotsingut ja operatiivskriptimist Pythoni abil."
+      ],
+      "homeSummary": "Ettevõtte Java-taustarakendused ja integratsioonitöö, sh automatiseeritud ehitus ja juurutus.",
+      "homeBullets": [
+        "Ettevõtte Java-taustarakendused Java 6 kuni 25 versioonil, Spring ja Spring Boot.",
+        "Hajusad, asünkroonsed ja sündmuspõhised süsteemid ning ettevõttesisesed integratsioonilahendused.",
+        "CI/CD automatiseerimine ja konteineriseeritud juurutused Jenkinsi, GitLabi, Dockeri ja Kubernetesega."
+      ]
+    },
+    "taxify-bolt": {
+      "role": "Vanem-taustaarendaja",
+      "location": "Tallinn, Eesti",
+      "companyNote": "Taxify nimetati ümber Bolt'iks",
+      "summary": "Vanem taustaarendaja, kes arendas suure koormusega taustateenuseid ja REST API-sid Bolti juures (tol ajal tegutses ettevõte nime Taxify all).",
+      "responsibilities": [
+        "Arendasin ja hooldasin suure koormusega Node.js-mikroteenuseid ja REST API-sid TypeScriptis ja JavaScriptis.",
+        "Ehitasin toetavaid haldusveebitööriistu ja esikülgi.",
+        "Töötasin konteineriseeritud juurutuste, vahemälu ja andmesalvestuse ning pilveinfrastruktuuriga."
+      ],
+      "homeSummary": "Suure koormusega teenused ettevõttes, mis tegutseb nüüd nime Bolt all.",
+      "homeBullets": [
+        "Suure koormusega Node.js-mikroteenused ja REST API-d TypeScriptis.",
+        "Konteineriseeritud juurutused ja pilveinfrastruktuur.",
+        "Haldusveebitööriistade ja esikülgede toetamine."
+      ]
+    },
+    "oracle": {
+      "role": "SQE / Java-arendaja",
+      "location": "Peterburi, Venemaa",
+      "summary": "Java Core kvaliteeditehnika, vigade analüüs, automatiseeritud testikomplektide stabiliseerimine ja hajusa testkeskkonna hooldus.",
+      "responsibilities": [
+        "Töötasin Java Core kvaliteeditehnika, testide arenduse, vigade uurimise ja automatiseeritud komplektide stabiliseerimisega, kasutades Javat, JUnitit ja Mockitot.",
+        "Rakendasin põhjalikke Java Core teadmisi: Java mälumudel, samaaegsus, kollektsioonid, üldistused, klassilaadimine, JDBC, Swing ja JavaFX.",
+        "Analüüsisin regulaarsete ja öiste testikäivituste tulemusi ning kontrollisin vigade parandusi JDK komponentide ja automatiseeritud komplektide osas.",
+        "Hoolitsesin hajusa testtaristu eest ja automatiseerisin seda, kasutades Pythonit ja konfiguratsioonihaldustööriistu."
+      ],
+      "homeSummary": "Kvaliteeditehnika Java Core'is, testtaristu ja vigade analüüs.",
+      "homeBullets": [
+        "Java Core kvaliteeditehnika: testide arendus, vigade uurimine ja komplektide stabiliseerimine.",
+        "Regulaarsete ja öiste testikäivituste analüüs koos vigade parandustega.",
+        "Hajus testtaristu automatiseeritud testikäivitusteks."
+      ]
+    },
+    "sds": {
+      "role": "Vanem-Java-arendaja",
+      "location": "Peterburi, Venemaa",
+      "summary": "Otsast lõpuni teostatud arendus ettevõtte andmete koondamise veebirakendusel: nõuded, disain, teostus, testimine ja väljalase.",
+      "responsibilities": [
+        "Disainisin ja teostasin Java veebimooduleid, kasutades Springi, Playd, GWT-d, Hibernate'i ja JUnitit, andmebaasidena relatsioonilisi andmebaase.",
+        "Ehitasin toetavaid utiliite ja kasutajaliidese komponente, kasutades Pythonit, C# .NET WPF-i, jQueryt, Bootstrapi, LESSi ja SASS-i."
+      ]
+    },
+    "bonus-club": {
+      "role": "C/C++ / Java / Androidi arendaja",
+      "location": "Peterburi, Venemaa",
+      "summary": "Taustapoolse tuumikteegi arendus, teenuste utiliidid, tehingute töötlemise tarkvara ja Androidi kliendi integratsioonid.",
+      "responsibilities": [
+        "Arendasin tuumikteeke, operatiivutiliite ja automatiseeritud tarkvaravärskendusteenuseid.",
+        "Hooldasin serverpoolseid töötlemisrakendusi, kasutades Javat, Springit ja Hibernate'i.",
+        "Teostasin Androidi mobiilikasutajaliidese ekraane ja REST API kliendi integratsioone."
+      ]
+    },
+    "early-engineering-2005": {
+      "role": "Tarkvaraarendaja",
+      "location": "Peterburi, Venemaa",
+      "summary": "Relatsioonandmebaaside arendus ja töölaua kasutajaliideste arendus.",
+      "responsibilities": [
+        "Kujundasin ja teostasin MS SQL skeemid ning C# .NET töölaua liidesed operatiivandmete haldamiseks."
+      ]
+    },
+    "i-free": {
+      "role": "Tarkvaraarendaja",
+      "location": "Peterburi, Venemaa",
+      "summary": "Sisemine sisuhaldustarkvara ja välise andmete automatiseeritud sissevõtt.",
+      "responsibilities": [
+        "Ehitasin sisemised sisuhaldusmoodulid, kasutajaliidesed ja automatiseeritud andmete sissevõtu torud MS SQL-i, kasutades Javat/JUnitit ja C# .NETi."
+      ]
+    },
+    "spb-etu-research": {
+      "role": "Tarkvaraarendaja praktikant",
+      "location": "Peterburi, Venemaa",
+      "summary": "Teadusandmete töötlemine, numbriline analüüs ja visualiseerimise tööriistad.",
+      "responsibilities": [
+        "Teostasin andmetöötluse ja visualiseerimise tööriistu, kasutades Javat, Delphit, C++ Builderit, Matlabi ja SQL-i."
+      ]
+    }
+  },
+  "skillGroups": {
+    "core": {
+      "title": "Põhipädevus",
+      "description": "Peamine ettevõtete taustaarenduse tehnoloogiapakk tootmisrollides."
+    },
+    "messaging-data": {
+      "title": "Sõnumivahetus ja andmed",
+      "description": "Sündmuste voog, AMQP-vahendus, relatsioonilised andmebaasid, vahemälu ja vektorsalvestus."
+    },
+    "infra-devops": {
+      "title": "Taristu ja DevOps",
+      "description": "Ehitustorud, konteinerite orkestreerimine, käituse haldus ja jälgimine."
+    },
+    "additional-languages": {
+      "title": "Lisakeeled ja raamistikud",
+      "description": "Tootmisvalmis polüglotne taustaarendus ja esikülje arendus ning isiklik süsteemiprogrammeerimine."
+    },
+    "ai-engineering": {
+      "title": "Tehisintellekti tehnoloogia",
+      "description": "Isiklikud projektid ja tehisintellektiga toetatud tarkvaraarenduse töövood."
+    },
+    "quality-engineering": {
+      "title": "Kvaliteeditehnika",
+      "description": "Automatiseeritud kontroll, mock-raamistikud, BDD/E2E-testimine ja CI-väravad."
+    }
+  },
+  "coreSkillGroups": {
+    "backend": {
+      "title": "Taustarakendused",
+      "description": "Ettevõttesüsteemid, samaaegsus ja hajussüsteemid."
+    },
+    "data-messaging": {
+      "title": "Andmed ja sõnumivahetus",
+      "description": "Relatsioonilised andmebaasid ja asünkroonne sõnumivahetus."
+    },
+    "delivery-languages": {
+      "title": "Arendus ja keeled",
+      "description": "Ehitus- ja juurutusautomatiseerimine, testimine ja muud keeled."
+    }
+  },
+  "skillNames": {
+    "Java (6–25)": "Java (6–25)",
+    "JVM & Concurrency": "JVM ja samaaegsus",
+    "Spring Framework": "Spring Framework",
+    "Spring Boot": "Spring Boot",
+    "Distributed Systems": "Hajussüsteemid",
+    "Microservices": "Mikroteenused",
+    "SQL": "SQL",
+    "PostgreSQL": "PostgreSQL",
+    "JPA / Hibernate": "JPA / Hibernate",
+    "Enterprise Integration": "Ettevõtete integratsioon",
+    "Software Design & Algorithms": "Tarkvaradisain ja algoritmid",
+    "RabbitMQ": "RabbitMQ",
+    "Apache Kafka": "Apache Kafka",
+    "Oracle Database": "Oracle Database",
+    "Redis / Valkey": "Redis / Valkey",
+    "Qdrant": "Qdrant",
+    "Vector Databases (pgvector, Weaviate)": "Vektorandmebaasid (pgvector, Weaviate)",
+    "Docker / Compose": "Docker / Compose",
+    "Kubernetes / Helm": "Kubernetes / Helm",
+    "Jenkins": "Jenkins",
+    "GitLab CI/CD": "GitLab CI/CD",
+    "GitHub Actions": "GitHub Actions",
+    "Maven": "Maven",
+    "Git": "Git",
+    "AWS": "AWS",
+    "Terraform": "Terraform",
+    "Linux / systemd / bash": "Linux / systemd / bash",
+    "Nginx / Caddy / Cloudflare": "Nginx / Caddy / Cloudflare",
+    "Prometheus / Grafana": "Prometheus / Grafana",
+    "Python (2 & 3)": "Python (2 ja 3)",
+    "Rust": "Rust",
+    "TypeScript": "TypeScript",
+    "Node.js": "Node.js",
+    "Go (Gin, gRPC)": "Go (Gin, gRPC)",
+    "React": "React",
+    "AngularJS": "AngularJS",
+    "Svelte / SvelteKit": "Svelte / SvelteKit",
+    "Model Context Protocol (MCP)": "Model Context Protocol (MCP)",
+    "RAG / Embeddings / Semantic Search": "RAG / sõnaasendid / semantiline otsing",
+    "Local LLMs / Ollama": "Kohalikud keelemudelid / Ollama",
+    "Large Language Models (Claude, GPT, Gemini)": "Suured keelemudelid (Claude, GPT, Gemini)",
+    "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)": "Tehisintellektiga toetatud arendus (Claude Code, Codex, Copilot, Gemini)",
+    "JUnit": "JUnit",
+    "Mockito / JMockit / EasyMock": "Mockito / JMockit / EasyMock",
+    "Test-Driven Development (TDD)": "Testipõhine arendus (TDD)",
+    "Integration & E2E Testing": "Integratsiooni- ja E2E-testimine",
+    "Cucumber / Gherkin (BDD)": "Cucumber / Gherkin (BDD)",
+    "Playwright / Vitest / Selenide": "Playwright / Vitest / Selenide",
+    "Continuous Integration": "Pidev integratsioon",
+    "JVM & concurrency": "JVM ja samaaegsus",
+    "Distributed systems": "Hajussüsteemid",
+    "SQL & PostgreSQL": "SQL ja PostgreSQL",
+    "Asynchronous messaging": "Asünkroonne sõnumivahetus",
+    "Docker & Kubernetes": "Docker ja Kubernetes",
+    "Jenkins & GitLab CI/CD": "Jenkins ja GitLab CI/CD",
+    "JUnit & Mockito": "JUnit ja Mockito",
+    "Node.js & TypeScript": "Node.js ja TypeScript",
+    "Python": "Python",
+    "Spring Framework 6": "Spring Framework 6",
+    "Java": "Java"
+  },
+  "githubProjects": {
+    "pythorust_tg": {
+      "description": "Rust-esmane Telegrami automatiseerimise tööriistakomplekt: vestluste eksport, AI automaatvastaja, LightRAG-indekseerimine, töövahendid (HTTP-testid, k8s- ja saidi jälgimine) ning Pythoni MCP- ja analüüsimoodulid.",
+      "homeSummary": "Rust-esmane Telegrami automatiseerimise tööriistakomplekt: vestluste eksport, AI automaatvastaja, indekseerija ja operatiivabilised Prometheuse mõõdikutega. Sisaldab ka HTTP-testi ja saidi jälgimise abivahendeid."
+    },
+    "FunnyFileManager": {
+      "description": "Kiire kahepaneeline terminali failihaldur (ffm) Rustis, mis on loodud ratatui abil, inspireeritud Far Managerist ja Norton Commanderist, toetatud BDD-testidega.",
+      "homeSummary": "Klaviatuuriga juhitav kahepaneeline terminali failihaldur Rustis, mis on loodud ratatui teegiga ja inspireeritud Far Managerist ning Norton Commanderist."
+    },
+    "RustShot": {
+      "description": "Kiire töölauatööriist ekraanipiltide kohesteks jäädvustamiseks ja H.264 MP4 ekraanisalvestuseks."
+    },
+    "SonarQubeChecker": {
+      "description": "Automatiseeritud kvaliteediväravate kontrollija, mis päringu SonarCloudi / SonarQube'i mõõdikuid vigade, koodilõhnade ja kvaliteediväravate oleku kohta.",
+      "homeSummary": "Pythonis kirjutatud käsurea tööriist, mis toob SonarQube'i analüüsi andmed ja probleemid ning koostab kakskeelsed Markdown-kvaliteediaruanded."
+    },
+    "EntityLocker": {
+      "description": "Taaskasutatav Java-samaaegsuse utiliit, mis tagab peene teraga sünkroonimise sarnaselt ridatasemelisele andmebaasilukustusele, võtmeks üksuse ID.",
+      "homeSummary": "Taaskasutatav Java-utiliit, mis annab helistajale ühe üksuse ID kaupa ainuõiguse, sarnaselt ridatasemelisele andmebaasilukustusele. Põhineb reentrant-lukkudel, toetab ajalõpu piiranguid ja väldib ummikuid järjestatud lukustamisel."
+    },
+    "JPA2": {
+      "description": "Spring Framework 6, Hibernate 6 ja Jakarta Persistence 3.2 katsetused ning integratsioonitestid, mis on ehitatud Mavenil ja H2-l."
+    }
+  },
+  "caseStudies": {
+    "messenger-archive-search": {
+      "title": "Messengeri arhiiv ja semantiline otsing",
+      "scope": "Iseseisev isiklik projekt",
+      "problem": "Pikaajalised isiklikud vestlusarhiivid ühendavad tekst- ja häälsõnumeid tuhandetes lõimedes. Märksõnaotsing ei aita konteksti meenutada ega anna LLM-agentidele struktureeritud ajalugu.",
+      "context": "Iseseisev isiklik insenerprojekt, mis on tehtud väljaspool tööandja töö. Eesmärk on uurida Rusti ja Pythoni koostööd, kohalikku kõnetuvastust, vektorindekseerimist ja Model Context Protocoli (MCP) tööriistu.",
+      "architecture": "Rusti sünkroonimisteenus laeb isikliku vestlusajaloo MTProto kaudu PostgreSQL-i, kasutades flood-wait tagasilangemist. Pythoni töötaja võtab ootel häälread PostgreSQL-i SKIP LOCKED abil ja transkribeerib need Whisperiga. Rusti indekseerija arvutab partiidena kohalikke sõnaasendeid ja salvestab punktid Qdrant'i. LLM-agendid pääsevad neile ligi ainult lugemisõigusega MCP-serveri kaudu (stdio ja HTTP).",
+      "challenges": [
+        "Ühtegi hajustehingut ei hõlma PostgreSQL, Qdrant ja sünkroonimise kursori kontrollpunkt.",
+        "Ülesvoolu MTProto piirangute järgimine ja puhas taastumine partii katkemisel."
+      ],
+      "decisions": [
+        "Arvutasin Qdrant'i punktide deterministlikud UUIDv5 ID-d sõnumi identiteedist, nii et kordused kirjutavad üle ega loo duplikaate.",
+        "Indekseerimise kontrollpunkt salvestatakse alles pärast iga Qdrant'i partii edukat üleslaadimist.",
+        "Kasutasin PostgreSQL-i SELECT ... FOR UPDATE SKIP LOCKED häälte transkribeerimise lukuvabaks samaaegseks tööks."
+      ],
+      "reliability": [
+        "Vähemalt üks kord töötlemine koos deterministlike UUIDv5 üleslaadimistega annab idempotentse lõpliku konsistentsuse ilma kahefaasilise lõpetamiseta.",
+        "Flood-wait tagasilangemine ja piiratud kordused kaitsevad ülesvoolu API seansse."
+      ],
+      "results": [
+        "Isiklik arhiiv on semantiliselt otsitav nii teksti kui ka transkribeeritud häälsõnumite põhjal standardsete MCP-klientide kaudu."
+      ]
+    },
+    "entity-concurrency-locking": {
+      "title": "EntityLocker — ridatasemeline üksuste samaaegsuse utiliit",
+      "scope": "Avatud lähtekoodiga Java-projekt · github.com/stden/EntityLocker",
+      "problem": "Rakendused, mis vahemällu salvestavad või samaaegselt muudavad domeeniüksusi, seisavad sageli silmitsi kas üldiste globaalsete lukkudega, mis piiravad läbilaskevõimet, või keerukate ad hoc võtmepõhiste lukukaartidega, mis kipuvad lekkima ja tekitama võidujookse.",
+      "context": "Avatud lähtekoodiga Java-teek, mis demonstreerib peene teraga JVM-i samaaegsuse primitiive, mis on võrreldavad ridatasemelise andmebaasilukustusega.",
+      "architecture": "Üldine EntityLocker<ID> koordinaator haldab vastastikust välistamist ID kaupa, ilma et see seoks end üksuse andmetüüpidega. Toetab erinevaid ID-tüüpe, reentrant-lukustust, eskaleerimise või globaalse lukustamise valikuid ja kasutamata lukukirjete piiratud puhastamist.",
+      "challenges": [
+        "Võidujooksu vältimine lukustamise, viiteloenduse ja kaardi kirjete eemaldamise vahel, kui lukud vabastatakse.",
+        "Üldiste ID-tüüpide turvaline toetamine ilma ummikuteta ja piiramatu mälukasvuta."
+      ],
+      "decisions": [
+        "Lukustuse koordineerimine on täielikult eraldatud üksuste salvestusest, nii et komponendid edastavad ainult põhivõtmed.",
+        "Kasutasin samaaegse kaardi aatomoperatsioone ja viite jälgimist tühikäigul olevate lukuobjektide turvaliseks taaskasutamiseks."
+      ],
+      "reliability": [
+        "Konkurents piirdub muudetava üksusega, mitte ei blokeeri teisi üksusi.",
+        "Ohutu lukukirje puhastamisega väldib mälulekkeid suure võtmekardinaalsusega olukordades."
+      ],
+      "results": [
+        "Avaldatud iseseisva taaskasutatava Java-utiliidina GitHubis (stden/EntityLocker)."
+      ]
+    },
+    "rust-desktop-tooling": {
+      "title": "FunnyFileManager ja RustShot — süsteemid ja töölauatööriistad",
+      "scope": "Avatud lähtekoodiga Rusti projektid · github.com/stden",
+      "problem": "Reageerivate platvormideüleste arendajatööriistade loomine: klaviatuuriga juhitav kahepaneeline terminali failihaldur ja kiire ekraanijäädvustamise ning salvestamise tööriist, rangete testide ja automatiseeritud väljaannetega.",
+      "context": "Iseseisvad avatud lähtekoodiga Rusti projektid, mis demonstreerivad natiivset jõudlust, kasutajaliidese reageerimisvõimet, BDD-aktsepteerimistestimist ja GitHub Actionsi väljaannete automatiseerimist.",
+      "architecture": "FunnyFileManager (ffm) realiseerib blokeerimatu kahepaneelse TUI-liidese ratatui peal asünkroonsete failisüsteemitoimingutega. RustShot jäädvustab ekraanikaadrid ja kodeerib H.264 MP4 video natiivselt. Mõlemat kontrollivad Gherkin BDD-komplektid ja automatiseeritud CI- ning väljaande töövood.",
+      "challenges": [
+        "Terminali kasutajaliidese ja jäädvustamistorude reageerimisvõime säilitamine aeglase failisüsteemi või suure eraldusvõimega ekraani korral.",
+        "Töölaua- ja terminalitöövoogude deterministlik valideerimine CI-käivitustel."
+      ],
+      "decisions": [
+        "Kasutajaliidese sündmuste silmused on eraldatud blokeerivast I/O-st ja kodeerimistorudest.",
+        "Lisatud Gherkin-käitumispõhised testikomplektid pidevate GitHub Actionsi ehituste ja väljaande torustike kõrvale."
+      ],
+      "reliability": [
+        "Automatiseeritud CI- ja Release-töövood kontrollivad iga push'i korral ehitusi ja regressioonitestide tulemusi."
+      ],
+      "results": [
+        "Avalikult hallatavad repositooriumid, millel on GitHubis läbitud CI- ja Release-staatus."
+      ]
+    }
+  },
+  "education": [
+    {
+      "degree": "Arvutiteaduse spetsialist",
+      "institution": "Peterburi elektrotehnikaülikool „LETI“"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Vene keel",
+      "level": "emakeel"
+    },
+    {
+      "name": "Inglise keel",
+      "level": "kesktase"
+    }
+  ],
+  "interests": [
+    "Programmeerimise olümpiaadid",
+    "Reisimine"
+  ],
+  "variants": {
+    "general": {
+      "shortLabel": "Üldine CV",
+      "targetAudience": "Vanemad taustarakenduste ja hajussüsteemide insenerirollid",
+      "summary": "Vanem-tarkvaraarendaja, kes on spetsialiseerunud ettevõtete Javale, hajussüsteemidele ja taustaintegratsioonidele. Kogemus hõlmab Spring Bootis teenuseid, asünkroonset sõnumivahetust, relatsioonilisi andmebaase, tootmise juurutusi ja JVM-i testimist. Iseseisvad projektid kasutavad Rusti ja Pythonit andmetöötluseks, semantiliseks otsinguks ja tehisintellekti integratsioonideks.",
+      "focusHighlights": [
+        "Ettevõtete Java-teenused ja asünkroonne integratsioon Spring Bootiga, RabbitMQ, PostgreSQL ja Oracle Database.",
+        "JVM-i ja samaaegsuse kogemus Oracle JDK testimisest, vigade uurimisest ja hajusast testtaristust."
+      ],
+      "roleTitle": "Vanem-tarkvaraarendaja"
+    },
+    "senior-java": {
+      "shortLabel": "Vanem-Java taustarakendus",
+      "targetAudience": "Rahvusvahelised Java / Spring Booti taustaarenduse meeskonnad"
+    },
+    "distributed-systems": {
+      "shortLabel": "Hajussüsteemid",
+      "targetAudience": "Hajus-taustaarenduse, sündmuspõhise arhitektuuri ja töökindluse insenerimeeskonnad"
+    },
+    "fintech-integrations": {
+      "shortLabel": "Finantstehnoloogia ja integratsioonid",
+      "targetAudience": "Rahvusvahelised finantstehnoloogia ja kõrge töökindlusega integratsioonimeeskonnad"
+    },
+    "wise": {
+      "shortLabel": "Wise'ile suunatud (Java taustarakendus)",
+      "targetAudience": "Wise'i vanem-Java ja hajustaustarakenduste insenerimeeskonnad"
+    },
+    "ai-mcp": {
+      "shortLabel": "Tehisintellekti integratsioon / MCP",
+      "targetAudience": "Tehisintellekti platvormi, semantilise otsingu ja Model Context Protocoli insenerimeeskonnad"
+    },
+    "full": {
+      "shortLabel": "Täielik professionaalne CV",
+      "targetAudience": "Täielik töökäik, iseseisvate projektide juhtumiuuringud ja avatud lähtekoodi tegevus"
+    }
+  }
+}
