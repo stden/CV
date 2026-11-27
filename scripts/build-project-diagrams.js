@@ -28,7 +28,8 @@ ${arrow}`;
     }).join('');
 
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${WIDTH} ${height}" width="${WIDTH}" height="${height}" role="img">
-  <title>${escapeXml(diagram.label)}</title>
+  <title>${escapeXml(diagram.title)} (${escapeXml(diagram.originLabel)})</title>
+  <desc>${escapeXml(diagram.label)}</desc>
   <defs>
     <marker id="${markerId}" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
       <path d="M0,0 L5,9 L10,0" fill="#0f766e"/>

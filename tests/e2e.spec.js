@@ -156,16 +156,17 @@ test('interactive architecture tabs and component inspector update cleanly', asy
     const archSection = page.locator('#architecture');
     await archSection.scrollIntoViewIfNeeded();
 
-    const secondTab = page.getByRole('tab', { name: 'Secure Document Delivery' });
+    const secondTab = page.getByRole('tab', { name: 'Outbox & Idempotent Events' });
     await secondTab.click();
     await expect(secondTab).toHaveAttribute('aria-selected', 'true');
 
-    const activePanel = page.locator('#arch-panel-document-link-gateway');
+    const activePanel = page.locator('#arch-panel-ref-event-driven-outbox');
     await expect(activePanel).toBeVisible();
-    const secondNodeBtn = activePanel.locator('.arch-component-btn[data-node-id="link-api"]');
+    await expect(activePanel).toContainText('Independent educational reference architecture');
+    const secondNodeBtn = activePanel.locator('.arch-component-btn[data-node-id="db-outbox"]');
     await secondNodeBtn.click();
-    await expect(activePanel.locator('[data-field="title"]')).toHaveText('Link Generator API');
-    await expect(activePanel.locator('[data-field="concepts"]')).toContainText('Security');
+    await expect(activePanel.locator('[data-field="title"]')).toHaveText('Relational DB + Outbox Table');
+    await expect(activePanel.locator('[data-field="concepts"]')).toContainText('Eventual consistency');
 
     await page.screenshot({ path: path.join(SCREENSHOT_DIR, 'desktop-architecture.png'), fullPage: false });
     expect(issues).toEqual([]);

@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const { ROOT_DIR, loadCvData } = require('./lib/utils');
+const { runConfidentialityCheck } = require('./check-confidentiality');
 
 function runBuild() {
     for (const script of ['build-project-diagrams.js', 'build-tech-pages.js', 'build-site.js']) {
@@ -15,10 +16,6 @@ function runBuild() {
 
 function checkDataIntegrity(data) {
     assert.equal(data.profile.availability.showOpenToWork, false, 'Open-to-work banner must be disabled by default');
-    const jsonText = JSON.stringify(data);
-    assert.ok(!jsonText.includes('79117117850'), 'Phone number must not be present in data/cv.json');
-    assert.ok(!jsonText.includes('vsevpluse.ru'), 'Dead domain vsevpluse.ru must not be present');
-    assert.ok(!jsonText.includes('inruscom.com'), 'Repurposed domain inruscom.com must not be present');
     assert.equal(data.githubProjects.length, 6, 'Expected 6 selected GitHub projects');
     assert.equal(data.architectureDiagrams.length, 4, 'Expected 4 architecture diagrams');
     assert.equal(data.technologies.length, 20, 'Expected 20 technology pages');
@@ -41,7 +38,6 @@ function checkHtmlPages(data, pages) {
         const html = fs.readFileSync(fullPath, 'utf8');
         const pageDir = path.dirname(fullPath);
 
-        // SEO checks
         assert.match(html, /<title>[^<]+<\/title>/, `${page} must have a <title>`);
         assert.match(html, /<meta name="description" content="[^"]+">/, `${page} must have a meta description`);
         assert.match(
@@ -52,9 +48,7 @@ function checkHtmlPages(data, pages) {
         const h1Count = (html.match(/<h1\b/g) || []).length;
         assert.equal(h1Count, 1, `${page} must have exactly one <h1>, found ${h1Count}`);
         assert.ok(!html.includes('level-bar-inner'), `${page} must not include skill percentage bars`);
-        assert.ok(!html.includes('79117117850'), `${page} must not expose phone number`);
 
-        // Asset & local link checks (zero root-relative /... references)
         for (const [, ref] of html.matchAll(/(?:src|href)\s*=\s*["']([^"']+)["']/gi)) {
             if (/^(?:[a-z][a-z\d+.-]*:|\/\/|#)/i.test(ref)) continue;
             assert.ok(!ref.startsWith('/'), `${page} uses root-relative reference ${ref} which breaks under /CV/`);
@@ -64,7 +58,6 @@ function checkHtmlPages(data, pages) {
         }
     }
 
-    // JSON-LD check on index.html
     const indexHtml = fs.readFileSync(path.join(ROOT_DIR, 'index.html'), 'utf8');
     const ldMatch = indexHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
     assert.ok(ldMatch, 'index.html must include JSON-LD structured data');
@@ -120,6 +113,7 @@ function main() {
     checkHtmlPages(data, pages);
     checkAssetsAndDiscovery(data);
     checkPdfs(data);
+    runConfidentialityCheck();
     console.log(`Static & PDF validation passed: ${pages.length} HTML pages, ${data.architectureDiagrams.length} SVG diagrams, ${data.variants.length} ATS PDFs.`);
 }
 

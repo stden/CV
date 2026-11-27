@@ -6,3 +6,4 @@ _site/
 .lighthouse/
 test-results/
 playwright-report/
+.confidential-denylist

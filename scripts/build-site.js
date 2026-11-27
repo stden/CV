@@ -261,8 +261,8 @@ function renderProjects(data) {
   <div class="container">
     <div class="section-header">
       <p class="section-eyebrow">Engineering Case Studies</p>
-      <h2 id="projects-heading" class="section-title">Selected Projects &amp; Open Source</h2>
-      <p class="section-lead">Production architecture case studies alongside public repositories spanning Java, Rust, Python, and AI tooling.</p>
+      <h2 id="projects-heading" class="section-title">Independent Projects &amp; Open Source</h2>
+      <p class="section-lead">Self-directed engineering case studies and verified public repositories spanning Java, Rust, Python, distributed concurrency, semantic search, and AI tooling.</p>
     </div>
     <div class="case-grid">
 ${casesHtml}
@@ -303,6 +303,7 @@ function renderArchitecture(data) {
         </div>
         <div class="arch-inspector">
           <div>
+            <span class="case-scope case-scope-personal">${escapeHtml(d.originLabel)}</span>
             <h3>${escapeHtml(d.title)}</h3>
             <p class="section-lead">${escapeHtml(d.summary)}</p>
           </div>
@@ -336,7 +337,7 @@ ${componentButtons}
     <div class="section-header">
       <p class="section-eyebrow">Systems Design</p>
       <h2 id="architecture-heading" class="section-title">Architecture Portfolio</h2>
-      <p class="section-lead">Interactive component flows illustrating asynchronous messaging, stateless security tokens, distributed lifecycle coordination, and semantic search with MCP.</p>
+      <p class="section-lead">Interactive component flows based exclusively on independent personal projects, open-source software, and educational reference architectures—unrelated to any employer systems.</p>
     </div>
     <div class="arch-tabs" role="tablist" aria-label="Architecture diagrams">
 ${tabsHtml}

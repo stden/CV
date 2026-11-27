@@ -15,6 +15,7 @@
     "build": "npm run build:diagrams && npm run build:tech && npm run build:site",
     "build:all": "npm run build && npm run build:pdfs",
     "test": "node scripts/check-build.js",
+    "check:confidentiality": "node scripts/check-confidentiality.js",
     "test:e2e": "playwright test",
     "audit:lighthouse": "node scripts/run-lighthouse.js",
     "preview": "node scripts/serve-subpath.js"

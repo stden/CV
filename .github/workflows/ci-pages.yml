@@ -50,6 +50,11 @@ jobs:
       - name: Run static validation, SEO checks, and PDF text extraction checks
         run: npm test
 
+      - name: Run automated confidentiality verification
+        env:
+          CONFIDENTIAL_DENYLIST: ${{ secrets.CONFIDENTIAL_DENYLIST }}
+        run: npm run check:confidentiality
+
       - name: Run Playwright E2E, responsiveness, and Axe accessibility tests
         run: npm run test:e2e
 
