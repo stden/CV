@@ -23,6 +23,12 @@ jobs:
 
       - run: npm ci
 
+      # The build prints the PDFs with Chromium, so the browser and poppler come first.
+      - name: Install poppler and Chromium
+        run: |
+          sudo apt-get update && sudo apt-get install -y poppler-utils
+          npx playwright install --with-deps chromium
+
       - name: Build pages, diagrams and PDFs
         run: npm run build
 
@@ -37,14 +43,8 @@ jobs:
             exit 1
           fi
 
-      - name: Install poppler for PDF tests
-        run: sudo apt-get update && sudo apt-get install -y poppler-utils
-
       - name: Unit tests
         run: npm run test:unit
-
-      - name: Install Chromium for Playwright
-        run: npx playwright install --with-deps chromium
 
       - name: Browser tests
         run: npm run test:e2e
