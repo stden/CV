@@ -1,12 +1,14 @@
 [tools]
-node = "24.22.2"
-yarn = "1"
+node = "22"
 
 [tasks.check]
 run = "git diff --check"
 
+[tasks.build]
+run = "npm run build:all"
+
 [tasks.test]
 run = "npm test"
 
-[tasks.build]
-run = "npm run build"
+[tasks.e2e]
+run = "npm run test:e2e"

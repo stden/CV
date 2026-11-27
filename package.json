@@ -1,41 +1,36 @@
 {
-  "name": "dl-cv",
-  "version": "0.0.1",
-  "description": "CV Template",
-  "main": "gulpfile.js",
+  "name": "stden-cv",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Modern Senior Software Engineer portfolio and data-driven CV system for Denis Stepulenok",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stden/stden.github.io.git"
-  },
-  "devDependencies": {
-    "gulp": "^5.0.0",
-    "gulp-autoprefixer": "^10.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-if": "^3.0.0",
-    "gulp-notify": "^5.0.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-uglify": "^3.0.2",
-    "sass": "^1.108.2"
+    "url": "git+https://github.com/stden/CV.git"
   },
   "scripts": {
-    "build": "gulp build --type=ci",
+    "build:diagrams": "node scripts/build-project-diagrams.js",
+    "build:tech": "node scripts/build-tech-pages.js",
+    "build:site": "node scripts/build-site.js",
+    "build:pdfs": "node scripts/build-pdfs.js",
+    "build": "npm run build:diagrams && npm run build:tech && npm run build:site",
+    "build:all": "npm run build && npm run build:pdfs",
     "test": "node scripts/check-build.js",
-    "tech": "node scripts/build-tech-pages.js",
-    "projects": "node scripts/build-project-diagrams.js"
+    "test:e2e": "playwright test",
+    "audit:lighthouse": "node scripts/run-lighthouse.js",
+    "preview": "node scripts/serve-subpath.js"
   },
   "author": "Denis Stepulenok",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stden/stden.github.io/issues"
+    "url": "https://github.com/stden/CV/issues"
   },
-  "homepage": "https://github.com/stden/stden.github.io#readme",
-  "dependencies": {
-    "gulp-cli": "^3.0.0"
-  },
+  "homepage": "https://stden.github.io/CV/",
   "engines": {
     "node": ">=20.19.0"
   },
-  "overrides": {
-    "uuid": "^11.1.1"
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@fontsource-variable/inter": "^5.2.5",
+    "@playwright/test": "^1.52.0"
   }
 }

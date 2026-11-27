@@ -2,46 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Python - Denis Stepulenok CV</title>
-  <meta content="Scripting language for automation, test infrastructure and data processing, Python 2 and 3." name="description">
-  <link href="../favicon.ico" rel="shortcut icon">
-  <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet">
-  <link href="../assets/css/style.css" id="theme-style" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python — Denis Stepulenok | Technology Notes</title>
+  <meta name="description" content="Scripting language for automation, test infrastructure and data processing, Python 2 and 3.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/tech/python.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Python — Denis Stepulenok | Technology Notes">
+  <meta property="og:description" content="Scripting language for automation, test infrastructure and data processing, Python 2 and 3.">
+  <meta property="og:url" content="https://stden.github.io/CV/tech/python.html">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Python — Denis Stepulenok | Technology Notes">
+  <meta name="twitter:description" content="Scripting language for automation, test infrastructure and data processing, Python 2 and 3.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
 </head>
-
 <body>
-<div class="container tech-page">
-  <p><a href="../index.html">&larr; Back to CV</a></p>
-  <div class="tech-header"><img alt="" class="tech-logo" src="../assets/images/tech/python.svg"><h1>Python</h1></div>
-  <p class="lead">Scripting language for automation, test infrastructure and data processing, Python 2 and 3.</p>
-
-  <h2>How it works</h2>
-  <ol class="flow">
-    <li>Source (.py)</li>
-    <li>Bytecode (.pyc)</li>
-    <li>Interpreter</li>
-    <li>Output</li>
-  </ol>
-
-  <h2>Capabilities</h2>
-  <ul>
-    <li>Automation scripts for deployment and operations</li>
-    <li>Management of distributed test infrastructure, including a lab of 60+ machines</li>
-    <li>Data processing with the standard library</li>
-    <li>Maintenance of Python 2.7 and Python 3 code</li>
-  </ul>
-
-  <h2>Where I used it</h2>
-  <ul>
-    <li>Kuehne+Nagel (2018 - now): Python 2 and 3 scripts</li>
-    <li>Oracle Russia (2014 - 2017): test infrastructure with Python, PowerShell and Puppet</li>
-    <li>Software Development &amp; Solutions (2013 - 2014): Python</li>
-  </ul>
-
-  <p><a href="https://www.python.org" target="_blank" rel="noopener">Official site</a></p>
-</div>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#architecture">Architecture</a></li>
+        <li><a href="../index.html#education">Education</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <span class="theme-label">Dark</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-Senior-Java-Engineer.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
+        Menu
+      </button>
+    </div>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+      <li><a href="../index.html#overview">Overview</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#architecture">Architecture</a></li>
+      <li><a href="../index.html#education">Education</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../assets/pdf/Denis-Stepulenok-Senior-Java-Engineer.pdf" download>Download CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html#skills">&larr; Back to Portfolio &amp; Skills</a></p>
+    <div class="tech-header">
+      <img alt="Python logo" class="tech-logo" src="../assets/images/tech/python.svg" width="48" height="48">
+      <div>
+        <h1>Python</h1>
+      </div>
+    </div>
+    <p class="section-lead">Scripting language for automation, test infrastructure and data processing, Python 2 and 3.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>Execution &amp; architecture flow</h2>
+    <ol class="flow-steps">
+      <li>Source (.py)</li>
+      <li>Bytecode (.pyc)</li>
+      <li>Interpreter</li>
+      <li>Output</li>
+    </ol>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <h2>Engineering capabilities</h2>
+    <ul class="bullet-list">
+      <li>Automation scripts for deployment and operations</li>
+      <li>Management of distributed test infrastructure, including a lab of 60+ machines</li>
+      <li>Data processing with the standard library and ML/Whisper worker pipelines</li>
+      <li>Maintenance of Python 2.7 and Python 3 code</li>
+    </ul>
+    <h2>Where used</h2>
+    <ul class="bullet-list">
+      <li>Kuehne+Nagel (2018 - now): Python 2 and 3 operational scripts</li>
+      <li>Oracle Russia (2014 - 2017): test infrastructure with Python, PowerShell and Puppet</li>
+      <li>Software Development &amp; Solutions (2013 - 2014): Python</li>
+      <li>Personal projects: SonarQubeChecker and Whisper transcription workers</li>
+    </ul>
+    <p><a class="btn btn-secondary btn-sm" href="https://www.python.org" target="_blank" rel="noopener noreferrer">Official documentation</a></p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
+    <div class="footer-links">
+      <a href="../index.html">Portfolio</a>
+      <a href="../cv/index.html">Targeted CVs</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>

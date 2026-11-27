@@ -1,4 +1,8 @@
-# Created by .ignore support plugin (hsz.mobi)
 .idea
 node_modules
 *.log
+.build/
+_site/
+.lighthouse/
+test-results/
+playwright-report/
