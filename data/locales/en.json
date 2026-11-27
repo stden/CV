@@ -10,7 +10,7 @@
   "expertise.distributed-systems.title": "Distributed Systems",
   "expertise.distributed-systems.description": "Works on asynchronous backend services and automated tests for distributed environments. Independent projects explore retries and safe reprocessing.",
   "expertise.event-driven.title": "Event-Driven Architecture",
-  "expertise.event-driven.description": "Develops event-driven services with Apache Kafka (Spring Kafka, partitioning, per-key ordering, offsets/rebalancing, outbox, idempotent consumption, retry/DLQ, Schema Registry, Streams/Connect, lag monitoring) and RabbitMQ.",
+  "expertise.event-driven.description": "Develops production event-driven services with Apache Kafka and Spring Kafka.",
   "expertise.enterprise-integration.title": "Enterprise Integration",
   "expertise.enterprise-integration.description": "Develops backend integrations with Java, XML and relational databases.",
   "expertise.cloud-infra.title": "Cloud & Infrastructure",
@@ -23,8 +23,8 @@
   "experience.kuehne-nagel.location": "Tallinn, Estonia",
   "experience.kuehne-nagel.summary": "Develop and maintain enterprise Java backend services and integrations, and support automated software delivery.",
   "experience.kuehne-nagel.responsibilities.1": "Develop Java and Spring Boot services used in enterprise workflows.",
-  "experience.kuehne-nagel.responsibilities.2": "Build event-driven pipelines with Apache Kafka (Spring Kafka producers/consumers, partitioning, per-key ordering, offsets/rebalancing, Schema Registry, Kafka Streams/Connect) and RabbitMQ.",
-  "experience.kuehne-nagel.responsibilities.3": "Implement reliable messaging with transactional outbox, idempotent processing, retry/DLQ topics, consumer lag monitoring, and broker operations.",
+  "experience.kuehne-nagel.responsibilities.2": "Build production messaging and event-driven integrations with Apache Kafka and Spring Kafka.",
+  "experience.kuehne-nagel.responsibilities.3": "Maintain asynchronous message processing in production.",
   "experience.kuehne-nagel.responsibilities.4": "Integrate backend services with PostgreSQL and relational databases using SQL, JPA, and Hibernate.",
   "experience.kuehne-nagel.responsibilities.5": "Automate builds, tests, and containerised deployments with JUnit, Jenkins, GitLab CI/CD, Docker, and Kubernetes.",
   "experience.taxify-bolt.role": "Senior Backend Developer",
@@ -532,7 +532,7 @@
   "cv.general.roleTitle": "Senior Software Engineer",
   "cv.general.shortLabel": "General CV",
   "cv.general.summary": "Senior software engineer specialising in Java backend services, distributed systems and enterprise integration. Experience includes Spring Boot, asynchronous messaging, relational databases, CI/CD and JDK testing. Independent projects use Rust and Python for data processing, semantic search and AI integrations.",
-  "cv.general.focusHighlights.1": "Enterprise Java services and event-driven integration with Spring Boot, Apache Kafka, RabbitMQ and relational databases.",
+  "cv.general.focusHighlights.1": "Enterprise Java services and event-driven integration. Production messaging with Apache Kafka and Spring Kafka.",
   "cv.general.focusHighlights.2": "JVM concurrency and automated testing, including JDK defect investigation at Oracle.",
   "ui.nav.overview": "Overview",
   "ui.nav.experience": "Experience",
@@ -746,5 +746,8 @@
   "ui.skills.assisted": "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)",
   "ui.skills.tdd": "Test-Driven Development (TDD)",
   "ui.skills.integrationTesting": "Integration & E2E Testing",
-  "ui.skills.ci": "Continuous Integration"
+  "ui.skills.ci": "Continuous Integration",
+  "ui.discovery.formats": "Machine-readable CV",
+  "ui.discovery.roles": "Role alignment",
+  "ui.discovery.articles": "Engineering articles"
 }

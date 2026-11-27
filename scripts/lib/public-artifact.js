@@ -2,6 +2,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { localeCodes, localizedPath, localizedPdfName } = require('./i18n');
 const { FONT_SUBSETS } = require('./fonts');
+const { PROFILE_FORMATS } = require('./public-profile');
+const { articleRoutes } = require('../build-articles');
 
 function checkedName(value, pattern) {
     if (typeof value !== 'string' || !pattern.test(value)) throw new Error('PUBLIC_MANIFEST_INVALID');
@@ -9,18 +11,20 @@ function checkedName(value, pattern) {
 }
 
 const DETAIL_PAGES = ['experience', 'skills', 'projects', 'architecture', 'contact'];
+const ENGLISH_ONLY_ROUTES = new Set(['role-alignment/', ...articleRoutes]);
 
 function localizedVariants(data, code) {
     return code === 'en' ? data.variants : data.variants.filter(({ slug }) => slug === 'general');
 }
 
 function availableLanguages(contentPath) {
-    return /^cv\/(?!index\.html$|general\.html$).*\.html$/.test(contentPath) ? ['en'] : localeCodes;
+    return ENGLISH_ONLY_ROUTES.has(contentPath) || /^cv\/(?!index\.html$|general\.html$).*\.html$/.test(contentPath) ? ['en'] : localeCodes;
 }
 
 function contentRoutes(data, code) {
     return [
         '', 'cv/index.html', ...DETAIL_PAGES.map((route) => `${route}/`),
+        ...(code === 'en' && data.publicProfile ? ENGLISH_ONLY_ROUTES : []),
         ...localizedVariants(data, code).map(({ slug }) => `cv/${slug}.html`),
         ...data.technologies.map(({ slug }) => `tech/${slug}.html`),
     ];
@@ -33,6 +37,7 @@ function publicFiles(data) {
     for (const item of [...data.variants, ...data.technologies, ...data.architectureDiagrams]) slug(item.slug);
     return [...new Set([
         '.nojekyll', 'robots.txt', 'sitemap.xml', 'favicon.ico',
+        ...(data.publicProfile ? Object.keys(PROFILE_FORMATS) : []),
         ...localeCodes.flatMap((code) => contentRoutes(data, code).map((route) =>
             localizedPath(code, route.endsWith('.html') ? route : `${route}index.html`))),
         'assets/css/style.css', 'assets/js/main.js',
@@ -62,6 +67,9 @@ function references(file, content) {
         ...[...content.matchAll(/\bhref="([^"]+)"/gi)].map(([, ref]) => ref),
     ];
     if (file === 'robots.txt') return [...content.matchAll(/^Sitemap:\s*(\S+)/gim)].map(([, ref]) => ref);
+    if (Object.hasOwn(PROFILE_FORMATS, file)) {
+        return [...content.matchAll(/https:\/\/[^\s"<>()[\]\\]+/g)].map(([url]) => url);
+    }
     return [];
 }
 
@@ -69,7 +77,7 @@ function validatePublicLinks(root, baseUrl, files) {
     const base = new URL(baseUrl.endsWith('/') ? baseUrl : baseUrl + '/');
     const allowed = new Set(files);
     const documentIds = new Map();
-    for (const file of files.filter((value) => /(?:\.(?:html|svg|css|xml)|^robots\.txt)$/i.test(value))) {
+    for (const file of files.filter((value) => /(?:\.(?:html|svg|css|xml)|^robots\.txt)$/i.test(value) || Object.hasOwn(PROFILE_FORMATS, value))) {
         const source = fs.readFileSync(path.join(root, file), 'utf8');
         const pageUrl = new URL(file, base);
         for (const reference of references(file, source)) {

@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0.0",
+  "canonicalProfileUrl": "https://stden.github.io/CV/",
+  "contentRevisionDate": "2026-11-27",
+  "language": "en",
+  "name": "Denis Stepulenok",
+  "professionalTitle": "Senior Software Engineer — Java & Distributed Systems",
+  "summary": "I build Java backend services and asynchronous integrations. At Kuehne+Nagel I work on enterprise Java services and delivery automation. I previously built high-load services at Taxify (now Bolt) and investigated JDK defects at Oracle.",
+  "location": "Tallinn, Estonia",
+  "profiles": {
+    "github": "https://github.com/stden",
+    "linkedin": "https://www.linkedin.com/in/denis-stepulenok-2149b514/",
+    "contact": "https://stden.github.io/CV/contact/"
+  },
+  "cv": {
+    "web": "https://stden.github.io/CV/cv/general.html",
+    "pdf": "https://stden.github.io/CV/assets/pdf/Denis-Stepulenok-CV-EN.pdf"
+  },
+  "languages": [
+    {
+      "name": "Russian",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Intermediate"
+    }
+  ],
+  "employment": [
+    {
+      "id": "kuehne-nagel",
+      "employer": "Kuehne+Nagel",
+      "title": "Senior Java Developer",
+      "period": "May 2018 – Present",
+      "startDate": "2018-05",
+      "endDate": null,
+      "summary": "Develop and maintain enterprise Java backend services and integrations, and support automated software delivery.",
+      "sourceUrl": "https://stden.github.io/CV/experience/#role-kuehne-nagel",
+      "verificationStatus": "candidate-reported"
+    },
+    {
+      "id": "taxify-bolt",
+      "employer": "Taxify (now Bolt)",
+      "title": "Senior Backend Developer",
+      "period": "May 2017 – May 2018",
+      "startDate": "2017-05",
+      "endDate": "2018-05",
+      "summary": "Developed high-load Node.js backend services and internal web tools.",
+      "sourceUrl": "https://stden.github.io/CV/experience/#role-taxify-bolt",
+      "verificationStatus": "candidate-reported"
+    },
+    {
+      "id": "oracle",
+      "employer": "Oracle (Oracle Russia & CIS)",
+      "title": "SQE / Java Developer",
+      "period": "January 2014 – May 2017",
+      "startDate": "2014-01",
+      "endDate": "2017-05",
+      "summary": "Investigated JDK defects and developed automated tests for Java platform releases.",
+      "sourceUrl": "https://stden.github.io/CV/experience/#role-oracle",
+      "verificationStatus": "candidate-reported"
+    },
+    {
+      "id": "sds",
+      "employer": "Software Development & Solutions",
+      "title": "Senior Java Developer",
+      "period": "August 2013 – January 2014",
+      "startDate": "2013-08",
+      "endDate": "2014-01",
+      "summary": "Developed Java software for business information management.",
+      "sourceUrl": "https://stden.github.io/CV/experience/#role-sds",
+      "verificationStatus": "candidate-reported"
+    },
+    {
+      "id": "bonus-club",
+      "employer": "Bonus Club",
+      "title": "C/C++ / Java / Android Developer",
+      "period": "September 2012 – August 2013",
+      "startDate": "2012-09",
+      "endDate": "2013-08",
+      "summary": "Developed and maintained software for point-of-sale and loyalty applications.",
+      "sourceUrl": "https://stden.github.io/CV/experience/#role-bonus-club",
+      "verificationStatus": "candidate-reported"
+    },
+    {
+      "id": "early-engineering-2005",
+      "employer": "OAO INRUSKOM",
+      "title": "Software Developer",
+      "period": "November 2005 – February 2007",
+      "startDate": "2005-11",
+      "endDate": "2007-02",
+      "summary": "Developed database and desktop software.",
+      "sourceUrl": "https://stden.github.io/CV/experience/#role-early-engineering-2005",
+      "verificationStatus": "candidate-reported"
+    },
+    {
+      "id": "i-free",
+      "employer": "i-Free",
+      "title": "Software Developer",
+      "period": "March 2005 – October 2005",
+      "startDate": "2005-03",
+      "endDate": "2005-10",
+      "summary": "Developed software for content management.",
+      "sourceUrl": "https://stden.github.io/CV/experience/#role-i-free",
+      "verificationStatus": "candidate-reported"
+    },
+    {
+      "id": "spb-etu-research",
+      "employer": "Research & Engineering Center of SPb ETU",
+      "title": "Software Engineer Intern",
+      "period": "September 2001 – March 2005",
+      "startDate": "2001-09",
+      "endDate": "2005-03",
+      "summary": "Worked on data processing and visualisation as a software engineering intern.",
+      "sourceUrl": "https://stden.github.io/CV/experience/#role-spb-etu-research",
+      "verificationStatus": "candidate-reported"
+    }
+  ],
+  "projects": [
+    {
+      "id": "pythorust-tg",
+      "name": "pythorust_tg",
+      "url": "https://github.com/stden/pythorust_tg",
+      "summary": "Telegram automation toolkit with export, indexing and analysis utilities.",
+      "sources": [
+        {
+          "type": "repository",
+          "url": "https://github.com/stden/pythorust_tg"
+        },
+        {
+          "type": "source",
+          "url": "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py"
+        },
+        {
+          "type": "documentation",
+          "url": "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md"
+        },
+        {
+          "type": "test",
+          "url": "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+        }
+      ],
+      "lastVerifiedDate": "2026-11-27",
+      "ci": {
+        "status": "Passing",
+        "url": "https://github.com/stden/pythorust_tg/actions/runs/44781298887"
+      }
+    },
+    {
+      "id": "funnyfilemanager",
+      "name": "FunnyFileManager",
+      "url": "https://github.com/stden/FunnyFileManager",
+      "summary": "Terminal file manager with two-panel navigation, keyboard controls, and file operations.",
+      "sources": [
+        {
+          "type": "repository",
+          "url": "https://github.com/stden/FunnyFileManager"
+        },
+        {
+          "type": "source",
+          "url": "https://github.com/stden/FunnyFileManager/blob/bc3d7a5bcf2f6cfbac23d8f612afc719b68c839a/src/action/lsp_editor.rs"
+        },
+        {
+          "type": "documentation",
+          "url": "https://github.com/stden/FunnyFileManager/blob/bc3d7a5bcf2f6cfbac23d8f612afc719b68c839a/README.md"
+        },
+        {
+          "type": "test",
+          "url": "https://github.com/stden/FunnyFileManager/tree/bc3d7a5bcf2f6cfbac23d8f612afc719b68c839a/tests"
+        }
+      ],
+      "lastVerifiedDate": "2026-11-27",
+      "ci": {
+        "status": "Passing",
+        "url": "https://github.com/stden/FunnyFileManager/actions/runs/45808977368"
+      }
+    },
+    {
+      "id": "rustshot",
+      "name": "RustShot",
+      "url": "https://github.com/stden/RustShot",
+      "summary": "Desktop screenshot utility for Windows, Linux and macOS with screen recording on Windows.",
+      "sources": [
+        {
+          "type": "repository",
+          "url": "https://github.com/stden/RustShot"
+        },
+        {
+          "type": "source",
+          "url": "https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/src/capture.rs"
+        },
+        {
+          "type": "documentation",
+          "url": "https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/docs/capture-guide.md"
+        },
+        {
+          "type": "test",
+          "url": "https://github.com/stden/RustShot/tree/577763ae4e251caf291a232ec03e3b9760952f17/tests"
+        }
+      ],
+      "lastVerifiedDate": "2026-11-27",
+      "ci": {
+        "status": "Passing",
+        "url": "https://github.com/stden/RustShot/actions/runs/45880377478"
+      }
+    },
+    {
+      "id": "sonarqubechecker",
+      "name": "SonarQubeChecker",
+      "url": "https://github.com/stden/SonarQubeChecker",
+      "summary": "CLI that reads SonarQube or SonarCloud analysis data and produces Markdown reports.",
+      "sources": [
+        {
+          "type": "repository",
+          "url": "https://github.com/stden/SonarQubeChecker"
+        },
+        {
+          "type": "source",
+          "url": "https://github.com/stden/SonarQubeChecker/blob/7b5195b6ce7a555ed95a170d2b440e06d434046a/src/report.rs"
+        },
+        {
+          "type": "documentation",
+          "url": "https://github.com/stden/SonarQubeChecker/blob/7b5195b6ce7a555ed95a170d2b440e06d434046a/README.md"
+        },
+        {
+          "type": "test",
+          "url": "https://github.com/stden/SonarQubeChecker/tree/7b5195b6ce7a555ed95a170d2b440e06d434046a/tests"
+        }
+      ],
+      "lastVerifiedDate": "2026-11-27",
+      "ci": {
+        "status": "Passing",
+        "url": "https://github.com/stden/SonarQubeChecker/actions/runs/44781449306"
+      }
+    },
+    {
+      "id": "entitylocker",
+      "name": "EntityLocker",
+      "url": "https://github.com/stden/EntityLocker",
+      "summary": "Java utility for exploring JVM-local, keyed locking and nested acquisition order.",
+      "sources": [
+        {
+          "type": "repository",
+          "url": "https://github.com/stden/EntityLocker"
+        },
+        {
+          "type": "source",
+          "url": "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/main/java/util/EntityLocker.java"
+        },
+        {
+          "type": "documentation",
+          "url": "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/README.md"
+        },
+        {
+          "type": "test",
+          "url": "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/test/java/EntityLockerTest.java"
+        }
+      ],
+      "lastVerifiedDate": "2026-11-27",
+      "ci": {
+        "status": "Not verified"
+      }
+    },
+    {
+      "id": "jpa2",
+      "name": "JPA2",
+      "url": "https://github.com/stden/JPA2",
+      "summary": "Educational JPA and Hibernate examples with persistence tests.",
+      "sources": [
+        {
+          "type": "repository",
+          "url": "https://github.com/stden/JPA2"
+        },
+        {
+          "type": "source",
+          "url": "https://github.com/stden/JPA2/blob/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/src/main/java/JPA2/models/Employee.java"
+        },
+        {
+          "type": "documentation",
+          "url": "https://github.com/stden/JPA2/blob/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/README.md"
+        },
+        {
+          "type": "test",
+          "url": "https://github.com/stden/JPA2/tree/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/src/test/java/JPA2/tests"
+        }
+      ],
+      "lastVerifiedDate": "2026-11-27",
+      "ci": {
+        "status": "Passing",
+        "url": "https://github.com/stden/JPA2/actions/runs/43380363549"
+      }
+    }
+  ]
+}

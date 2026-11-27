@@ -1,6 +1,7 @@
 const { escapeHtml, relPrefix } = require('./utils');
 const { LOCALES, localeCodes, localizedPath, localizedPdfName } = require('./i18n');
 const { availableLanguages } = require('./public-artifact');
+const { PROFILE_FORMATS } = require('./public-profile');
 
 const NAV_ITEMS = [
     { id: 'overview', key: 'overview' },
@@ -39,7 +40,8 @@ function renderLanguageMenu(data, depth, contentPath) {
     const equivalents = availableLanguages(contentPath);
     const links = localeCodes.map((code) => {
         const { label, nativeName } = LOCALES[code];
-        const target = equivalents.includes(code) ? contentPath : 'cv/index.html';
+        const fallback = contentPath.startsWith('cv/') ? 'cv/index.html' : '';
+        const target = equivalents.includes(code) ? contentPath : fallback;
         const href = assetPrefix(data, depth) + (localizedPath(code, target) || './');
         const current = code === data.locale ? ' aria-current="page"' : '';
         return `<a href="${href}" hreflang="${code}" lang="${code}" aria-label="${label} · ${nativeName}" data-locale="${code}"${current}>${label}</a>`;
@@ -96,12 +98,16 @@ ${navLinks}
 
 function renderFooter(data, { depth = 0 } = {}) {
     const prefix = relPrefix(depth);
+    const publicPrefix = assetPrefix(data, depth);
     return `<footer class="site-footer">
   <div class="container footer-inner">
     <p>&copy; ${new Date().getFullYear()} ${escapeHtml(data.profile.name)} &middot; ${escapeHtml(data.profile.location)}</p>
     <div class="footer-links">
       <a href="${prefix}index.html">${ui(data, 'common.portfolio')}</a>
       <a href="${prefix}cv/">${ui(data, 'common.allCv')}</a>
+      <a href="${publicPrefix}contact/#public-cv-formats" hreflang="en">${ui(data, 'discovery.formats')}</a>
+      <a href="${publicPrefix}role-alignment/" hreflang="en">${ui(data, 'discovery.roles')}</a>
+      <a href="${publicPrefix}articles/" hreflang="en">${ui(data, 'discovery.articles')}</a>
       <a href="${escapeHtml(data.profile.contact.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="${escapeHtml(data.profile.contact.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:${escapeHtml(data.profile.contact.email)}">${ui(data, 'common.email')}</a>
@@ -129,6 +135,13 @@ function renderDocument(data, options) {
         `  <link rel="alternate" hreflang="${code}" href="${pageUrl(data, canonicalPath, code)}">`).join('\n');
     const ogLocales = translations.filter((code) => code !== data.locale).map((code) =>
         `  <meta property="og:locale:alternate" content="${LOCALES[code].og}">`).join('\n');
+    const publicFormats = canonicalPath === '' || canonicalPath === 'cv/general.html'
+        ? ['resume.md', 'resume.txt', 'candidate.json', 'skills-evidence.json', 'role-alignment.json']
+        : canonicalPath === 'role-alignment/' ? ['role-alignment.json'] : [];
+    const profileLinks = publicFormats.map((name) => {
+        const relation = name.startsWith('resume.') ? 'alternate' : 'describedby';
+        return `  <link rel="${relation}" type="${PROFILE_FORMATS[name]}" href="${pageUrl(data, name, 'en')}">`;
+    }).join('\n');
     const ogImageUrl = `${data.site.baseUrl}/assets/images/og-preview.png`;
 
     const jsonLdBlock = jsonLd
@@ -145,7 +158,8 @@ function renderDocument(data, options) {
   <meta name="author" content="${escapeHtml(data.profile.name)}">
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}">
 ${alternates}
-  <link rel="alternate" hreflang="x-default" href="${pageUrl(data, '', 'en')}">
+  <link rel="alternate" hreflang="x-default" href="${pageUrl(data, canonicalPath, 'en')}">
+${profileLinks}
   <meta property="og:locale" content="${LOCALES[data.locale].og}">
 ${ogLocales}
   <meta property="og:type" content="${escapeHtml(ogType)}">

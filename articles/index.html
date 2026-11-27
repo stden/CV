@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering articles — Denis Stepulenok</title>
+  <meta name="description" content="Short notes on Java concurrency and distributed processing, with public sources and reproducible examples.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/articles/">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/articles/">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/articles/">
+
+  <meta property="og:locale" content="en_GB">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Engineering articles — Denis Stepulenok">
+  <meta property="og:description" content="Short notes on Java concurrency and distributed processing, with public sources and reproducible examples.">
+  <meta property="og:url" content="https://stden.github.io/CV/articles/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="Engineering articles — Denis Stepulenok">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Engineering articles — Denis Stepulenok">
+  <meta name="twitter:description" content="Short notes on Java concurrency and distributed processing, with public sources and reproducible examples.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://stden.github.io/CV/articles/#page","url":"https://stden.github.io/CV/articles/","name":"Engineering articles","description":"Short notes on Java concurrency and distributed processing, with public sources and reproducible examples.","inLanguage":"en","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://stden.github.io/CV/articles/keyed-lock-registry-lifetime/","name":"Java keyed locks and registry lifetime"},{"@type":"ListItem","position":2,"url":"https://stden.github.io/CV/articles/idempotent-consumer-boundaries/","name":"Idempotency across a database commit and a Kafka offset"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfolio","item":"https://stden.github.io/CV/"},{"@type":"ListItem","position":2,"name":"Engineering articles","item":"https://stden.github.io/CV/articles/"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../experience/">Experience</a></li>
+        <li><a href="../skills/">Skills</a></li>
+        <li><a href="../projects/">Projects</a></li>
+        <li><a href="../architecture/">Architecture</a></li>
+        <li><a href="../cv/">CV Versions</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Dark · Switch to dark theme"
+        data-light-label="Light" data-dark-label="Dark"
+        data-to-light="Light · Switch to light theme"
+        data-to-dark="Dark · Switch to dark theme">
+        <span class="theme-label">Dark</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menu · Toggle navigation menu">
+        Menu
+      </button>
+    </div>
+    <nav class="language-menu" aria-label="Website language"><a href="../articles/" hreflang="en" lang="en" aria-label="EN · English" data-locale="en" aria-current="page">EN</a><a href="../et/" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../de/" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../ru/" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../experience/">Experience</a></li>
+        <li><a href="../skills/">Skills</a></li>
+        <li><a href="../projects/">Projects</a></li>
+        <li><a href="../architecture/">Architecture</a></li>
+        <li><a href="../cv/">CV Versions</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      <li><a href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../">Portfolio</a> / Engineering articles</p>
+    <h1>Engineering articles</h1>
+    <p class="section-lead">Short notes on Java concurrency and distributed processing, with public sources and reproducible examples.</p>
+  </div>
+</section>
+<div class="section">
+  <div class="container">
+    <div class="repo-grid">
+      <article class="card">
+        <p class="section-eyebrow">Java concurrency</p>
+        <h2 class="card-title"><a href="keyed-lock-registry-lifetime/">Java keyed locks and registry lifetime</a></h2>
+        <p class="card-body">EntityLocker is a small public Java experiment. Its timeout test checks what a caller can do while a key is held, and a separate invariant governs when the key’s lock can be retired.</p>
+        <p class="role-period"><time datetime="2026-11-27">27 November 2026</time></p>
+      </article>
+<article class="card">
+        <p class="section-eyebrow">Independent educational example</p>
+        <h2 class="card-title"><a href="idempotent-consumer-boundaries/">Idempotency across a database commit and a Kafka offset</a></h2>
+        <p class="card-body">A short SQL exercise separates a PostgreSQL job claim, an idempotent database update and a Kafka consumer offset. Each advances at a different boundary.</p>
+        <p class="role-period"><time datetime="2026-11-27">27 November 2026</time></p>
+      </article>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
+    <div class="footer-links">
+      <a href="../index.html">Portfolio</a>
+      <a href="../cv/">All CV versions</a>
+      <a href="../contact/#public-cv-formats" hreflang="en">Machine-readable CV</a>
+      <a href="../role-alignment/" hreflang="en">Role alignment</a>
+      <a href="../articles/" hreflang="en">Engineering articles</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

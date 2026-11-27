@@ -1,0 +1,133 @@
+# Denis Stepulenok
+
+Canonical profile: <https://stden.github.io/CV/>
+
+Schema version: 1.0.0
+
+Content revised: 2026-11-27
+
+## Profile
+
+Senior Software Engineer — Java & Distributed Systems
+
+Tallinn, Estonia
+
+I build Java backend services and asynchronous integrations. At Kuehne+Nagel I work on enterprise Java services and delivery automation. I previously built high-load services at Taxify (now Bolt) and investigated JDK defects at Oracle.
+
+## Employment
+
+Employment is candidate-reported.
+
+Senior Java Developer — Kuehne+Nagel (May 2018 – Present)
+
+Develop and maintain enterprise Java backend services and integrations, and support automated software delivery.
+
+Source: <https://stden.github.io/CV/experience/#role-kuehne-nagel>
+
+Senior Backend Developer — Taxify (now Bolt) (May 2017 – May 2018)
+
+Developed high-load Node.js backend services and internal web tools.
+
+Source: <https://stden.github.io/CV/experience/#role-taxify-bolt>
+
+SQE / Java Developer — Oracle (Oracle Russia & CIS) (January 2014 – May 2017)
+
+Investigated JDK defects and developed automated tests for Java platform releases.
+
+Source: <https://stden.github.io/CV/experience/#role-oracle>
+
+Senior Java Developer — Software Development & Solutions (August 2013 – January 2014)
+
+Developed Java software for business information management.
+
+Source: <https://stden.github.io/CV/experience/#role-sds>
+
+C/C++ / Java / Android Developer — Bonus Club (September 2012 – August 2013)
+
+Developed and maintained software for point-of-sale and loyalty applications.
+
+Source: <https://stden.github.io/CV/experience/#role-bonus-club>
+
+Software Developer — OAO INRUSKOM (November 2005 – February 2007)
+
+Developed database and desktop software.
+
+Source: <https://stden.github.io/CV/experience/#role-early-engineering-2005>
+
+Software Developer — i-Free (March 2005 – October 2005)
+
+Developed software for content management.
+
+Source: <https://stden.github.io/CV/experience/#role-i-free>
+
+Software Engineer Intern — Research & Engineering Center of SPb ETU (September 2001 – March 2005)
+
+Worked on data processing and visualisation as a software engineering intern.
+
+Source: <https://stden.github.io/CV/experience/#role-spb-etu-research>
+
+## Technical skills
+
+primary-professional: Java (6–25), JVM & Concurrency, Spring Framework, Spring Boot, Distributed Systems, SQL, PostgreSQL, Enterprise Integration, RabbitMQ, Apache Kafka, Jenkins, GitLab CI/CD, JUnit, Continuous Integration
+
+additional-professional: Microservices, JPA / Hibernate, Software Design & Algorithms, Oracle Database, Redis, Docker / Compose, Kubernetes, Maven, Git, AWS, Python (2 & 3), TypeScript, Node.js, React, AngularJS, Mockito / JMockit / EasyMock
+
+familiarity: Valkey, Helm, Terraform, Nginx / Caddy / Cloudflare, Prometheus / Grafana, Go (Gin, gRPC), Svelte / SvelteKit, Local LLMs / Ollama, Test-Driven Development (TDD), Playwright / Vitest / Selenide
+
+independent-work: Qdrant, Vector databases, GitHub Actions, Linux / systemd / bash, Rust, Model Context Protocol (MCP), RAG / Embeddings / Semantic Search, Large Language Models (Claude, GPT, Gemini), AI-Assisted Development (Claude Code, Codex, Copilot, Gemini), Integration & E2E Testing, Cucumber / Gherkin (BDD)
+
+## Independent projects
+
+pythorust_tg
+
+Telegram automation toolkit with export, indexing and analysis utilities.
+
+<https://github.com/stden/pythorust_tg>
+
+FunnyFileManager
+
+Terminal file manager with two-panel navigation, keyboard controls, and file operations.
+
+<https://github.com/stden/FunnyFileManager>
+
+RustShot
+
+Desktop screenshot utility for Windows, Linux and macOS with screen recording on Windows.
+
+<https://github.com/stden/RustShot>
+
+SonarQubeChecker
+
+CLI that reads SonarQube or SonarCloud analysis data and produces Markdown reports.
+
+<https://github.com/stden/SonarQubeChecker>
+
+EntityLocker
+
+Java utility for exploring JVM-local, keyed locking and nested acquisition order.
+
+<https://github.com/stden/EntityLocker>
+
+JPA2
+
+Educational JPA and Hibernate examples with persistence tests.
+
+<https://github.com/stden/JPA2>
+
+## Languages
+
+Russian: Native
+
+English: Intermediate
+
+## Contact and CV
+
+<https://stden.github.io/CV/contact/>
+
+<https://www.linkedin.com/in/denis-stepulenok-2149b514/>
+
+<https://github.com/stden>
+
+<https://stden.github.io/CV/cv/general.html>
+
+<https://stden.github.io/CV/assets/pdf/Denis-Stepulenok-CV-EN.pdf>

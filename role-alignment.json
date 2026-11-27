@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "1.0.0",
+  "canonicalProfileUrl": "https://stden.github.io/CV/",
+  "contentRevisionDate": "2026-11-27",
+  "roles": [
+    {
+      "id": "senior-java-backend-engineer",
+      "title": "Senior Java Backend Engineer",
+      "alignment": "primary-target",
+      "competencyIds": [
+        "java",
+        "spring-boot",
+        "sql",
+        "postgresql",
+        "apache-kafka",
+        "junit"
+      ],
+      "limitations": [
+        "Employment scope is candidate-reported. Public code is independent work."
+      ],
+      "requiresConfirmation": [
+        "Service ownership, recent JVM deployment versions and role-specific on-call expectations."
+      ],
+      "evidenceIds": [
+        "java-employment-kuehne-nagel",
+        "java-employment-oracle",
+        "spring-boot-employment-kuehne-nagel",
+        "sql-employment-kuehne-nagel",
+        "postgresql-employment-kuehne-nagel",
+        "postgresql-independent-messenger-archive-search",
+        "apache-kafka-employment-kuehne-nagel",
+        "junit-employment-oracle",
+        "junit-public-repository-entitylocker",
+        "junit-public-repository-jpa2"
+      ],
+      "sourceUrl": "https://stden.github.io/CV/role-alignment/#senior-java-backend-engineer"
+    },
+    {
+      "id": "senior-software-engineer",
+      "title": "Senior Software Engineer",
+      "alignment": "primary-target",
+      "competencyIds": [
+        "java",
+        "distributed-systems",
+        "software-design-algorithms",
+        "integration-testing",
+        "continuous-integration"
+      ],
+      "limitations": [
+        "The public CV records individual engineering responsibilities."
+      ],
+      "requiresConfirmation": [
+        "Team leadership, mentoring scope and decision ownership for a specific vacancy."
+      ],
+      "evidenceIds": [
+        "java-employment-kuehne-nagel",
+        "java-employment-oracle",
+        "distributed-systems-employment-kuehne-nagel",
+        "distributed-systems-employment-oracle",
+        "distributed-systems-independent-messenger-archive-search",
+        "software-design-algorithms-employment-sds",
+        "software-design-algorithms-public-repository-entitylocker",
+        "integration-testing-public-repository-sonarqubechecker",
+        "integration-testing-public-repository-rustshot",
+        "continuous-integration-employment-kuehne-nagel",
+        "continuous-integration-public-repository-rustshot"
+      ],
+      "sourceUrl": "https://stden.github.io/CV/role-alignment/#senior-software-engineer"
+    },
+    {
+      "id": "distributed-systems-engineer",
+      "title": "Distributed Systems Engineer",
+      "alignment": "primary-target",
+      "competencyIds": [
+        "distributed-systems",
+        "apache-kafka",
+        "rabbitmq",
+        "postgresql",
+        "jvm-concurrency"
+      ],
+      "limitations": [
+        "Independent diagrams demonstrate design decisions under stated assumptions. Employer topology is out of scope."
+      ],
+      "requiresConfirmation": [
+        "Production scale, failure recovery ownership and the target role’s consistency requirements."
+      ],
+      "evidenceIds": [
+        "distributed-systems-employment-kuehne-nagel",
+        "distributed-systems-employment-oracle",
+        "distributed-systems-independent-messenger-archive-search",
+        "apache-kafka-employment-kuehne-nagel",
+        "rabbitmq-employment-kuehne-nagel",
+        "postgresql-employment-kuehne-nagel",
+        "postgresql-independent-messenger-archive-search",
+        "jvm-concurrency-employment-oracle",
+        "jvm-concurrency-public-repository-entitylocker"
+      ],
+      "sourceUrl": "https://stden.github.io/CV/role-alignment/#distributed-systems-engineer"
+    },
+    {
+      "id": "enterprise-integration-engineer",
+      "title": "Enterprise Integration Engineer",
+      "alignment": "related-role",
+      "competencyIds": [
+        "enterprise-integration",
+        "spring-boot",
+        "apache-kafka",
+        "rabbitmq",
+        "jpa-hibernate"
+      ],
+      "limitations": [
+        "The public employment record gives only high-level integration responsibilities."
+      ],
+      "requiresConfirmation": [
+        "Domain contracts, integration governance and system ownership relevant to the vacancy."
+      ],
+      "evidenceIds": [
+        "enterprise-integration-employment-kuehne-nagel",
+        "spring-boot-employment-kuehne-nagel",
+        "apache-kafka-employment-kuehne-nagel",
+        "rabbitmq-employment-kuehne-nagel",
+        "jpa-hibernate-employment-kuehne-nagel",
+        "jpa-hibernate-public-repository-jpa2"
+      ],
+      "sourceUrl": "https://stden.github.io/CV/role-alignment/#enterprise-integration-engineer"
+    },
+    {
+      "id": "software-reliability-engineer",
+      "title": "Software Reliability Engineer",
+      "alignment": "related-role",
+      "competencyIds": [
+        "integration-testing",
+        "continuous-integration",
+        "jenkins",
+        "docker",
+        "kubernetes"
+      ],
+      "limitations": [
+        "The public evidence is stronger for testing, release automation and backend engineering than for a dedicated SRE role."
+      ],
+      "requiresConfirmation": [
+        "Incident leadership, on-call depth, SLO ownership and infrastructure scope."
+      ],
+      "evidenceIds": [
+        "integration-testing-public-repository-sonarqubechecker",
+        "integration-testing-public-repository-rustshot",
+        "continuous-integration-employment-kuehne-nagel",
+        "continuous-integration-public-repository-rustshot",
+        "jenkins-employment-kuehne-nagel",
+        "docker-employment-kuehne-nagel",
+        "docker-employment-taxify-bolt",
+        "kubernetes-employment-kuehne-nagel"
+      ],
+      "sourceUrl": "https://stden.github.io/CV/role-alignment/#software-reliability-engineer"
+    },
+    {
+      "id": "ai-integration-engineer",
+      "title": "AI Integration Engineer",
+      "alignment": "independent-project-fit",
+      "competencyIds": [
+        "mcp",
+        "rag-embeddings-semantic-search",
+        "rust",
+        "python",
+        "qdrant"
+      ],
+      "limitations": [
+        "This alignment rests primarily on independent integration, retrieval and tooling work."
+      ],
+      "requiresConfirmation": [
+        "Production AI ownership, formal evaluations and model-training requirements."
+      ],
+      "evidenceIds": [
+        "mcp-independent-messenger-archive-search",
+        "mcp-public-repository-pythorust-tg",
+        "rag-embeddings-semantic-search-independent-messenger-archive-search",
+        "rag-embeddings-semantic-search-public-repository-pythorust-tg",
+        "rust-independent-messenger-archive-search",
+        "rust-public-repository-rustshot",
+        "rust-public-repository-funnyfilemanager",
+        "python-employment-oracle",
+        "python-independent-messenger-archive-search",
+        "python-public-repository-sonarqubechecker",
+        "qdrant-independent-messenger-archive-search"
+      ],
+      "sourceUrl": "https://stden.github.io/CV/role-alignment/#ai-integration-engineer"
+    }
+  ]
+}

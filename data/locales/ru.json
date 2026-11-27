@@ -10,7 +10,7 @@
   "expertise.distributed-systems.title": "Распределённые системы",
   "expertise.distributed-systems.description": "Разрабатываю асинхронные бэкенд-сервисы и автотесты для распределённых сред. В независимых проектах исследую повторы и безопасную повторную обработку.",
   "expertise.event-driven.title": "Событийная архитектура",
-  "expertise.event-driven.description": "Разрабатываю событийные сервисы на Apache Kafka (Spring Kafka, партиционирование, порядок по ключу, offsets/rebalancing, transactional outbox, идемпотентность, retry/DLQ, Schema Registry, Kafka Streams/Connect, мониторинг consumer lag) и RabbitMQ.",
+  "expertise.event-driven.description": "Разрабатываю событийные сервисы для промышленной эксплуатации с Apache Kafka и Spring Kafka.",
   "expertise.enterprise-integration.title": "Корпоративные интеграции",
   "expertise.enterprise-integration.description": "Разрабатываю бэкенд-интеграции на Java с XML и реляционными базами данных.",
   "expertise.cloud-infra.title": "Облако и инфраструктура",
@@ -23,8 +23,8 @@
   "experience.kuehne-nagel.location": "Таллин, Эстония",
   "experience.kuehne-nagel.summary": "Разрабатываю и поддерживаю корпоративные Java-сервисы и интеграции, участвую в автоматизации поставки ПО.",
   "experience.kuehne-nagel.responsibilities.1": "Разрабатываю сервисы на Java и Spring Boot для корпоративных процессов.",
-  "experience.kuehne-nagel.responsibilities.2": "Создаю событийные интеграции на Apache Kafka (Spring Kafka producers/consumers, партиционирование, порядок по ключу, управление offsets/rebalancing, Schema Registry, Kafka Streams/Connect) и RabbitMQ.",
-  "experience.kuehne-nagel.responsibilities.3": "Реализую надёжную асинхронную обработку с transactional outbox, идемпотентными консьюмерами, retry/DLQ топиками, мониторингом consumer lag и эксплуатацией брокера.",
+  "experience.kuehne-nagel.responsibilities.2": "Разрабатываю обработку сообщений и событийные интеграции для промышленной эксплуатации с Apache Kafka и Spring Kafka.",
+  "experience.kuehne-nagel.responsibilities.3": "Сопровождаю асинхронную обработку сообщений в рабочих системах.",
   "experience.kuehne-nagel.responsibilities.4": "Интегрирую бэкенд-сервисы с PostgreSQL и реляционными базами с помощью SQL, JPA и Hibernate.",
   "experience.kuehne-nagel.responsibilities.5": "Автоматизирую тестирование, сборку и контейнеризированное развёртывание в JUnit, Jenkins, GitLab CI/CD, Docker и Kubernetes.",
   "experience.taxify-bolt.role": "Старший бэкенд-разработчик",
@@ -532,7 +532,7 @@
   "cv.general.roleTitle": "Старший инженер-программист",
   "cv.general.shortLabel": "Общее резюме",
   "cv.general.summary": "Старший инженер-программист. Специализируюсь на бэкенд-сервисах Java, распределённых системах и корпоративных интеграциях. Мой опыт включает Spring Boot, асинхронный обмен сообщениями, реляционные базы, CI/CD и тестирование JDK. В независимых проектах использую Rust и Python для обработки данных, семантического поиска и интеграций с ИИ.",
-  "cv.general.focusHighlights.1": "Корпоративные Java-сервисы и событийные интеграции на Spring Boot, Apache Kafka, RabbitMQ и реляционных базах.",
+  "cv.general.focusHighlights.1": "Корпоративные Java-сервисы и событийные интеграции. Обработка сообщений с Apache Kafka и Spring Kafka в промышленных системах.",
   "cv.general.focusHighlights.2": "Многопоточность в JVM и автоматизированное тестирование, включая исследование дефектов JDK в Oracle.",
   "ui.nav.overview": "Обзор",
   "ui.nav.experience": "Опыт",
@@ -746,5 +746,8 @@
   "ui.skills.assisted": "Разработка с ИИ (Claude Code, Codex, Copilot, Gemini)",
   "ui.skills.tdd": "Разработка через тестирование (TDD)",
   "ui.skills.integrationTesting": "Интеграционное и сквозное тестирование",
-  "ui.skills.ci": "Непрерывная интеграция"
+  "ui.skills.ci": "Непрерывная интеграция",
+  "ui.discovery.formats": "Машиночитаемое резюме (EN)",
+  "ui.discovery.roles": "Соответствие ролям (EN)",
+  "ui.discovery.articles": "Инженерные статьи (EN)"
 }

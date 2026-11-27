@@ -1,0 +1,1701 @@
+{
+  "schemaVersion": "1.0.0",
+  "canonicalProfileUrl": "https://stden.github.io/CV/",
+  "contentRevisionDate": "2026-11-27",
+  "skills": [
+    {
+      "id": "java",
+      "name": "Java (6–25)",
+      "synonyms": [
+        "Java SE",
+        "JDK"
+      ],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "java-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "java-employment-oracle",
+          "type": "employment",
+          "context": {
+            "id": "oracle",
+            "name": "Oracle (Oracle Russia & CIS)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-oracle"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jvm-concurrency",
+      "name": "JVM & Concurrency",
+      "synonyms": [
+        "Java concurrency",
+        "thread safety"
+      ],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "jvm-concurrency-employment-oracle",
+          "type": "employment",
+          "context": {
+            "id": "oracle",
+            "name": "Oracle (Oracle Russia & CIS)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-oracle"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "jvm-concurrency-public-repository-entitylocker",
+          "type": "public-repository",
+          "context": {
+            "id": "entitylocker",
+            "name": "EntityLocker"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/EntityLocker",
+            "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/main/java/util/EntityLocker.java",
+            "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/README.md",
+            "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/test/java/EntityLockerTest.java"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spring-framework",
+      "name": "Spring Framework",
+      "synonyms": [],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "spring-framework-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spring-boot",
+      "name": "Spring Boot",
+      "synonyms": [
+        "Spring Boot backend"
+      ],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "spring-boot-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "distributed-systems",
+      "name": "Distributed Systems",
+      "synonyms": [
+        "distributed backend systems"
+      ],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "distributed-systems-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "distributed-systems-employment-oracle",
+          "type": "employment",
+          "context": {
+            "id": "oracle",
+            "name": "Oracle (Oracle Russia & CIS)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-oracle"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "distributed-systems-independent-messenger-archive-search",
+          "type": "independent-project",
+          "context": {
+            "id": "messenger-archive-search",
+            "name": "Messenger Archive & Semantic Search"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "microservices",
+      "name": "Microservices",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "microservices-employment-taxify-bolt",
+          "type": "employment",
+          "context": {
+            "id": "taxify-bolt",
+            "name": "Taxify (now Bolt)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-taxify-bolt"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "synonyms": [],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "sql-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "synonyms": [
+        "Postgres"
+      ],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "postgresql-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "postgresql-independent-messenger-archive-search",
+          "type": "independent-project",
+          "context": {
+            "id": "messenger-archive-search",
+            "name": "Messenger Archive & Semantic Search"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jpa-hibernate",
+      "name": "JPA / Hibernate",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "jpa-hibernate-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "jpa-hibernate-public-repository-jpa2",
+          "type": "public-repository",
+          "context": {
+            "id": "jpa2",
+            "name": "JPA2"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/JPA2",
+            "https://github.com/stden/JPA2/blob/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/src/main/java/JPA2/models/Employee.java",
+            "https://github.com/stden/JPA2/blob/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/README.md",
+            "https://github.com/stden/JPA2/tree/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/src/test/java/JPA2/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "enterprise-integration",
+      "name": "Enterprise Integration",
+      "synonyms": [
+        "systems integration",
+        "asynchronous integration"
+      ],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "enterprise-integration-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software-design-algorithms",
+      "name": "Software Design & Algorithms",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "software-design-algorithms-employment-sds",
+          "type": "employment",
+          "context": {
+            "id": "sds",
+            "name": "Software Development & Solutions"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-sds"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "software-design-algorithms-public-repository-entitylocker",
+          "type": "public-repository",
+          "context": {
+            "id": "entitylocker",
+            "name": "EntityLocker"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/EntityLocker",
+            "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/main/java/util/EntityLocker.java",
+            "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/README.md",
+            "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/test/java/EntityLockerTest.java"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rabbitmq",
+      "name": "RabbitMQ",
+      "synonyms": [
+        "AMQP messaging"
+      ],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "rabbitmq-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apache-kafka",
+      "name": "Apache Kafka",
+      "synonyms": [
+        "Kafka",
+        "Apache Kafka"
+      ],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "apache-kafka-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oracle-database",
+      "name": "Oracle Database",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "oracle-database-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "redis",
+      "name": "Redis",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "redis-employment-taxify-bolt",
+          "type": "employment",
+          "context": {
+            "id": "taxify-bolt",
+            "name": "Taxify (now Bolt)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-taxify-bolt"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "valkey",
+      "name": "Valkey",
+      "synonyms": [],
+      "category": "familiarity",
+      "evidence": [
+        {
+          "id": "valkey-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "Familiarity is listed without evidence of production use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qdrant",
+      "name": "Qdrant",
+      "synonyms": [],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "qdrant-independent-messenger-archive-search",
+          "type": "independent-project",
+          "context": {
+            "id": "messenger-archive-search",
+            "name": "Messenger Archive & Semantic Search"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vector-databases",
+      "name": "Vector databases",
+      "synonyms": [],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "vector-databases-independent-messenger-archive-search",
+          "type": "independent-project",
+          "context": {
+            "id": "messenger-archive-search",
+            "name": "Messenger Archive & Semantic Search"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "docker",
+      "name": "Docker / Compose",
+      "synonyms": [
+        "Docker Compose"
+      ],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "docker-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "docker-employment-taxify-bolt",
+          "type": "employment",
+          "context": {
+            "id": "taxify-bolt",
+            "name": "Taxify (now Bolt)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-taxify-bolt"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "kubernetes-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "helm",
+      "name": "Helm",
+      "synonyms": [],
+      "category": "familiarity",
+      "evidence": [
+        {
+          "id": "helm-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "Familiarity is listed without evidence of production use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jenkins",
+      "name": "Jenkins",
+      "synonyms": [],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "jenkins-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gitlab-ci-cd",
+      "name": "GitLab CI/CD",
+      "synonyms": [],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "gitlab-ci-cd-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions",
+      "name": "GitHub Actions",
+      "synonyms": [],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "github-actions-public-repository-rustshot",
+          "type": "public-repository",
+          "context": {
+            "id": "rustshot",
+            "name": "RustShot"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/RustShot",
+            "https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/src/capture.rs",
+            "https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/docs/capture-guide.md",
+            "https://github.com/stden/RustShot/tree/577763ae4e251caf291a232ec03e3b9760952f17/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        },
+        {
+          "id": "github-actions-public-repository-sonarqubechecker",
+          "type": "public-repository",
+          "context": {
+            "id": "sonarqubechecker",
+            "name": "SonarQubeChecker"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/SonarQubeChecker",
+            "https://github.com/stden/SonarQubeChecker/blob/7b5195b6ce7a555ed95a170d2b440e06d434046a/src/report.rs",
+            "https://github.com/stden/SonarQubeChecker/blob/7b5195b6ce7a555ed95a170d2b440e06d434046a/README.md",
+            "https://github.com/stden/SonarQubeChecker/tree/7b5195b6ce7a555ed95a170d2b440e06d434046a/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maven",
+      "name": "Maven",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "maven-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "maven-public-repository-jpa2",
+          "type": "public-repository",
+          "context": {
+            "id": "jpa2",
+            "name": "JPA2"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/JPA2",
+            "https://github.com/stden/JPA2/blob/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/src/main/java/JPA2/models/Employee.java",
+            "https://github.com/stden/JPA2/blob/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/README.md",
+            "https://github.com/stden/JPA2/tree/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/src/test/java/JPA2/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "git",
+      "name": "Git",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "git-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "aws-employment-taxify-bolt",
+          "type": "employment",
+          "context": {
+            "id": "taxify-bolt",
+            "name": "Taxify (now Bolt)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-taxify-bolt"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terraform",
+      "name": "Terraform",
+      "synonyms": [],
+      "category": "familiarity",
+      "evidence": [
+        {
+          "id": "terraform-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "Familiarity is listed without evidence of production use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linux-systemd-bash",
+      "name": "Linux / systemd / bash",
+      "synonyms": [],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "linux-systemd-bash-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "This export contains no reviewed public source for this catalogue entry."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nginx-caddy-cloudflare",
+      "name": "Nginx / Caddy / Cloudflare",
+      "synonyms": [],
+      "category": "familiarity",
+      "evidence": [
+        {
+          "id": "nginx-caddy-cloudflare-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "Familiarity is listed without evidence of production use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prometheus-grafana",
+      "name": "Prometheus / Grafana",
+      "synonyms": [],
+      "category": "familiarity",
+      "evidence": [
+        {
+          "id": "prometheus-grafana-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "Familiarity is listed without evidence of production use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "name": "Python (2 & 3)",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "python-employment-oracle",
+          "type": "employment",
+          "context": {
+            "id": "oracle",
+            "name": "Oracle (Oracle Russia & CIS)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-oracle"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "python-independent-messenger-archive-search",
+          "type": "independent-project",
+          "context": {
+            "id": "messenger-archive-search",
+            "name": "Messenger Archive & Semantic Search"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        },
+        {
+          "id": "python-public-repository-sonarqubechecker",
+          "type": "public-repository",
+          "context": {
+            "id": "sonarqubechecker",
+            "name": "SonarQubeChecker"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/SonarQubeChecker",
+            "https://github.com/stden/SonarQubeChecker/blob/7b5195b6ce7a555ed95a170d2b440e06d434046a/src/report.rs",
+            "https://github.com/stden/SonarQubeChecker/blob/7b5195b6ce7a555ed95a170d2b440e06d434046a/README.md",
+            "https://github.com/stden/SonarQubeChecker/tree/7b5195b6ce7a555ed95a170d2b440e06d434046a/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "synonyms": [],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "rust-independent-messenger-archive-search",
+          "type": "independent-project",
+          "context": {
+            "id": "messenger-archive-search",
+            "name": "Messenger Archive & Semantic Search"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        },
+        {
+          "id": "rust-public-repository-rustshot",
+          "type": "public-repository",
+          "context": {
+            "id": "rustshot",
+            "name": "RustShot"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/RustShot",
+            "https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/src/capture.rs",
+            "https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/docs/capture-guide.md",
+            "https://github.com/stden/RustShot/tree/577763ae4e251caf291a232ec03e3b9760952f17/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        },
+        {
+          "id": "rust-public-repository-funnyfilemanager",
+          "type": "public-repository",
+          "context": {
+            "id": "funnyfilemanager",
+            "name": "FunnyFileManager"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/FunnyFileManager",
+            "https://github.com/stden/FunnyFileManager/blob/bc3d7a5bcf2f6cfbac23d8f612afc719b68c839a/src/action/lsp_editor.rs",
+            "https://github.com/stden/FunnyFileManager/blob/bc3d7a5bcf2f6cfbac23d8f612afc719b68c839a/README.md",
+            "https://github.com/stden/FunnyFileManager/tree/bc3d7a5bcf2f6cfbac23d8f612afc719b68c839a/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "typescript-employment-taxify-bolt",
+          "type": "employment",
+          "context": {
+            "id": "taxify-bolt",
+            "name": "Taxify (now Bolt)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-taxify-bolt"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-js",
+      "name": "Node.js",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "node-js-employment-taxify-bolt",
+          "type": "employment",
+          "context": {
+            "id": "taxify-bolt",
+            "name": "Taxify (now Bolt)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-taxify-bolt"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "go-gin-grpc",
+      "name": "Go (Gin, gRPC)",
+      "synonyms": [],
+      "category": "familiarity",
+      "evidence": [
+        {
+          "id": "go-gin-grpc-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "Familiarity is listed without evidence of production use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "react-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "angularjs",
+      "name": "AngularJS",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "angularjs-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "svelte-sveltekit",
+      "name": "Svelte / SvelteKit",
+      "synonyms": [],
+      "category": "familiarity",
+      "evidence": [
+        {
+          "id": "svelte-sveltekit-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "Familiarity is listed without evidence of production use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcp",
+      "name": "Model Context Protocol (MCP)",
+      "synonyms": [
+        "Model Context Protocol"
+      ],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "mcp-independent-messenger-archive-search",
+          "type": "independent-project",
+          "context": {
+            "id": "messenger-archive-search",
+            "name": "Messenger Archive & Semantic Search"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        },
+        {
+          "id": "mcp-public-repository-pythorust-tg",
+          "type": "public-repository",
+          "context": {
+            "id": "pythorust-tg",
+            "name": "pythorust_tg"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rag-embeddings-semantic-search",
+      "name": "RAG / Embeddings / Semantic Search",
+      "synonyms": [],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "rag-embeddings-semantic-search-independent-messenger-archive-search",
+          "type": "independent-project",
+          "context": {
+            "id": "messenger-archive-search",
+            "name": "Messenger Archive & Semantic Search"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        },
+        {
+          "id": "rag-embeddings-semantic-search-public-repository-pythorust-tg",
+          "type": "public-repository",
+          "context": {
+            "id": "pythorust-tg",
+            "name": "pythorust_tg"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "local-llms-ollama",
+      "name": "Local LLMs / Ollama",
+      "synonyms": [],
+      "category": "familiarity",
+      "evidence": [
+        {
+          "id": "local-llms-ollama-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "Familiarity is listed without evidence of production use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "large-language-models-claude-gpt-gemini",
+      "name": "Large Language Models (Claude, GPT, Gemini)",
+      "synonyms": [],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "large-language-models-claude-gpt-gemini-independent-messenger-archive-search",
+          "type": "independent-project",
+          "context": {
+            "id": "messenger-archive-search",
+            "name": "Messenger Archive & Semantic Search"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        },
+        {
+          "id": "large-language-models-claude-gpt-gemini-public-repository-pythorust-tg",
+          "type": "public-repository",
+          "context": {
+            "id": "pythorust-tg",
+            "name": "pythorust_tg"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/pythorust_tg",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/mcp_telegram_server.py",
+            "https://github.com/stden/pythorust_tg/blob/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/docs/testing.md",
+            "https://github.com/stden/pythorust_tg/tree/b6a19ae5cdc54d625a42d8f39ee3d6932dd20607/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-assisted-development-claude-code-codex-copilot-gemini",
+      "name": "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)",
+      "synonyms": [],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "ai-assisted-development-claude-code-codex-copilot-gemini-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "This export contains no reviewed public source for this catalogue entry."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "junit",
+      "name": "JUnit",
+      "synonyms": [],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "junit-employment-oracle",
+          "type": "employment",
+          "context": {
+            "id": "oracle",
+            "name": "Oracle (Oracle Russia & CIS)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-oracle"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "junit-public-repository-entitylocker",
+          "type": "public-repository",
+          "context": {
+            "id": "entitylocker",
+            "name": "EntityLocker"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/EntityLocker",
+            "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/main/java/util/EntityLocker.java",
+            "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/README.md",
+            "https://github.com/stden/EntityLocker/blob/d3de8482cd2f7d24c688217ccc51c4eabde5373b/src/test/java/EntityLockerTest.java"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        },
+        {
+          "id": "junit-public-repository-jpa2",
+          "type": "public-repository",
+          "context": {
+            "id": "jpa2",
+            "name": "JPA2"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/JPA2",
+            "https://github.com/stden/JPA2/blob/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/src/main/java/JPA2/models/Employee.java",
+            "https://github.com/stden/JPA2/blob/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/README.md",
+            "https://github.com/stden/JPA2/tree/c97b06c7fe75aa7aa6c29e85a07834fc154b7bb9/src/test/java/JPA2/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mockito-jmockit-easymock",
+      "name": "Mockito / JMockit / EasyMock",
+      "synonyms": [],
+      "category": "additional-professional",
+      "evidence": [
+        {
+          "id": "mockito-jmockit-easymock-employment-oracle",
+          "type": "employment",
+          "context": {
+            "id": "oracle",
+            "name": "Oracle (Oracle Russia & CIS)"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-oracle"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "mockito-jmockit-easymock-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tdd",
+      "name": "Test-Driven Development (TDD)",
+      "synonyms": [
+        "test-driven development"
+      ],
+      "category": "familiarity",
+      "evidence": [
+        {
+          "id": "tdd-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "Familiarity is listed without evidence of production use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "integration-testing",
+      "name": "Integration & E2E Testing",
+      "synonyms": [
+        "integration testing",
+        "end-to-end testing"
+      ],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "integration-testing-public-repository-sonarqubechecker",
+          "type": "public-repository",
+          "context": {
+            "id": "sonarqubechecker",
+            "name": "SonarQubeChecker"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/SonarQubeChecker",
+            "https://github.com/stden/SonarQubeChecker/blob/7b5195b6ce7a555ed95a170d2b440e06d434046a/src/report.rs",
+            "https://github.com/stden/SonarQubeChecker/blob/7b5195b6ce7a555ed95a170d2b440e06d434046a/README.md",
+            "https://github.com/stden/SonarQubeChecker/tree/7b5195b6ce7a555ed95a170d2b440e06d434046a/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        },
+        {
+          "id": "integration-testing-public-repository-rustshot",
+          "type": "public-repository",
+          "context": {
+            "id": "rustshot",
+            "name": "RustShot"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/RustShot",
+            "https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/src/capture.rs",
+            "https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/docs/capture-guide.md",
+            "https://github.com/stden/RustShot/tree/577763ae4e251caf291a232ec03e3b9760952f17/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cucumber-gherkin-bdd",
+      "name": "Cucumber / Gherkin (BDD)",
+      "synonyms": [],
+      "category": "independent-work",
+      "evidence": [
+        {
+          "id": "cucumber-gherkin-bdd-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "This export contains no reviewed public source for this catalogue entry."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "playwright-vitest-selenide",
+      "name": "Playwright / Vitest / Selenide",
+      "synonyms": [],
+      "category": "familiarity",
+      "evidence": [
+        {
+          "id": "playwright-vitest-selenide-catalogue",
+          "type": "catalogue",
+          "context": {
+            "id": "skills",
+            "name": "Published skills catalogue"
+          },
+          "verificationStatus": "candidate-listed",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/skills/"
+          ],
+          "limitations": [
+            "Familiarity is listed without evidence of production use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "continuous-integration",
+      "name": "Continuous Integration",
+      "synonyms": [
+        "CI"
+      ],
+      "category": "primary-professional",
+      "evidence": [
+        {
+          "id": "continuous-integration-employment-kuehne-nagel",
+          "type": "employment",
+          "context": {
+            "id": "kuehne-nagel",
+            "name": "Kuehne+Nagel"
+          },
+          "verificationStatus": "candidate-reported",
+          "lastVerifiedDate": null,
+          "sourceUrls": [
+            "https://stden.github.io/CV/experience/#role-kuehne-nagel"
+          ],
+          "limitations": [
+            "A citation to the candidate’s CV records the reported scope. Employer attestation is unavailable."
+          ]
+        },
+        {
+          "id": "continuous-integration-public-repository-rustshot",
+          "type": "public-repository",
+          "context": {
+            "id": "rustshot",
+            "name": "RustShot"
+          },
+          "verificationStatus": "public-source-link-verified",
+          "lastVerifiedDate": "2026-11-27",
+          "sourceUrls": [
+            "https://github.com/stden/RustShot",
+            "https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/src/capture.rs",
+            "https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/docs/capture-guide.md",
+            "https://github.com/stden/RustShot/tree/577763ae4e251caf291a232ec03e3b9760952f17/tests"
+          ],
+          "limitations": [
+            "Independent evidence demonstrates the documented scope and does not establish employer usage."
+          ]
+        }
+      ]
+    }
+  ]
+}

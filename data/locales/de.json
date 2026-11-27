@@ -10,7 +10,7 @@
   "expertise.distributed-systems.title": "Verteilte Systeme",
   "expertise.distributed-systems.description": "Arbeit an asynchronen Backend-Diensten und automatisierten Tests für verteilte Umgebungen. Eigenständige Projekte behandeln Wiederholungsversuche und sichere erneute Verarbeitung.",
   "expertise.event-driven.title": "Ereignisgesteuerte Architektur",
-  "expertise.event-driven.description": "Entwicklung ereignisgesteuerter Dienste mit Apache Kafka (Spring Kafka, Partitionierung, Schlüsselreihenfolge, Offsets/Rebalancing, Outbox, idempotente Konsumenten, Retry/DLQ, Schema Registry, Streams/Connect, Lag-Monitoring) und RabbitMQ.",
+  "expertise.event-driven.description": "Entwicklung ereignisgesteuerter Dienste für den Produktivbetrieb mit Apache Kafka und Spring Kafka.",
   "expertise.enterprise-integration.title": "Unternehmensintegration",
   "expertise.enterprise-integration.description": "Entwicklung von Backend-Integrationen mit Java, XML und relationalen Datenbanken.",
   "expertise.cloud-infra.title": "Cloud und Infrastruktur",
@@ -23,8 +23,8 @@
   "experience.kuehne-nagel.location": "Tallinn, Estland",
   "experience.kuehne-nagel.summary": "Entwicklung und Wartung von Java-Backend-Diensten und Integrationen für Unternehmen sowie Unterstützung der automatisierten Softwarebereitstellung.",
   "experience.kuehne-nagel.responsibilities.1": "Java- und Spring-Boot-Dienste für Geschäftsabläufe entwickeln.",
-  "experience.kuehne-nagel.responsibilities.2": "Ereignisgesteuerte Integrationen mit Apache Kafka (Spring Kafka Producer/Consumer, Partitionierung, Schlüsselreihenfolge, Offset-/Rebalancing-Verwaltung, Schema Registry, Kafka Streams/Connect) und RabbitMQ entwickeln.",
-  "experience.kuehne-nagel.responsibilities.3": "Zuverlässige asynchrone Pipelines mit Transactional Outbox, idempotenter Verarbeitung, Retry-/DLQ-Topics, Consumer-Lag-Monitoring und Broker-Betrieb umsetzen.",
+  "experience.kuehne-nagel.responsibilities.2": "Nachrichtenverarbeitung und ereignisgesteuerte Integrationen für den Produktivbetrieb mit Apache Kafka und Spring Kafka entwickeln.",
+  "experience.kuehne-nagel.responsibilities.3": "Asynchrone Nachrichtenverarbeitung im Produktivbetrieb betreuen.",
   "experience.kuehne-nagel.responsibilities.4": "Backend-Dienste über SQL, JPA und Hibernate an PostgreSQL und relationale Datenbanken anbinden.",
   "experience.kuehne-nagel.responsibilities.5": "Tests, Builds und containerisierte Deployments mit JUnit, Jenkins, GitLab CI/CD, Docker und Kubernetes automatisieren.",
   "experience.taxify-bolt.role": "Senior Backend-Entwickler",
@@ -532,7 +532,7 @@
   "cv.general.roleTitle": "Senior Software Engineer",
   "cv.general.shortLabel": "Allgemeiner Lebenslauf",
   "cv.general.summary": "Senior Software Engineer mit Schwerpunkt auf Java-Backend-Diensten, verteilten Systemen und Unternehmensintegration. Berufserfahrung mit Spring Boot, asynchroner Nachrichtenverarbeitung, relationalen Datenbanken, CI/CD und JDK-Tests. Eigenständige Projekte nutzen Rust und Python für Datenverarbeitung, semantische Suche und KI-Integrationen.",
-  "cv.general.focusHighlights.1": "Java-Dienste für Unternehmen und ereignisgesteuerte Integration mit Spring Boot, Apache Kafka, RabbitMQ und relationalen Datenbanken.",
+  "cv.general.focusHighlights.1": "Java-Dienste für Unternehmen und ereignisgesteuerte Integration. Nachrichtenverarbeitung im Produktivbetrieb mit Apache Kafka und Spring Kafka.",
   "cv.general.focusHighlights.2": "Nebenläufigkeit in der JVM und automatisierte Tests, einschließlich der Untersuchung von JDK-Fehlern bei Oracle.",
   "ui.nav.overview": "Übersicht",
   "ui.nav.experience": "Berufserfahrung",
@@ -746,5 +746,8 @@
   "ui.skills.assisted": "KI-gestützte Entwicklung (Claude Code, Codex, Copilot, Gemini)",
   "ui.skills.tdd": "Testgetriebene Entwicklung (TDD)",
   "ui.skills.integrationTesting": "Integrations- und End-to-End-Tests",
-  "ui.skills.ci": "Kontinuierliche Integration"
+  "ui.skills.ci": "Kontinuierliche Integration",
+  "ui.discovery.formats": "Maschinenlesbarer Lebenslauf (EN)",
+  "ui.discovery.roles": "Rollenprofil (EN)",
+  "ui.discovery.articles": "Technische Artikel (EN)"
 }

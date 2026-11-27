@@ -1,0 +1,20 @@
+# Denis Stepulenok
+
+> Senior Software Engineer — Java & Distributed Systems. Tallinn, Estonia.
+
+The English portfolio is the canonical profile. Employment is candidate-reported. Independent work is documented separately. Schema version 1.0.0. Content revised 2026-11-27.
+
+## Professional profile
+
+- [Portfolio](https://stden.github.io/CV/): Summary, experience, skills and contact.
+- [Resume Markdown](https://stden.github.io/CV/resume.md): Human-readable CV with sources.
+- [Resume text](https://stden.github.io/CV/resume.txt): Plain-text CV.
+- [English CV PDF](https://stden.github.io/CV/assets/pdf/Denis-Stepulenok-CV-EN.pdf): Tagged A4 resume.
+- [Candidate profile](https://stden.github.io/CV/candidate.json): Structured identity, experience and public projects.
+
+## Evidence
+
+- [Skills evidence](https://stden.github.io/CV/skills-evidence.json): Skill tiers, verification status and source links.
+- [Role alignment](https://stden.github.io/CV/role-alignment/): Competencies, limitations and questions to confirm.
+- [Role alignment data](https://stden.github.io/CV/role-alignment.json): The same alignment in JSON.
+- [Engineering articles](https://stden.github.io/CV/articles/): Independent notes, sources and experiments.

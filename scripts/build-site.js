@@ -5,6 +5,7 @@ const { ui, assetPrefix, pageUrl, defaultCvHref, displayCiStatus, renderDocument
 const { availableLanguages, contentRoutes, DETAIL_PAGES, localizedVariants } = require('./lib/public-artifact');
 const { localeCodes, loadLocales, localize, localizedPath, localizedSkillName } = require('./lib/i18n');
 const { FONT_SUBSETS } = require('./lib/fonts');
+const { PROFILE_FORMATS } = require('./lib/public-profile');
 const { renderInteractiveSvg } = require('./build-project-diagrams');
 
 function copyFonts() {
@@ -594,6 +595,13 @@ function renderContact(data, depth = 0) {
         integrations: 'fintech-integrations',
         full: 'full',
     };
+    const formats = depth > 0 && data.locale === 'en'
+        ? `<details id="public-cv-formats" class="recruitment-disclosure">
+          <summary>${ui(data, 'discovery.formats')}</summary>
+          <ul class="bullet-list">
+            ${Object.keys(PROFILE_FORMATS).map((name) => `<li><a href="../${name}">${name}</a></li>`).join('')}
+          </ul>
+        </details>` : '';
     const roles = ui(data, 'home.cvRoleSpecific').replace(/\{(java|distributed|integrations|full)\}/g, (_, name) =>
         `<a href="${assetPrefix(data, depth)}cv/${variantLinks[name]}.html" hreflang="en">${ui(data, 'home.cv' + name[0].toUpperCase() + name.slice(1))}</a>`);
 
@@ -612,6 +620,7 @@ function renderContact(data, depth = 0) {
       </div>
       <p class="recruiter-context">${ui(data, data.locale === 'en' ? 'home.cvContext' : 'home.cvContextLocal')}</p>
       <p class="recruiter-context">${roles}</p>
+      ${formats}
       <p id="copy-email-status" class="copy-status" aria-live="polite"></p>
     </div>
   </div>
@@ -650,9 +659,16 @@ function renderHomePage(data, techLookup) {
                     data.profile.contact.telegram,
                 ],
                 knowsAbout: data.profile.coreBadges,
+                subjectOf: {
+                    '@type': 'DigitalDocument',
+                    name: 'Machine-readable candidate profile',
+                    url: pageUrl(data, 'candidate.json', 'en'),
+                    encodingFormat: 'application/json',
+                },
             },
             {
                 '@type': 'ProfilePage',
+                dateModified: data.publicProfile.contentRevisionDate,
                 '@id': `${pageUrl(data)}#profilepage`,
                 url: pageUrl(data),
                 inLanguage: data.locale,
@@ -943,7 +959,7 @@ function writeDiscoveryFiles(data) {
             `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href(locale)}"/>`);
         return [
             '  <url>', `    <loc>${href(code)}</loc>`, ...alternates,
-            `    <xhtml:link rel="alternate" hreflang="x-default" href="${href('en', '')}"/>`,
+            `    <xhtml:link rel="alternate" hreflang="x-default" href="${href('en')}"/>`,
             '  </url>',
         ].join('\n');
     }));

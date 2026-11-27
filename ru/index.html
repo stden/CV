@@ -12,6 +12,11 @@
   <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/">
   <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/">
   <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <link rel="alternate" type="text/markdown" href="https://stden.github.io/CV/resume.md">
+  <link rel="alternate" type="text/plain" href="https://stden.github.io/CV/resume.txt">
+  <link rel="describedby" type="application/json" href="https://stden.github.io/CV/candidate.json">
+  <link rel="describedby" type="application/json" href="https://stden.github.io/CV/skills-evidence.json">
+  <link rel="describedby" type="application/json" href="https://stden.github.io/CV/role-alignment.json">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:locale:alternate" content="en_GB">
   <meta property="og:locale:alternate" content="et_EE">
@@ -30,7 +35,7 @@
   <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://stden.github.io/CV/#person","name":"Denis Stepulenok","jobTitle":"Старший инженер-программист — Java и распределённые системы","description":"Разрабатываю бэкенд-сервисы на Java и асинхронные интеграции. В Kuehne+Nagel занимаюсь корпоративными Java-сервисами и автоматизацией поставки ПО. Ранее создавал высоконагруженные сервисы в Taxify (сейчас Bolt) и исследовал дефекты JDK в Oracle.","url":"https://stden.github.io/CV/","image":"https://stden.github.io/CV/assets/images/photo.jpg","email":"mailto:super.denis@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"sameAs":["https://github.com/stden","https://www.linkedin.com/in/denis-stepulenok-2149b514/","https://t.me/stdenx"],"knowsAbout":["Java","Spring Boot","Distributed systems","Apache Kafka & RabbitMQ","PostgreSQL"]},{"@type":"ProfilePage","@id":"https://stden.github.io/CV/ru/#profilepage","url":"https://stden.github.io/CV/ru/","inLanguage":"ru","name":"Denis Stepulenok — старший инженер-программист, Java и распределённые системы","mainEntity":{"@id":"https://stden.github.io/CV/#person"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://stden.github.io/CV/#person","name":"Denis Stepulenok","jobTitle":"Старший инженер-программист — Java и распределённые системы","description":"Разрабатываю бэкенд-сервисы на Java и асинхронные интеграции. В Kuehne+Nagel занимаюсь корпоративными Java-сервисами и автоматизацией поставки ПО. Ранее создавал высоконагруженные сервисы в Taxify (сейчас Bolt) и исследовал дефекты JDK в Oracle.","url":"https://stden.github.io/CV/","image":"https://stden.github.io/CV/assets/images/photo.jpg","email":"mailto:super.denis@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"sameAs":["https://github.com/stden","https://www.linkedin.com/in/denis-stepulenok-2149b514/","https://t.me/stdenx"],"knowsAbout":["Java","Spring Boot","Distributed systems","Apache Kafka & RabbitMQ","PostgreSQL"],"subjectOf":{"@type":"DigitalDocument","name":"Machine-readable candidate profile","url":"https://stden.github.io/CV/candidate.json","encodingFormat":"application/json"}},{"@type":"ProfilePage","dateModified":"2026-11-27","@id":"https://stden.github.io/CV/ru/#profilepage","url":"https://stden.github.io/CV/ru/","inLanguage":"ru","name":"Denis Stepulenok — старший инженер-программист, Java и распределённые системы","mainEntity":{"@id":"https://stden.github.io/CV/#person"}}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
@@ -107,7 +112,7 @@
       <p class="recruiter-meta">Старший Java-разработчик · май 2018 – настоящее время · Таллин, Эстония</p>
       <p>Разрабатываю и поддерживаю корпоративные Java-сервисы и интеграции, участвую в автоматизации поставки ПО.</p>
       <ul class="bullet-list">
-        <li>Создаю событийные интеграции на Apache Kafka (Spring Kafka producers/consumers, партиционирование, порядок по ключу, управление offsets/rebalancing, Schema Registry, Kafka Streams/Connect) и RabbitMQ.</li><li>Реализую надёжную асинхронную обработку с transactional outbox, идемпотентными консьюмерами, retry/DLQ топиками, мониторингом consumer lag и эксплуатацией брокера.</li><li>Интегрирую бэкенд-сервисы с PostgreSQL и реляционными базами с помощью SQL, JPA и Hibernate.</li><li>Автоматизирую тестирование, сборку и контейнеризированное развёртывание в JUnit, Jenkins, GitLab CI/CD, Docker и Kubernetes.</li>
+        <li>Разрабатываю обработку сообщений и событийные интеграции для промышленной эксплуатации с Apache Kafka и Spring Kafka.</li><li>Сопровождаю асинхронную обработку сообщений в рабочих системах.</li><li>Интегрирую бэкенд-сервисы с PostgreSQL и реляционными базами с помощью SQL, JPA и Hibernate.</li><li>Автоматизирую тестирование, сборку и контейнеризированное развёртывание в JUnit, Jenkins, GitLab CI/CD, Docker и Kubernetes.</li>
       </ul>
     </article>
     <article class="recruiter-role" id="role-taxify-bolt">
@@ -221,6 +226,7 @@
       </div>
       <p class="recruiter-context">Общее резюме доступно на этом языке как веб-страница и PDF формата A4 с поиском по тексту. В списке версий также есть специализированные резюме на английском.</p>
       <p class="recruiter-context">Для разных ролей есть версии по направлениям <a href="../cv/senior-java.html" hreflang="en">бэкенд на Java</a>, <a href="../cv/distributed-systems.html" hreflang="en">распределённые системы</a> и <a href="../cv/fintech-integrations.html" hreflang="en">интеграции</a>. Вариант «<a href="../cv/full.html" hreflang="en">полное резюме</a>» включает ранние позиции и больше проектов.</p>
+
       <p id="copy-email-status" class="copy-status" aria-live="polite"></p>
     </div>
   </div>
@@ -232,6 +238,9 @@
     <div class="footer-links">
       <a href="index.html">Портфолио</a>
       <a href="cv/">Все версии резюме</a>
+      <a href="../contact/#public-cv-formats" hreflang="en">Машиночитаемое резюме (EN)</a>
+      <a href="../role-alignment/" hreflang="en">Соответствие ролям (EN)</a>
+      <a href="../articles/" hreflang="en">Инженерные статьи (EN)</a>
       <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:super.denis@gmail.com">Почта</a>
