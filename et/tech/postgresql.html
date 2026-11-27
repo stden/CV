@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PostgreSQL — Denis Stepulenok | Tehnoloogia ülevaade</title>
+  <meta name="description" content="Avatud lähtekoodiga relatsioonandmebaas taustateenuste andmete salvestamiseks ja tööprotsesside koordineerimiseks.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/et/tech/postgresql.html">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/tech/postgresql.html">
+  <link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/tech/postgresql.html">
+  <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/tech/postgresql.html">
+  <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/tech/postgresql.html">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <meta property="og:locale" content="et_EE">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PostgreSQL — Denis Stepulenok | Tehnoloogia ülevaade">
+  <meta property="og:description" content="Avatud lähtekoodiga relatsioonandmebaas taustateenuste andmete salvestamiseks ja tööprotsesside koordineerimiseks.">
+  <meta property="og:url" content="https://stden.github.io/CV/et/tech/postgresql.html">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="PostgreSQL — Denis Stepulenok | Tehnoloogia ülevaade">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PostgreSQL — Denis Stepulenok | Tehnoloogia ülevaade">
+  <meta name="twitter:description" content="Avatud lähtekoodiga relatsioonandmebaas taustateenuste andmete salvestamiseks ja tööprotsesside koordineerimiseks.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="preload" href="../../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Liigu põhisisu juurde</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav class="primary-nav" aria-label="Põhinavigatsioon">
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Ülevaade</a></li>
+        <li><a href="../experience/">Töökogemus</a></li>
+        <li><a href="../skills/">Oskused</a></li>
+        <li><a href="../projects/">Projektid</a></li>
+        <li><a href="../architecture/">Arhitektuur</a></li>
+        <li><a href="../cv/">CV versioonid</a></li>
+        <li><a href="../contact/">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Tume · Lülitu tumedale teemale"
+        data-light-label="Hele" data-dark-label="Tume"
+        data-to-light="Hele · Lülitu heledale teemale"
+        data-to-dark="Tume · Lülitu tumedale teemale">
+        <span class="theme-label">Tume</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../../assets/pdf/Denis-Stepulenok-CV-ET.pdf" download>Laadi CV alla</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menüü · Ava või sule navigeerimismenüü">
+        Menüü
+      </button>
+    </div>
+    <nav class="language-menu" aria-label="Veebilehe keel"><a href="../../tech/postgresql.html" hreflang="en" lang="en" aria-label="EN · English" data-locale="en">EN</a><a href="../../et/tech/postgresql.html" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et" aria-current="page">ET</a><a href="../../de/tech/postgresql.html" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../../ru/tech/postgresql.html" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../index.html#overview">Ülevaade</a></li>
+        <li><a href="../experience/">Töökogemus</a></li>
+        <li><a href="../skills/">Oskused</a></li>
+        <li><a href="../projects/">Projektid</a></li>
+        <li><a href="../architecture/">Arhitektuur</a></li>
+        <li><a href="../cv/">CV versioonid</a></li>
+        <li><a href="../contact/">Kontakt</a></li>
+      <li><a href="../../assets/pdf/Denis-Stepulenok-CV-ET.pdf" download>Laadi CV alla (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html#skills">&larr; Tagasi portfoolio ja oskuste juurde</a></p>
+    <div class="tech-header">
+      <img alt="PostgreSQL logo" class="tech-logo" src="../../assets/images/tech/postgresql.svg" width="48" height="48">
+      <div>
+        <h1>PostgreSQL</h1>
+      </div>
+    </div>
+    <p class="section-lead">Avatud lähtekoodiga relatsioonandmebaas taustateenuste andmete salvestamiseks ja tööprotsesside koordineerimiseks.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>Käivitus- ja arhitektuuriskeem</h2>
+    <ol class="flow-steps">
+      <li>Kliendi päring</li>
+      <li>Süntaksianalüsaator</li>
+      <li>Päringuplaanija</li>
+      <li>Täitur</li>
+      <li>Tabelite salvestus (MVCC)</li>
+    </ol>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <h2>Tehnilised võimalused</h2>
+    <ul class="bullet-list">
+      <li>Relatsioonandmeskeemid koos kitsenduste, indeksite ja MVCC tehingutega</li>
+      <li>JSON- ja massiivitüüpi veerud</li>
+      <li>SKIP LOCKED järjekorrad ja pgvectori vektorid semantiliseks otsinguks</li>
+      <li>Ligipääs Javast (JDBC/JPA), Rustist ja Pythonist</li>
+    </ul>
+    <h2>Kus olen kasutanud</h2>
+    <ul class="bullet-list">
+      <li>Ettevõtete taustateenused ja iseseisev indekseerimisprojekt</li>
+    </ul>
+    <p><a class="btn btn-secondary btn-sm" href="https://www.postgresql.org" target="_blank" rel="noopener noreferrer">Ametlik dokumentatsioon</a></p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Eesti</p>
+    <div class="footer-links">
+      <a href="../index.html">Portfoolio</a>
+      <a href="../cv/">Kõik CV versioonid</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">E-post</a>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

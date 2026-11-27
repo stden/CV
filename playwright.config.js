@@ -1,7 +1,9 @@
 const { defineConfig } = require('@playwright/test');
 const { resolveChromeExecutable } = require('./scripts/lib/browser');
 
-const origin = 'http://127.0.0.1:4174';
+const port = Number(process.env.CV_PREVIEW_PORT ?? 4174);
+if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid CV_PREVIEW_PORT');
+const origin = `http://127.0.0.1:${port}`;
 const executablePath = resolveChromeExecutable();
 
 module.exports = defineConfig({
@@ -17,8 +19,8 @@ module.exports = defineConfig({
         trace: 'retain-on-failure',
     },
     webServer: {
-        command: 'node scripts/serve-subpath.js --port 4174',
+        command: `node scripts/serve-subpath.js --port ${port}`,
         url: `${origin}/CV/`,
-        reuseExistingServer: !process.env.CI,
+        reuseExistingServer: false,
     },
 });

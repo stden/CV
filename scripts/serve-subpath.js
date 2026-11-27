@@ -1,7 +1,8 @@
 const fs = require('node:fs');
 const http = require('node:http');
 const path = require('node:path');
-const { ROOT_DIR } = require('./lib/utils');
+const { ROOT_DIR, loadCvData } = require('./lib/utils');
+const { publicFiles } = require('./lib/public-artifact');
 
 const MIME_TYPES = {
     '.html': 'text/html; charset=utf-8',
@@ -10,6 +11,7 @@ const MIME_TYPES = {
     '.json': 'application/json; charset=utf-8',
     '.svg': 'image/svg+xml',
     '.png': 'image/png',
+    '.webp': 'image/webp',
     '.jpg': 'image/jpeg',
     '.jpeg': 'image/jpeg',
     '.ico': 'image/x-icon',
@@ -19,9 +21,17 @@ const MIME_TYPES = {
     '.txt': 'text/plain; charset=utf-8',
 };
 
-function startServer(port = Number(process.env.PORT) || 4174) {
+function startServer(port = Number(process.env.PORT) || 4174, directory = process.env.CV_PUBLIC_ROOT || ROOT_DIR) {
+    const siteRoot = fs.realpathSync(directory);
+    const allowed = new Set(publicFiles(loadCvData()));
     const server = http.createServer((req, res) => {
-        const reqPath = decodeURIComponent((req.url || '/').split('?')[0]);
+        let reqPath;
+        try {
+            reqPath = decodeURIComponent((req.url || '/').split('?')[0]);
+        } catch {
+            res.writeHead(400).end();
+            return;
+        }
         if (reqPath === '/CV') {
             res.writeHead(301, { Location: '/CV/' });
             res.end();
@@ -34,20 +44,25 @@ function startServer(port = Number(process.env.PORT) || 4174) {
         }
 
         const relPath = reqPath.slice('/CV/'.length) || 'index.html';
-        const candidate = path.resolve(ROOT_DIR, relPath);
-        if (!candidate.startsWith(ROOT_DIR)) {
+        const candidate = path.resolve(siteRoot, relPath);
+        if (candidate !== siteRoot && !candidate.startsWith(siteRoot + path.sep)) {
             res.writeHead(403);
             res.end('Forbidden');
             return;
         }
 
-        let target = candidate;
-        if (fs.existsSync(target) && fs.statSync(target).isDirectory()) {
-            target = path.join(target, 'index.html');
-        }
-        if (!fs.existsSync(target) || !fs.statSync(target).isFile()) {
+        const isDirectory = fs.existsSync(candidate) && fs.statSync(candidate).isDirectory();
+        const target = isDirectory ? path.join(candidate, 'index.html') : candidate;
+        const publicPath = path.relative(siteRoot, target).split(path.sep).join('/');
+        if (!allowed.has(publicPath) || !fs.existsSync(target) || !fs.statSync(target).isFile()
+            || fs.realpathSync(target) !== path.join(siteRoot, publicPath)) {
             res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
             res.end('Not found');
+            return;
+        }
+
+        if (isDirectory && !reqPath.endsWith('/')) {
+            res.writeHead(301, { Location: `/CV/${publicPath.slice(0, -'index.html'.length)}` }).end();
             return;
         }
 

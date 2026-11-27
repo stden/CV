@@ -1,93 +1,58 @@
-# Denis Stepulenok — Engineering Portfolio & Data-Driven CV
+# Denis Stepulenok — Engineering portfolio and CV
 
-Static engineering portfolio, independent architecture showcase, technology notes, and automated ATS-friendly PDF resume generator for **Denis Stepulenok** (`Senior Software Engineer | Java, Distributed Systems & AI Engineering`).
+Senior Software Engineer — Java & Distributed Systems. The static portfolio, seven public CVs, and independent architecture examples share one factual source. [Published site](https://stden.github.io/CV/)
 
-- **Production site:** https://stden.github.io/CV/
-- **Repository:** https://github.com/stden/CV
+## Build and preview
 
-## Confidentiality & NDA Policy
+Install Node.js 20.19 or later, Chromium for Playwright, and Poppler (`poppler-utils` on Debian and Ubuntu).
 
-- Employer experience is presented strictly at a high-level competency and responsibility level—no internal project names, proprietary architectures, internal endpoints, hostnames, IP addresses, metrics, or credentials are published.
-- All architecture diagrams and case studies are strictly based on independent personal projects, public open-source libraries, or educational reference patterns, each explicitly labelled with its origin.
-- Every HTML page, SVG diagram, image (`photo.jpg`), CSS/JS asset, and generated PDF is verified automatically by `npm run check:confidentiality` (`scripts/check-confidentiality.js`).
-- To check against private employer terms without committing them publicly, place one term per line in `.confidential-denylist` (gitignored) or configure the `CONFIDENTIAL_DENYLIST` secret in GitHub Actions.
-
-## Architecture & Design Decisions
-
-1. **Zero-Framework Static Generation (`data/cv.json` -> HTML + SVG + PDF):**
-   - Single JSON source of truth (`data/cv.json`) drives `index.html`, the general CV and six targeted CV web pages (`cv/*.html`), 20 technology detail pages (`tech/*.html`), 4 independent/educational architecture SVGs (`assets/images/projects/*.svg`), `sitemap.xml`, `robots.txt`, and 7 ATS-friendly A4 PDF resumes (`assets/pdf/*.pdf`). The general Senior Software Engineer CV is the primary download.
-2. **GitHub Pages `/CV/` Subpath Compatibility:**
-   - All HTML/CSS asset and page references use strictly relative paths (`assets/...`, `../assets/...`, `tech/...`).
-   - Local preview and Playwright tests mount the site under `/CV/` on local port `4174` (`scripts/serve-subpath.js`).
-3. **Performance & Accessibility:**
-   - Self-hosted variable `Inter` font (`assets/fonts/inter-latin-wght-normal.woff2`), light/dark theme toggle, keyboard-accessible interactive SVG diagrams, and full usability without JavaScript.
-4. **ATS-Friendly Single-Column PDF Resumes:**
-   - Generated reproducibly via headless Chromium / Playwright (`scripts/build-pdfs.js`) with selectable text, clickable links, standard ATS headings, and zero skill-percentage bars.
-
-## Project Structure
-
-- `data/cv.json` — Single verified source of truth for profile, experience, case studies, GitHub repos, architecture diagrams, skills, technologies, and CV variants.
-- `scripts/build-project-diagrams.js` — Generates standalone and inline interactive SVG diagrams.
-- `scripts/build-tech-pages.js` — Generates the 20 `tech/*.html` pages.
-- `scripts/build-site.js` — Generates `index.html`, `cv/index.html`, `cv/*.html`, `sitemap.xml`, `robots.txt`, and `og-preview.svg`.
-- `scripts/build-pdfs.js` — Generates the public A4 PDFs in `assets/pdf/` and `assets/images/og-preview.png`.
-- `scripts/build-job-cv.js` — Generates private vacancy-specific HTML and PDF CVs under `applications/`.
-- `scripts/check-build.js` — Static validator checking data rules, relative paths, missing assets, SEO/JSON-LD, `pdfinfo` page counts, and `pdftotext` extraction.
-- `scripts/check-confidentiality.js` — Automated NDA, URL allowlist, secret/PII, and EXIF/SVG metadata verifier.
-- `scripts/serve-subpath.js` — Local `/CV/` subpath HTTP server for preview and testing.
-- `scripts/run-lighthouse.js` — Runs headless Lighthouse mobile and desktop audits against `/CV/`.
-- `tests/e2e.spec.js` — Playwright E2E, 6-viewport responsiveness, JS-disabled, and `@axe-core/playwright` WCAG 2.1 AA suite.
-
-## Commands
-
-```bash
-npm ci                         # Install dependencies
-npm run build                  # Build SVG diagrams, tech pages, and HTML site
-npm run build:pdfs             # Generate the public PDFs and og-preview.png
-npm run build:all              # Run build + build:pdfs
-npm run check:confidentiality  # Verify NDA, URL allowlist, secret/PII, and EXIF/SVG rules
-npm test                       # Rebuild static site, run static + PDF + confidentiality checks and unit tests
-npm run test:e2e               # Run Playwright E2E + Axe accessibility tests
-npm run audit:lighthouse       # Run Lighthouse mobile & desktop audits on /CV/
-npm run preview                # Serve locally on port 4174 under /CV/
+```sh
+npm ci
+npx playwright install chromium
+npm run verify:projects
+npm run build:all
+npm test
+npm run stage:public
+CV_PUBLIC_ROOT=_site npm run test:e2e
+CV_PUBLIC_ROOT=_site npm run preview
 ```
 
-## Updating Content & Availability
+The preview mounts the verified artifact at [http://127.0.0.1:4174/CV/](http://127.0.0.1:4174/CV/). Set `CV_PREVIEW_PORT` for browser tests if port 4174 is occupied. The optional project verification command writes a local snapshot into ignored `.build/`. Pages use that snapshot during generation and show “Not verified” for unavailable CI evidence. HTML and SVG are reproducible for a fixed data and verification snapshot. PDF layout and text are tested across builds. Chromium adds generation timestamps to PDFs.
 
-Edit `data/cv.json`, then run `npm run build:all && npm test`:
-- To show an open-to-work / relocation / work-authorisation banner in the hero section, update `profile.availability.showOpenToWork` to `true` and populate `statusText`, `relocation`, and `workAuthorisation`.
+## Portfolio pages
 
-## Build a private CV for a vacancy
+The homepage highlights experience, core skills, selected work and contact details. A dedicated contact page is also available at `/contact/`. Full employment history is in `/experience/`, the technology catalogue in `/skills/`, independent project details in `/projects/`, and engineering diagrams in `/architecture/`. All seven CV versions remain available at `/cv/`.
 
-Create a local JSON selection with the vacancy URL, a short factual summary, an existing profile slug, and relevant skill names and project IDs from `data/cv.json`. The renderer keeps the sourced timeline and reuses the existing PDF format.
+## Website languages
 
-```json
-{
-  "slug": "example-java-backend-1234",
-  "source": "https://www.linkedin.com/jobs/view/1234",
-  "profile": "senior-java",
-  "summary": "Java backend engineer with Spring Boot and asynchronous messaging experience.",
-  "skills": ["Java (6–25)", "Spring Boot", "PostgreSQL", "RabbitMQ"],
-  "projects": ["entity-concurrency-locking", "messenger-archive-search"]
-}
-```
+English uses the original paths under `/CV/`. Estonian, German and Russian live at `/CV/et/`, `/CV/de/` and `/CV/ru/`. The header links to equivalent pages and works with JavaScript disabled. An explicit choice is remembered for the next visit to the unqualified home URL. New visitors start in English regardless of their browser settings.
 
-Run `npm run cv:job -- /path/to/vacancy.json`. The PDF, self-contained HTML and selection file are written to a new local folder under `applications/`. Git ignores this directory and the Pages workflow packages the public site assets.
+Edit verified facts in `data/cv.json`. Keep the corresponding messages in `data/locales/{en,et,de,ru}.json` aligned. Entries use shared role, project, diagram and technology identifiers. The generator validates required keys and interpolation placeholders before writing pages. Month labels change by locale while the dates stay fixed. Translation of the site has no bearing on the recorded language proficiency.
 
-## Deployment
+General resumes are available as `Denis-Stepulenok-CV-EN.pdf`, `Denis-Stepulenok-CV-ET.pdf`, `Denis-Stepulenok-CV-DE.pdf` and `Denis-Stepulenok-CV-RU.pdf`. Existing English PDF URLs and specialised variants are supported. The site and PDF templates use embedded Inter subsets for Latin, Latin Extended and Cyrillic. The publication gate scans all locale routes, static diagrams and PDF downloads. Include approved spellings and language variants in your private denylist where applicable.
 
-`.github/workflows/ci-pages.yml` builds, generates PDFs, runs `npm test`, `npm run check:confidentiality`, and `npm run test:e2e`, and stages a clean `_site/` bundle on every push/PR to `main`. Built output files remain committed so existing GitHub Pages branch publishing works immediately; switching **Settings -> Pages -> Source** to **GitHub Actions** enables automated `actions/deploy-pages@v4` deployment from validated CI artifacts.
+## Edit and review factual content
 
-## Languages
+Update [`data/cv.json`](data/cv.json) and regenerated public files together. Skills distinguish primary professional experience, additional professional experience, independent engineering and familiarity. Employer sections use publishable descriptions of responsibilities. A metric or achievement requires verified evidence and explicit publication approval. Review unfamiliar facts through [`CONTENT_REVIEW.md`](CONTENT_REVIEW.md).
 
-The site is available in English (default), Estonian, German and Russian. The English pages keep their URLs; the other languages live in `/et/`, `/de/` and `/ru/`.
+Every architecture example and case study carries declared independent personal, public open-source, or independent educational provenance. Keep the profile's availability, relocation and work-authorisation fields disabled unless approved. The general Senior Software Engineer CV is the main download. The comprehensive CV and existing variant URLs remain available.
 
-- **Source of facts.** `data/cv.json` is the only source of verified facts. Dates, employers, technology names, links and contact details are never translated.
-- **Translations.** `data/locales/<code>.json` holds the human-readable text, keyed by stable identifiers: UI strings, role summaries and responsibilities by role id, skill groups and names, repository descriptions, case studies, and the variant labels.
-- **Validation.** `npm run build` stops with a list of every missing or mismatched key (for example, a responsibility added to `cv.json` without its translation). Nothing falls back silently to English.
-- **Translated pages.** Homepage, experience, projects, skills and the CV index. Architecture, the targeted CV pages and the technology pages are English only; their language switch leads to the locale homepage.
-- **Resumes.** `assets/pdf/Denis-Stepulenok-CV-<EN|ET|DE|RU>.pdf`, generated from the same data and print stylesheet as the web page. Cyrillic and Latin Extended letters use the Inter subsets in `assets/fonts/`.
-- **Language switch.** A link list in the header (and in the menu on phones). It works without JavaScript. A chosen language is remembered in `localStorage`; a later visit to another language shows a link to it, and never redirects.
-- **SEO.** Each translated page has `lang`, its own canonical URL, `hreflang` links for all four languages and `x-default` pointing to the English page. The sitemap lists the same alternates.
+## Confidentiality gate
 
-To add a language: add its entry to `LOCALES` in `scripts/lib/i18n.js`, add `data/locales/<code>.json` with every key, then `npm run build`. The validator lists anything still missing.
+`npm run stage:public` copies the explicit manifest to an isolated directory, checks its actual files and links, and replaces `_site/` after validation. The manifest includes public HTML, CSS, JavaScript, diagrams, fonts, images, sitemaps and all public PDF versions. The scanner checks provenance, file paths, text, image metadata, and PDF text, metadata, embedded links and active content. Diagnostics report category codes and counts.
+
+Keep private terms one per line in `.private/confidential-denylist.txt`. An alternate local file can be selected with `CONFIDENTIAL_DENYLIST_FILE` or `--denylist`. Trusted main-branch workflow runs can use the `CONFIDENTIAL_DENYLIST` secret. Keep the list out of repository files and public artifacts. To recheck an existing staged bundle, run `npm run check:confidentiality -- --artifact-root _site`.
+
+Automated checks complement the publication review. Review the meaning of every employer reference, the evidence for public claims and the exact staged output before approving publication.
+
+## Prepare a private application
+
+Run `npm run cv:job -- ./vacancies/example.json` with a local JSON, Markdown, text file or a permitted public HTTPS vacancy URL. Structured JSON can record the employer, title, source, description, required and preferred technologies, competencies, location, languages, employment type, deadlines and salary information supplied by the posting. The [fictional fixture](tests/fixtures/vacancy-example.json) shows the format.
+
+The command compares the posting with verified evidence, reorders relevant experience and writes seven files in a new ignored `applications/` folder. These include `resume.pdf`, `resume.html`, the cover letter, normalized vacancy, match report, interview preparation and recruiter questions. Linked job descriptions are treated as data. Use a saved local description if retrieval is unavailable. Review the cover letter and items marked for confirmation before sending an application.
+
+## Release approval
+
+**Pages currently uses branch publishing.** GitHub can serve files from `main` independently of the workflow, so keep publication changes in the PR until the source can be migrated with the owner's approval. The workflow does not change repository settings. [GitHub Pages publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
+With Pages set to **GitHub Actions**, a maintainer reviews the exact staged content and runs **Validate and approve public portfolio** on `main` with its full commit SHA in `approved_commit`. CI stages the committed generated site and PDFs from that SHA and validates the exact bundle used by the deploy job. PR validation also rebuilds from source and checks its output. The deploy job uses the `github-pages` environment. Configure required environment reviewers where available. A normal push or PR runs validation. [Deployment environments](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments)

@@ -5,13 +5,13 @@ const AxeBuilder = require('@axe-core/playwright').default;
 
 const HOME = '/CV/';
 const CANONICAL = 'https://stden.github.io/CV/';
-const SCREENSHOT_DIR = path.resolve(__dirname, '..', 'docs', 'screenshots');
+const SCREENSHOT_DIR = path.resolve(__dirname, '..', 'test-results', 'screenshots');
 const VIEWPORTS = [375, 390, 768, 1024, 1440, 1920];
-const SECTIONS = ['overview', 'experience', 'projects', 'skills', 'architecture', 'education', 'contact'];
-const HOME_SECTIONS = ['overview', 'experience', 'skills', 'projects', 'contact'];
-const GENERAL_PDF = 'Denis-Stepulenok-Senior-Software-Engineer.pdf';
-// The Download CV buttons offer the resume in the language of the page.
-const CV_EN_PDF = 'Denis-Stepulenok-CV-EN.pdf';
+const SECTIONS = ['overview', 'experience', 'skills', 'projects', 'contact'];
+const DETAIL_ROUTES = ['experience', 'skills', 'projects', 'architecture'];
+const COMPATIBLE_ANCHORS = ['architecture', 'education', 'expertise-heading', 'arch-tab-ref-event-driven-outbox'];
+const GENERAL_PDF = 'Denis-Stepulenok-CV-EN.pdf';
+const LEGACY_GENERAL_PDF = 'Denis-Stepulenok-Senior-Software-Engineer.pdf';
 const VARIANTS = [
     { slug: 'general', pdf: GENERAL_PDF },
     { slug: 'senior-java', pdf: 'Denis-Stepulenok-Senior-Java-Engineer.pdf' },
@@ -56,17 +56,13 @@ for (const width of VIEWPORTS) {
 
         await expect(page.getByRole('heading', { level: 1 })).toHaveText('Denis Stepulenok');
         const overview = page.locator('#overview');
-        await expect(overview).toContainText('Senior Software Engineer | Java, Distributed Systems & AI Engineering');
+        await expect(overview).toContainText('Senior Software Engineer — Java & Distributed Systems');
         await expect(overview).toContainText('Tallinn, Estonia');
-        await expect(overview).toContainText('Kuehne+Nagel');
-        await expect(overview).toContainText('Oracle');
-        await expect(overview).toContainText('Bolt');
         const download = overview.getByRole('link', { name: /Download CV/i });
         await expect(download).toBeVisible();
-        await expect(download).toHaveAttribute('href', `assets/pdf/${CV_EN_PDF}`);
-        await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `assets/pdf/${CV_EN_PDF}`);
-        await expect(page.locator('#contact').getByRole('link', { name: 'Download CV (PDF)', exact: true }))
-            .toHaveAttribute('href', `assets/pdf/${CV_EN_PDF}`);
+        await expect(download).toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
+        await expect(page.locator('#contact a[download]'))
+            .toHaveAttribute('href', `assets/pdf/${GENERAL_PDF}`);
 
         await page.evaluate(async () => {
             await document.fonts.ready;
@@ -101,29 +97,19 @@ for (const width of VIEWPORTS) {
     });
 }
 
-test('navigation, mobile menu, earlier roles disclosure, skills filter, theme switcher, and contact actions work', async ({ page, baseURL, request }) => {
+test('homepage navigation, mobile menu, theme switcher, and contact actions work', async ({ page, baseURL, request }) => {
     const issues = attachIssueTracker(page, baseURL);
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(HOME);
 
-    for (const id of HOME_SECTIONS) {
+    for (const id of [...SECTIONS, ...COMPATIBLE_ANCHORS]) {
         await expect(page.locator(`#${id}`)).toBeAttached();
     }
-
-    // Earlier experience expandable <details> lives on the experience page
-    await page.goto(`${HOME}experience/index.html`);
-    const firstCompact = page.locator('details.compact-role').first();
-    await firstCompact.locator('summary').click();
-    await expect(firstCompact).toHaveAttribute('open', '');
-
-    // Skill tier filter lives on the skills page; no percentage bars anywhere
-    await page.goto(`${HOME}skills/index.html`);
-    await expect(page.locator('.level-bar-inner')).toHaveCount(0);
-    const personalFilter = page.getByRole('button', { name: 'Personal', exact: true });
-    await personalFilter.click();
-    await expect(personalFilter).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('.skill-items li[data-tier="core"]:not([hidden])')).toHaveCount(0);
-    await page.getByRole('button', { name: 'All', exact: true }).click();
+    await page.locator('nav').getByRole('link', { name: 'Experience', exact: true }).click();
+    await expect(page).toHaveURL(/#experience$/);
+    await page.locator('#experience').getByRole('link', { name: /Full employment timeline/ }).click();
+    await expect(page).toHaveURL(/\/CV\/experience\/$/);
+    await page.goto(HOME);
 
     // Theme switching + persistence + dark screenshot
     const themeBtn = page.locator('#theme-toggle');
@@ -135,8 +121,9 @@ test('navigation, mobile menu, earlier roles disclosure, skills filter, theme sw
     await themeBtn.click();
     await expect(page.locator('html')).not.toHaveAttribute('data-theme', 'dark');
 
-    // Contact links on the homepage
-    await page.goto(HOME);
+    // Copy email action + contact links
+    await page.getByRole('button', { name: 'Copy Email Address' }).click();
+    await expect(page.locator('#copy-email-status')).toContainText('super.denis@gmail.com');
     await expect(page.locator('#contact a[href="mailto:super.denis@gmail.com"]')).toBeVisible();
     await expect(page.locator('#contact a[href*="linkedin.com"]')).toBeVisible();
     await expect(page.locator('#contact a[href="https://github.com/stden"]')).toBeVisible();
@@ -155,26 +142,126 @@ test('navigation, mobile menu, earlier roles disclosure, skills filter, theme sw
     const pdfRes = await request.get(pdfUrl.toString());
     expect(pdfRes.ok()).toBe(true);
     expect((await pdfRes.body()).subarray(0, 5).toString('ascii')).toBe('%PDF-');
+    const [download] = await Promise.all([
+        page.waitForEvent('download'),
+        page.locator('#overview a[download]').click(),
+    ]);
+    expect(download.suggestedFilename()).toBe(GENERAL_PDF);
+    expect(await download.failure()).toBeNull();
 
+    expect(issues).toEqual([]);
+});
+
+test('homepage stays within the recruiter content and download limits', async ({ page }) => {
+    await page.goto(HOME);
+    const sections = await page.locator('main > section').evaluateAll((items) => items.map((item) => item.id));
+    expect(sections).toEqual(SECTIONS);
+
+    const content = await page.locator('main').innerText();
+    const words = content.match(/[\p{L}\p{N}]+(?:[’'-][\p{L}\p{N}]+)*/gu);
+    expect(words.length).toBeGreaterThanOrEqual(650);
+    expect(words.length).toBeLessThanOrEqual(800);
+
+    const roles = page.locator('#experience article');
+    await expect(roles).toHaveCount(3);
+    for (const employer of ['Kuehne+Nagel', 'Bolt', 'Oracle']) {
+        await expect(roles.filter({ hasText: employer })).toHaveCount(1);
+    }
+    const skills = await page.locator('#skills .recruiter-skill-list > li').count();
+    expect(skills).toBeGreaterThanOrEqual(12);
+    expect(skills).toBeLessThanOrEqual(15);
+    await expect(page.locator('#projects article')).toHaveCount(4);
+    await expect(page.locator('main img[src$=".svg"]')).toHaveCount(0);
+    const pdfs = await page.locator('a[href$=".pdf"]').evaluateAll((items) => items.map((item) => item.getAttribute('href')));
+    expect([...new Set(pdfs)]).toEqual([`assets/pdf/${GENERAL_PDF}`]);
+    await expect(page.locator('#overview a.btn-primary[download]')).toHaveCount(1);
+    await expect(page.locator('#overview')).toContainText('Spring Boot');
+    await expect(page.locator('#overview')).toContainText('PostgreSQL');
+    await expect(page.locator('#overview a[href*="linkedin.com"]')).toBeVisible();
+    await expect(page.locator('#overview a[href="https://github.com/stden"]')).toBeVisible();
+});
+
+test('earlier roles, evidence tiers, and engineering disclosures remain usable', async ({ page }) => {
+    await page.goto(`${HOME}experience/`);
+    const firstCompact = page.locator('details.compact-role').first();
+    await firstCompact.locator('summary').click();
+    await expect(firstCompact).toHaveAttribute('open', '');
+
+    await page.goto(`${HOME}skills/`);
+    await expect(page.locator('.level-bar-inner')).toHaveCount(0);
+    const personalFilter = page.getByRole('button', { name: 'Independent', exact: true });
+    await personalFilter.click();
+    await expect(personalFilter).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.skill-items li[data-tier="core"]:not([hidden])')).toHaveCount(0);
+    const familiarity = page.getByRole('button', { name: 'Familiarity', exact: true });
+    await familiarity.click();
+    await expect(familiarity).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.skill-items li[data-tier="familiarity"]:not([hidden])').filter({ hasText: 'Apache Kafka' })).toBeVisible();
+    await page.getByRole('button', { name: 'All', exact: true }).click();
+
+    await page.goto(`${HOME}projects/`);
+    const caseDetails = page.locator('#case-entity-concurrency-locking details');
+    await expect(caseDetails).not.toHaveAttribute('open', '');
+    await caseDetails.getByText('Engineering details').click();
+    await expect(caseDetails).toHaveAttribute('open', '');
+    await expect(caseDetails).toContainText('Registry retirement needs additional stress testing');
+});
+
+test('detail pages and project images load on mobile under /CV/', async ({ page, baseURL, request }) => {
+    const issues = attachIssueTracker(page, baseURL);
+    await page.setViewportSize({ width: 390, height: 844 });
+    for (const route of DETAIL_ROUTES) {
+        const redirect = await request.get(`${HOME}${route}`, { maxRedirects: 0 });
+        expect(redirect.status()).toBe(301);
+        expect(redirect.headers().location).toBe(`${HOME}${route}/`);
+        const response = await page.goto(`${HOME}${route}/`);
+        expect(response?.ok(), route).toBe(true);
+        await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
+        await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${CANONICAL}${route}/`);
+        const graph = JSON.parse(await page.locator('head script[type="application/ld+json"]').textContent())['@graph'];
+        expect(graph.map((entry) => entry['@type'])).toEqual(expect.arrayContaining(['CollectionPage', 'BreadcrumbList']));
+        const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
+        expect(overflow, route).toBe(false);
+        if (route === 'projects') {
+            const previews = page.locator('img[src$="-preview.webp"]');
+            await expect(previews).toHaveCount(2);
+            for (const preview of await previews.all()) {
+                await preview.scrollIntoViewIfNeeded();
+                await expect.poll(() => preview.evaluate((image) => image.naturalWidth)).toBe(640);
+                const asset = await request.get(new URL(await preview.getAttribute('src'), page.url()).href);
+                expect(asset.headers()['content-type']).toBe('image/webp');
+            }
+        }
+    }
     expect(issues).toEqual([]);
 });
 
 test('interactive architecture tabs and component inspector update cleanly', async ({ page, baseURL }) => {
     const issues = attachIssueTracker(page, baseURL);
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto(HOME);
+    await page.goto(`${HOME}architecture/#arch-panel-ref-event-driven-outbox`);
 
-    await page.goto(`${HOME}architecture/index.html`);
     const archSection = page.locator('#architecture');
     await archSection.scrollIntoViewIfNeeded();
 
     const secondTab = page.getByRole('tab', { name: 'Outbox & Idempotent Events' });
+    await expect(secondTab).toHaveAttribute('aria-selected', 'true');
+    await expect(secondTab).toHaveAttribute('tabindex', '0');
+    await secondTab.focus();
+    await page.keyboard.press('Home');
+    const firstTab = page.getByRole('tab').first();
+    await expect(firstTab).toBeFocused();
+    await expect(firstTab).toHaveAttribute('aria-selected', 'true');
+    await page.keyboard.press('ArrowRight');
+    const nextTab = page.getByRole('tab').nth(1);
+    await expect(nextTab).toBeFocused();
+    await expect(nextTab).toHaveAttribute('aria-selected', 'true');
     await secondTab.click();
     await expect(secondTab).toHaveAttribute('aria-selected', 'true');
 
     const activePanel = page.locator('#arch-panel-ref-event-driven-outbox');
     await expect(activePanel).toBeVisible();
-    await expect(activePanel).toContainText('Independent educational reference architecture');
+    await expect(activePanel).toContainText('Independent educational example');
     const secondNodeBtn = activePanel.locator('.arch-component-btn[data-node-id="db-outbox"]');
     await secondNodeBtn.click();
     await expect(activePanel.locator('[data-field="title"]')).toHaveText('Relational DB + Outbox Table');
@@ -191,7 +278,11 @@ test('all seven CV variants, PDFs, and 20 technology pages load under /CV/', asy
     const cvIndexRes = await page.goto(`${HOME}cv/index.html`);
     expect(cvIndexRes?.ok()).toBe(true);
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('CV Versions');
-    await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `../assets/pdf/${CV_EN_PDF}`);
+    await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `../assets/pdf/${GENERAL_PDF}`);
+
+    const legacyPdf = await request.get(`${HOME}assets/pdf/${LEGACY_GENERAL_PDF}`);
+    expect(legacyPdf.ok()).toBe(true);
+    expect((await legacyPdf.body()).subarray(0, 5).toString('ascii')).toBe('%PDF-');
 
     for (const variant of VARIANTS) {
         const res = await page.goto(`${HOME}cv/${variant.slug}.html`);
@@ -219,6 +310,13 @@ test('all seven CV variants, PDFs, and 20 technology pages load under /CV/', asy
     expect(issues).toEqual([]);
 });
 
+test('public preview refuses private application and repository sources', async ({ request }) => {
+    for (const candidate of ['applications/example/resume.pdf', '.private/confidential-denylist.txt', 'data/cv.json', 'scripts/build-job-cv.js']) {
+        const response = await request.get(`/CV/${candidate}`);
+        expect(response.status()).toBe(404);
+    }
+});
+
 test('SEO metadata, JSON-LD, sitemap, and robots.txt are valid', async ({ page, request }) => {
     await page.goto(HOME);
     await expect(page).toHaveTitle(/Denis Stepulenok/);
@@ -235,7 +333,11 @@ test('SEO metadata, JSON-LD, sitemap, and robots.txt are valid', async ({ page, 
 
     const sitemap = await request.get(`${HOME}sitemap.xml`);
     expect(sitemap.ok()).toBe(true);
-    expect(await sitemap.text()).toContain(`${CANONICAL}cv/wise.html`);
+    const sitemapContent = await sitemap.text();
+    expect(sitemapContent).toContain(`${CANONICAL}cv/wise.html`);
+    for (const route of DETAIL_ROUTES) {
+        expect(sitemapContent).toContain(`<loc>${CANONICAL}${route}/</loc>`);
+    }
 });
 
 test('content and downloads remain usable with JavaScript disabled', async ({ browser, baseURL }) => {
@@ -246,10 +348,15 @@ test('content and downloads remain usable with JavaScript disabled', async ({ br
         await expect(page.getByRole('heading', { level: 1 })).toHaveText('Denis Stepulenok');
         await expect(page.locator('#experience')).toContainText('Kuehne+Nagel');
         await expect(page.locator('#overview a[download]')).toBeVisible();
-        await page.goto(`${HOME}experience/index.html`);
+        await page.goto(`${HOME}experience/`);
         const details = page.locator('details.compact-role').first();
         await details.locator('summary').click();
         await expect(details).toHaveAttribute('open', '');
+        await page.goto(`${HOME}architecture/`);
+        await page.getByText('Open static diagrams', { exact: true }).click();
+        const staticDiagrams = page.locator('#static-diagrams a[href$=".svg"]');
+        await expect(staticDiagrams).toHaveCount(4);
+        await expect(staticDiagrams.first()).toBeVisible();
     } finally {
         await context.close();
     }
@@ -262,9 +369,12 @@ for (const theme of ['light', 'dark']) {
             await page.locator('#theme-toggle').click();
             await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
         }
-        const results = await new AxeBuilder({ page })
-            .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-            .analyze();
-        expect(results.violations).toEqual([]);
+        for (const route of ['', ...DETAIL_ROUTES.map((name) => name + '/')]) {
+            if (route) await page.goto(HOME + route);
+            const results = await new AxeBuilder({ page })
+                .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+                .analyze();
+            expect(results.violations, route || 'homepage').toEqual([]);
+        }
     });
 }

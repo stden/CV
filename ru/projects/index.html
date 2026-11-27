@@ -3,29 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Проекты | Denis Stepulenok</title>
-  <meta name="description" content="Кейсы и открытые репозитории. Только самостоятельные работы; системы работодателей не описываются.">
+  <title>Независимые инженерные проекты — Denis Stepulenok</title>
+  <meta name="description" content="Разборы и публичные репозитории по многопоточности Java, семантическому поиску и настольной разработке на Rust.">
   <meta name="author" content="Denis Stepulenok">
   <link rel="canonical" href="https://stden.github.io/CV/ru/projects/">
   <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/projects/">
   <link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/projects/">
   <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/projects/">
   <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/projects/">
-  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/projects/">
-  <meta property="og:type" content="website">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:title" content="Проекты | Denis Stepulenok">
-  <meta property="og:description" content="Кейсы и открытые репозитории. Только самостоятельные работы; системы работодателей не описываются.">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="et_EE">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Независимые инженерные проекты — Denis Stepulenok">
+  <meta property="og:description" content="Разборы и публичные репозитории по многопоточности Java, семантическому поиску и настольной разработке на Rust.">
   <meta property="og:url" content="https://stden.github.io/CV/ru/projects/">
   <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="Независимые инженерные проекты — Denis Stepulenok">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Проекты | Denis Stepulenok">
-  <meta name="twitter:description" content="Кейсы и открытые репозитории. Только самостоятельные работы; системы работодателей не описываются.">
+  <meta name="twitter:title" content="Независимые инженерные проекты — Denis Stepulenok">
+  <meta name="twitter:description" content="Разборы и публичные репозитории по многопоточности Java, семантическому поиску и настольной разработке на Rust.">
   <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
   <link rel="icon" href="../../favicon.ico">
   <link rel="preload" href="../../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/css/style.css">
   <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","inLanguage":"ru","@id":"https://stden.github.io/CV/ru/projects/#page","url":"https://stden.github.io/CV/ru/projects/","name":"Независимые инженерные проекты","description":"Разборы и публичные репозитории по многопоточности Java, семантическому поиску и настольной разработке на Rust.","author":{"@id":"https://stden.github.io/CV/#person"},"hasPart":[{"@type":"CreativeWork","url":"https://stden.github.io/CV/ru/projects/#case-messenger-archive-search","name":"Архив сообщений и семантический поиск","description":"Поиск по смыслу в текстах и расшифровках аудио из личного архива сообщений.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/ru/projects/#case-entity-concurrency-locking","name":"EntityLocker — утилита для блокировки отдельных сущностей","description":"Исследовать, как потоки Java могут координироваться по ключу сущности в одном процессе.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/ru/projects/#case-rust-desktop-tooling","name":"RustShot — захват экрана","description":"Создавать снимки экрана в разных настольных средах через единый интерфейс командной строки.","author":{"@id":"https://stden.github.io/CV/#person"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Портфолио","item":"https://stden.github.io/CV/ru/"},{"@type":"ListItem","position":2,"name":"Независимые инженерные проекты","item":"https://stden.github.io/CV/ru/projects/"}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
@@ -35,248 +40,286 @@
       <span class="brand-mark" aria-hidden="true">DS</span>
       <span>Denis Stepulenok</span>
     </a>
-    <nav aria-label="Основная навигация">
+    <nav class="primary-nav" aria-label="Основная навигация">
       <ul class="nav-links">
-        <li><a href="../experience/index.html">Опыт</a></li>
-        <li><a href="../projects/index.html">Проекты</a></li>
-        <li><a href="../skills/index.html">Навыки</a></li>
-        <li><a href="../../architecture/index.html">Архитектура</a></li>
-        <li><a href="../cv/index.html">Резюме</a></li>
-        <li><a href="../index.html#contact">Контакты</a></li>
+        <li><a href="../index.html#overview">Обзор</a></li>
+        <li><a href="../experience/">Опыт</a></li>
+        <li><a href="../skills/">Навыки</a></li>
+        <li><a href="../projects/">Проекты</a></li>
+        <li><a href="../architecture/">Архитектура</a></li>
+        <li><a href="../cv/">Версии резюме</a></li>
+        <li><a href="../contact/">Контакты</a></li>
       </ul>
     </nav>
     <div class="header-actions">
-      <nav class="lang-switcher" aria-label="Язык"><ul><li><a href="../../projects/index.html" lang="en" hreflang="en" class="lang-link" title="English"><span aria-hidden="true">EN</span><span class="visually-hidden">English</span></a></li><li><a href="../../et/projects/index.html" lang="et" hreflang="et" class="lang-link" title="Eesti"><span aria-hidden="true">ET</span><span class="visually-hidden">Eesti</span></a></li><li><a href="../../de/projects/index.html" lang="de" hreflang="de" class="lang-link" title="Deutsch"><span aria-hidden="true">DE</span><span class="visually-hidden">Deutsch</span></a></li><li><a href="index.html" lang="ru" hreflang="ru" aria-current="true" class="lang-link is-current" title="Русский"><span aria-hidden="true">RU</span><span class="visually-hidden">Русский</span></a></li></ul></nav>
-      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Включить тёмную тему" data-label-to-dark="Включить тёмную тему" data-label-to-light="Включить светлую тему" data-text-dark="Тёмная" data-text-light="Светлая">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Тёмная · Включить тёмную тему"
+        data-light-label="Светлая" data-dark-label="Тёмная"
+        data-to-light="Светлая · Включить светлую тему"
+        data-to-dark="Тёмная · Включить тёмную тему">
         <span class="theme-label">Тёмная</span>
       </button>
       <a class="btn btn-primary btn-sm header-cv-btn" href="../../assets/pdf/Denis-Stepulenok-CV-RU.pdf" download>Скачать резюме</a>
-      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Открыть или закрыть меню навигации">
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Меню · Открыть или закрыть меню">
         Меню
       </button>
     </div>
+    <nav class="language-menu" aria-label="Язык сайта"><a href="../../projects/" hreflang="en" lang="en" aria-label="EN · English" data-locale="en">EN</a><a href="../../et/projects/" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../../de/projects/" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../../ru/projects/" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru" aria-current="page">RU</a></nav>
   </div>
   <div id="mobile-drawer" class="mobile-drawer" hidden>
     <ul>
-      <li><a href="../experience/index.html">Опыт</a></li>
-      <li><a href="../projects/index.html">Проекты</a></li>
-      <li><a href="../skills/index.html">Навыки</a></li>
-      <li><a href="../../architecture/index.html">Архитектура</a></li>
-      <li><a href="../cv/index.html">Резюме</a></li>
-      <li><a href="../index.html#contact">Контакты</a></li>
+        <li><a href="../index.html#overview">Обзор</a></li>
+        <li><a href="../experience/">Опыт</a></li>
+        <li><a href="../skills/">Навыки</a></li>
+        <li><a href="../projects/">Проекты</a></li>
+        <li><a href="../architecture/">Архитектура</a></li>
+        <li><a href="../cv/">Версии резюме</a></li>
+        <li><a href="../contact/">Контакты</a></li>
       <li><a href="../../assets/pdf/Denis-Stepulenok-CV-RU.pdf" download>Скачать резюме (PDF)</a></li>
     </ul>
-    <nav class="lang-switcher" aria-label="Язык"><ul><li><a href="../../projects/index.html" lang="en" hreflang="en" class="lang-link" title="English"><span aria-hidden="true">EN</span><span class="visually-hidden">English</span></a></li><li><a href="../../et/projects/index.html" lang="et" hreflang="et" class="lang-link" title="Eesti"><span aria-hidden="true">ET</span><span class="visually-hidden">Eesti</span></a></li><li><a href="../../de/projects/index.html" lang="de" hreflang="de" class="lang-link" title="Deutsch"><span aria-hidden="true">DE</span><span class="visually-hidden">Deutsch</span></a></li><li><a href="index.html" lang="ru" hreflang="ru" aria-current="true" class="lang-link is-current" title="Русский"><span aria-hidden="true">RU</span><span class="visually-hidden">Русский</span></a></li></ul></nav>
   </div>
 </header>
-<div class="lang-hint" data-lang-hint data-template="Открыть эту страницу на языке: {language}." hidden><a href="#"></a></div>
 <main id="main-content">
-<header class="page-header">
+<section class="subpage-hero">
   <div class="container">
-    <h1 class="page-title">Проекты</h1>
-    <p class="section-lead">Кейсы и открытые репозитории. Только самостоятельные работы; системы работодателей не описываются.</p>
+    <p class="breadcrumb"><a href="../index.html">Портфолио</a> / Независимые инженерные проекты</p>
+    <h1>Независимые инженерные проекты</h1>
+    <p class="section-lead">Разборы и публичные репозитории по многопоточности Java, семантическому поиску и настольной разработке на Rust.</p>
   </div>
-</header><section id="projects" class="section section-alt" aria-labelledby="projects-heading">
+</section>
+<section id="projects" class="section section-alt" aria-labelledby="projects-heading">
   <div class="container">
     <div class="section-header">
-      <p class="section-eyebrow">Инженерные кейсы</p>
-      <h2 id="projects-heading" class="section-title">Самостоятельные проекты и открытый код</h2>
-      <p class="section-lead">Самостоятельные инженерные кейсы и подтверждённые публичные репозитории: Java, Rust, Python, распределённая конкурентность, семантический поиск и инструменты ИИ.</p>
+      <h2 id="projects-heading" class="section-title">Разборы проектов</h2>
     </div>
     <div class="case-grid">
-      <article class="case-card">
-        <span class="case-scope case-scope-personal">Самостоятельный личный проект</span>
-        <h3 class="case-title">Архив мессенджера и семантический поиск</h3>
+      <article class="case-card" id="case-messenger-archive-search">
+        <span class="case-scope case-scope-personal">Независимый личный проект</span>
+        <h3 class="case-title">Архив сообщений и семантический поиск</h3>
+        <p class="case-intro">Поиск по смыслу в текстах и расшифровках аудио из личного архива сообщений.</p>
+        <p class="provenance">Независимый личный проект. На схеме показаны программные компоненты без примеров сообщений и записей об аккаунтах.</p>
+        <details class="recruitment-disclosure">
+          <summary>Инженерные подробности</summary>
         <div class="case-columns">
           <div>
             <dl class="case-dl">
-              <div><dt>Постановка задачи</dt><dd>Длинные личные архивы переписки объединяют текстовые и голосовые сообщения в тысячах диалогов. Поиск по ключевым словам не помогает восстановить контекст и не даёт LLM-агентам структурированной истории.</dd></div>
-              <div><dt>Engineering Context</dt><dd>Самостоятельный личный инженерный проект, выполненный вне основной работы. Цель — изучить взаимодействие Rust и Python, локальное распознавание речи, векторную индексацию и инструменты Model Context Protocol (MCP).</dd></div>
-              <div><dt>Architecture</dt><dd>Сервис синхронизации на Rust загружает личную историю переписки через MTProto в PostgreSQL с отступанием при flood-wait. Рабочий процесс на Python забирает ожидающие голосовые записи через SKIP LOCKED и транскрибирует их с помощью Whisper. Индексатор на Rust пакетами вычисляет локальные эмбеддинги и записывает точки в Qdrant; LLM-агенты получают к ним доступ через MCP-сервер только для чтения (stdio и HTTP).</dd></div>
-              <div><dt>Технические сложности</dt><dd><ul class="bullet-list"><li>Ни одна распределённая транзакция не охватывает PostgreSQL, Qdrant и контрольную точку курсора синхронизации.</li><li>Соблюдение ограничений частоты запросов MTProto и корректное восстановление после прерывания посреди пакета.</li></ul></dd></div>
-              <div><dt>Проектные решения</dt><dd><ul class="bullet-list"><li>Детерминированные идентификаторы точек Qdrant (UUIDv5) вычисляются из идентичности сообщения, поэтому повторы перезаписывают данные идемпотентно и не создают дубликатов.</li><li>Контрольная точка индексации сохраняется только после успешной загрузки пакета в Qdrant.</li><li>Для параллельных рабочих процессов транскрибирования используется PostgreSQL SELECT ... FOR UPDATE SKIP LOCKED без блокировок.</li></ul></dd></div>
-              <div><dt>Надёжность</dt><dd><ul class="bullet-list"><li>Обработка «не менее одного раза» вместе с детерминированными upsert по UUIDv5 даёт идемпотентную согласованность в конечном счёте без двухфазного коммита.</li><li>Отступание при flood-wait и ограниченные повторы защищают сессии вышестоящего API.</li></ul></dd></div>
-              <div><dt>Подтверждённые результаты</dt><dd><ul class="bullet-list"><li>Личный архив можно семантически искать по тексту и по расшифровкам голосовых сообщений через стандартные MCP-клиенты.</li></ul></dd></div>
+              <div><dt>Инженерный контекст</dt><dd>Личный проект разделяет импорт сообщений, транскрибацию и индексацию. Каждый этап можно повторить отдельно.</dd></div>
+              <div><dt>Архитектура</dt><dd>Сервис на Rust загружает записи сообщений через MTProto. PostgreSQL хранит записи и задания на транскрибацию. Обработчик на Python запускает Whisper, а индексатор на Rust сохраняет векторные представления в Qdrant. Поиск доступен через MCP.</dd></div>
+              <div><dt>Технические задачи</dt><dd><ul class="bullet-list"><li>Параллельные обработчики могут столкнуться с заданиями, которые уже взял другой обработчик.</li><li>Векторное хранилище и контрольная точка индексации находятся в разных системах.</li></ul></dd></div>
+              <div><dt>Проектные решения</dt><dd><ul class="bullet-list"><li>Блокировать строки PostgreSQL с FOR UPDATE SKIP LOCKED, чтобы обработчики пропускали занятые строки.</li><li>Назначать каждой операции вставки или обновления вектора детерминированный идентификатор UUIDv5.</li><li>Продвигать контрольную точку индексации после успешной записи вектора.</li></ul></dd></div>
+              <div><dt>Надёжность</dt><dd><ul class="bullet-list"><li>При повторе вектор можно записать с тем же идентификатором. Другие побочные эффекты требуют собственной дедупликации.</li><li>Сбой между этапами может оставить задания для повторной обработки. Прогресс сохраняется после каждого завершённого этапа.</li></ul></dd></div>
+              <div><dt>Что делает проект</dt><dd><ul class="bullet-list"><li>Объединяет поиск по сообщениям и транскрипциям в интерфейсе MCP.</li></ul></dd></div>
             </dl>
             <div class="tech-group">
-              <span class="tech-group-label">Технологический стек</span>
-              <ul class="badge-list"><li><span class="badge">Rust</span></li><li><span class="badge">Python</span></li><li><span class="badge">PostgreSQL (SKIP LOCKED)</span></li><li><span class="badge">Whisper</span></li><li><span class="badge">Qdrant</span></li><li><span class="badge">MCP</span></li></ul>
+              <span class="tech-group-label">Технологии</span>
+              <ul class="badge-list"><li><span class="badge">Rust</span></li><li><span class="badge">Python</span></li><li><span class="badge">MTProto</span></li><li><span class="badge">PostgreSQL</span></li><li><span class="badge">Whisper</span></li><li><span class="badge">Qdrant</span></li><li><span class="badge">MCP</span></li></ul>
             </div>
           </div>
           <div class="case-diagram-box">
-            <img src="../../assets/images/projects/messenger-archive-search.svg" alt="Архив мессенджера и семантический поиск architecture flow diagram" loading="lazy" width="420" height="580">
-            <p class="case-diagram-caption"><a href="../../architecture/index.html">Открыть разбор компонентов &rarr;</a></p>
+            <img src="../../assets/images/projects/ru/messenger-archive-search.svg" alt="Схема архитектуры проекта Архив сообщений и семантический поиск" loading="lazy" width="420" height="580">
+            <p class="case-diagram-caption"><a href="../architecture/#arch-tab-messenger-archive-search">Найти эту схему в разделе архитектуры</a></p>
           </div>
         </div>
+        </details>
       </article>
-      <article class="case-card">
-        <span class="case-scope case-scope-personal">Java-проект с открытым исходным кодом · github.com/stden/EntityLocker</span>
-        <h3 class="case-title">EntityLocker — утилита конкурентности на уровне сущностей</h3>
+      <article class="case-card" id="case-entity-concurrency-locking">
+        <span class="case-scope case-scope-personal">Открытый Java-проект · github.com/stden/EntityLocker</span>
+        <h3 class="case-title">EntityLocker — утилита для блокировки отдельных сущностей</h3>
+        <p class="case-intro">Исследовать, как потоки Java могут координироваться по ключу сущности в одном процессе.</p>
+        <p class="provenance">Публичные исходники и тесты JUnit эксперимента с блокировками на Java, который поддерживает Denis Stepulenok. <a href="https://github.com/stden/EntityLocker">Репозиторий исходного кода</a></p>
+        <details class="recruitment-disclosure">
+          <summary>Инженерные подробности</summary>
         <div class="case-columns">
           <div>
             <dl class="case-dl">
-              <div><dt>Постановка задачи</dt><dd>Приложения, которые кэшируют или одновременно изменяют доменные сущности, часто выбирают между грубыми глобальными блокировками, ограничивающими пропускную способность, и сложными самодельными таблицами блокировок по ключу, которые склонны к утечкам и гонкам.</dd></div>
-              <div><dt>Engineering Context</dt><dd>Java-библиотека с открытым исходным кодом, демонстрирующая детальные примитивы конкурентности JVM, сопоставимые с блокировкой строк в базе данных.</dd></div>
-              <div><dt>Architecture</dt><dd>Универсальный координатор EntityLocker&lt;ID&gt; управляет взаимным исключением по идентификатору сущности и не привязан к типам данных сущностей. Поддерживает разные типы ID, реентерабельные блокировки, варианты эскалации или глобальной блокировки и ограниченную очистку неиспользуемых записей блокировок.</dd></div>
-              <div><dt>Технические сложности</dt><dd><ul class="bullet-list"><li>Предотвращение гонок между захватом блокировки, подсчётом ссылок и удалением записи из таблицы при освобождении.</li><li>Безопасная поддержка произвольных универсальных типов ID без взаимных блокировок и неограниченного роста памяти.</li></ul></dd></div>
-              <div><dt>Проектные решения</dt><dd><ul class="bullet-list"><li>Координация блокировок полностью отделена от хранения сущностей: компоненты передают только первичные ключи.</li><li>Атомарные операции параллельной карты и отслеживание ссылок безопасно освобождают неиспользуемые объекты блокировок.</li></ul></dd></div>
-              <div><dt>Надёжность</dt><dd><ul class="bullet-list"><li>Конкуренция ограничена изменяемым идентификатором и не блокирует другие сущности.</li><li>Безопасная очистка записей блокировок предотвращает утечки памяти при большом количестве ключей.</li></ul></dd></div>
-              <div><dt>Подтверждённые результаты</dt><dd><ul class="bullet-list"><li>Опубликована как самостоятельная переиспользуемая Java-утилита на GitHub (stden/EntityLocker).</li></ul></dd></div>
+              <div><dt>Инженерный контекст</dt><dd>EntityLocker — независимая Java-утилита с тестами JUnit для нескольких сценариев блокировки.</dd></div>
+              <div><dt>Архитектура</dt><dd>Потокобезопасная карта связывает идентификаторы сущностей с реентерабельными блокировками. Локальное значение потока фиксирует порядок захвата и отклоняет меньший вложенный идентификатор. При выходе из критической секции утилита пытается удалить запись из реестра.</dd></div>
+              <div><dt>Технические задачи</dt><dd><ul class="bullet-list"><li>Вложенный захват ключей может создать циклические зависимости.</li><li>Безопасное удаление ключа требует учитывать как текущих владельцев, так и ожидающие потоки.</li></ul></dd></div>
+              <div><dt>Проектные решения</dt><dd><ul class="bullet-list"><li>Использовать один упорядочиваемый тип ключей и отклонять захват в убывающем порядке в одном потоке.</li><li>Хранить реестр блокировок внутри каждого экземпляра EntityLocker.</li></ul></dd></div>
+              <div><dt>Надёжность</dt><dd><ul class="bullet-list"><li>Тесты покрывают доступ по одному ключу, повторный вход, тайм-ауты и отклонение убывающего порядка захвата.</li><li>Удаление записей из реестра требует дополнительного нагрузочного тестирования. Разные экземпляры и процессы используют разные блокировки.</li></ul></dd></div>
+              <div><dt>Что делает проект</dt><dd><ul class="bullet-list"><li>Показывает блокировку по ключу внутри JVM и необходимость отдельно проверять безопасное освобождение записей.</li></ul></dd></div>
             </dl>
             <div class="tech-group">
-              <span class="tech-group-label">Технологический стек</span>
-              <ul class="badge-list"><li><span class="badge">Java</span></li><li><span class="badge">java.util.concurrent</span></li><li><span class="badge">ConcurrentHashMap</span></li><li><span class="badge">ReentrantLock</span></li></ul>
+              <span class="tech-group-label">Технологии</span>
+              <ul class="badge-list"><li><span class="badge">Java</span></li><li><span class="badge">ConcurrentHashMap</span></li><li><span class="badge">ReentrantLock</span></li><li><span class="badge">JUnit</span></li></ul>
             </div>
           </div>
           <div class="case-diagram-box">
-            <img src="../../assets/images/projects/entity-concurrency-locking.svg" alt="EntityLocker — утилита конкурентности на уровне сущностей architecture flow diagram" loading="lazy" width="420" height="580">
-            <p class="case-diagram-caption"><a href="../../architecture/index.html">Открыть разбор компонентов &rarr;</a></p>
+            <img src="../../assets/images/projects/ru/entity-concurrency-locking.svg" alt="Схема архитектуры проекта EntityLocker — утилита для блокировки отдельных сущностей" loading="lazy" width="420" height="580">
+            <p class="case-diagram-caption"><a href="../architecture/#arch-tab-entity-concurrency-locking">Найти эту схему в разделе архитектуры</a></p>
           </div>
         </div>
+        </details>
       </article>
-      <article class="case-card">
-        <span class="case-scope case-scope-personal">Проекты на Rust с открытым исходным кодом · github.com/stden</span>
-        <h3 class="case-title">FunnyFileManager и RustShot — системы и инструменты для рабочего стола</h3>
+      <article class="case-card" id="case-rust-desktop-tooling">
+        <span class="case-scope case-scope-personal">Независимый публичный репозиторий</span>
+        <h3 class="case-title">RustShot — захват экрана</h3>
+        <p class="case-intro">Создавать снимки экрана в разных настольных средах через единый интерфейс командной строки.</p>
+        <p class="provenance">Публичное руководство по захвату экрана и исходный код RustShot, которые поддерживает Denis Stepulenok. <a href="https://github.com/stden/RustShot">Репозиторий исходного кода</a></p>
+        <details class="recruitment-disclosure">
+          <summary>Инженерные подробности</summary>
         <div class="case-columns">
           <div>
             <dl class="case-dl">
-              <div><dt>Постановка задачи</dt><dd>Создание отзывчивых кроссплатформенных инструментов разработчика: управляемый с клавиатуры двухпанельный файловый менеджер для терминала и быстрый инструмент для захвата и записи экрана, с тщательным тестированием и автоматизированными выпусками.</dd></div>
-              <div><dt>Engineering Context</dt><dd>Самостоятельные проекты на Rust с открытым исходным кодом, демонстрирующие нативную производительность, отзывчивость интерфейса, приёмочное BDD-тестирование и автоматизацию выпусков в GitHub Actions.</dd></div>
-              <div><dt>Architecture</dt><dd>FunnyFileManager (ffm) реализует неблокирующий двухпанельный TUI на ratatui с асинхронными операциями над файловой системой. RustShot захватывает кадры экрана и кодирует видео H.264 MP4 средствами самого приложения. Оба проекта проверяются наборами Gherkin BDD и автоматизированными рабочими процессами CI и выпусков.</dd></div>
-              <div><dt>Технические сложности</dt><dd><ul class="bullet-list"><li>Сохранение отзывчивости терминального интерфейса и конвейеров захвата при медленной файловой системе или экране высокого разрешения.</li><li>Детерминированная проверка сценариев работы с рабочим столом и терминалом в CI.</li></ul></dd></div>
-              <div><dt>Проектные решения</dt><dd><ul class="bullet-list"><li>Циклы событий интерфейса отделены от блокирующего ввода-вывода и конвейеров кодирования.</li><li>Наборы поведенческих тестов Gherkin работают наряду с постоянными сборками и конвейерами выпусков в GitHub Actions.</li></ul></dd></div>
-              <div><dt>Надёжность</dt><dd><ul class="bullet-list"><li>Автоматизированные рабочие процессы CI и выпусков проверяют сборки и регрессионные тесты при каждом push.</li></ul></dd></div>
-              <div><dt>Подтверждённые результаты</dt><dd><ul class="bullet-list"><li>Публично поддерживаемые репозитории с успешным статусом CI и выпусков на GitHub.</li></ul></dd></div>
+              <div><dt>Инженерный контекст</dt><dd>RustShot — независимая утилита на Rust для Windows, Linux и macOS.</dd></div>
+              <div><dt>Архитектура</dt><dd>Платформенные адаптеры получают изображение и передают его в выбранное место вывода. На Linux под Wayland можно использовать системный портал. На Windows также доступна запись экрана.</dd></div>
+              <div><dt>Технические задачи</dt><dd><ul class="bullet-list"><li>Операционные системы предоставляют разные возможности захвата.</li><li>Работа системного портала зависит от сессии рабочего стола и разрешений пользователя.</li></ul></dd></div>
+              <div><dt>Проектные решения</dt><dd><ul class="bullet-list"><li>Документировать поддержку снимков, выделения области и записи отдельно для каждой платформы.</li><li>Разделить захват изображения и обработку результата.</li></ul></dd></div>
+              <div><dt>Надёжность</dt><dd><ul class="bullet-list"><li>Тесты репозитория покрывают вспомогательные функции захвата и обработку результата. Проверки в реальной настольной среде зависят от платформы.</li></ul></dd></div>
+              <div><dt>Что делает проект</dt><dd><ul class="bullet-list"><li>Создаёт снимки экрана на трёх настольных платформах и документирует различия между ними.</li></ul></dd></div>
             </dl>
             <div class="tech-group">
-              <span class="tech-group-label">Технологический стек</span>
-              <ul class="badge-list"><li><span class="badge">Rust</span></li><li><span class="badge">ratatui</span></li><li><span class="badge">H.264 / Media</span></li><li><span class="badge">Gherkin BDD</span></li><li><span class="badge">GitHub Actions</span></li></ul>
+              <span class="tech-group-label">Технологии</span>
+              <ul class="badge-list"><li><span class="badge">Rust</span></li><li><span class="badge">Desktop capture APIs</span></li><li><span class="badge">Image processing</span></li></ul>
             </div>
           </div>
-          
+
         </div>
+        </details>
       </article>
     </div>
-    <h3 class="repo-section-title">Избранные публичные репозитории GitHub</h3>
-    <p class="repo-section-lead">Verified public repositories from <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">github.com/stden</a> highlighting Rust, Java concurrency, JPA, quality automation, and MCP/AI tooling.</p>
+    <h3 class="repo-section-title">Избранные репозитории GitHub</h3>
     <div class="repo-grid">
-      <article class="repo-card">
+      <article class="repo-card" id="repo-pythorust_tg">
         <div>
+
           <div class="repo-top">
             <h4 class="repo-name"><a href="https://github.com/stden/pythorust_tg" target="_blank" rel="noopener noreferrer">pythorust_tg</a></h4>
             <span class="repo-lang">Rust</span>
           </div>
-          <p class="repo-desc">Набор инструментов для автоматизации Telegram, ориентированный на Rust: экспорт чатов, ИИ-автоответчик, индексация LightRAG и вспомогательные инструменты (HTTP-бенчмарк, мониторинг k8s и сайтов), а также модули на Python для MCP и анализа.</p>
+          <p class="repo-desc">Набор инструментов автоматизации Telegram для экспорта, индексации и анализа.</p>
         </div>
         <div>
           <div class="repo-meta">
-            <span>Stack: Rust · Python · Gherkin</span>
-            <span>CI: CI/CD passing</span>
-            <span>Updated: 2026-11-23</span>
+            <span>Концепции: Инструменты командной строки, Интеграция Rust и Python, Конвейеры поиска данных</span>
+            <span>CI: <a href="https://github.com/stden/pythorust_tg/actions/runs/44781298887">Проверки прошли</a></span>
+            <span>Активность репозитория: 2026-11-23</span>
+            <span>Проверено: 2026-11-27</span>
           </div>
           <div class="repo-links">
-            <a href="https://github.com/stden/pythorust_tg" target="_blank" rel="noopener noreferrer">Repository</a>
-            <a href="https://github.com/stden/pythorust_tg/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/pythorust_tg" target="_blank" rel="noopener noreferrer">Репозиторий</a>
+            <a href="https://github.com/stden/pythorust_tg/blob/main/docs/testing.md" target="_blank" rel="noopener noreferrer">Документация</a>
+            <a href="https://github.com/stden/pythorust_tg/tree/main/tests">Тесты</a>
           </div>
         </div>
       </article>
-      <article class="repo-card">
+      <article class="repo-card" id="repo-FunnyFileManager">
         <div>
+          <figure class="project-preview">
+        <img src="../../assets/images/projects/funny-file-manager-preview.webp" alt="В терминальном редакторе FunnyFileManager показана подсказка языкового сервера к демонстрационной функции на Rust" width="640" height="360" loading="lazy" decoding="async">
+        <figcaption>Встроенный редактор с подсказкой языкового сервера. <a href="https://github.com/stden/FunnyFileManager/blob/bc3d7a5bcf2f6cfbac23d8f612afc719b68c839a/docs/images/editor-lsp.png">Источник</a></figcaption>
+      </figure>
           <div class="repo-top">
             <h4 class="repo-name"><a href="https://github.com/stden/FunnyFileManager" target="_blank" rel="noopener noreferrer">FunnyFileManager</a></h4>
             <span class="repo-lang">Rust</span>
           </div>
-          <p class="repo-desc">Быстрый двухпанельный файловый менеджер для терминала (ffm) на Rust, построенный на ratatui, вдохновлённый Far Manager и Norton Commander, с BDD-тестами.</p>
+          <p class="repo-desc">Терминальный файловый менеджер с двумя панелями, управлением с клавиатуры и операциями с файлами.</p>
         </div>
         <div>
           <div class="repo-meta">
-            <span>Stack: Rust · TypeScript · Gherkin</span>
-            <span>CI: CI passing</span>
-            <span>Updated: 2026-11-26</span>
+            <span>Концепции: Терминальный интерфейс, Операции с файловой системой, Навигация с клавиатуры</span>
+            <span>CI: <a href="https://github.com/stden/FunnyFileManager/actions/runs/45808977368">Проверки прошли</a></span>
+            <span>Активность репозитория: 2026-11-26</span>
+            <span>Проверено: 2026-11-27</span>
           </div>
           <div class="repo-links">
-            <a href="https://github.com/stden/FunnyFileManager" target="_blank" rel="noopener noreferrer">Repository</a>
-            <a href="https://github.com/stden/FunnyFileManager/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/FunnyFileManager" target="_blank" rel="noopener noreferrer">Репозиторий</a>
+            <a href="https://github.com/stden/FunnyFileManager/blob/main/README.md" target="_blank" rel="noopener noreferrer">Документация</a>
+            <a href="https://github.com/stden/FunnyFileManager/tree/main/tests">Тесты</a>
           </div>
         </div>
       </article>
-      <article class="repo-card">
+      <article class="repo-card" id="repo-RustShot">
         <div>
+          <figure class="project-preview">
+        <img src="../../assets/images/projects/rustshot-preview.webp" alt="Иллюстрация области экрана, отмеченной угловыми направляющими" width="640" height="360" loading="lazy" decoding="async">
+        <figcaption>Иллюстрация захвата области экрана. <a href="https://github.com/stden/RustShot/blob/577763ae4e251caf291a232ec03e3b9760952f17/docs/capture-guide.md">Источник</a></figcaption>
+      </figure>
           <div class="repo-top">
             <h4 class="repo-name"><a href="https://github.com/stden/RustShot" target="_blank" rel="noopener noreferrer">RustShot</a></h4>
             <span class="repo-lang">Rust</span>
           </div>
-          <p class="repo-desc">Быстрая утилита для снимков экрана и записи видео с экрана в формате H.264 MP4.</p>
+          <p class="repo-desc">Настольная утилита для снимков экрана на Windows, Linux и macOS с записью экрана на Windows.</p>
         </div>
         <div>
           <div class="repo-meta">
-            <span>Stack: Rust · Gherkin · Python</span>
-            <span>CI: Release passing</span>
-            <span>Updated: 2026-11-26</span>
+            <span>Концепции: Адаптеры платформ, Вывод изображений, Порталы рабочего стола</span>
+            <span>CI: <a href="https://github.com/stden/RustShot/actions/runs/45880377478">Проверки прошли</a></span>
+            <span>Активность репозитория: 2026-11-26</span>
+            <span>Проверено: 2026-11-27</span>
           </div>
           <div class="repo-links">
-            <a href="https://github.com/stden/RustShot" target="_blank" rel="noopener noreferrer">Repository</a>
-            <a href="https://github.com/stden/RustShot/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/RustShot" target="_blank" rel="noopener noreferrer">Репозиторий</a>
+            <a href="https://github.com/stden/RustShot/blob/main/docs/capture-guide.md" target="_blank" rel="noopener noreferrer">Документация</a>
+            <a href="https://github.com/stden/RustShot/tree/main/tests">Тесты</a>
           </div>
         </div>
       </article>
-      <article class="repo-card">
+      <article class="repo-card" id="repo-SonarQubeChecker">
         <div>
+
           <div class="repo-top">
             <h4 class="repo-name"><a href="https://github.com/stden/SonarQubeChecker" target="_blank" rel="noopener noreferrer">SonarQubeChecker</a></h4>
             <span class="repo-lang">Python</span>
           </div>
-          <p class="repo-desc">Автоматизированная проверка ворот качества: запрашивает метрики SonarCloud и SonarQube по ошибкам, code smells и статусу ворот качества.</p>
+          <p class="repo-desc">Утилита командной строки считывает результаты анализа SonarQube или SonarCloud и формирует отчёты в Markdown.</p>
         </div>
         <div>
           <div class="repo-meta">
-            <span>Stack: Python · Rust · Gherkin</span>
-            <span>CI: test passing</span>
-            <span>Updated: 2026-11-20</span>
+            <span>Концепции: Клиенты API, Генерация отчётов, Интернационализация</span>
+            <span>CI: <a href="https://github.com/stden/SonarQubeChecker/actions/runs/44781449306">Проверки прошли</a></span>
+            <span>Активность репозитория: 2026-11-20</span>
+            <span>Проверено: 2026-11-27</span>
           </div>
           <div class="repo-links">
-            <a href="https://github.com/stden/SonarQubeChecker" target="_blank" rel="noopener noreferrer">Repository</a>
-            <a href="https://github.com/stden/SonarQubeChecker/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/SonarQubeChecker" target="_blank" rel="noopener noreferrer">Репозиторий</a>
+            <a href="https://github.com/stden/SonarQubeChecker/blob/main/README.md" target="_blank" rel="noopener noreferrer">Документация</a>
+            <a href="https://github.com/stden/SonarQubeChecker/tree/main/tests">Тесты</a>
           </div>
         </div>
       </article>
-      <article class="repo-card">
+      <article class="repo-card" id="repo-EntityLocker">
         <div>
+
           <div class="repo-top">
             <h4 class="repo-name"><a href="https://github.com/stden/EntityLocker" target="_blank" rel="noopener noreferrer">EntityLocker</a></h4>
             <span class="repo-lang">Java</span>
           </div>
-          <p class="repo-desc">Переиспользуемая Java-утилита конкурентности, которая обеспечивает детальную синхронизацию по ключу-идентификатору сущности, аналогично блокировке строк в базе данных.</p>
+          <p class="repo-desc">Утилита на Java для изучения блокировок по ключу внутри JVM и порядка вложенного захвата.</p>
         </div>
         <div>
           <div class="repo-meta">
-            <span>Stack: Java</span>
-            <span>CI: No CI workflow</span>
-            <span>Updated: 2026-11-13</span>
+            <span>Концепции: Реентерабельные блокировки, Упорядочивание ключей, JUnit</span>
+            <span>CI: Не проверено</span>
+            <span>Активность репозитория: 2026-11-13</span>
+            <span>Проверено: 2026-11-27</span>
           </div>
           <div class="repo-links">
-            <a href="https://github.com/stden/EntityLocker" target="_blank" rel="noopener noreferrer">Repository</a>
-            <a href="https://github.com/stden/EntityLocker/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/EntityLocker" target="_blank" rel="noopener noreferrer">Репозиторий</a>
+            <a href="https://github.com/stden/EntityLocker/blob/main/README.md" target="_blank" rel="noopener noreferrer">Документация</a>
+            <a href="https://github.com/stden/EntityLocker/blob/main/src/test/java/EntityLockerTest.java">Тесты</a>
           </div>
         </div>
       </article>
-      <article class="repo-card">
+      <article class="repo-card" id="repo-JPA2">
         <div>
+
           <div class="repo-top">
             <h4 class="repo-name"><a href="https://github.com/stden/JPA2" target="_blank" rel="noopener noreferrer">JPA2</a></h4>
             <span class="repo-lang">Java</span>
           </div>
-          <p class="repo-desc">Эксперименты и интеграционные тесты со Spring Framework 6, Hibernate 6 и Jakarta Persistence 3.2, собранные с Maven и H2.</p>
+          <p class="repo-desc">Учебные примеры JPA и Hibernate с тестами сохранения данных.</p>
         </div>
         <div>
           <div class="repo-meta">
-            <span>Stack: Java</span>
-            <span>CI: Java CI with Maven passing</span>
-            <span>Updated: 2026-11-13</span>
+            <span>Концепции: Объектно-реляционное отображение, Связи между сущностями, Тестирование слоя хранения</span>
+            <span>CI: <a href="https://github.com/stden/JPA2/actions/runs/43380363549">Проверки прошли</a></span>
+            <span>Активность репозитория: 2026-11-13</span>
+            <span>Проверено: 2026-11-27</span>
           </div>
           <div class="repo-links">
-            <a href="https://github.com/stden/JPA2" target="_blank" rel="noopener noreferrer">Repository</a>
-            <a href="https://github.com/stden/JPA2/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/stden/JPA2" target="_blank" rel="noopener noreferrer">Репозиторий</a>
+            <a href="https://github.com/stden/JPA2/blob/main/README.md" target="_blank" rel="noopener noreferrer">Документация</a>
+            <a href="https://github.com/stden/JPA2/tree/main/src/test/java/JPA2/tests">Тесты</a>
           </div>
         </div>
       </article>
@@ -286,13 +329,13 @@
 </main>
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>&copy; 2026 Denis Stepulenok &middot; Таллинн, Эстония</p>
+    <p>&copy; 2026 Denis Stepulenok &middot; Таллин, Эстония</p>
     <div class="footer-links">
       <a href="../index.html">Портфолио</a>
-      <a href="../cv/index.html">Версии резюме</a>
+      <a href="../cv/">Все версии резюме</a>
       <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:super.denis@gmail.com">Эл. почта</a>
+      <a href="mailto:super.denis@gmail.com">Почта</a>
     </div>
   </div>
 </footer>

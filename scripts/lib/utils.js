@@ -1,5 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { sanitizeSnapshot } = require('./project-verification');
+const { publicFiles } = require('./public-artifact');
 
 const ROOT_DIR = path.resolve(__dirname, '..', '..');
 
@@ -25,6 +27,15 @@ function loadCvData() {
     const data = JSON.parse(raw);
     if (!data?.profile?.name || !Array.isArray(data.experience) || !Array.isArray(data.variants)) {
         throw new Error('Invalid data/cv.json structure');
+    }
+    publicFiles(data);
+    const snapshotPath = path.join(ROOT_DIR, '.build', 'github-project-verification.json');
+    if (fs.existsSync(snapshotPath)) {
+        try {
+            data.githubProjectVerification = sanitizeSnapshot(JSON.parse(fs.readFileSync(snapshotPath, 'utf8')), data.githubProjects);
+        } catch {
+            // An unavailable or malformed snapshot leaves statuses unverified.
+        }
     }
     return data;
 }

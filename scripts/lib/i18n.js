@@ -1,247 +1,143 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { ROOT_DIR } = require('./utils');
 
-// Supported locales. English is the canonical language of data/cv.json; the other
-// locales only overlay human-readable text, keyed by stable identifiers.
-const LOCALES = [
-    { code: 'en', htmlLang: 'en', dir: '', label: 'EN', name: 'English' },
-    { code: 'et', htmlLang: 'et', dir: 'et/', label: 'ET', name: 'Eesti' },
-    { code: 'de', htmlLang: 'de', dir: 'de/', label: 'DE', name: 'Deutsch' },
-    { code: 'ru', htmlLang: 'ru', dir: 'ru/', label: 'RU', name: 'Русский' },
-];
-
-const LOCALE_DIR = path.join(ROOT_DIR, 'data', 'locales');
-const EN_UI_KEYS_FILE = path.join(LOCALE_DIR, 'en.json');
-
-let current = null;
-
-function readLocaleFile(code) {
-    return JSON.parse(fs.readFileSync(path.join(LOCALE_DIR, `${code}.json`), 'utf8'));
-}
-
-function localeInfo(code) {
-    const info = LOCALES.find((locale) => locale.code === code);
-    if (!info) throw new Error(`Unknown locale: ${code}`);
-    return info;
-}
-
-// The UI strings of the locale being built. Missing keys are a build error, never a silent English fallback.
-function setLocale(code) {
-    localeInfo(code);
-    current = { code, ...readLocaleFile(code) };
-    current.ui = current.ui || {};
-    return current;
-}
-
-function ui(key, values = {}) {
-    if (!current) throw new Error('ui() called before setLocale()');
-    const template = current.ui[key];
-    if (typeof template !== 'string') throw new Error(`Missing UI string "${key}" for locale ${current.code}`);
-    return template.replace(/\{(\w+)\}/g, (match, name) => {
-        if (!(name in values)) throw new Error(`UI string "${key}" needs the value "${name}"`);
-        return values[name];
-    });
-}
-
-function duplicates(values) {
-    const seen = new Set();
-    const repeated = [];
-    for (const value of values) {
-        if (seen.has(value)) repeated.push(value);
-        seen.add(value);
-    }
-    return repeated;
-}
-
-// Every key a translation must provide. Returns a list of problems; an empty list means complete.
-function validateLocales(data) {
-    const problems = [];
-    const englishUi = Object.keys(JSON.parse(fs.readFileSync(EN_UI_KEYS_FILE, 'utf8')).ui);
-    const needNames = new Set([
-        ...data.skills.flatMap((group) => group.items.map((item) => item.name)),
-        ...data.profile.coreSkillGroups.flatMap((group) => group.items),
-    ]);
-
-    for (const locale of LOCALES.filter((item) => item.code !== 'en')) {
-        const file = readLocaleFile(locale.code);
-        const where = (text) => problems.push(`${locale.code}: ${text}`);
-        for (const key of englishUi) {
-            if (typeof file.ui?.[key] !== 'string' || !file.ui[key].trim()) where(`missing UI string "${key}"`);
-        }
-        if (!file.meta?.title?.trim() || !file.meta?.description?.trim()) where('missing meta.title or meta.description');
-        const profile = file.profile || {};
-        for (const key of ['title', 'location', 'photoAlt', 'summary', 'homeIntro']) {
-            if (typeof profile[key] !== 'string' || !profile[key].trim()) where(`missing profile.${key}`);
-        }
-        for (const role of data.experience.concat(data.earlierExperience ?? [])) {
-            const overlay = file.experience?.[role.id];
-            if (!overlay) {
-                where(`missing experience overlay for ${role.id}`);
-                continue;
-            }
-            if (!overlay.role || !overlay.location || !overlay.summary) where(`incomplete experience ${role.id}`);
-            if (role.companyNote && !overlay.companyNote) where(`missing companyNote for ${role.id}`);
-            if (!Array.isArray(overlay.responsibilities) || overlay.responsibilities.length !== role.responsibilities.length) {
-                where(`responsibilities of ${role.id} must match the canonical count (${role.responsibilities.length})`);
-            }
-            if (role.homeSummary && !overlay.homeSummary?.trim()) where(`missing homeSummary for ${role.id}`);
-            if (role.homeBullets && (!Array.isArray(overlay.homeBullets) || overlay.homeBullets.length !== role.homeBullets.length)) {
-                where(`homeBullets of ${role.id} must match the canonical count`);
-            }
-        }
-        for (const group of data.skills) {
-            const overlay = file.skillGroups?.[group.id];
-            if (!overlay || !overlay.title || !overlay.description) where(`missing skill group ${group.id}`);
-        }
-        for (const group of data.profile.coreSkillGroups) {
-            const overlay = file.coreSkillGroups?.[group.id];
-            if (!overlay || !overlay.title || !overlay.description) where(`missing core skill group ${group.id}`);
-        }
-        for (const name of needNames) {
-            if (typeof file.skillNames?.[name] !== 'string') where(`missing skill name "${name}"`);
-        }
-        for (const repo of data.githubProjects) {
-            const overlay = file.githubProjects?.[repo.name];
-            if (!overlay || !overlay.description) where(`missing description for ${repo.name}`);
-            if (repo.featured && (!overlay || !overlay.homeSummary)) where(`missing homeSummary for ${repo.name}`);
-        }
-        for (const study of data.caseStudies) {
-            const overlay = file.caseStudies?.[study.id];
-            if (!overlay) {
-                where(`missing case study ${study.id}`);
-                continue;
-            }
-            for (const field of ['title', 'scope', 'problem', 'context', 'architecture']) {
-                if (typeof overlay[field] !== 'string' || !overlay[field].trim()) where(`missing ${field} for ${study.id}`);
-            }
-            for (const field of ['challenges', 'decisions', 'reliability', 'results']) {
-                if (!Array.isArray(overlay[field]) || overlay[field].length !== study[field].length) {
-                    where(`${field} of ${study.id} must match the canonical count (${study[field].length})`);
-                }
-            }
-        }
-        if (!Array.isArray(file.education) || file.education.length !== data.education.length) where('education count differs');
-        else file.education.forEach((item, i) => { if (!item.degree?.trim() || !item.institution?.trim()) where(`incomplete education ${i}`); });
-        if (!Array.isArray(file.languages) || file.languages.length !== data.languages.length) where('languages count differs');
-        else file.languages.forEach((item, i) => { if (!item.name?.trim() || !item.level?.trim()) where(`incomplete language ${i}`); });
-        if (!Array.isArray(file.interests) || file.interests.length !== data.interests.length) where('interests count differs');
-        else file.interests.forEach((item, i) => { if (!String(item).trim()) where(`empty interest ${i}`); });
-        for (const variant of data.variants) {
-            const overlay = file.variants?.[variant.slug];
-            if (!overlay || !overlay.shortLabel || !overlay.targetAudience) where(`missing variant ${variant.slug}`);
-            if (variant.slug === 'general' && !overlay?.roleTitle) where('missing roleTitle of general');
-            if (variant.slug === 'general' && (!Array.isArray(overlay?.focusHighlights) || overlay.focusHighlights.length !== variant.focusHighlights.length)) {
-                where('focusHighlights of general must match the canonical count');
-            }
-        }
-    }
-    return problems;
-}
-
-// Returns a copy of the canonical data with the locale's text in place. Structure, dates,
-// employers, technology names, links and contact details are never overlaid.
-function localizeData(data, code) {
-    if (code === 'en') return data;
-    const file = readLocaleFile(code);
-    const copy = structuredClone(data);
-    copy.site = { ...copy.site, title: file.meta.title, description: file.meta.description };
-    Object.assign(copy.profile, {
-        title: file.profile.title,
-        location: file.profile.location,
-        photoAlt: file.profile.photoAlt,
-        summary: file.profile.summary,
-        homeIntro: file.profile.homeIntro,
-    });
-    for (const role of copy.experience.concat(copy.earlierExperience ?? [])) {
-        const overlay = file.experience[role.id];
-        Object.assign(role, {
-            role: overlay.role,
-            location: overlay.location,
-            summary: overlay.summary,
-            responsibilities: overlay.responsibilities,
-        });
-        if (role.companyNote) role.companyNote = overlay.companyNote;
-        if (role.homeBullets) role.homeBullets = overlay.homeBullets;
-        if (overlay.homeSummary) role.homeSummary = overlay.homeSummary;
-    }
-    for (const group of copy.skills) Object.assign(group, file.skillGroups[group.id]);
-    for (const group of copy.profile.coreSkillGroups) {
-        Object.assign(group, file.coreSkillGroups[group.id]);
-        group.items = group.items.map((name) => file.skillNames[name]);
-    }
-    for (const group of copy.skills) {
-        for (const item of group.items) item.name = file.skillNames[item.name];
-    }
-    for (const repo of copy.githubProjects) {
-        const overlay = file.githubProjects[repo.name];
-        repo.description = overlay.description;
-        if (overlay.homeSummary) repo.homeSummary = overlay.homeSummary;
-    }
-    for (const study of copy.caseStudies) {
-        Object.assign(study, file.caseStudies[study.id]);
-    }
-    copy.education = copy.education.map((item, index) => ({ ...item, ...file.education[index] }));
-    copy.languages = copy.languages.map((item, index) => ({ ...item, ...file.languages[index] }));
-    copy.interests = file.interests;
-    for (const variant of copy.variants) {
-        const overlay = file.variants[variant.slug];
-        variant.shortLabel = overlay.shortLabel;
-        variant.targetAudience = overlay.targetAudience;
-        if (overlay.summary) variant.summary = overlay.summary;
-        if (overlay.focusHighlights) variant.focusHighlights = overlay.focusHighlights;
-        if (overlay.roleTitle) variant.roleTitle = overlay.roleTitle;
-        if (Array.isArray(variant.skillNames)) variant.skillNames = variant.skillNames.map((name) => file.skillNames[name]);
-        if (variant.slug === 'general') variant.pdfFilename = cvPdfName(code);
-    }
-    return copy;
-}
-
-module.exports = { LOCALES, localeInfo, setLocale, ui, validateLocales, localizeData };
-
-// Pages that exist in every locale. Everything else (architecture, variant CVs, technology
-// pages) is English only; its language switch goes to the locale's homepage.
-const TRANSLATED_PAGE_KEYS = ['home', 'experience', 'projects', 'skills', 'cv-index'];
-
-const PAGE_FILES = {
-    home: 'index.html',
-    experience: 'experience/index.html',
-    projects: 'projects/index.html',
-    skills: 'skills/index.html',
-    'cv-index': 'cv/index.html',
-    architecture: 'architecture/index.html',
+const LOCALES = {
+    en: { nativeName: 'English', label: 'EN', og: 'en_GB' },
+    et: { nativeName: 'Eesti', label: 'ET', og: 'et_EE' },
+    de: { nativeName: 'Deutsch', label: 'DE', og: 'de_DE' },
+    ru: { nativeName: 'Русский', label: 'RU', og: 'ru_RU' },
 };
+const localeDirectory = path.resolve(__dirname, '../../data/locales');
+const localeCodes = Object.keys(LOCALES);
+const skillLabels = new Map([
+    ['jvm & concurrency', 'jvm'],
+    ['distributed systems', 'distributed'],
+    ['enterprise integration', 'integration'],
+    ['microservices', 'microservices'],
+    ['software design & algorithms', 'design'],
+    ['vector databases', 'vector'],
+    ['rag / embeddings / semantic search', 'retrieval'],
+    ['local llms / ollama', 'localModels'],
+    ['large language models (claude, gpt, gemini)', 'largeModels'],
+    ['ai-assisted development (claude code, codex, copilot, gemini)', 'assisted'],
+    ['test-driven development (tdd)', 'tdd'],
+    ['integration & e2e testing', 'integrationTesting'],
+    ['continuous integration', 'ci'],
+]);
 
-// Output path of a page for a locale, relative to the site root.
-function pageOutputPath(code, pageKey) {
-    if (PAGE_FILES[pageKey] === undefined) return pageKey;
-    if (!TRANSLATED_PAGE_KEYS.includes(pageKey)) return PAGE_FILES[pageKey];
-    return localeInfo(code).dir + PAGE_FILES[pageKey];
+function localizedSkillName(data, name) {
+    const key = skillLabels.get(name.toLowerCase());
+    return key && data.locale !== 'en' && data.t ? data.t(`ui.skills.${key}`) : name;
 }
 
-function isTranslatedPage(pageKey) {
-    return TRANSLATED_PAGE_KEYS.includes(pageKey);
+function walkContent(data, visit) {
+    const fields = (prefix, object, names) => {
+        for (const name of names) {
+            const value = object[name];
+            const key = `${prefix}.${name}`;
+            if (Array.isArray(value)) {
+                value.forEach((text, index) => visit(`${key}.${index + 1}`, value, index, text));
+            } else if (typeof value === 'string' && value) {
+                visit(key, object, name, value);
+            }
+        }
+    };
+    fields('site', data.site, ['title', 'description']);
+    fields('profile', data.profile, ['title', 'summary', 'photoAlt', 'location']);
+    data.expertise.forEach((item) => fields(`expertise.${item.id}`, item, ['title', 'description']));
+    data.experience.forEach((item) => fields(`experience.${item.id}`, item,
+        ['role', 'companyNote', 'location', 'summary', 'responsibilities']));
+    data.caseStudies.forEach((item) => {
+        const key = `case.${item.id}`;
+        fields(key, item, ['title', 'scope', 'problem', 'context', 'architecture', 'challenges', 'decisions', 'reliability', 'results']);
+        fields(`${key}.provenance`, item.provenance, ['summary']);
+    });
+    data.githubProjects.forEach((item) => fields(`repo.${item.name}`, item,
+        ['description', 'previewAlt', 'previewCaption', 'topics']));
+    data.architectureDiagrams.forEach((item) => {
+        const key = `diagram.${item.slug}`;
+        fields(key, item, ['label', 'title', 'tabTitle', 'originLabel', 'summary']);
+        fields(`${key}.provenance`, item.provenance, ['summary']);
+        item.nodes.forEach((node) => fields(`${key}.node.${node.id}`, node,
+            ['title', 'detail', 'responsibility', 'concepts', 'tradeoffs']));
+    });
+    data.engineeringConcepts.forEach((item, index) => fields(`concept.${index + 1}`, item, ['name', 'description']));
+    data.skills.forEach((item) => fields(`skillGroup.${item.id}`, item, ['title', 'description']));
+    data.education.forEach((item, index) => fields(`education.${index + 1}`, item, ['degree', 'institution']));
+    data.languages.forEach((item) => fields(`language.${item.name.toLowerCase()}`, item, ['name', 'level']));
+    fields('profile', data, ['interests']);
+    data.technologies.forEach((item) => fields(`technology.${item.slug}`, item, ['summary', 'flow', 'capabilities', 'usedIn']));
+    const general = data.variants.find(({ slug }) => slug === 'general');
+    fields('cv.general', general, ['roleTitle', 'shortLabel', 'summary', 'focusHighlights']);
 }
 
-// Where the language switch of a page leads for a given locale.
-function switchTarget(code, pageKey) {
-    if (code === 'en' || isTranslatedPage(pageKey)) return pageOutputPath(code, pageKey);
-    return pageOutputPath(code, 'home');
+function canonicalMessages(data) {
+    const messages = {};
+    walkContent(data, (key, _, __, text) => { messages[key] = text; });
+    return messages;
 }
 
-function currentLocaleCode() {
-    if (!current) throw new Error('currentLocaleCode() called before setLocale()');
-    return current.code;
+function readLocale(code) {
+    return JSON.parse(fs.readFileSync(path.join(localeDirectory, `${code}.json`), 'utf8'));
 }
 
-// The PDF resume offered by the Download CV buttons on each locale.
-function cvPdfName(code) {
+function placeholders(message) {
+    return [...message.matchAll(/\{([A-Za-z][A-Za-z0-9]*)\}/g)].map(([, name]) => name).sort().join(',');
+}
+
+function validateLocales(data, dictionaries) {
+    const canonical = canonicalMessages(data);
+    const english = dictionaries.en;
+    const keys = new Set(Object.keys(english));
+    for (const [key, value] of Object.entries(canonical)) {
+        if (english[key] !== value) throw new Error(`LOCALE_SOURCE_MISMATCH en ${key}`);
+    }
+    for (const code of localeCodes) {
+        const dictionary = dictionaries[code];
+        for (const key of keys) {
+            if (typeof dictionary?.[key] !== 'string' || !dictionary[key].trim()) throw new Error(`LOCALE_MISSING ${code} ${key}`);
+            if (placeholders(dictionary[key]) !== placeholders(english[key])) {
+                throw new Error(`LOCALE_PLACEHOLDERS ${code} ${key}`);
+            }
+        }
+        for (const key of Object.keys(dictionary)) {
+            if (!keys.has(key) || (!key.startsWith('ui.') && !Object.hasOwn(canonical, key))) {
+                throw new Error(`LOCALE_UNKNOWN ${code}`);
+            }
+        }
+    }
+}
+
+function loadLocales(data) {
+    const dictionaries = Object.fromEntries(localeCodes.map((code) => [code, readLocale(code)]));
+    validateLocales(data, dictionaries);
+    return dictionaries;
+}
+
+function localize(data, code, dictionary) {
+    const localized = structuredClone(data);
+    const t = (key, vars = {}) => {
+        const value = dictionary[key];
+        if (typeof value !== 'string' || !value.trim()) throw new Error(`LOCALE_MISSING ${code} ${key}`);
+        return value.replace(/\{([A-Za-z][A-Za-z0-9]*)\}/g, (literal, name) => String(vars[name] ?? literal));
+    };
+    walkContent(localized, (key, object, name) => { object[name] = t(key); });
+    const formatPeriod = (period) => period.replace(
+        /\b(January|February|March|April|May|June|July|August|September|October|November|December|Present)\b/g,
+        (month) => t(`ui.month.${month}`),
+    );
+    for (const entry of [...localized.experience, ...localized.education]) entry.period = formatPeriod(entry.period);
+    return Object.assign(localized, { locale: code, t });
+}
+
+function localizedPath(code, contentPath = '') {
+    return code === 'en' ? contentPath : `${code}/${contentPath}`;
+}
+
+function localizedPdfName(code) {
     return `Denis-Stepulenok-CV-${code.toUpperCase()}.pdf`;
 }
 
-module.exports.TRANSLATED_PAGE_KEYS = TRANSLATED_PAGE_KEYS;
-module.exports.pageOutputPath = pageOutputPath;
-module.exports.isTranslatedPage = isTranslatedPage;
-module.exports.switchTarget = switchTarget;
-module.exports.currentLocaleCode = currentLocaleCode;
-module.exports.cvPdfName = cvPdfName;
+module.exports = {
+    LOCALES, localeCodes, canonicalMessages, validateLocales, loadLocales, localize, localizedPath, localizedPdfName, localizedSkillName,
+};

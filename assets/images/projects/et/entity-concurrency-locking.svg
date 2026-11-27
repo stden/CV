@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="et" viewBox="0 0 420 464" width="420" height="464" role="img">
+  <title>Olemite lukustamine JVM-i piires (Iseseisev avalik repositoorium)</title>
+  <desc>Võtmepõhine lukustamine JVM-i piires: lukuregister, luku võtmine, toimingu käivitamine ja registrikirje eemaldamise katse.</desc>
+  <defs>
+    <marker id="arrow-entity-concurrency-locking" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="#0f766e"/>
+    </marker>
+  </defs>
+  <style>
+    .box { fill: #f8fafc; stroke: #0f766e; stroke-width: 1.75; }
+    .title { fill: #0f172a; font: 700 14.5px Inter, system-ui, -apple-system, sans-serif; }
+    .detail { fill: #475569; font: 400 12.5px Inter, system-ui, -apple-system, sans-serif; }
+    .link { stroke: #0f766e; stroke-width: 1.75; marker-end: url(#arrow-entity-concurrency-locking); }
+  </style>
+  <rect class="box" x="20" y="20" width="380" height="64" rx="8"/>
+  <text class="title" x="38" y="47">1. Samaaegselt kutsuvad lõimed</text>
+  <text class="detail" x="38" y="68">Ühe JVM-i lõimed annavad olemi võtme</text>
+  <line class="link" x1="210" y1="84" x2="210" y2="108"/>
+  <rect class="box" x="20" y="110" width="380" height="64" rx="8"/>
+  <text class="title" x="38" y="137">2. Lõimekindel lukuregister</text>
+  <text class="detail" x="38" y="158">Otsib lukku tunnuse järgi</text>
+  <line class="link" x1="210" y1="174" x2="210" y2="198"/>
+  <rect class="box" x="20" y="200" width="380" height="64" rx="8"/>
+  <text class="title" x="38" y="227">3. Taassisenemist lubav lukk tunnuse kohta</text>
+  <text class="detail" x="38" y="248">Lukk valikulise ajalõpuga</text>
+  <line class="link" x1="210" y1="264" x2="210" y2="288"/>
+  <rect class="box" x="20" y="290" width="380" height="64" rx="8"/>
+  <text class="title" x="38" y="317">4. Kaitstud kriitiline sektsioon</text>
+  <text class="detail" x="38" y="338">Käivitab toimingu ja vabastab luku</text>
+  <line class="link" x1="210" y1="354" x2="210" y2="378"/>
+  <rect class="box" x="20" y="380" width="380" height="64" rx="8"/>
+  <text class="title" x="38" y="407">5. Registrikirjete eemaldamine</text>
+  <text class="detail" x="38" y="428">Proovib eemaldada kasutamata registrikirjed</text>
+</svg>

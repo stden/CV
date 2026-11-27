@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architekturportfolio — Denis Stepulenok</title>
+  <meta name="description" content="Interaktive Diagramme für eigenständige Entwicklungsprojekte und Lehrbeispiele.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/de/architecture/">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/architecture/">
+  <link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/architecture/">
+  <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/architecture/">
+  <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/architecture/">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="et_EE">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Architekturportfolio — Denis Stepulenok">
+  <meta property="og:description" content="Interaktive Diagramme für eigenständige Entwicklungsprojekte und Lehrbeispiele.">
+  <meta property="og:url" content="https://stden.github.io/CV/de/architecture/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="Architekturportfolio — Denis Stepulenok">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Architekturportfolio — Denis Stepulenok">
+  <meta name="twitter:description" content="Interaktive Diagramme für eigenständige Entwicklungsprojekte und Lehrbeispiele.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="preload" href="../../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","inLanguage":"de","@id":"https://stden.github.io/CV/de/architecture/#page","url":"https://stden.github.io/CV/de/architecture/","name":"Architekturportfolio","description":"Interaktive Diagramme für eigenständige Entwicklungsprojekte und Lehrbeispiele.","author":{"@id":"https://stden.github.io/CV/#person"},"hasPart":[{"@type":"CreativeWork","url":"https://stden.github.io/CV/de/architecture/#arch-tab-messenger-archive-search","name":"Semantische Suche und MCP-Integration","description":"Persönliches Archiv mit getrennten Schritten für Import, Transkription und Vektorindexierung. Ein erneuter Versuch kann den Upsert unter derselben Vektor-ID wiederholen.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/de/architecture/#arch-tab-entity-concurrency-locking","name":"Entitätssperren innerhalb einer JVM","description":"EntityLocker untersucht schlüsselbasierte Sperren zwischen Java-Threads in einem Prozess. Der Code ordnet verschachtelte Sperranfragen und versucht, nicht mehr benötigte Registry-Einträge zu entfernen.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/de/architecture/#arch-tab-ref-event-driven-outbox","name":"Transaktionale Outbox und idempotenter Ereignis-Consumer","description":"Das Referenzbeispiel speichert ein Ereignis zusammen mit Anwendungsdaten und leitet es an einen Broker weiter. Ereignisse können mehrfach veröffentlicht werden. Consumer müssen Duplikate daher gezielt behandeln.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/de/architecture/#arch-tab-ref-async-job-pipeline","name":"Ausfallsichere asynchrone Auftragswarteschlange mit Backpressure","description":"Referenz zur Auftragsannahme, Begrenzung gleichzeitiger Worker und Veröffentlichung abgeschlossener Ergebnisse.","author":{"@id":"https://stden.github.io/CV/#person"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfolio","item":"https://stden.github.io/CV/de/"},{"@type":"ListItem","position":2,"name":"Architekturportfolio","item":"https://stden.github.io/CV/de/architecture/"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav class="primary-nav" aria-label="Hauptnavigation">
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Übersicht</a></li>
+        <li><a href="../experience/">Berufserfahrung</a></li>
+        <li><a href="../skills/">Kenntnisse</a></li>
+        <li><a href="../projects/">Projekte</a></li>
+        <li><a href="../architecture/">Architektur</a></li>
+        <li><a href="../cv/">Lebensläufe</a></li>
+        <li><a href="../contact/">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Dunkel · Zum dunklen Design wechseln"
+        data-light-label="Hell" data-dark-label="Dunkel"
+        data-to-light="Hell · Zum hellen Design wechseln"
+        data-to-dark="Dunkel · Zum dunklen Design wechseln">
+        <span class="theme-label">Dunkel</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../../assets/pdf/Denis-Stepulenok-CV-DE.pdf" download>Lebenslauf herunterladen</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menü · Navigationsmenü ein- oder ausblenden">
+        Menü
+      </button>
+    </div>
+    <nav class="language-menu" aria-label="Sprache der Website"><a href="../../architecture/" hreflang="en" lang="en" aria-label="EN · English" data-locale="en">EN</a><a href="../../et/architecture/" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../../de/architecture/" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de" aria-current="page">DE</a><a href="../../ru/architecture/" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../index.html#overview">Übersicht</a></li>
+        <li><a href="../experience/">Berufserfahrung</a></li>
+        <li><a href="../skills/">Kenntnisse</a></li>
+        <li><a href="../projects/">Projekte</a></li>
+        <li><a href="../architecture/">Architektur</a></li>
+        <li><a href="../cv/">Lebensläufe</a></li>
+        <li><a href="../contact/">Kontakt</a></li>
+      <li><a href="../../assets/pdf/Denis-Stepulenok-CV-DE.pdf" download>Lebenslauf als PDF herunterladen</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">Portfolio</a> / Architekturportfolio</p>
+    <h1>Architekturportfolio</h1>
+    <p class="section-lead">Interaktive Diagramme für eigenständige Entwicklungsprojekte und Lehrbeispiele.</p>
+  </div>
+</section>
+<section id="architecture" class="section" aria-labelledby="architecture-heading">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Systementwurf</p>
+      <h2 id="architecture-heading" class="section-title">Interaktive Diagramme</h2>
+    </div>
+    <details class="recruitment-disclosure" id="static-diagrams">
+      <summary>Statische Diagramme öffnen</summary>
+      <ul class="bullet-list">
+        <li><a href="../../assets/images/projects/de/messenger-archive-search.svg">Semantische Suche und MCP-Integration</a></li>
+        <li><a href="../../assets/images/projects/de/entity-concurrency-locking.svg">Entitätssperren innerhalb einer JVM</a></li>
+        <li><a href="../../assets/images/projects/de/ref-event-driven-outbox.svg">Transaktionale Outbox und idempotenter Ereignis-Consumer</a></li>
+        <li><a href="../../assets/images/projects/de/ref-async-job-pipeline.svg">Ausfallsichere asynchrone Auftragswarteschlange mit Backpressure</a></li>
+      </ul>
+    </details>
+    <div class="arch-tabs" role="tablist" aria-label="Architekturdiagramme">
+      <button type="button" class="arch-tab" role="tab" aria-selected="true" tabindex="0" aria-controls="arch-panel-messenger-archive-search" id="arch-tab-messenger-archive-search" data-arch-tab="messenger-archive-search">Semantische Suche und MCP</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="arch-panel-entity-concurrency-locking" id="arch-tab-entity-concurrency-locking" data-arch-tab="entity-concurrency-locking">Nebenläufige Entitätssperren</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="arch-panel-ref-event-driven-outbox" id="arch-tab-ref-event-driven-outbox" data-arch-tab="ref-event-driven-outbox">Outbox und idempotente Ereignisse</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="arch-panel-ref-async-job-pipeline" id="arch-tab-ref-async-job-pipeline" data-arch-tab="ref-async-job-pipeline">Asynchrone Aufträge und Backpressure</button>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-messenger-archive-search" aria-labelledby="arch-tab-messenger-archive-search" data-arch-panel="messenger-archive-search">
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 644" role="group" aria-label="Persönliches Archiv mit Nachrichtenimport, Auftragsübernahme per Zeilensperre, Transkription, Vektorindex und MCP-Suche.">
+  <defs>
+    <marker id="inline-arrow-messenger-archive-search" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="mtproto">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Messenger-API (MTProto)</text>
+    <text class="node-detail" x="38" y="68">Quelle für Nachrichten und Sprachaufnahmen</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="rust-sync">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Synchronisierungsdienst (Rust)</text>
+    <text class="node-detail" x="38" y="158">Wartezeiten bei Limits und erneute Versuche</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="postgres-queue">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227" textLength="340" lengthAdjust="spacingAndGlyphs">3. PostgreSQL-Speicher und Auftragswarteschlange</text>
+    <text class="node-detail" x="38" y="248">Verfügbare Zeilen per Zeilensperre übernehmen</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="whisper-worker">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Transkriptions-Worker (Python)</text>
+    <text class="node-detail" x="38" y="338">Übernommene Audiodaten transkribieren</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="rust-indexer">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Batch-Indexer (Rust)</text>
+    <text class="node-detail" x="38" y="428">Vektoren vor dem Fortschrittsmarker schreiben</text>
+  </g>
+  <line x1="210" y1="444" x2="210" y2="468" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="qdrant">
+    <rect x="20" y="470" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="497">6. Vektorspeicher (Qdrant)</text>
+    <text class="node-detail" x="38" y="518">Deterministische UUIDv5 je Vektor</text>
+  </g>
+  <line x1="210" y1="534" x2="210" y2="558" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="mcp-server">
+    <rect x="20" y="560" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="587">7. MCP-Server (stdio / HTTP)</text>
+    <text class="node-detail" x="38" y="608">Agentenschnittstelle mit Lesezugriff</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Eigenständiges persönliches Projekt</span>
+            <h3>Semantische Suche und MCP-Integration</h3>
+            <p class="section-lead">Persönliches Archiv mit getrennten Schritten für Import, Transkription und Vektorindexierung. Ein erneuter Versuch kann den Upsert unter derselben Vektor-ID wiederholen.</p>
+            <p class="provenance">Eigenständiges persönliches Projekt. Das Diagramm zeigt Softwarekomponenten. Es enthält keine Beispielnachrichten oder Kontodaten.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Ausgewählte Komponente</p>
+            <h4 class="card-title" data-field="title">Messenger-API (MTProto)</h4>
+            <p class="card-body" data-field="responsibility">Liefert neue Nachrichten und Sprachanhänge seit dem letzten Abruf. Die Anfragelimits der Messenger-API gelten für beide.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Technische Konzepte</p>
+            <p class="card-body" data-field="concepts">Fehlerbehandlung</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Abwägung beim Entwurf</p>
+            <p class="card-body" data-field="tradeoffs">Bei API-Anfragelimits verhindert ein dauerhaft gespeicherter Cursor die aufwendige erneute Vollsynchronisierung.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Komponenten per Klick oder Eingabetaste auswählen</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="mtproto" data-node-json="{&quot;title&quot;:&quot;Messenger-API (MTProto)&quot;,&quot;responsibility&quot;:&quot;Liefert neue Nachrichten und Sprachanhänge seit dem letzten Abruf. Die Anfragelimits der Messenger-API gelten für beide.&quot;,&quot;concepts&quot;:[&quot;Fehlerbehandlung&quot;],&quot;tradeoffs&quot;:&quot;Bei API-Anfragelimits verhindert ein dauerhaft gespeicherter Cursor die aufwendige erneute Vollsynchronisierung.&quot;}" aria-pressed="true">
+              <strong>1. Messenger-API (MTProto)</strong>
+              <span>Liefert neue Nachrichten und Sprachanhänge seit dem letzten Abruf. Die Anfragelimits der Messenger-API gelten für beide.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="rust-sync" data-node-json="{&quot;title&quot;:&quot;Synchronisierungsdienst (Rust)&quot;,&quot;responsibility&quot;:&quot;Ruft den Verlauf mit exponentiell steigenden Wartezeiten ab, beachtet Flood-Wait-Vorgaben und speichert die rohen Nachrichten in PostgreSQL.&quot;,&quot;concepts&quot;:[&quot;Fehlerbehandlung&quot;,&quot;Idempotenz&quot;],&quot;tradeoffs&quot;:&quot;Die asynchrone Rust-Laufzeit verwaltet lange Synchronisierungssitzungen mit vorhersehbarem Speicherbedarf.&quot;}" aria-pressed="false">
+              <strong>2. Synchronisierungsdienst (Rust)</strong>
+              <span>Ruft den Verlauf mit exponentiell steigenden Wartezeiten ab, beachtet Flood-Wait-Vorgaben und speichert die rohen Nachrichten in PostgreSQL.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="postgres-queue" data-node-json="{&quot;title&quot;:&quot;PostgreSQL-Speicher und Auftragswarteschlange&quot;,&quot;responsibility&quot;:&quot;Worker übernehmen Transkriptionsaufträge in PostgreSQL per Zeilensperre. Mit SKIP LOCKED können sie andere passende Zeilen auswählen, während Zeilen gesperrt sind.&quot;,&quot;concepts&quot;:[&quot;Verteilte Koordination&quot;,&quot;Letztendliche Konsistenz&quot;],&quot;tradeoffs&quot;:&quot;Sind ältere Aufträge gesperrt, können spätere Aufträge vor ihnen übernommen werden.&quot;}" aria-pressed="false">
+              <strong>3. PostgreSQL-Speicher und Auftragswarteschlange</strong>
+              <span>Worker übernehmen Transkriptionsaufträge in PostgreSQL per Zeilensperre. Mit SKIP LOCKED können sie andere passende Zeilen auswählen, während Zeilen gesperrt sind.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="whisper-worker" data-node-json="{&quot;title&quot;:&quot;Transkriptions-Worker (Python)&quot;,&quot;responsibility&quot;:&quot;Ein Python-Worker transkribiert die übernommenen Audiodaten mit Whisper und speichert den Text zur Indexierung.&quot;,&quot;concepts&quot;:[&quot;Fehlerbehandlung&quot;,&quot;Idempotenz&quot;],&quot;tradeoffs&quot;:&quot;Für abgebrochene Aufträge sind Regeln für Wiederholungsversuche oder die Wiederaufnahme erforderlich.&quot;}" aria-pressed="false">
+              <strong>4. Transkriptions-Worker (Python)</strong>
+              <span>Ein Python-Worker transkribiert die übernommenen Audiodaten mit Whisper und speichert den Text zur Indexierung.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="rust-indexer" data-node-json="{&quot;title&quot;:&quot;Batch-Indexer (Rust)&quot;,&quot;responsibility&quot;:&quot;Der Indexer vergibt eine deterministische Vektor-ID und aktualisiert den Fortschrittsmarker nach erfolgreichem Upsert.&quot;,&quot;concepts&quot;:[&quot;Idempotenz&quot;,&quot;Letztendliche Konsistenz&quot;],&quot;tradeoffs&quot;:&quot;Schreibvorgänge können nach einem Absturz wiederholt werden. Vektorspeicher und Fortschrittsmarker teilen keine atomare Transaktion.&quot;}" aria-pressed="false">
+              <strong>5. Batch-Indexer (Rust)</strong>
+              <span>Der Indexer vergibt eine deterministische Vektor-ID und aktualisiert den Fortschrittsmarker nach erfolgreichem Upsert.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="qdrant" data-node-json="{&quot;title&quot;:&quot;Vektorspeicher (Qdrant)&quot;,&quot;responsibility&quot;:&quot;Speichert semantische Embeddings unter deterministischen UUIDv5-Kennungen, die aus der jeweiligen Nachrichten-ID abgeleitet sind.&quot;,&quot;concepts&quot;:[&quot;Idempotenz&quot;,&quot;Beobachtbarkeit&quot;],&quot;tradeoffs&quot;:&quot;Deterministische IDs verhindern doppelte Vektoreinträge beim erneuten Schreiben desselben Vektors nach einem Absturz.&quot;}" aria-pressed="false">
+              <strong>6. Vektorspeicher (Qdrant)</strong>
+              <span>Speichert semantische Embeddings unter deterministischen UUIDv5-Kennungen, die aus der jeweiligen Nachrichten-ID abgeleitet sind.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="mcp-server" data-node-json="{&quot;title&quot;:&quot;MCP-Server (stdio / HTTP)&quot;,&quot;responsibility&quot;:&quot;Stellt LLM-Assistenten über das Model Context Protocol die semantische Suche und den Abruf von Konversationsverläufen bereit.&quot;,&quot;concepts&quot;:[&quot;Sicherheit&quot;,&quot;Beobachtbarkeit&quot;],&quot;tradeoffs&quot;:&quot;Abfragewerkzeuge mit Lesezugriff trennen LLM-Agenten vom direkten Zugriff auf Datenbank- oder Sitzungszugangsdaten.&quot;}" aria-pressed="false">
+              <strong>7. MCP-Server (stdio / HTTP)</strong>
+              <span>Stellt LLM-Assistenten über das Model Context Protocol die semantische Suche und den Abruf von Konversationsverläufen bereit.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-entity-concurrency-locking" aria-labelledby="arch-tab-entity-concurrency-locking" data-arch-panel="entity-concurrency-locking" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 464" role="group" aria-label="Schlüsselbasierte Sperren in einer JVM mit Sperr-Registry, Sperrerwerb, Ausführung und versuchtem Entfernen des Registry-Eintrags.">
+  <defs>
+    <marker id="inline-arrow-entity-concurrency-locking" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="caller-threads">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Gleichzeitig aufrufende Threads</text>
+    <text class="node-detail" x="38" y="68">Threads übergeben einen Entitätsschlüssel</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="lock-registry">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Nebenläufige Sperr-Registry</text>
+    <text class="node-detail" x="38" y="158">Sperrobjekt anhand der ID suchen</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="entity-lock">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Reentrante Sperre pro ID</text>
+    <text class="node-detail" x="38" y="248">Reentrante Sperre mit optionalem Timeout</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="critical-section">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Geschützter kritischer Abschnitt</text>
+    <text class="node-detail" x="38" y="338">Aktion ausführen und Sperre freigeben</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="reclaim">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Aufräumen der Registry</text>
+    <text class="node-detail" x="38" y="428">Unbenutzte Einträge möglichst entfernen</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Eigenständiges öffentliches Repository</span>
+            <h3>Entitätssperren innerhalb einer JVM</h3>
+            <p class="section-lead">EntityLocker untersucht schlüsselbasierte Sperren zwischen Java-Threads in einem Prozess. Der Code ordnet verschachtelte Sperranfragen und versucht, nicht mehr benötigte Registry-Einträge zu entfernen.</p>
+            <p class="provenance">Öffentlicher Quellcode und JUnit-Tests für ein von Denis Stepulenok gepflegtes Java-Experiment zu Sperren. <a href="https://github.com/stden/EntityLocker">Quellcode-Repository</a></p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Ausgewählte Komponente</p>
+            <h4 class="card-title" data-field="title">Gleichzeitig aufrufende Threads</h4>
+            <p class="card-body" data-field="responsibility">Threads verwenden dieselbe EntityLocker-Instanz und übergeben den Schlüssel sowie den auszuführenden Code.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Technische Konzepte</p>
+            <p class="card-body" data-field="concepts">Verteilte Koordination</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Abwägung beim Entwurf</p>
+            <p class="card-body" data-field="tradeoffs">Die Sperr-Registry ist auf eine Instanz begrenzt. Andere Instanzen und Prozesse haben darauf keinen Zugriff.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Komponenten per Klick oder Eingabetaste auswählen</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="caller-threads" data-node-json="{&quot;title&quot;:&quot;Gleichzeitig aufrufende Threads&quot;,&quot;responsibility&quot;:&quot;Threads verwenden dieselbe EntityLocker-Instanz und übergeben den Schlüssel sowie den auszuführenden Code.&quot;,&quot;concepts&quot;:[&quot;Verteilte Koordination&quot;],&quot;tradeoffs&quot;:&quot;Die Sperr-Registry ist auf eine Instanz begrenzt. Andere Instanzen und Prozesse haben darauf keinen Zugriff.&quot;}" aria-pressed="true">
+              <strong>1. Gleichzeitig aufrufende Threads</strong>
+              <span>Threads verwenden dieselbe EntityLocker-Instanz und übergeben den Schlüssel sowie den auszuführenden Code.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="lock-registry" data-node-json="{&quot;title&quot;:&quot;Nebenläufige Sperr-Registry&quot;,&quot;responsibility&quot;:&quot;ConcurrentHashMap.computeIfAbsent ordnet dem Schlüssel ein Sperrobjekt zu.&quot;,&quot;concepts&quot;:[&quot;Cache-Konsistenz&quot;,&quot;Idempotenz&quot;],&quot;tradeoffs&quot;:&quot;Das sichere Entfernen eines Eintrags erfordert auch die Abstimmung mit Sperrinhabern und konkurrierenden Threads.&quot;}" aria-pressed="false">
+              <strong>2. Nebenläufige Sperr-Registry</strong>
+              <span>ConcurrentHashMap.computeIfAbsent ordnet dem Schlüssel ein Sperrobjekt zu.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="entity-lock" data-node-json="{&quot;title&quot;:&quot;Reentrante Sperre pro ID&quot;,&quot;responsibility&quot;:&quot;Das Werkzeug prüft die Reihenfolge verschachtelter IDs im aufrufenden Thread und verwendet anschließend eine reentrante Sperre zum blockierenden oder zeitbegrenzten Erwerb.&quot;,&quot;concepts&quot;:[&quot;Fehlerbehandlung&quot;,&quot;Verteilte Koordination&quot;],&quot;tradeoffs&quot;:&quot;Die Reihenfolgeprüfung gilt für verschachtelte Aufrufe über dieses Werkzeug. Andere Sperren können weiterhin Teil zyklischer Abhängigkeiten sein.&quot;}" aria-pressed="false">
+              <strong>3. Reentrante Sperre pro ID</strong>
+              <span>Das Werkzeug prüft die Reihenfolge verschachtelter IDs im aufrufenden Thread und verwendet anschließend eine reentrante Sperre zum blockierenden oder zeitbegrenzten Erwerb.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="critical-section" data-node-json="{&quot;title&quot;:&quot;Geschützter kritischer Abschnitt&quot;,&quot;responsibility&quot;:&quot;Wenn der Sperrerwerb gelingt, führt das Werkzeug die Aktion des Aufrufers aus und gibt die Sperre in einem finally-Block frei.&quot;,&quot;concepts&quot;:[&quot;Cache-Konsistenz&quot;],&quot;tradeoffs&quot;:&quot;Ein nötiger Rollback hängt von den Ressourcen oder dem Anwendungscode der ausgeführten Aktion ab.&quot;}" aria-pressed="false">
+              <strong>4. Geschützter kritischer Abschnitt</strong>
+              <span>Wenn der Sperrerwerb gelingt, führt das Werkzeug die Aktion des Aufrufers aus und gibt die Sperre in einem finally-Block frei.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="reclaim" data-node-json="{&quot;title&quot;:&quot;Aufräumen der Registry&quot;,&quot;responsibility&quot;:&quot;Die Implementierung versucht, den Eintrag zu entfernen, bevor die zugehörige Sperre freigegeben wird.&quot;,&quot;concepts&quot;:[&quot;Beobachtbarkeit&quot;,&quot;Fehlerbehandlung&quot;],&quot;tradeoffs&quot;:&quot;Sperrerwerb und Entfernen können sich überschneiden. Für den Test einer sicheren Ersetzung sind Abläufe nötig, in denen beide Vorgänge konkurrieren.&quot;}" aria-pressed="false">
+              <strong>5. Aufräumen der Registry</strong>
+              <span>Die Implementierung versucht, den Eintrag zu entfernen, bevor die zugehörige Sperre freigegeben wird.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-ref-event-driven-outbox" aria-labelledby="arch-tab-ref-event-driven-outbox" data-arch-panel="ref-event-driven-outbox" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 554" role="group" aria-label="Lehrbeispiel einer Outbox von der lokalen Datenbanktransaktion über Veröffentlichung und Zustellung bis zur Deduplizierung.">
+  <defs>
+    <marker id="inline-arrow-ref-event-driven-outbox" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="app-service">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Fachdienst (Java / Spring)</text>
+    <text class="node-detail" x="38" y="68">Fachdaten und Outbox-Eintrag schreiben</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="db-outbox">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Relationale Datenbank und Outbox</text>
+    <text class="node-detail" x="38" y="158">Ereignis in lokaler Transaktion speichern</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="outbox-relay">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Outbox-Weiterleitungsdienst</text>
+    <text class="node-detail" x="38" y="248">Ausstehende Ereignisse veröffentlichen</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="broker">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Message Broker (Kafka / AMQP)</text>
+    <text class="node-detail" x="38" y="338">Nachrichten an Consumer zustellen</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="idempotent-consumer">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Idempotenter Consumer</text>
+    <text class="node-detail" x="38" y="428">Wiederholungen per Ereignis-ID erkennen</text>
+  </g>
+  <line x1="210" y1="444" x2="210" y2="468" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="dlq">
+    <rect x="20" y="470" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="497">6. Wiederholungen und Dead-Letter Queue</text>
+    <text class="node-detail" x="38" y="518">Wiederholt fehlgeschlagene Nachrichten prüfen</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Eigenständiges Lehrbeispiel</span>
+            <h3>Transaktionale Outbox und idempotenter Ereignis-Consumer</h3>
+            <p class="section-lead">Das Referenzbeispiel speichert ein Ereignis zusammen mit Anwendungsdaten und leitet es an einen Broker weiter. Ereignisse können mehrfach veröffentlicht werden. Consumer müssen Duplikate daher gezielt behandeln.</p>
+            <p class="provenance">Eigenständiger Referenzentwurf zur Erläuterung eines allgemeinen Softwareentwurfsmusters.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Ausgewählte Komponente</p>
+            <h4 class="card-title" data-field="title">Fachdienst (Java / Spring)</h4>
+            <p class="card-body" data-field="responsibility">Fachdaten und das zu veröffentlichende Ereignis in einer lokalen Datenbanktransaktion speichern.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Technische Konzepte</p>
+            <p class="card-body" data-field="concepts">Sicherheit · Fehlerbehandlung</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Abwägung beim Entwurf</p>
+            <p class="card-body" data-field="tradeoffs">Die Atomarität gilt für diese Datenbanktransaktion. Die spätere Veröffentlichung beim Broker ist ein separater Vorgang.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Komponenten per Klick oder Eingabetaste auswählen</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="app-service" data-node-json="{&quot;title&quot;:&quot;Fachdienst (Java / Spring)&quot;,&quot;responsibility&quot;:&quot;Fachdaten und das zu veröffentlichende Ereignis in einer lokalen Datenbanktransaktion speichern.&quot;,&quot;concepts&quot;:[&quot;Sicherheit&quot;,&quot;Fehlerbehandlung&quot;],&quot;tradeoffs&quot;:&quot;Die Atomarität gilt für diese Datenbanktransaktion. Die spätere Veröffentlichung beim Broker ist ein separater Vorgang.&quot;}" aria-pressed="true">
+              <strong>1. Fachdienst (Java / Spring)</strong>
+              <span>Fachdaten und das zu veröffentlichende Ereignis in einer lokalen Datenbanktransaktion speichern.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="db-outbox" data-node-json="{&quot;title&quot;:&quot;Relationale Datenbank und Outbox&quot;,&quot;responsibility&quot;:&quot;Jedes festgeschriebene Ereignis mit einer stabilen ID zur Weiterleitung bereitstellen.&quot;,&quot;concepts&quot;:[&quot;Letztendliche Konsistenz&quot;,&quot;Zustellgarantien&quot;],&quot;tradeoffs&quot;:&quot;Die Outbox bewahrt ausstehende Ereignisse auf, wenn der Weiterleitungsdienst nicht verfügbar ist. Die Zustellung durch den Broker wird getrennt konfiguriert.&quot;}" aria-pressed="false">
+              <strong>2. Relationale Datenbank und Outbox</strong>
+              <span>Jedes festgeschriebene Ereignis mit einer stabilen ID zur Weiterleitung bereitstellen.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="outbox-relay" data-node-json="{&quot;title&quot;:&quot;Outbox-Weiterleitungsdienst&quot;,&quot;responsibility&quot;:&quot;Ausstehende Zeilen lesen, beim Broker veröffentlichen und den Fortschritt nach Bestätigung speichern.&quot;,&quot;concepts&quot;:[&quot;Zustellgarantien&quot;,&quot;Beobachtbarkeit&quot;],&quot;tradeoffs&quot;:&quot;Ein Absturz nach der Veröffentlichung, aber vor der Fortschrittsaufzeichnung kann eine erneute Veröffentlichung auslösen.&quot;}" aria-pressed="false">
+              <strong>3. Outbox-Weiterleitungsdienst</strong>
+              <span>Ausstehende Zeilen lesen, beim Broker veröffentlichen und den Fortschritt nach Bestätigung speichern.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="broker" data-node-json="{&quot;title&quot;:&quot;Message Broker (Kafka / AMQP)&quot;,&quot;responsibility&quot;:&quot;Ereignisse entsprechend der Broker-Konfiguration puffern und zustellen.&quot;,&quot;concepts&quot;:[&quot;Verteilte Koordination&quot;,&quot;Zustellgarantien&quot;],&quot;tradeoffs&quot;:&quot;Bei At-least-once-Zustellung kann eine Nachricht mehrfach eintreffen. Zustelloptionen und Fehlerverhalten unterscheiden sich je nach Broker.&quot;}" aria-pressed="false">
+              <strong>4. Message Broker (Kafka / AMQP)</strong>
+              <span>Ereignisse entsprechend der Broker-Konfiguration puffern und zustellen.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="idempotent-consumer" data-node-json="{&quot;title&quot;:&quot;Idempotenter Consumer&quot;,&quot;responsibility&quot;:&quot;Seiteneffekte innerhalb einer definierten Grenze deduplizieren, etwa indem die verarbeitete Ereignis-ID und eine lokale Zustandsänderung in derselben Transaktion gespeichert werden.&quot;,&quot;concepts&quot;:[&quot;Idempotenz&quot;,&quot;Letztendliche Konsistenz&quot;],&quot;tradeoffs&quot;:&quot;Andere Seiteneffekte benötigen eigene Mechanismen. Ein Deduplizierungseintrag in der Datenbank schützt einen davon unabhängigen externen Aufruf nicht.&quot;}" aria-pressed="false">
+              <strong>5. Idempotenter Consumer</strong>
+              <span>Seiteneffekte innerhalb einer definierten Grenze deduplizieren, etwa indem die verarbeitete Ereignis-ID und eine lokale Zustandsänderung in derselben Transaktion gespeichert werden.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="dlq" data-node-json="{&quot;title&quot;:&quot;Wiederholungen und Dead-Letter Queue&quot;,&quot;responsibility&quot;:&quot;Nach Ausschöpfen der konfigurierten Wiederholungsversuche fehlgeschlagene Nachrichten zur Prüfung aufbewahren.&quot;,&quot;concepts&quot;:[&quot;Fehlerbehandlung&quot;,&quot;Beobachtbarkeit&quot;],&quot;tradeoffs&quot;:&quot;Auch für die erneute Verarbeitung einer fehlgeschlagenen Nachricht ist eine Strategie gegen Duplikate nötig.&quot;}" aria-pressed="false">
+              <strong>6. Wiederholungen und Dead-Letter Queue</strong>
+              <span>Nach Ausschöpfen der konfigurierten Wiederholungsversuche fehlgeschlagene Nachrichten zur Prüfung aufbewahren.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-ref-async-job-pipeline" aria-labelledby="arch-tab-ref-async-job-pipeline" data-arch-panel="ref-async-job-pipeline" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 464" role="group" aria-label="Asynchroner Auftragsablauf von der Annahme und Übernahme bis zur begrenzten Ausführung, Ergebnisbereitstellung und Überwachung.">
+  <defs>
+    <marker id="inline-arrow-ref-async-job-pipeline" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="api-gateway">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Zustandslose API</text>
+    <text class="node-detail" x="38" y="68">Auftrag prüfen und einreihen</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="job-queue">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Persistente Auftragswarteschlange</text>
+    <text class="node-detail" x="38" y="158">Aufträge speichern und übernehmen</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="bounded-workers">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Begrenzter Worker-Pool</text>
+    <text class="node-detail" x="38" y="248">Parallele Ausführung begrenzen</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="atomic-publish">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Ergebnisbereitstellung</text>
+    <text class="node-detail" x="38" y="338">Fertige Ergebnisse sichtbar machen</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="metrics-alerts">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Zustand, Metriken und Bereinigung</text>
+    <text class="node-detail" x="38" y="428">Wartezeit und Fehler messen</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Eigenständiges Lehrbeispiel</span>
+            <h3>Ausfallsichere asynchrone Auftragswarteschlange mit Backpressure</h3>
+            <p class="section-lead">Referenz zur Auftragsannahme, Begrenzung gleichzeitiger Worker und Veröffentlichung abgeschlossener Ergebnisse.</p>
+            <p class="provenance">Eigenständiger Referenzentwurf zur Erläuterung eines allgemeinen Softwareentwurfsmusters.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Ausgewählte Komponente</p>
+            <h4 class="card-title" data-field="title">Zustandslose API</h4>
+            <p class="card-body" data-field="responsibility">Authentifiziert Anfragen, stellt Aufträge asynchron in die Warteschlange und gibt sofort eine Korrelations-ID zurück.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Technische Konzepte</p>
+            <p class="card-body" data-field="concepts">Sicherheit · Beobachtbarkeit</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Abwägung beim Entwurf</p>
+            <p class="card-body" data-field="tradeoffs">Anfrage-Threads bleiben schnell und vorhersehbar, da sie nicht auf lang laufende Hintergrundaufgaben warten.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Komponenten per Klick oder Eingabetaste auswählen</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="api-gateway" data-node-json="{&quot;title&quot;:&quot;Zustandslose API&quot;,&quot;responsibility&quot;:&quot;Authentifiziert Anfragen, stellt Aufträge asynchron in die Warteschlange und gibt sofort eine Korrelations-ID zurück.&quot;,&quot;concepts&quot;:[&quot;Sicherheit&quot;,&quot;Beobachtbarkeit&quot;],&quot;tradeoffs&quot;:&quot;Anfrage-Threads bleiben schnell und vorhersehbar, da sie nicht auf lang laufende Hintergrundaufgaben warten.&quot;}" aria-pressed="true">
+              <strong>1. Zustandslose API</strong>
+              <span>Authentifiziert Anfragen, stellt Aufträge asynchron in die Warteschlange und gibt sofort eine Korrelations-ID zurück.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="job-queue" data-node-json="{&quot;title&quot;:&quot;Persistente Auftragswarteschlange&quot;,&quot;responsibility&quot;:&quot;Aufträge dauerhaft speichern und vor ihrer Ausführung die Übernahme durch einen Worker festhalten.&quot;,&quot;concepts&quot;:[&quot;Verteilte Koordination&quot;,&quot;Zustellgarantien&quot;],&quot;tradeoffs&quot;:&quot;Wiederholungsversuche und abgelaufene Übernahmen können zur erneuten Ausführung führen. Seiteneffekte müssen sich sicher wiederholen lassen.&quot;}" aria-pressed="false">
+              <strong>2. Persistente Auftragswarteschlange</strong>
+              <span>Aufträge dauerhaft speichern und vor ihrer Ausführung die Übernahme durch einen Worker festhalten.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="bounded-workers" data-node-json="{&quot;title&quot;:&quot;Begrenzter Worker-Pool&quot;,&quot;responsibility&quot;:&quot;Ein begrenzter Worker-Pool übt Backpressure aus und hält die Auftragsausführung innerhalb konfigurierter Grenzen.&quot;,&quot;concepts&quot;:[&quot;Fehlerbehandlung&quot;,&quot;Verteilte Koordination&quot;],&quot;tradeoffs&quot;:&quot;Mehr Parallelität erhöht den Ressourcenverbrauch. Bei Backpressure verlagert sich die Wartezeit in die Auftragswarteschlange.&quot;}" aria-pressed="false">
+              <strong>3. Begrenzter Worker-Pool</strong>
+              <span>Ein begrenzter Worker-Pool übt Backpressure aus und hält die Auftragsausführung innerhalb konfigurierter Grenzen.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="atomic-publish" data-node-json="{&quot;title&quot;:&quot;Ergebnisbereitstellung&quot;,&quot;responsibility&quot;:&quot;Ein temporäres Ergebnis schreiben und es per Ersetzungsoperation veröffentlichen, sofern der Speicher dies unterstützt.&quot;,&quot;concepts&quot;:[&quot;Cache-Konsistenz&quot;,&quot;Idempotenz&quot;],&quot;tradeoffs&quot;:&quot;Atomares Ersetzen hängt vom Speichersystem ab. Die Bestätigung in der Warteschlange ist ein separater Vorgang.&quot;}" aria-pressed="false">
+              <strong>4. Ergebnisbereitstellung</strong>
+              <span>Ein temporäres Ergebnis schreiben und es per Ersetzungsoperation veröffentlichen, sofern der Speicher dies unterstützt.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="metrics-alerts" data-node-json="{&quot;title&quot;:&quot;Zustand, Metriken und Bereinigung&quot;,&quot;responsibility&quot;:&quot;Warteschlangenlänge, Auftragsalter und Fehleranzahl überwachen, um Verzögerungen und wiederkehrende Fehler zu erkennen.&quot;,&quot;concepts&quot;:[&quot;Beobachtbarkeit&quot;,&quot;Cache-Konsistenz&quot;],&quot;tradeoffs&quot;:&quot;Signale brauchen Schwellenwerte und Auswertung. Die Dauerhaftigkeit hängt vom Speicher- und Wiederholungsverhalten ab.&quot;}" aria-pressed="false">
+              <strong>5. Zustand, Metriken und Bereinigung</strong>
+              <span>Warteschlangenlänge, Auftragsalter und Fehleranzahl überwachen, um Verzögerungen und wiederkehrende Fehler zu erkennen.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <details class="recruitment-disclosure architecture-concepts">
+      <summary>Technische Konzepte</summary>
+    <div class="concepts-grid">
+      <article class="concept-card">
+        <h3>Idempotenz</h3>
+        <p>Eine Wiederholung hat innerhalb einer festgelegten Grenze denselben Effekt. Ein stabiler Schlüssel kann doppelte Datensätze verhindern, ohne andere Seiteneffekte abzudecken.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Letztendliche Konsistenz</h3>
+        <p>Während laufender Aktualisierungen können getrennte Datenspeicher abweichen. Wiederholungsversuche und Abgleich helfen, die Daten nach der Verarbeitung in Einklang zu bringen.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Zustellgarantien</h3>
+        <p>At-least-once-Zustellung kann Nachrichten mehrfach liefern. Exactly-once-Verarbeitung erfordert eine klar definierte Transaktionsgrenze und eine Abgrenzung der erfassten Seiteneffekte.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Fehlerbehandlung</h3>
+        <p>Vorübergehende Fehler mit begrenzten Wiederholungsversuchen abfangen. Anhaltende Fehler zur Prüfung oder erneuten Verarbeitung sichtbar machen.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Verteilte Koordination</h3>
+        <p>Threads innerhalb einer JVM können dieselbe Sperre nutzen. Mehrere Prozesse benötigen einen Koordinationsmechanismus mit einem eigenen Fehlermodell.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Cache-Konsistenz</h3>
+        <p>Daten im Cache können veralten. Regeln für Ablauf, Invalidierung und Aktualisierung bestimmen, wann der Cache wieder mit der Quelle übereinstimmt.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Beobachtbarkeit</h3>
+        <p>Logs, Metriken und Traces helfen, das Systemverhalten zu erklären und Fehler zu untersuchen.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Sicherheit</h3>
+        <p>Authentifizierung, Autorisierung, geeignete Datenverarbeitung und ein dokumentiertes Bedrohungsmodell schützen den Zugriff.</p>
+      </article>
+    </div>
+    </details>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estland</p>
+    <div class="footer-links">
+      <a href="../index.html">Portfolio</a>
+      <a href="../cv/">Alle Lebenslaufversionen</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">E-Mail</a>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

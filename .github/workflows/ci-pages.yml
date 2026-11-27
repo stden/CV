@@ -1,11 +1,15 @@
-name: Build, Validate, and Deploy Portfolio
+name: Validate and approve public portfolio
 
 on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
   workflow_dispatch:
+    inputs:
+      approved_commit:
+        description: Exact reviewed main commit SHA approved for publication
+        required: false
+        type: string
 
 concurrency:
   group: portfolio-${{ github.ref }}
@@ -23,93 +27,90 @@ jobs:
       pages: read
     outputs:
       pages_source: ${{ steps.pages-source.outputs.mode }}
+    env:
+      APPROVED_RELEASE: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.approved_commit == github.sha }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: "22"
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      - name: Install Playwright Chromium and PDF inspection tools
+      - name: Install Chromium and PDF inspection tools
         run: |
           npx playwright install --with-deps chromium
           sudo apt-get update && sudo apt-get install -y poppler-utils
 
-      - name: Build static site, SVG diagrams, and technology pages
-        run: npm run build
-
-      - name: Generate ATS-friendly PDF resumes and OG image
-        run: npm run build:pdfs
-
-      - name: Run static validation, SEO checks, and PDF text extraction checks
-        run: npm test
-
-      - name: Run automated confidentiality verification
+      - name: Verify public project metadata
+        if: env.APPROVED_RELEASE != 'true'
         env:
-          CONFIDENTIAL_DENYLIST: ${{ secrets.CONFIDENTIAL_DENYLIST }}
-        run: npm run check:confidentiality
+          GITHUB_TOKEN: ${{ github.token }}
+        run: npm run verify:projects
 
-      - name: Run Playwright E2E, responsiveness, and Axe accessibility tests
-        run: npm run test:e2e
-
-      - name: Stage and validate public Pages artifact
+      - name: Build generated portfolio and PDF resumes
+        if: env.APPROVED_RELEASE != 'true'
         run: |
-          rm -rf _site
-          mkdir -p _site
-          cp index.html robots.txt sitemap.xml favicon.ico _site/
-          cp -r assets cv tech _site/
-          test -f _site/index.html
-          test -f _site/cv/wise.html
-          test -f _site/assets/pdf/Denis-Stepulenok-Senior-Java-Engineer.pdf
-          test -f _site/assets/pdf/Denis-Stepulenok-Wise-Senior-Java-Engineer.pdf
+          log="$(mktemp)"
+          trap 'rm -f "$log"' EXIT
+          if ! npm run build:all > "$log" 2>&1; then
+            echo "::error::PUBLIC_BUILD_FAILED"
+            exit 1
+          fi
 
-      - name: Upload Playwright report and screenshots
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: portfolio-test-artifacts
-          path: |
-            docs/screenshots/
-            playwright-report/
-            test-results/
-          if-no-files-found: ignore
-          retention-days: 14
+      # Approved releases stage the committed snapshots from this exact SHA.
+      - name: Validate the allowlisted public artifact
+        env:
+          CONFIDENTIAL_DENYLIST: ${{ github.ref == 'refs/heads/main' && secrets.CONFIDENTIAL_DENYLIST || '' }}
+        run: npm run stage:public
 
-      - name: Upload PR preview bundle
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: portfolio-preview-site
-          path: _site/
-          retention-days: 14
+      - name: Check HTML, PDF and content policy regressions
+        run: |
+          log="$(mktemp)"
+          trap 'rm -f "$log"' EXIT
+          if ! npm test > "$log" 2>&1; then
+            echo "::error::PUBLIC_STATIC_OR_UNIT_TEST_FAILED"
+            exit 1
+          fi
 
-      - name: Check repository GitHub Pages source configuration
-        if: github.ref == 'refs/heads/main'
+      - name: Run browser and accessibility tests against the staged artifact
+        env:
+          CV_PUBLIC_ROOT: _site
+        run: |
+          log="$(mktemp)"
+          trap 'rm -f "$log"' EXIT
+          if ! npm run test:e2e > "$log" 2>&1; then
+            echo "::error::PUBLIC_BROWSER_TEST_FAILED"
+            exit 1
+          fi
+
+      - name: Verify that Pages uses validated workflow publishing
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.approved_commit == github.sha
         id: pages-source
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           mode="$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.build_type')"
-          echo "mode=$mode" >> "$GITHUB_OUTPUT"
-          if [[ "$mode" != "workflow" ]]; then
-            echo "::notice::GitHub Pages is currently configured for branch publishing ($mode). Generated files are committed in the repository so branch publishing continues working; switch Settings -> Pages -> Source to GitHub Actions to publish via deploy-pages."
+          if [[ "$mode" != workflow ]]; then
+            echo "::error::PAGES_WORKFLOW_SOURCE_REQUIRED"
+            exit 1
           fi
+          echo "mode=workflow" >> "$GITHUB_OUTPUT"
 
-      - name: Upload GitHub Pages artifact
-        if: github.ref == 'refs/heads/main' && steps.pages-source.outputs.mode == 'workflow'
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload the reviewed public artifact
+        if: steps.pages-source.outputs.mode == 'workflow'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: _site
+          include-hidden-files: true
 
   deploy:
     needs: validate
-    if: github.ref == 'refs/heads/main' && needs.validate.outputs.pages_source == 'workflow'
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.approved_commit == github.sha && needs.validate.outputs.pages_source == 'workflow'
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -120,4 +121,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: publish
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EasyMock — Denis Stepulenok | Заметки о технологии</title>
+  <meta name="description" content="Библиотека мок-объектов для Java с циклом записи, воспроизведения и проверки.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/ru/tech/easymock.html">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/tech/easymock.html">
+  <link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/tech/easymock.html">
+  <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/tech/easymock.html">
+  <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/tech/easymock.html">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="et_EE">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EasyMock — Denis Stepulenok | Заметки о технологии">
+  <meta property="og:description" content="Библиотека мок-объектов для Java с циклом записи, воспроизведения и проверки.">
+  <meta property="og:url" content="https://stden.github.io/CV/ru/tech/easymock.html">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="EasyMock — Denis Stepulenok | Заметки о технологии">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EasyMock — Denis Stepulenok | Заметки о технологии">
+  <meta name="twitter:description" content="Библиотека мок-объектов для Java с циклом записи, воспроизведения и проверки.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="preload" href="../../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav class="primary-nav" aria-label="Основная навигация">
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Обзор</a></li>
+        <li><a href="../experience/">Опыт</a></li>
+        <li><a href="../skills/">Навыки</a></li>
+        <li><a href="../projects/">Проекты</a></li>
+        <li><a href="../architecture/">Архитектура</a></li>
+        <li><a href="../cv/">Версии резюме</a></li>
+        <li><a href="../contact/">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Тёмная · Включить тёмную тему"
+        data-light-label="Светлая" data-dark-label="Тёмная"
+        data-to-light="Светлая · Включить светлую тему"
+        data-to-dark="Тёмная · Включить тёмную тему">
+        <span class="theme-label">Тёмная</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../../assets/pdf/Denis-Stepulenok-CV-RU.pdf" download>Скачать резюме</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Меню · Открыть или закрыть меню">
+        Меню
+      </button>
+    </div>
+    <nav class="language-menu" aria-label="Язык сайта"><a href="../../tech/easymock.html" hreflang="en" lang="en" aria-label="EN · English" data-locale="en">EN</a><a href="../../et/tech/easymock.html" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../../de/tech/easymock.html" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../../ru/tech/easymock.html" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru" aria-current="page">RU</a></nav>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../index.html#overview">Обзор</a></li>
+        <li><a href="../experience/">Опыт</a></li>
+        <li><a href="../skills/">Навыки</a></li>
+        <li><a href="../projects/">Проекты</a></li>
+        <li><a href="../architecture/">Архитектура</a></li>
+        <li><a href="../cv/">Версии резюме</a></li>
+        <li><a href="../contact/">Контакты</a></li>
+      <li><a href="../../assets/pdf/Denis-Stepulenok-CV-RU.pdf" download>Скачать резюме (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html#skills">&larr; Вернуться к портфолио и навыкам</a></p>
+    <div class="tech-header">
+      <span class="brand-mark" aria-hidden="true">EA</span>
+      <div>
+        <h1>EasyMock</h1>
+      </div>
+    </div>
+    <p class="section-lead">Библиотека мок-объектов для Java с циклом записи, воспроизведения и проверки.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>Как работает технология</h2>
+    <ol class="flow-steps">
+      <li>createMock()</li>
+      <li>Записать ожидаемые вызовы</li>
+      <li>replay()</li>
+      <li>Запустить тестируемый код</li>
+      <li>verify()</li>
+    </ol>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <h2>Инженерные возможности</h2>
+    <ul class="bullet-list">
+      <li>Запись, воспроизведение и проверка ожидаемых вызовов</li>
+      <li>Строгие и мягкие мок-объекты</li>
+      <li>Сопоставление аргументов</li>
+      <li>Интеграция с JUnit</li>
+    </ul>
+    <h2>Где применялось</h2>
+    <ul class="bullet-list">
+      <li>Дополнительный опыт тестирования Java</li>
+    </ul>
+    <p><a class="btn btn-secondary btn-sm" href="https://easymock.org" target="_blank" rel="noopener noreferrer">Официальная документация</a></p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Таллин, Эстония</p>
+    <div class="footer-links">
+      <a href="../index.html">Портфолио</a>
+      <a href="../cv/">Все версии резюме</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Почта</a>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

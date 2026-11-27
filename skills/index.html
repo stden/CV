@@ -3,29 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Skills | Denis Stepulenok</title>
-  <meta name="description" content="The complete skills catalogue. Each skill is labelled by where it was used.">
+  <title>Skills and evidence — Denis Stepulenok</title>
+  <meta name="description" content="Java, distributed systems, independent engineering work and evidence for the technologies listed in the CV.">
   <meta name="author" content="Denis Stepulenok">
   <link rel="canonical" href="https://stden.github.io/CV/skills/">
   <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/skills/">
   <link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/skills/">
   <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/skills/">
   <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/skills/">
-  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/skills/">
-  <meta property="og:type" content="website">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:title" content="Skills | Denis Stepulenok">
-  <meta property="og:description" content="The complete skills catalogue. Each skill is labelled by where it was used.">
+  <meta property="og:locale:alternate" content="et_EE">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Skills and evidence — Denis Stepulenok">
+  <meta property="og:description" content="Java, distributed systems, independent engineering work and evidence for the technologies listed in the CV.">
   <meta property="og:url" content="https://stden.github.io/CV/skills/">
   <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="Skills and evidence — Denis Stepulenok">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Skills | Denis Stepulenok">
-  <meta name="twitter:description" content="The complete skills catalogue. Each skill is labelled by where it was used.">
+  <meta name="twitter:title" content="Skills and evidence — Denis Stepulenok">
+  <meta name="twitter:description" content="Java, distributed systems, independent engineering work and evidence for the technologies listed in the CV.">
   <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
   <link rel="icon" href="../favicon.ico">
   <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","inLanguage":"en","@id":"https://stden.github.io/CV/skills/#page","url":"https://stden.github.io/CV/skills/","name":"Skills and evidence","description":"Java, distributed systems, independent engineering work and evidence for the technologies listed in the CV.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfolio","item":"https://stden.github.io/CV/"},{"@type":"ListItem","position":2,"name":"Skills and evidence","item":"https://stden.github.io/CV/skills/"}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -35,65 +40,109 @@
       <span class="brand-mark" aria-hidden="true">DS</span>
       <span>Denis Stepulenok</span>
     </a>
-    <nav aria-label="Primary navigation">
+    <nav class="primary-nav" aria-label="Primary navigation">
       <ul class="nav-links">
-        <li><a href="../experience/index.html">Experience</a></li>
-        <li><a href="../projects/index.html">Projects</a></li>
-        <li><a href="../skills/index.html">Skills</a></li>
-        <li><a href="../architecture/index.html">Architecture</a></li>
-        <li><a href="../cv/index.html">CVs</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../experience/">Experience</a></li>
+        <li><a href="../skills/">Skills</a></li>
+        <li><a href="../projects/">Projects</a></li>
+        <li><a href="../architecture/">Architecture</a></li>
+        <li><a href="../cv/">CV Versions</a></li>
+        <li><a href="../contact/">Contact</a></li>
       </ul>
     </nav>
     <div class="header-actions">
-      <nav class="lang-switcher" aria-label="Language"><ul><li><a href="index.html" lang="en" hreflang="en" aria-current="true" class="lang-link is-current" title="English"><span aria-hidden="true">EN</span><span class="visually-hidden">English</span></a></li><li><a href="../et/skills/index.html" lang="et" hreflang="et" class="lang-link" title="Eesti"><span aria-hidden="true">ET</span><span class="visually-hidden">Eesti</span></a></li><li><a href="../de/skills/index.html" lang="de" hreflang="de" class="lang-link" title="Deutsch"><span aria-hidden="true">DE</span><span class="visually-hidden">Deutsch</span></a></li><li><a href="../ru/skills/index.html" lang="ru" hreflang="ru" class="lang-link" title="Русский"><span aria-hidden="true">RU</span><span class="visually-hidden">Русский</span></a></li></ul></nav>
-      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme" data-label-to-dark="Switch to dark theme" data-label-to-light="Switch to light theme" data-text-dark="Dark" data-text-light="Light">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Dark · Switch to dark theme"
+        data-light-label="Light" data-dark-label="Dark"
+        data-to-light="Light · Switch to light theme"
+        data-to-dark="Dark · Switch to dark theme">
         <span class="theme-label">Dark</span>
       </button>
       <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV</a>
-      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menu · Toggle navigation menu">
         Menu
       </button>
     </div>
+    <nav class="language-menu" aria-label="Website language"><a href="../skills/" hreflang="en" lang="en" aria-label="EN · English" data-locale="en" aria-current="page">EN</a><a href="../et/skills/" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../de/skills/" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../ru/skills/" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
   </div>
   <div id="mobile-drawer" class="mobile-drawer" hidden>
     <ul>
-      <li><a href="../experience/index.html">Experience</a></li>
-      <li><a href="../projects/index.html">Projects</a></li>
-      <li><a href="../skills/index.html">Skills</a></li>
-      <li><a href="../architecture/index.html">Architecture</a></li>
-      <li><a href="../cv/index.html">CVs</a></li>
-      <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../experience/">Experience</a></li>
+        <li><a href="../skills/">Skills</a></li>
+        <li><a href="../projects/">Projects</a></li>
+        <li><a href="../architecture/">Architecture</a></li>
+        <li><a href="../cv/">CV Versions</a></li>
+        <li><a href="../contact/">Contact</a></li>
       <li><a href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV (PDF)</a></li>
     </ul>
-    <nav class="lang-switcher" aria-label="Language"><ul><li><a href="index.html" lang="en" hreflang="en" aria-current="true" class="lang-link is-current" title="English"><span aria-hidden="true">EN</span><span class="visually-hidden">English</span></a></li><li><a href="../et/skills/index.html" lang="et" hreflang="et" class="lang-link" title="Eesti"><span aria-hidden="true">ET</span><span class="visually-hidden">Eesti</span></a></li><li><a href="../de/skills/index.html" lang="de" hreflang="de" class="lang-link" title="Deutsch"><span aria-hidden="true">DE</span><span class="visually-hidden">Deutsch</span></a></li><li><a href="../ru/skills/index.html" lang="ru" hreflang="ru" class="lang-link" title="Русский"><span aria-hidden="true">RU</span><span class="visually-hidden">Русский</span></a></li></ul></nav>
   </div>
 </header>
-<div class="lang-hint" data-lang-hint data-template="Open this page in {language}." hidden><a href="#"></a></div>
 <main id="main-content">
-<header class="page-header">
+<section class="subpage-hero">
   <div class="container">
-    <h1 class="page-title">Skills</h1>
-    <p class="section-lead">The complete skills catalogue. Each skill is labelled by where it was used.</p>
+    <p class="breadcrumb"><a href="../index.html">Portfolio</a> / Skills and evidence</p>
+    <h1>Skills and evidence</h1>
+    <p class="section-lead">Java, distributed systems, independent engineering work and evidence for the technologies listed in the CV.</p>
   </div>
-</header><section id="skills" class="section section-alt" aria-labelledby="skills-heading">
+</section>
+<section class="section section-alt" aria-labelledby="expertise-heading">
   <div class="container">
     <div class="section-header">
-      <p class="section-eyebrow">Technical Matrix</p>
+      <p class="section-eyebrow">Core Capabilities</p>
+      <h2 id="expertise-heading" class="section-title">Key Engineering Expertise</h2>
+      <p class="section-lead">Backend systems, asynchronous integration, and production reliability built on enterprise Java and polyglot tooling.</p>
+    </div>
+    <div class="expertise-grid">
+      <article class="card">
+        <h3 class="card-title">Java &amp; JVM Engineering</h3>
+        <p class="card-body">Builds Spring Boot services and brings experience in JVM concurrency, class loading and JDK testing from Oracle.</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Distributed Systems</h3>
+        <p class="card-body">Works on asynchronous backend services and automated tests for distributed environments. Independent projects explore retries and safe reprocessing.</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Event-Driven Architecture</h3>
+        <p class="card-body">Develops message-driven services with RabbitMQ. Independent examples explain delivery guarantees and duplicate handling.</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Enterprise Integration</h3>
+        <p class="card-body">Develops backend integrations with Java, XML and relational databases.</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Cloud &amp; Infrastructure</h3>
+        <p class="card-body">Automates builds and deployments with Jenkins, GitLab CI/CD and container tooling.</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Software Quality &amp; Reliability</h3>
+        <p class="card-body">Investigates test failures, improves automated coverage and stabilises Java test suites.</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">AI Engineering &amp; Automation</h3>
+        <p class="card-body">Independent projects use Rust, Python and MCP for transcription, semantic search and AI tooling.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="skills" class="section section-alt" aria-labelledby="skills-heading">
+  <div class="container">
+    <div class="section-header">
       <h2 id="skills-heading" class="section-title">Technical Skills &amp; Evidence</h2>
-      <p class="section-lead">Categorised by engineering domain and backed by role or repository evidence—distinguishing core production skills from additional and personal project technologies.</p>
     </div>
     <div class="skills-toolbar">
       <div class="tier-legend" aria-label="Experience context legend">
-        <span class="tier-pill tier-core">Core professional</span>
+        <span class="tier-pill tier-core">Primary professional</span>
         <span class="tier-pill tier-additional">Additional professional</span>
-        <span class="tier-pill tier-personal">Personal / independent</span>
+        <span class="tier-pill tier-personal">Independent engineering</span>
+        <span class="tier-pill tier-familiarity">Familiarity</span>
       </div>
       <div class="skill-filter-group" role="group" aria-label="Filter skills by experience context">
         <button type="button" class="filter-btn" data-skill-filter="all" aria-pressed="true">All</button>
         <button type="button" class="filter-btn" data-skill-filter="core" aria-pressed="false">Core</button>
         <button type="button" class="filter-btn" data-skill-filter="additional" aria-pressed="false">Additional</button>
-        <button type="button" class="filter-btn" data-skill-filter="personal" aria-pressed="false">Personal</button>
+        <button type="button" class="filter-btn" data-skill-filter="personal" aria-pressed="false">Independent</button>
+        <button type="button" class="filter-btn" data-skill-filter="familiarity" aria-pressed="false">Familiarity</button>
       </div>
     </div>
     <div class="skills-grid">
@@ -106,57 +155,75 @@
           <li data-tier="core"><a class="tier-pill tier-core" href="../tech/spring.html">Spring Framework</a></li>
           <li data-tier="core"><a class="tier-pill tier-core" href="../tech/spring-boot.html">Spring Boot</a></li>
           <li data-tier="core"><span class="tier-pill tier-core">Distributed Systems</span></li>
-          <li data-tier="core"><span class="tier-pill tier-core">Microservices</span></li>
+          <li data-tier="additional"><span class="tier-pill tier-additional">Microservices</span></li>
           <li data-tier="core"><a class="tier-pill tier-core" href="../tech/sql.html">SQL</a></li>
           <li data-tier="core"><a class="tier-pill tier-core" href="../tech/postgresql.html">PostgreSQL</a></li>
-          <li data-tier="core"><a class="tier-pill tier-core" href="../tech/jpa.html">JPA / Hibernate</a></li>
+          <li data-tier="additional"><a class="tier-pill tier-additional" href="../tech/jpa.html">JPA / Hibernate</a></li>
           <li data-tier="core"><span class="tier-pill tier-core">Enterprise Integration</span></li>
-          <li data-tier="core"><span class="tier-pill tier-core">Software Design &amp; Algorithms</span></li>
+          <li data-tier="additional"><span class="tier-pill tier-additional">Software Design &amp; Algorithms</span></li>
         </ul>
+        <details class="recruitment-disclosure">
+          <summary>Skill evidence</summary>
+          <ul class="bullet-list"><li><strong>Java (6–25)</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a>, <a href="../experience/#role-oracle">Oracle (Oracle Russia &amp; CIS)</a></li><li><strong>JVM &amp; Concurrency</strong> · <a href="../experience/#role-oracle">Oracle (Oracle Russia &amp; CIS)</a>, <a href="https://github.com/stden/EntityLocker">EntityLocker</a></li><li><strong>Spring Framework</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>Spring Boot</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>Distributed Systems</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a>, <a href="../experience/#role-oracle">Oracle (Oracle Russia &amp; CIS)</a>, <a href="../projects/#case-messenger-archive-search">Messenger Archive &amp; Semantic Search</a></li><li><strong>Microservices</strong> · <a href="../experience/#role-taxify-bolt">Taxify (now Bolt)</a></li><li><strong>SQL</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>PostgreSQL</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a>, <a href="../projects/#case-messenger-archive-search">Messenger Archive &amp; Semantic Search</a></li><li><strong>JPA / Hibernate</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a>, <a href="https://github.com/stden/JPA2">JPA2</a></li><li><strong>Enterprise Integration</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>Software Design &amp; Algorithms</strong> · <a href="../experience/#role-sds">Software Development &amp; Solutions</a>, <a href="https://github.com/stden/EntityLocker">EntityLocker</a></li></ul>
+        </details>
       </article>
       <article class="skill-card">
         <h3>Messaging &amp; Data</h3>
         <p class="skill-card-desc">Event streaming, AMQP brokering, relational databases, caching, and vector storage.</p>
         <ul class="skill-items">
           <li data-tier="core"><span class="tier-pill tier-core">RabbitMQ</span></li>
-          <li data-tier="additional"><span class="tier-pill tier-additional">Apache Kafka</span></li>
-          <li data-tier="core"><a class="tier-pill tier-core" href="../tech/oracle.html">Oracle Database</a></li>
-          <li data-tier="additional"><span class="tier-pill tier-additional">Redis / Valkey</span></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Apache Kafka</span></li>
+          <li data-tier="additional"><a class="tier-pill tier-additional" href="../tech/oracle.html">Oracle Database</a></li>
+          <li data-tier="additional"><span class="tier-pill tier-additional">Redis</span></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Valkey</span></li>
           <li data-tier="personal"><span class="tier-pill tier-personal">Qdrant</span></li>
-          <li data-tier="personal"><span class="tier-pill tier-personal">Vector Databases (pgvector, Weaviate)</span></li>
+          <li data-tier="personal"><span class="tier-pill tier-personal">Vector databases</span></li>
         </ul>
+        <details class="recruitment-disclosure">
+          <summary>Skill evidence</summary>
+          <ul class="bullet-list"><li><strong>RabbitMQ</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>Apache Kafka</strong> · Listed in the previous CV.</li><li><strong>Oracle Database</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>Redis</strong> · <a href="../experience/#role-taxify-bolt">Taxify (now Bolt)</a></li><li><strong>Valkey</strong> · Listed in the previous CV.</li><li><strong>Qdrant</strong> · <a href="../projects/#case-messenger-archive-search">Messenger Archive &amp; Semantic Search</a></li><li><strong>Vector databases</strong> · <a href="../projects/#case-messenger-archive-search">Messenger Archive &amp; Semantic Search</a></li></ul>
+        </details>
       </article>
       <article class="skill-card">
         <h3>Infrastructure &amp; DevOps</h3>
         <p class="skill-card-desc">Build pipelines, container orchestration, runtime administration, and monitoring.</p>
         <ul class="skill-items">
-          <li data-tier="core"><a class="tier-pill tier-core" href="../tech/docker.html">Docker / Compose</a></li>
-          <li data-tier="core"><a class="tier-pill tier-core" href="../tech/kubernetes.html">Kubernetes / Helm</a></li>
+          <li data-tier="additional"><a class="tier-pill tier-additional" href="../tech/docker.html">Docker / Compose</a></li>
+          <li data-tier="additional"><a class="tier-pill tier-additional" href="../tech/kubernetes.html">Kubernetes</a></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Helm</span></li>
           <li data-tier="core"><a class="tier-pill tier-core" href="../tech/jenkins.html">Jenkins</a></li>
           <li data-tier="core"><a class="tier-pill tier-core" href="../tech/gitlab.html">GitLab CI/CD</a></li>
-          <li data-tier="additional"><span class="tier-pill tier-additional">GitHub Actions</span></li>
-          <li data-tier="core"><a class="tier-pill tier-core" href="../tech/maven.html">Maven</a></li>
-          <li data-tier="core"><a class="tier-pill tier-core" href="../tech/git.html">Git</a></li>
+          <li data-tier="personal"><span class="tier-pill tier-personal">GitHub Actions</span></li>
+          <li data-tier="additional"><a class="tier-pill tier-additional" href="../tech/maven.html">Maven</a></li>
+          <li data-tier="additional"><a class="tier-pill tier-additional" href="../tech/git.html">Git</a></li>
           <li data-tier="additional"><span class="tier-pill tier-additional">AWS</span></li>
-          <li data-tier="additional"><span class="tier-pill tier-additional">Terraform</span></li>
-          <li data-tier="core"><span class="tier-pill tier-core">Linux / systemd / bash</span></li>
-          <li data-tier="additional"><span class="tier-pill tier-additional">Nginx / Caddy / Cloudflare</span></li>
-          <li data-tier="additional"><span class="tier-pill tier-additional">Prometheus / Grafana</span></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Terraform</span></li>
+          <li data-tier="personal"><span class="tier-pill tier-personal">Linux / systemd / bash</span></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Nginx / Caddy / Cloudflare</span></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Prometheus / Grafana</span></li>
         </ul>
+        <details class="recruitment-disclosure">
+          <summary>Skill evidence</summary>
+          <ul class="bullet-list"><li><strong>Docker / Compose</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a>, <a href="../experience/#role-taxify-bolt">Taxify (now Bolt)</a>, <a href="https://github.com/stden/docker-gems">docker-gems</a></li><li><strong>Kubernetes</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>Helm</strong> · Listed in the previous CV.</li><li><strong>Jenkins</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>GitLab CI/CD</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>GitHub Actions</strong> · <a href="https://github.com/stden/RustShot">RustShot</a>, <a href="https://github.com/stden/SonarQubeChecker">SonarQubeChecker</a></li><li><strong>Maven</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a>, <a href="https://github.com/stden/JPA2">JPA2</a></li><li><strong>Git</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>AWS</strong> · <a href="../experience/#role-taxify-bolt">Taxify (now Bolt)</a></li><li><strong>Terraform</strong> · Listed in the previous CV.</li><li><strong>Linux / systemd / bash</strong> · <a href="https://github.com/stden/docker-gems">docker-gems</a></li><li><strong>Nginx / Caddy / Cloudflare</strong> · Listed in the previous CV.</li><li><strong>Prometheus / Grafana</strong> · Listed in the previous CV.</li></ul>
+        </details>
       </article>
       <article class="skill-card">
         <h3>Additional Languages &amp; Frameworks</h3>
         <p class="skill-card-desc">Production polyglot backend/frontend delivery alongside personal systems programming.</p>
         <ul class="skill-items">
-          <li data-tier="core"><a class="tier-pill tier-core" href="../tech/python.html">Python (2 &amp; 3)</a></li>
+          <li data-tier="additional"><a class="tier-pill tier-additional" href="../tech/python.html">Python (2 &amp; 3)</a></li>
           <li data-tier="personal"><span class="tier-pill tier-personal">Rust</span></li>
-          <li data-tier="core"><span class="tier-pill tier-core">TypeScript</span></li>
-          <li data-tier="core"><span class="tier-pill tier-core">Node.js</span></li>
-          <li data-tier="additional"><span class="tier-pill tier-additional">Go (Gin, gRPC)</span></li>
+          <li data-tier="additional"><span class="tier-pill tier-additional">TypeScript</span></li>
+          <li data-tier="additional"><span class="tier-pill tier-additional">Node.js</span></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Go (Gin, gRPC)</span></li>
           <li data-tier="additional"><a class="tier-pill tier-additional" href="../tech/react.html">React</a></li>
           <li data-tier="additional"><a class="tier-pill tier-additional" href="../tech/angular.html">AngularJS</a></li>
-          <li data-tier="personal"><span class="tier-pill tier-personal">Svelte / SvelteKit</span></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Svelte / SvelteKit</span></li>
         </ul>
+        <details class="recruitment-disclosure">
+          <summary>Skill evidence</summary>
+          <ul class="bullet-list"><li><strong>Python (2 &amp; 3)</strong> · <a href="../experience/#role-oracle">Oracle (Oracle Russia &amp; CIS)</a>, <a href="../projects/#case-messenger-archive-search">Messenger Archive &amp; Semantic Search</a>, <a href="https://github.com/stden/SonarQubeChecker">SonarQubeChecker</a></li><li><strong>Rust</strong> · <a href="../projects/#case-messenger-archive-search">Messenger Archive &amp; Semantic Search</a>, <a href="https://github.com/stden/RustShot">RustShot</a>, <a href="https://github.com/stden/FunnyFileManager">FunnyFileManager</a></li><li><strong>TypeScript</strong> · <a href="../experience/#role-taxify-bolt">Taxify (now Bolt)</a></li><li><strong>Node.js</strong> · <a href="../experience/#role-taxify-bolt">Taxify (now Bolt)</a></li><li><strong>Go (Gin, gRPC)</strong> · Listed in the previous CV.</li><li><strong>React</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>AngularJS</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>Svelte / SvelteKit</strong> · Listed in the previous CV.</li></ul>
+        </details>
       </article>
       <article class="skill-card">
         <h3>AI Engineering</h3>
@@ -164,23 +231,31 @@
         <ul class="skill-items">
           <li data-tier="personal"><span class="tier-pill tier-personal">Model Context Protocol (MCP)</span></li>
           <li data-tier="personal"><span class="tier-pill tier-personal">RAG / Embeddings / Semantic Search</span></li>
-          <li data-tier="personal"><span class="tier-pill tier-personal">Local LLMs / Ollama</span></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Local LLMs / Ollama</span></li>
           <li data-tier="personal"><span class="tier-pill tier-personal">Large Language Models (Claude, GPT, Gemini)</span></li>
           <li data-tier="personal"><span class="tier-pill tier-personal">AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)</span></li>
         </ul>
+        <details class="recruitment-disclosure">
+          <summary>Skill evidence</summary>
+          <ul class="bullet-list"><li><strong>Model Context Protocol (MCP)</strong> · <a href="../projects/#case-messenger-archive-search">Messenger Archive &amp; Semantic Search</a>, <a href="https://github.com/stden/pythorust_tg">pythorust_tg</a></li><li><strong>RAG / Embeddings / Semantic Search</strong> · <a href="../projects/#case-messenger-archive-search">Messenger Archive &amp; Semantic Search</a>, <a href="https://github.com/stden/pythorust_tg">pythorust_tg</a></li><li><strong>Local LLMs / Ollama</strong> · Listed in the previous CV.</li><li><strong>Large Language Models (Claude, GPT, Gemini)</strong> · <a href="../projects/#case-messenger-archive-search">Messenger Archive &amp; Semantic Search</a>, <a href="https://github.com/stden/pythorust_tg">pythorust_tg</a></li><li><strong>AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)</strong> · <a href="https://github.com/stden/anygen">anygen</a></li></ul>
+        </details>
       </article>
       <article class="skill-card">
         <h3>Quality Engineering</h3>
         <p class="skill-card-desc">Automated verification, mocking frameworks, BDD/E2E testing, and CI gates.</p>
         <ul class="skill-items">
           <li data-tier="core"><span class="tier-pill tier-core">JUnit</span></li>
-          <li data-tier="core"><a class="tier-pill tier-core" href="../tech/mockito.html">Mockito / JMockit / EasyMock</a></li>
-          <li data-tier="core"><span class="tier-pill tier-core">Test-Driven Development (TDD)</span></li>
-          <li data-tier="core"><span class="tier-pill tier-core">Integration &amp; E2E Testing</span></li>
-          <li data-tier="additional"><span class="tier-pill tier-additional">Cucumber / Gherkin (BDD)</span></li>
-          <li data-tier="additional"><span class="tier-pill tier-additional">Playwright / Vitest / Selenide</span></li>
+          <li data-tier="additional"><a class="tier-pill tier-additional" href="../tech/mockito.html">Mockito / JMockit / EasyMock</a></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Test-Driven Development (TDD)</span></li>
+          <li data-tier="personal"><span class="tier-pill tier-personal">Integration &amp; E2E Testing</span></li>
+          <li data-tier="personal"><span class="tier-pill tier-personal">Cucumber / Gherkin (BDD)</span></li>
+          <li data-tier="familiarity"><span class="tier-pill tier-familiarity">Playwright / Vitest / Selenide</span></li>
           <li data-tier="core"><span class="tier-pill tier-core">Continuous Integration</span></li>
         </ul>
+        <details class="recruitment-disclosure">
+          <summary>Skill evidence</summary>
+          <ul class="bullet-list"><li><strong>JUnit</strong> · <a href="../experience/#role-oracle">Oracle (Oracle Russia &amp; CIS)</a>, <a href="https://github.com/stden/EntityLocker">EntityLocker</a>, <a href="https://github.com/stden/JPA2">JPA2</a></li><li><strong>Mockito / JMockit / EasyMock</strong> · <a href="../experience/#role-oracle">Oracle (Oracle Russia &amp; CIS)</a>, <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a></li><li><strong>Test-Driven Development (TDD)</strong> · Listed in the previous CV.</li><li><strong>Integration &amp; E2E Testing</strong> · <a href="https://github.com/stden/SonarQubeChecker">SonarQubeChecker</a>, <a href="https://github.com/stden/RustShot">RustShot</a></li><li><strong>Cucumber / Gherkin (BDD)</strong> · <a href="https://github.com/stden/anygen">anygen</a></li><li><strong>Playwright / Vitest / Selenide</strong> · Listed in the previous CV.</li><li><strong>Continuous Integration</strong> · <a href="../experience/#role-kuehne-nagel">Kuehne+Nagel</a>, <a href="https://github.com/stden/RustShot">RustShot</a></li></ul>
+        </details>
       </article>
     </div>
   </div>
@@ -191,7 +266,7 @@
     <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
     <div class="footer-links">
       <a href="../index.html">Portfolio</a>
-      <a href="../cv/index.html">CV versions</a>
+      <a href="../cv/">All CV versions</a>
       <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:super.denis@gmail.com">Email</a>

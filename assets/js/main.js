@@ -14,10 +14,10 @@
         if (btn) {
             const isDark = theme === 'dark';
             btn.setAttribute('aria-pressed', String(isDark));
-            btn.setAttribute('aria-label', isDark ? btn.dataset.labelToLight : btn.dataset.labelToDark);
+            btn.setAttribute('aria-label', isDark ? btn.dataset.toLight : btn.dataset.toDark);
             const label = btn.querySelector('.theme-label');
             if (label) {
-                label.textContent = isDark ? btn.dataset.textLight : btn.dataset.textDark;
+                label.textContent = isDark ? btn.dataset.lightLabel : btn.dataset.darkLabel;
             }
         }
     }
@@ -34,6 +34,33 @@
             }
             applyTheme(next);
         });
+    }
+
+    const languageLinks = Array.from(document.querySelectorAll('a[data-locale]'));
+    const languageKey = 'cv-language';
+    languageLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            try {
+                localStorage.setItem(languageKey, link.dataset.locale);
+            } catch (_) {
+                // Links still work when storage is unavailable.
+            }
+        });
+    });
+
+    const defaultLanding = languageLinks.find(function (link) {
+        return link.dataset.locale === 'en' && link.getAttribute('href') === './';
+    });
+    if (defaultLanding && location.href === defaultLanding.href) {
+        try {
+            const preference = localStorage.getItem(languageKey);
+            const destination = languageLinks.find(function (link) {
+                return link.dataset.locale === preference && preference !== 'en';
+            });
+            if (destination) location.replace(destination.href);
+        } catch (_) {
+            // The English homepage is available in restricted storage contexts.
+        }
     }
 
     // Mobile drawer toggle
@@ -94,9 +121,8 @@
             }
 
             if (status) {
-                status.textContent = copied
-                    ? 'Copied ' + email + ' to clipboard.'
-                    : 'Email address: ' + email;
+                const message = copied ? button.dataset.copySuccess : button.dataset.copyFallback;
+                status.textContent = message.replace('{email}', email);
             }
         });
     });
@@ -109,17 +135,44 @@
         tabs.forEach(function (tab) {
             const selected = tab.getAttribute('data-arch-tab') === targetSlug;
             tab.setAttribute('aria-selected', String(selected));
+            tab.tabIndex = selected ? 0 : -1;
         });
         panels.forEach(function (panel) {
             panel.hidden = panel.getAttribute('data-arch-panel') !== targetSlug;
         });
     }
 
-    tabs.forEach(function (tab) {
+    tabs.forEach(function (tab, index) {
         tab.addEventListener('click', function () {
             activateTab(tab.getAttribute('data-arch-tab'));
         });
+        tab.addEventListener('keydown', function (event) {
+            let nextIndex;
+            switch (event.key) {
+            case 'ArrowLeft': nextIndex = (index - 1 + tabs.length) % tabs.length; break;
+            case 'ArrowRight': nextIndex = (index + 1) % tabs.length; break;
+            case 'Home': nextIndex = 0; break;
+            case 'End': nextIndex = tabs.length - 1; break;
+            default: return;
+            }
+            event.preventDefault();
+            const nextTab = tabs[nextIndex];
+            activateTab(nextTab.getAttribute('data-arch-tab'));
+            nextTab.focus();
+        });
     });
+
+    function activateLinkedTab() {
+        const linked = tabs.find(function (tab) {
+            return location.hash === '#' + tab.id || location.hash === '#' + tab.getAttribute('aria-controls');
+        });
+        if (linked) activateTab(linked.getAttribute('data-arch-tab'));
+    }
+
+    if (tabs.length) {
+        activateLinkedTab();
+        window.addEventListener('hashchange', activateLinkedTab);
+    }
 
     panels.forEach(function (panel) {
         const inspector = panel.querySelector('[data-inspector-detail]');
@@ -183,26 +236,4 @@
             });
         });
     });
-})();
-
-(function languageMemory() {
-    const KEY = 'cv-lang';
-    const switcher = Array.from(document.querySelectorAll('.lang-switcher a[hreflang]'));
-    if (!switcher.length) return;
-    const current = document.documentElement.lang;
-    switcher.forEach((link) => {
-        link.addEventListener('click', () => {
-            try { localStorage.setItem(KEY, link.getAttribute('hreflang')); } catch (error) { /* storage blocked */ }
-        });
-    });
-    let saved = null;
-    try { saved = localStorage.getItem(KEY); } catch (error) { return; }
-    if (!saved || saved === current) return;
-    const target = switcher.find((link) => link.getAttribute('hreflang') === saved);
-    const hint = document.querySelector('[data-lang-hint]');
-    if (!target || !hint) return;
-    const anchor = hint.querySelector('a');
-    anchor.href = target.href;
-    anchor.textContent = hint.dataset.template.replace('{language}', target.title);
-    hint.hidden = false;
 })();
