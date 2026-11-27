@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 554" width="420" height="554" role="img">
-  <title>Transactional Outbox &amp; Idempotent Event Consumer (Independent educational reference architecture — unrelated to any employer system)</title>
+  <title>Transactional Outbox &amp; Idempotent Consumer (Independent educational reference architecture — unrelated to any employer system)</title>
   <desc>Educational reference architecture: application service, relational outbox transaction, outbox relay, message broker, idempotent consumer, and dead-letter queue</desc>
   <defs>
     <marker id="arrow-ref-event-driven-outbox" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
@@ -22,7 +22,7 @@
   <line class="link" x1="210" y1="174" x2="210" y2="198"/>
   <rect class="box" x="20" y="200" width="380" height="64" rx="8"/>
   <text class="title" x="38" y="227">3. Outbox Relay Publisher</text>
-  <text class="detail" x="38" y="248">Polls / streams &amp; publishes</text>
+  <text class="detail" x="38" y="248">At-least-once relay</text>
   <line class="link" x1="210" y1="264" x2="210" y2="288"/>
   <rect class="box" x="20" y="290" width="380" height="64" rx="8"/>
   <text class="title" x="38" y="317">4. Message Broker (Kafka / AMQP)</text>

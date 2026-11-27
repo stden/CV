@@ -68,7 +68,7 @@ function renderFooter(data, { depth = 0 } = {}) {
     <p>&copy; ${new Date().getFullYear()} ${escapeHtml(data.profile.name)} &middot; ${escapeHtml(data.profile.location)}</p>
     <div class="footer-links">
       <a href="${prefix}index.html">Portfolio</a>
-      <a href="${prefix}cv/index.html">Targeted CVs</a>
+      <a href="${prefix}cv/index.html">CV Versions</a>
       <a href="${escapeHtml(data.profile.contact.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="${escapeHtml(data.profile.contact.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:${escapeHtml(data.profile.contact.email)}">Email</a>

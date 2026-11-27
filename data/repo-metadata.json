@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-11-27",
+  "repos": {
+    "EntityLocker": {
+      "verified": true,
+      "ciStatus": "No CI workflow",
+      "pushedAt": "2026-11-13",
+      "lastVerified": "2026-11-27"
+    },
+    "JPA2": {
+      "verified": true,
+      "ciStatus": "Java CI with Maven passing",
+      "pushedAt": "2026-11-13",
+      "lastVerified": "2026-11-27"
+    },
+    "FunnyFileManager": {
+      "verified": true,
+      "ciStatus": "CI passing",
+      "pushedAt": "2026-11-26",
+      "lastVerified": "2026-11-27"
+    },
+    "RustShot": {
+      "verified": true,
+      "ciStatus": "Release passing",
+      "pushedAt": "2026-11-26",
+      "lastVerified": "2026-11-27"
+    },
+    "SonarQubeChecker": {
+      "verified": true,
+      "ciStatus": "test passing",
+      "pushedAt": "2026-11-20",
+      "lastVerified": "2026-11-27"
+    },
+    "pythorust_tg": {
+      "verified": true,
+      "ciStatus": "CI/CD passing",
+      "pushedAt": "2026-11-23",
+      "lastVerified": "2026-11-27"
+    }
+  }
+}

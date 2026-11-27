@@ -5,6 +5,8 @@ const { execFileSync } = require('node:child_process');
 const { ROOT_DIR, loadCvData } = require('./lib/utils');
 const { runConfidentialityCheck } = require('./check-confidentiality');
 
+const VALID_SKILL_TIERS = new Set(['primary', 'additional', 'independent', 'familiarity']);
+
 function runBuild() {
     for (const script of ['build-project-diagrams.js', 'build-tech-pages.js', 'build-site.js']) {
         execFileSync(process.execPath, [path.join(ROOT_DIR, 'scripts', script)], {
@@ -22,6 +24,14 @@ function checkDataIntegrity(data) {
     assert.deepEqual(data.variants.map(({ slug }) => slug), [
         'general', 'senior-java', 'distributed-systems', 'fintech-integrations', 'wise', 'ai-mcp', 'full',
     ]);
+    for (const group of data.skills) {
+        for (const item of group.items) {
+            assert.ok(
+                VALID_SKILL_TIERS.has(item.tier),
+                `Skill "${item.name}" has invalid tier "${item.tier}"`
+            );
+        }
+    }
 }
 
 function collectHtmlPages(data) {
@@ -84,11 +94,19 @@ function checkAssetsAndDiscovery(data) {
 }
 
 function checkPdfs(data) {
+    let hasPdfFonts = false;
+    try {
+        execFileSync('which', ['pdffonts'], { stdio: 'ignore' });
+        hasPdfFonts = true;
+    } catch {
+        hasPdfFonts = false;
+    }
+
     for (const variant of data.variants) {
         const pdfPath = path.join(ROOT_DIR, 'assets', 'pdf', variant.pdfFilename);
         assert.ok(fs.existsSync(pdfPath), `Missing generated PDF: ${pdfPath}`);
-        const header = fs.readFileSync(pdfPath).subarray(0, 5).toString('ascii');
-        assert.equal(header, '%PDF-', `${variant.pdfFilename} must start with %PDF-`);
+        const rawBytes = fs.readFileSync(pdfPath);
+        assert.equal(rawBytes.subarray(0, 5).toString('ascii'), '%PDF-', `${variant.pdfFilename} must start with %PDF-`);
 
         const info = execFileSync('pdfinfo', [pdfPath], { encoding: 'utf8' });
         const pagesMatch = info.match(/^Pages:\s+(\d+)/m);
@@ -98,6 +116,16 @@ function checkPdfs(data) {
             pages <= variant.expectedPages,
             `${variant.pdfFilename} has ${pages} pages, expected <= ${variant.expectedPages}`
         );
+        assert.match(info, /^Title:\s+Denis Stepulenok/m, `${variant.pdfFilename} missing Title PDF metadata`);
+
+        if (hasPdfFonts) {
+            const fontsOut = execFileSync('pdffonts', [pdfPath], { encoding: 'utf8' });
+            assert.match(fontsOut, /Inter/, `${variant.pdfFilename} must embed Inter font`);
+            assert.match(fontsOut, /\byes\s+yes\s+yes\b/, `${variant.pdfFilename} must have embedded subsetted fonts`);
+        }
+
+        const rawLatin1 = rawBytes.toString('latin1');
+        assert.match(rawLatin1, /\/URI\s*\(mailto:super\.denis@gmail\.com\)/, `${variant.pdfFilename} missing clickable email link`);
 
         const text = execFileSync('pdftotext', [pdfPath, '-'], { encoding: 'utf8' });
         for (const required of ['Denis Stepulenok', 'Kuehne+Nagel', 'Oracle', 'Taxify', 'Bolt', 'Tallinn', 'super.denis@gmail.com']) {

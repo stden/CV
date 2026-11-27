@@ -85,7 +85,7 @@ function renderHero(data) {
         <a class="btn btn-secondary" href="#contact">Contact</a>
         <a class="btn btn-ghost" href="${escapeHtml(profile.contact.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="btn btn-ghost" href="${escapeHtml(profile.contact.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn btn-ghost" href="cv/index.html">Targeted CVs</a>
+        <a class="btn btn-ghost" href="cv/index.html">CV Versions</a>
       </div>
       <ul class="badge-list" aria-label="Core technologies">
         ${badges}
@@ -134,6 +134,12 @@ function renderExperience(data, techLookup) {
             <ul class="badge-list">${renderTechChips(role.additionalTechnologies, techLookup, 0)}</ul>
           </div>`
             : '';
+        const achievementsBlock = role.verifiedAchievements?.length
+            ? `<div class="tech-group">
+            <span class="tech-group-label">Verified outcomes</span>
+            <ul class="bullet-list">${role.verifiedAchievements.map((a) => `<li>${escapeHtml(a)}</li>`).join('')}</ul>
+          </div>`
+            : '';
 
         return `      <article class="role-card">
         <div class="role-header">
@@ -145,6 +151,7 @@ function renderExperience(data, techLookup) {
         <ul class="bullet-list">
 ${bullets}
         </ul>
+        ${achievementsBlock}
         <div class="tech-group">
           <span class="tech-group-label">Primary technologies in role</span>
           <ul class="badge-list">${renderTechChips(role.projectTechnologies, techLookup, 0)}</ul>
@@ -157,17 +164,20 @@ ${bullets}
         const companyText = role.url
             ? `<a href="${escapeHtml(role.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(role.company)}</a>`
             : escapeHtml(role.company);
+        const internTag = role.employmentType === 'internship'
+            ? ' <span class="internship-tag">Internship</span>'
+            : '';
         const bullets = role.responsibilities.map((r) => `            <li>${escapeHtml(r)}</li>`).join('\n');
         return `        <details class="compact-role">
           <summary>
             <span class="compact-summary-left">
-              <span>${escapeHtml(role.role)}</span>
+              <span>${escapeHtml(role.role)}${internTag}</span>
               <span class="compact-company">&middot; ${escapeHtml(role.company)} (${escapeHtml(role.period)})</span>
             </span>
             <span class="compact-chevron" aria-hidden="true"></span>
           </summary>
           <div class="compact-body">
-            <p class="role-company">${companyText} &middot; ${escapeHtml(role.location)}</p>
+            <p class="role-company">${companyText} &middot; ${escapeHtml(role.location)}${role.companyNote ? ` &middot; ${escapeHtml(role.companyNote)}` : ''}</p>
             <p class="role-summary">${escapeHtml(role.summary)}</p>
             <ul class="bullet-list">
 ${bullets}
@@ -213,13 +223,18 @@ function renderProjects(data) {
           <div>
             <dl class="case-dl">
               <div><dt>Problem Statement</dt><dd>${escapeHtml(cs.problem)}</dd></div>
-              <div><dt>Engineering Context</dt><dd>${escapeHtml(cs.context)}</dd></div>
               <div><dt>Architecture</dt><dd>${escapeHtml(cs.architecture)}</dd></div>
-              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list">${challenges}</ul></dd></div>
-              <div><dt>Design Decisions</dt><dd><ul class="bullet-list">${decisions}</ul></dd></div>
-              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list">${reliability}</ul></dd></div>
               <div><dt>Verified Outcomes</dt><dd><ul class="bullet-list">${results}</ul></dd></div>
             </dl>
+            <details class="case-details">
+              <summary>Engineering context, technical challenges &amp; reliability trade-offs</summary>
+              <dl class="case-dl case-dl-nested">
+                <div><dt>Engineering Context</dt><dd>${escapeHtml(cs.context)}</dd></div>
+                <div><dt>Technical Challenges</dt><dd><ul class="bullet-list">${challenges}</ul></dd></div>
+                <div><dt>Design Decisions</dt><dd><ul class="bullet-list">${decisions}</ul></dd></div>
+                <div><dt>Reliability &amp; Accuracy Notes</dt><dd><ul class="bullet-list">${reliability}</ul></dd></div>
+              </dl>
+            </details>
             <div class="tech-group">
               <span class="tech-group-label">Technology stack</span>
               <ul class="badge-list">${stackBadges}</ul>
@@ -235,6 +250,9 @@ function renderProjects(data) {
 
     const reposHtml = data.githubProjects.map((repo) => {
         const allLangs = [repo.language, ...(repo.secondaryLanguages || [])].join(' · ');
+        const conceptsHtml = (repo.concepts || []).map((c) => `<li><span class="badge">${escapeHtml(c)}</span></li>`).join('');
+        const ciDisplay = repo.ciStatus || 'Not verified';
+        const verifiedDisplay = repo.lastVerified || 'Not verified';
         return `      <article class="repo-card">
         <div>
           <div class="repo-top">
@@ -242,15 +260,18 @@ function renderProjects(data) {
             <span class="repo-lang">${escapeHtml(repo.language)}</span>
           </div>
           <p class="repo-desc">${escapeHtml(repo.description)}</p>
+          ${conceptsHtml ? `<ul class="badge-list repo-concepts" aria-label="Engineering concepts">${conceptsHtml}</ul>` : ''}
+          ${repo.testsSummary ? `<p class="repo-tests"><strong>Tests:</strong> ${escapeHtml(repo.testsSummary)}</p>` : ''}
         </div>
         <div>
           <div class="repo-meta">
             <span>Stack: ${escapeHtml(allLangs)}</span>
-            <span>CI: ${escapeHtml(repo.ciStatus)}</span>
+            <span>CI: ${escapeHtml(ciDisplay)}</span>
+            <span>Verified: ${escapeHtml(verifiedDisplay)}</span>
             <span>Updated: ${escapeHtml(repo.latestActivity)}</span>
           </div>
           <div class="repo-links">
-            <a href="${escapeHtml(repo.url)}" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="${escapeHtml(repo.url)}" target="_blank" rel="noopener noreferrer">Source Code</a>
             <a href="${escapeHtml(repo.docsUrl)}" target="_blank" rel="noopener noreferrer">Documentation</a>
           </div>
         </div>
@@ -352,17 +373,19 @@ ${conceptsHtml}
 
 function renderSkills(data) {
     const tierLabels = {
-        core: 'Core professional',
+        primary: 'Primary professional',
         additional: 'Additional professional',
-        personal: 'Personal / independent',
+        independent: 'Independent projects',
+        familiarity: 'Familiarity',
     };
 
     const cardsHtml = data.skills.map((cat) => {
         const itemsHtml = cat.items.map((item) => {
             const cls = `tier-pill tier-${escapeHtml(item.tier)}`;
+            const titleAttr = item.evidence ? ` title="${escapeHtml(item.evidence)}"` : '';
             const inner = item.techSlug
-                ? `<a class="${cls}" href="tech/${escapeHtml(item.techSlug)}.html">${escapeHtml(item.name)}</a>`
-                : `<span class="${cls}">${escapeHtml(item.name)}</span>`;
+                ? `<a class="${cls}" href="tech/${escapeHtml(item.techSlug)}.html"${titleAttr}>${escapeHtml(item.name)}</a>`
+                : `<span class="${cls}"${titleAttr}>${escapeHtml(item.name)}</span>`;
             return `          <li data-tier="${escapeHtml(item.tier)}">${inner}</li>`;
         }).join('\n');
 
@@ -380,19 +403,21 @@ ${itemsHtml}
     <div class="section-header">
       <p class="section-eyebrow">Technical Matrix</p>
       <h2 id="skills-heading" class="section-title">Technical Skills &amp; Evidence</h2>
-      <p class="section-lead">Categorised by engineering domain and backed by role or repository evidence—distinguishing core production skills from additional and personal project technologies.</p>
+      <p class="section-lead">Organised by practical depth and evidence—distinguishing primary professional expertise from additional role exposure, independent projects, and exploratory familiarity.</p>
     </div>
     <div class="skills-toolbar">
       <div class="tier-legend" aria-label="Experience context legend">
-        <span class="tier-pill tier-core">${tierLabels.core}</span>
+        <span class="tier-pill tier-primary">${tierLabels.primary}</span>
         <span class="tier-pill tier-additional">${tierLabels.additional}</span>
-        <span class="tier-pill tier-personal">${tierLabels.personal}</span>
+        <span class="tier-pill tier-independent">${tierLabels.independent}</span>
+        <span class="tier-pill tier-familiarity">${tierLabels.familiarity}</span>
       </div>
       <div class="skill-filter-group" role="group" aria-label="Filter skills by experience context">
         <button type="button" class="filter-btn" data-skill-filter="all" aria-pressed="true">All</button>
-        <button type="button" class="filter-btn" data-skill-filter="core" aria-pressed="false">Core</button>
+        <button type="button" class="filter-btn" data-skill-filter="primary" aria-pressed="false">Primary</button>
         <button type="button" class="filter-btn" data-skill-filter="additional" aria-pressed="false">Additional</button>
-        <button type="button" class="filter-btn" data-skill-filter="personal" aria-pressed="false">Personal</button>
+        <button type="button" class="filter-btn" data-skill-filter="independent" aria-pressed="false">Independent</button>
+        <button type="button" class="filter-btn" data-skill-filter="familiarity" aria-pressed="false">Familiarity</button>
       </div>
     </div>
     <div class="skills-grid">

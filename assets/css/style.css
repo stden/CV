@@ -30,6 +30,9 @@
   --badge-personal-bg: #f5f3ff;
   --badge-personal-text: #5b21b6;
   --badge-personal-border: #ddd6fe;
+  --badge-fam-bg: #fffbeb;
+  --badge-fam-text: #92400e;
+  --badge-fam-border: #fde68a;
   --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
   --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.06);
   --radius-sm: 6px;
@@ -64,6 +67,9 @@
   --badge-personal-bg: #4c1d95;
   --badge-personal-text: #ddd6fe;
   --badge-personal-border: #6d28d9;
+  --badge-fam-bg: #451a03;
+  --badge-fam-text: #fde68a;
+  --badge-fam-border: #b45309;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
   --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
@@ -856,6 +862,47 @@ details.compact-role:not([open]) .compact-chevron::after {
   font-size: 0.91rem;
 }
 
+.repo-tests {
+  margin: 0.65rem 0 0.75rem;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+
+.repo-concepts {
+  margin-bottom: 0.45rem;
+}
+
+.case-details {
+  margin-top: 0.85rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+.case-details summary {
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+
+.case-dl-nested {
+  margin-top: 0.75rem;
+}
+
+.internship-tag {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+}
+
 .repo-meta {
   display: flex;
   flex-wrap: wrap;
@@ -1072,6 +1119,7 @@ details.compact-role:not([open]) .compact-chevron::after {
   text-decoration: none;
 }
 
+.tier-primary,
 .tier-core {
   background: var(--badge-core-bg);
   color: var(--badge-core-text);
@@ -1084,10 +1132,17 @@ details.compact-role:not([open]) .compact-chevron::after {
   border-color: var(--badge-add-border);
 }
 
+.tier-independent,
 .tier-personal {
   background: var(--badge-personal-bg);
   color: var(--badge-personal-text);
   border-color: var(--badge-personal-border);
+}
+
+.tier-familiarity {
+  background: var(--badge-fam-bg);
+  color: var(--badge-fam-text);
+  border-color: var(--badge-fam-border);
 }
 
 .skill-filter-group {

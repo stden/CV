@@ -53,7 +53,7 @@ for (const width of VIEWPORTS) {
 
         await expect(page.getByRole('heading', { level: 1 })).toHaveText('Denis Stepulenok');
         const overview = page.locator('#overview');
-        await expect(overview).toContainText('Senior Software Engineer | Java, Distributed Systems & AI Engineering');
+        await expect(overview).toContainText('Senior Software Engineer — Java & Distributed Systems');
         await expect(overview).toContainText('Tallinn, Estonia');
         await expect(overview).toContainText('Kuehne+Nagel');
         await expect(overview).toContainText('Oracle');
@@ -107,17 +107,25 @@ test('navigation, mobile menu, earlier roles disclosure, skills filter, theme sw
         await expect(page.locator(`#${id}`)).toBeAttached();
     }
 
-    // Earlier experience expandable <details>
+    // Earlier experience & case study expandable <details>
     const firstCompact = page.locator('details.compact-role').first();
     await firstCompact.locator('summary').click();
     await expect(firstCompact).toHaveAttribute('open', '');
 
-    // Skill tier filter and zero percentage bars
+    const firstCaseDetails = page.locator('details.case-details').first();
+    await firstCaseDetails.locator('summary').click();
+    await expect(firstCaseDetails).toHaveAttribute('open', '');
+
+    // 4-tier Skill filter and zero percentage bars
     await expect(page.locator('.level-bar-inner')).toHaveCount(0);
-    const personalFilter = page.getByRole('button', { name: 'Personal', exact: true });
-    await personalFilter.click();
-    await expect(personalFilter).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('.skill-items li[data-tier="core"]:not([hidden])')).toHaveCount(0);
+    const independentFilter = page.getByRole('button', { name: 'Independent', exact: true });
+    await independentFilter.click();
+    await expect(independentFilter).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.skill-items li[data-tier="primary"]:not([hidden])')).toHaveCount(0);
+    const familiarityFilter = page.getByRole('button', { name: 'Familiarity', exact: true });
+    await familiarityFilter.click();
+    await expect(familiarityFilter).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.skill-items li[data-tier="familiarity"]:not([hidden])')).not.toHaveCount(0);
     await page.getByRole('button', { name: 'All', exact: true }).click();
 
     // Theme switching + persistence + dark screenshot

@@ -11,8 +11,7 @@ concurrency:
   group: portfolio-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   validate:
@@ -25,10 +24,10 @@ jobs:
       pages_source: ${{ steps.pages-source.outputs.mode }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "22"
           cache: npm
@@ -47,7 +46,7 @@ jobs:
       - name: Generate ATS-friendly PDF resumes and OG image
         run: npm run build:pdfs
 
-      - name: Run static validation, SEO checks, and PDF text extraction checks
+      - name: Run static validation, SEO, PDF, and unit tests
         run: npm test
 
       - name: Run automated confidentiality verification
@@ -58,36 +57,40 @@ jobs:
       - name: Run Playwright E2E, responsiveness, and Axe accessibility tests
         run: npm run test:e2e
 
-      - name: Stage and validate public Pages artifact
+      - name: Stage and validate allowlisted public Pages artifact
+        env:
+          CONFIDENTIAL_DENYLIST: ${{ secrets.CONFIDENTIAL_DENYLIST }}
         run: |
           rm -rf _site
           mkdir -p _site
           cp index.html robots.txt sitemap.xml favicon.ico _site/
           cp -r assets cv tech _site/
           test -f _site/index.html
+          test -f _site/cv/general.html
           test -f _site/cv/wise.html
+          test -f _site/assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf
           test -f _site/assets/pdf/Denis-Stepulenok-Senior-Java-Engineer.pdf
+          test -f _site/assets/pdf/Denis-Stepulenok-Distributed-Systems-Engineer.pdf
+          test -f _site/assets/pdf/Denis-Stepulenok-Fintech-Engineer.pdf
           test -f _site/assets/pdf/Denis-Stepulenok-Wise-Senior-Java-Engineer.pdf
+          test -f _site/assets/pdf/Denis-Stepulenok-AI-Engineer.pdf
+          test -f _site/assets/pdf/Denis-Stepulenok-Full-CV.pdf
+          test ! -e _site/applications
+          test ! -e _site/vacancies
+          test ! -e _site/CONTENT_REVIEW.md
+          test ! -e _site/.confidential-denylist
+          node scripts/check-confidentiality.js --site-dir _site
 
-      - name: Upload Playwright report and screenshots
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
+      - name: Upload Playwright failure diagnostics
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: portfolio-test-artifacts
+          name: playwright-failure-diagnostics
           path: |
-            docs/screenshots/
             playwright-report/
             test-results/
           if-no-files-found: ignore
-          retention-days: 14
-
-      - name: Upload PR preview bundle
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: portfolio-preview-site
-          path: _site/
-          retention-days: 14
+          retention-days: 7
 
       - name: Check repository GitHub Pages source configuration
         if: github.ref == 'refs/heads/main'
@@ -98,12 +101,12 @@ jobs:
           mode="$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.build_type')"
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
           if [[ "$mode" != "workflow" ]]; then
-            echo "::notice::GitHub Pages is currently configured for branch publishing ($mode). Generated files are committed in the repository so branch publishing continues working; switch Settings -> Pages -> Source to GitHub Actions to publish via deploy-pages."
+            echo "::notice::GitHub Pages is currently configured for branch publishing ($mode). Switch Settings -> Pages -> Source to GitHub Actions to enforce validated deployment gating."
           fi
 
       - name: Upload GitHub Pages artifact
         if: github.ref == 'refs/heads/main' && steps.pages-source.outputs.mode == 'workflow'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
           path: _site
 
@@ -120,4 +123,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: publish
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

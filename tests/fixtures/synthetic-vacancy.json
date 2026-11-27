@@ -1,0 +1,30 @@
+{
+  "slug": "nordic-ledger-senior-java-backend",
+  "company": "Nordic Ledger Tech",
+  "jobTitle": "Senior Java Backend Engineer",
+  "url": "https://www.linkedin.com/jobs/view/999001234",
+  "location": "Tallinn, Estonia (Hybrid)",
+  "languageRequirements": "English B2+/C1 working proficiency",
+  "employmentType": "Full-time",
+  "deadline": "2026-12-31",
+  "salaryRange": "EUR 70,000 - 85,000 (example range from posting)",
+  "requiredTechnologies": [
+    "Java",
+    "Spring Boot",
+    "PostgreSQL",
+    "RabbitMQ",
+    "Docker",
+    "JUnit"
+  ],
+  "preferredTechnologies": [
+    "Apache Kafka",
+    "Kubernetes",
+    "Python"
+  ],
+  "requiredCompetencies": [
+    "Distributed systems and idempotency",
+    "Automated integration testing",
+    "Payment processing and AML compliance"
+  ],
+  "description": "Nordic Ledger Tech is hiring a Senior Java Backend Engineer in Tallinn to build resilient integration services in Java 17+, Spring Boot, and PostgreSQL with RabbitMQ and Kafka event pipelines, Kubernetes deployments, and payment processing / AML compliance workflows."
+}

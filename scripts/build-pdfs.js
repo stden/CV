@@ -40,6 +40,9 @@ function renderPdfHtml(data, variant, fontBase64, { privateCv = false } = {}) {
         const techLine = !compact && role.projectTechnologies?.length
             ? `<p class="tech-line"><strong>Technologies:</strong> ${escapeHtml(role.projectTechnologies.join(', '))}${role.additionalTechnologies?.length ? `; Additional: ${escapeHtml(role.additionalTechnologies.join(', '))}` : ''}</p>`
             : '';
+        const achLine = !compact && role.verifiedAchievements?.length
+            ? `<p class="tech-line"><strong>Verified outcomes:</strong> ${escapeHtml(role.verifiedAchievements.join('; '))}</p>`
+            : '';
 
         return `<article class="entry">
   <div class="entry-head">
@@ -49,6 +52,7 @@ function renderPdfHtml(data, variant, fontBase64, { privateCv = false } = {}) {
   <p class="meta">${escapeHtml(role.location)}${role.companyNote ? ` (${escapeHtml(role.companyNote)})` : ''}</p>
   ${!role.compact ? `<p class="summary-line">${escapeHtml(role.summary)}</p>` : ''}
   ${respList}
+  ${achLine}
   ${techLine}
 </article>`;
     }).join('\n');

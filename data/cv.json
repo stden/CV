@@ -2,27 +2,27 @@
   "site": {
     "baseUrl": "https://stden.github.io/CV",
     "repoUrl": "https://github.com/stden/CV",
-    "title": "Denis Stepulenok — Senior Software Engineer | Java & Distributed Systems",
-    "description": "Senior Software Engineer in Tallinn, Estonia specialising in Java, Spring Boot, distributed systems, enterprise integration, production reliability, and AI engineering tooling. Experience at Kuehne+Nagel, Bolt (Taxify), and Oracle."
+    "title": "Denis Stepulenok — Senior Software Engineer — Java & Distributed Systems",
+    "description": "Senior Software Engineer in Tallinn, Estonia specialising in Java, Spring Boot, distributed systems, enterprise integration, JVM concurrency, and production reliability at Kuehne+Nagel, Oracle, and Taxify (Bolt)."
   },
   "profile": {
     "name": "Denis Stepulenok",
-    "title": "Senior Software Engineer | Java, Distributed Systems & AI Engineering",
+    "title": "Senior Software Engineer — Java & Distributed Systems",
     "location": "Tallinn, Estonia",
     "photo": "assets/images/photo.jpg",
     "photoWidth": 640,
     "photoHeight": 640,
     "photoAlt": "Portrait of Denis Stepulenok, Senior Software Engineer",
-    "summary": "Senior Software Engineer specialising in Java backend development, distributed systems, event-driven architecture, enterprise integration, and production reliability. Professional experience at Kuehne+Nagel, Oracle, and Taxify (Bolt), complemented by independent open-source work in Python, Rust, semantic search, and AI engineering tools.",
+    "summary": "Senior Software Engineer specialising in Java backend engineering, distributed systems, event-driven architecture, enterprise integration, JVM concurrency, and production reliability. Experience across Kuehne+Nagel, Oracle, and Taxify (now Bolt), with additional strengths in Python, Rust, and AI/MCP tooling.",
     "coreBadges": [
       "Java (6–25)",
       "Spring Boot",
       "Distributed Systems",
-      "RabbitMQ & Kafka",
+      "RabbitMQ",
       "PostgreSQL & Oracle",
+      "JVM Concurrency",
       "Docker & Kubernetes",
-      "Python & Rust",
-      "AI / MCP"
+      "Python, Rust & AI/MCP"
     ],
     "availability": {
       "showOpenToWork": false,
@@ -42,37 +42,37 @@
     {
       "id": "java-jvm",
       "title": "Java & JVM Engineering",
-      "description": "Enterprise backend services across Java versions from Java 6 to Java 25 using Spring Framework, Spring Boot, JPA/Hibernate, and JVM internals spanning concurrency, class loading, and the Java Memory Model."
+      "description": "Enterprise backend services across Java 6 to Java 25 using Spring Framework, Spring Boot, JPA/Hibernate, and JVM internals spanning concurrency, class loading, and the Java Memory Model."
     },
     {
       "id": "distributed-systems",
       "title": "Distributed Systems",
-      "description": "Designing reliable backend workloads, fine-grained concurrency utilities, and idempotent cross-store pipelines with deterministic keys and replay-safe checkpoint semantics."
+      "description": "Reliable backend workloads, fine-grained JVM concurrency utilities, row-locked work queues, and idempotent cross-store pipelines with explicit retry and checkpoint semantics."
     },
     {
       "id": "event-driven",
       "title": "Event-Driven Architecture",
-      "description": "Working with asynchronous messaging brokers, bounded consumer concurrency, transactional outbox patterns, and explicit retry or dead-letter error handling."
+      "description": "Asynchronous messaging with RabbitMQ, bounded worker pools, outbox-style publishing with at-least-once delivery awareness, and dead-letter handling."
     },
     {
       "id": "enterprise-integration",
       "title": "Enterprise Integration",
-      "description": "Building backend integration services connecting upstream and downstream systems via REST APIs, messaging queues, structured data transformations, and relational databases."
+      "description": "Backend integration services connecting internal and external systems through REST APIs, message queues, structured data transformations, and relational databases."
     },
     {
       "id": "cloud-infra",
-      "title": "Cloud & Infrastructure",
-      "description": "Supporting containerised deployments and CI/CD automation using Docker, Kubernetes, Maven, Jenkins, GitLab, and GitHub Actions alongside cloud-hosted services."
+      "title": "CI/CD & Container Delivery",
+      "description": "Build automation, containerised packaging, and deployment pipelines with Maven, Jenkins, GitLab CI/CD, Docker, and Kubernetes."
     },
     {
       "id": "quality-reliability",
       "title": "Software Quality & Reliability",
-      "description": "Automated testing, defect investigation, test suite stabilisation, and quality-gate enforcement across JUnit, Mockito, BDD/E2E frameworks, and production monitoring."
+      "description": "Automated testing, defect investigation, test suite stabilisation, and production troubleshooting across JUnit, Mockito, JMockit, EasyMock, and Python scripting."
     },
     {
       "id": "ai-automation",
-      "title": "AI Engineering & Automation",
-      "description": "Independent engineering projects combining Rust, Python, local speech transcription, Qdrant vector search, and Model Context Protocol (MCP) servers for LLM agent integration."
+      "title": "AI Engineering & Automation (Additional)",
+      "description": "Independent open-source and personal projects combining Rust, Python, local speech transcription, Qdrant vector search, and Model Context Protocol (MCP) servers."
     }
   ],
   "experience": [
@@ -81,19 +81,21 @@
       "company": "Kuehne+Nagel",
       "companyNote": "",
       "role": "Senior Java Developer",
+      "employmentType": "employment",
       "period": "May 2018 – Present",
       "location": "Tallinn, Estonia",
       "url": "https://www.kuehne-nagel.com/",
       "compact": false,
-      "summary": "Senior backend engineer developing and maintaining enterprise Java backend applications, distributed integration workloads, and automated deployment pipelines.",
+      "summary": "Senior Java backend engineer developing and maintaining enterprise integration services, distributed workloads, and automated CI/CD pipelines.",
       "responsibilities": [
-        "Developed and maintained enterprise Java backend applications across multiple Java LTS releases using Spring Framework and Spring Boot.",
-        "Worked with distributed, asynchronous, and event-driven systems to support reliable enterprise integration solutions.",
-        "Integrated relational databases (PostgreSQL and Oracle Database) using SQL, JPA, and Hibernate.",
-        "Implemented automated unit and integration tests with JUnit, Mockito, JMockit, and EasyMock.",
-        "Contributed to CI/CD automation, containerised deployments, and application modernisation using Maven, Jenkins, GitLab, Docker, and Kubernetes.",
-        "Supported production reliability, troubleshooting, and operational scripting with Python."
+        "Developed and maintained enterprise Java backend services across Java LTS releases using Spring Framework and Spring Boot.",
+        "Implemented and maintained distributed, asynchronous, and event-driven integration workloads using RabbitMQ and REST APIs.",
+        "Integrated PostgreSQL and Oracle Database persistence layers using SQL, JPA, and Hibernate.",
+        "Automated unit and integration test suites using JUnit, Mockito, JMockit, and EasyMock.",
+        "Modernised build and containerised deployment pipelines across Maven, Jenkins, GitLab CI/CD, Docker, and Kubernetes.",
+        "Investigated production issues and automated operational support workflows using Python."
       ],
+      "verifiedAchievements": [],
       "projectTechnologies": [
         "Java (6–25)",
         "Spring Framework",
@@ -105,16 +107,16 @@
         "SQL",
         "Maven",
         "Docker",
-        "Kubernetes",
         "Jenkins",
         "GitLab",
-        "Git",
-        "Mockito",
-        "JMockit",
-        "EasyMock"
+        "Git"
       ],
       "additionalTechnologies": [
-        "Python 2/3 scripting",
+        "Kubernetes",
+        "Python 2/3",
+        "Mockito",
+        "JMockit",
+        "EasyMock",
         "AngularJS",
         "React"
       ]
@@ -124,16 +126,18 @@
       "company": "Taxify (now Bolt)",
       "companyNote": "Taxify rebranded as Bolt",
       "role": "Senior Backend Developer",
+      "employmentType": "employment",
       "period": "May 2017 – May 2018",
       "location": "Tallinn, Estonia",
       "url": "https://bolt.eu/",
       "compact": false,
-      "summary": "Senior backend engineer building high-load backend services and REST APIs at Bolt (then operating as Taxify).",
+      "summary": "Senior backend engineer developing high-load backend services and REST APIs at Bolt (then operating as Taxify).",
       "responsibilities": [
         "Developed and maintained high-load Node.js microservices and REST APIs in TypeScript and JavaScript.",
-        "Built supporting administrative web tools with PHP, MySQL, Nginx, HTML, and CSS.",
-        "Worked with containerised deployments, caching, relational and graph data stores, and cloud infrastructure."
+        "Implemented internal administrative tooling using PHP, MySQL, Nginx, HTML, and CSS.",
+        "Maintained containerised service deployments backed by Docker, Redis, relational databases, and cloud infrastructure."
       ],
+      "verifiedAchievements": [],
       "projectTechnologies": [
         "Node.js",
         "TypeScript",
@@ -142,16 +146,13 @@
         "Microservices",
         "Docker",
         "Redis",
-        "MySQL",
-        "PHP"
+        "MySQL"
       ],
       "additionalTechnologies": [
+        "PHP",
         "Neo4j",
         "Python",
-        "Nginx",
-        "AWS",
-        "Azure",
-        "Google App Engine"
+        "Nginx"
       ]
     },
     {
@@ -159,17 +160,19 @@
       "company": "Oracle (Oracle Russia & CIS)",
       "companyNote": "",
       "role": "SQE / Java Developer",
+      "employmentType": "employment",
       "period": "January 2014 – May 2017",
       "location": "Saint Petersburg",
       "url": "https://www.oracle.com/",
       "compact": false,
-      "summary": "Java Core quality engineering, defect investigation, automated test suite stabilisation, and distributed test environment maintenance.",
+      "summary": "Java Core quality engineering, JDK defect investigation, test automation, and distributed test infrastructure.",
       "responsibilities": [
-        "Worked on Java Core quality engineering, test development, bug investigation, and automated suite stabilisation using Java, JUnit, and Mockito.",
-        "Applied deep Java Core fundamentals across the Java Memory Model, concurrency, collections, generics, class loading, JDBC, Swing, and JavaFX.",
-        "Analysed regular and nightly test execution results and verified defect fixes across JDK components and automated suites.",
-        "Maintained and automated distributed testing infrastructure using Python, PowerShell, and configuration management tooling."
+        "Investigated Java Core defects and corner cases across the Java Memory Model, concurrency, class loading, generics, and collections.",
+        "Designed and maintained automated JDK test suites using Java, JUnit, and Mockito.",
+        "Improved test suite stability and failure diagnostics across multi-platform execution runs.",
+        "Automated distributed test environment provisioning and execution using Python, PowerShell, and Puppet."
       ],
+      "verifiedAchievements": [],
       "projectTechnologies": [
         "Java Core",
         "JDK",
@@ -178,16 +181,14 @@
         "Class Loading",
         "JUnit",
         "Mockito",
-        "Python",
-        "PowerShell",
-        "Puppet"
+        "Python"
       ],
       "additionalTechnologies": [
+        "PowerShell",
+        "Puppet",
         "Servlet / JSP / JSF",
         "SOAP / REST",
-        "Tomcat",
-        "Ruby",
-        "JavaScript / AJAX"
+        "Tomcat"
       ]
     },
     {
@@ -195,14 +196,15 @@
       "company": "Software Development & Solutions",
       "companyNote": "",
       "role": "Senior Java Developer",
+      "employmentType": "employment",
       "period": "August 2013 – January 2014",
       "location": "Saint Petersburg",
       "url": "",
       "compact": true,
-      "summary": "End-to-end delivery on an enterprise data aggregation web application covering requirements, design, implementation, testing, and release.",
+      "summary": "Full-cycle development on an enterprise data aggregation web application covering design, implementation, testing, and release.",
       "responsibilities": [
         "Designed and implemented Java web modules with Spring, Play, GWT, Hibernate, and JUnit backed by MySQL and Oracle Database.",
-        "Built supporting utilities and UI components with Tomcat, Python, C# .NET WPF, jQuery, Bootstrap, LESS, and SASS."
+        "Contributed supporting utilities and UI components with Tomcat, Python, C# .NET WPF, jQuery, and Bootstrap."
       ],
       "projectTechnologies": [
         "Java",
@@ -227,11 +229,12 @@
       "company": "Bonus Club",
       "companyNote": "",
       "role": "C/C++ / Java / Android Developer",
+      "employmentType": "employment",
       "period": "September 2012 – August 2013",
       "location": "Saint Petersburg",
       "url": "",
       "compact": true,
-      "summary": "Backend core library development, service utilities, transaction processing software, and Android client integrations.",
+      "summary": "Backend core libraries, service utilities, transaction processing software, and Android client integrations.",
       "responsibilities": [
         "Developed core libraries, operational utilities, and automated software update services.",
         "Maintained server-side processing applications using Java, Spring, Hibernate, Oracle Database, and Tomcat.",
@@ -258,6 +261,7 @@
       "company": "OAO INRUSKOM",
       "companyNote": "",
       "role": "Software Developer",
+      "employmentType": "employment",
       "period": "November 2005 – February 2007",
       "location": "Saint Petersburg",
       "url": "",
@@ -277,13 +281,14 @@
       "company": "i-Free",
       "companyNote": "",
       "role": "Software Developer",
+      "employmentType": "employment",
       "period": "March 2005 – October 2005",
       "location": "Saint Petersburg",
       "url": "https://www.i-free.com",
       "compact": true,
       "summary": "Internal content management tooling and automated external data ingestion.",
       "responsibilities": [
-        "Built internal CMS modules, user interfaces, and automated data ingestion pipelines into MS SQL using Java/JUnit and C# .NET."
+        "Developed internal CMS modules, user interfaces, and automated data ingestion pipelines into MS SQL using Java/JUnit and C# .NET."
       ],
       "projectTechnologies": [
         "Java",
@@ -296,15 +301,16 @@
     {
       "id": "spb-etu-research",
       "company": "Research & Engineering Center of SPb ETU",
-      "companyNote": "",
+      "companyNote": "University engineering internship",
       "role": "Software Engineer Intern",
+      "employmentType": "internship",
       "period": "September 2001 – March 2005",
       "location": "Saint Petersburg",
       "url": "",
       "compact": true,
-      "summary": "Scientific data processing, numerical analysis, and visualisation tools.",
+      "summary": "University-era engineering internship building scientific data processing, numerical analysis, and visualisation tools.",
       "responsibilities": [
-        "Implemented data processing and visualisation tools using Java, Delphi, C++ Builder, Matlab, and SQL."
+        "Implemented data processing and visualisation tools during an engineering internship using Java, Delphi, C++ Builder, Matlab, and SQL."
       ],
       "projectTechnologies": [
         "Java",
@@ -326,30 +332,32 @@
       "diagramSlug": "messenger-archive-search",
       "problem": "Long-running personal chat archives combine text and voice messages across thousands of threads, making keyword search ineffective for recalling context or supplying structured history to LLM agents.",
       "context": "Self-directed personal engineering project built independently outside employer work to explore Rust/Python interoperability, local speech-to-text, vector indexing, and Model Context Protocol (MCP) tooling.",
-      "architecture": "A Rust sync service fetches personal chat history over MTProto with flood-wait backoff into PostgreSQL. A Python worker claims pending voice rows using PostgreSQL SKIP LOCKED and transcribes them with Whisper. A Rust indexer computes batched local embeddings and upserts points into Qdrant, exposed to LLM agents via a read-only MCP server (stdio and HTTP).",
+      "architecture": "A Rust sync service fetches personal chat history over MTProto with flood-wait backoff into PostgreSQL. A Python worker claims pending voice rows using PostgreSQL FOR UPDATE SKIP LOCKED (row-level locking that skips already locked rows) and transcribes them with Whisper. A Rust indexer computes batched local embeddings and upserts points into Qdrant, exposed to LLM agents via a read-only MCP server (stdio and HTTP).",
       "stack": [
         "Rust",
         "Python",
-        "PostgreSQL (SKIP LOCKED)",
+        "PostgreSQL (FOR UPDATE SKIP LOCKED)",
         "Whisper",
         "Qdrant",
         "MCP"
       ],
       "challenges": [
         "No distributed transaction spans PostgreSQL, Qdrant, and the sync cursor checkpoint.",
-        "Respecting upstream MTProto rate limits while recovering cleanly from mid-batch interruptions."
+        "Coordinating concurrent transcription workers cleanly without blocking on rows currently claimed by another worker.",
+        "Respecting upstream MTProto rate limits while recovering from mid-batch interruptions."
       ],
       "decisions": [
-        "Computed deterministic UUIDv5 Qdrant point IDs from message identity so retries overwrite idempotently instead of creating duplicates.",
-        "Persisted the indexing checkpoint only after each Qdrant upsert batch succeeds.",
-        "Used PostgreSQL SELECT ... FOR UPDATE SKIP LOCKED for lock-free concurrent voice transcription workers."
+        "Used PostgreSQL SELECT ... FOR UPDATE SKIP LOCKED so concurrent workers take exclusive row-level locks on unclaimed tasks while skipping locked rows instead of waiting.",
+        "Computed deterministic UUIDv5 Qdrant point IDs from message identity so replay overwrites Qdrant entries idempotently instead of creating duplicates.",
+        "Persisted the indexing checkpoint only after each Qdrant upsert batch succeeds."
       ],
       "reliability": [
-        "At-least-once processing paired with deterministic UUIDv5 upserts delivers idempotent eventual consistency without 2PC.",
+        "Provides at-least-once delivery across crashes; idempotent UUIDv5 upserts make Qdrant state convergent, whereas non-idempotent external side effects would require separate deduplication or compensating actions.",
+        "Does not claim end-to-end exactly-once processing across PostgreSQL and external consumers.",
         "Flood-wait backoff and bounded retries protect upstream API sessions."
       ],
       "results": [
-        "End-to-end personal archive searchable semantically across text and transcribed voice messages through standard MCP clients."
+        "End-to-end personal archive searchable semantically across text and transcribed voice messages through read-only MCP tools."
       ]
     },
     {
@@ -359,29 +367,33 @@
       "scope": "Open-source Java project · github.com/stden/EntityLocker",
       "scopeType": "personal",
       "diagramSlug": "entity-concurrency-locking",
-      "problem": "Applications caching or mutating domain entities concurrently often face either coarse global locks that bottleneck throughput or complex ad-hoc per-key lock maps prone to leaks and races.",
-      "context": "Public open-source Java library demonstrating fine-grained JVM concurrency primitives comparable to row-level database locking.",
-      "architecture": "A generic EntityLocker<ID> coordinator manages per-entity-ID mutual exclusion without coupling to entity payload types, supporting different ID types, reentrant locking semantics, escalation/global locking options, and bounded cleanup of unused lock entries.",
+      "problem": "Single-JVM applications mutating or caching domain entities concurrently face either coarse global locks that bottleneck unrelated keys or ad-hoc per-key lock maps prone to deadlocks and memory growth.",
+      "context": "Public open-source Java library (stden/EntityLocker) implementing JVM-local mutual exclusion comparable to per-row locking keyed by Comparable entity IDs.",
+      "architecture": "A generic EntityLocker<T extends Comparable<T>> coordinator maintains a ConcurrentHashMap<T, CountLock> (a ReentrantLock subclass), supporting reentrant locking, millisecond acquisition timeouts via tryWithLock, and ascending Comparable ID ordering via ThreadLocal<T> for deadlock prevention among EntityLocker-managed locks within a single JVM process.",
       "stack": [
         "Java",
         "java.util.concurrent",
         "ConcurrentHashMap",
-        "ReentrantLock"
+        "ReentrantLock",
+        "JUnit 4"
       ],
       "challenges": [
-        "Preventing race conditions between lock acquisition, reference counting, and map eviction when locks are released.",
-        "Supporting arbitrary generic ID types safely without deadlocks or unbounded memory growth."
+        "Isolating lock contention per entity ID within a single JVM without blocking unrelated keys.",
+        "Preventing lock-order deadlocks when a thread acquires multiple EntityLocker keys recursively.",
+        "Reclaiming idle lock entries without racing against concurrent computeIfAbsent acquisition or volatile counter updates."
       ],
       "decisions": [
-        "Decoupled lock coordination completely from entity storage so components only pass primary key identifiers.",
-        "Used concurrent map atomic operations and reference tracking to reclaim idle lock objects safely."
+        "Decoupled lock coordination from entity payload storage using generic Comparable<T> primary keys.",
+        "Enforced monotonic ascending lock ordering via ThreadLocal<T> tracking inside EntityLocker to reject out-of-order nested acquisitions.",
+        "Implemented tryWithLock timeouts and reentrant locking backed by JUnit concurrency, timeout, reentrancy, and deadlock-prevention tests."
       ],
       "reliability": [
-        "Isolates contention to the specific entity ID being mutated rather than blocking unrelated entities.",
-        "Avoids memory leaks under high key cardinality via safe lock entry cleanup."
+        "Strictly JVM-local concurrency control (single process only; does not coordinate locks across multiple JVM instances or distributed nodes).",
+        "Deadlock prevention applies only to locks managed through the same EntityLocker instance, not external locks.",
+        "Implementation trade-off noted in code review: CountLock updates a volatile enters counter non-atomically and removes entries via remove(ID), so production high-cardinality use would need atomic ConcurrentHashMap.compute eviction and AtomicInteger tracking across both lock() and tryLock()."
       ],
       "results": [
-        "Published as a standalone reusable Java utility on GitHub (stden/EntityLocker)."
+        "Published as a standalone reusable Java utility on GitHub (stden/EntityLocker) with JUnit 4 multithreaded tests."
       ]
     },
     {
@@ -391,87 +403,52 @@
       "scope": "Open-source Rust projects · github.com/stden",
       "scopeType": "personal",
       "diagramSlug": "ref-async-job-pipeline",
-      "problem": "Building responsive cross-platform developer utilities—a keyboard-driven dual-panel terminal file manager and a fast screen-capture/recording tool—with strict test coverage and automated releases.",
-      "context": "Independent open-source Rust projects demonstrating native performance, UI responsiveness, BDD acceptance testing, and GitHub Actions release automation.",
-      "architecture": "FunnyFileManager (ffm) implements a non-blocking dual-panel TUI on ratatui with async filesystem operations; RustShot captures display frames and encodes H.264 MP4 video natively, both validated via Gherkin BDD suites and automated CI/release workflows.",
+      "problem": "Building responsive cross-platform developer utilities—a keyboard-driven dual-panel terminal file manager and a fast screen-capture/recording utility—with automated tests and release pipelines.",
+      "context": "Independent open-source Rust projects demonstrating terminal UI responsiveness, native OS integration, Gherkin BDD acceptance testing, and GitHub Actions automation.",
+      "architecture": "FunnyFileManager uses Rust and ratatui for a dual-panel terminal UI with background LSP diagnostics and S3 drive entries. RustShot uses Rust for instant screenshot capture on Windows and Linux (X11/Wayland portal) plus H.264 MP4 recording on Windows.",
       "stack": [
         "Rust",
         "ratatui",
-        "H.264 / Media",
         "Gherkin BDD",
         "GitHub Actions"
       ],
       "challenges": [
-        "Keeping terminal UI and capture pipelines responsive under slow filesystem or high-resolution display workloads.",
-        "Validating desktop and terminal workflows deterministically across CI runs."
+        "Keeping TUI rendering responsive while running background operations.",
+        "Supporting cross-platform capture and terminal workflows with repeatable automated test suites."
       ],
       "decisions": [
-        "Separated UI event loops from blocking I/O and encoding pipelines.",
-        "Added Gherkin behaviour-driven test suites alongside continuous GitHub Actions builds and release pipelines."
+        "Separated background task execution from UI rendering loops.",
+        "Covered user workflows with Gherkin BDD acceptance tests and automated CI workflows."
       ],
       "reliability": [
-        "Passing automated CI and Release workflows verify builds and regression tests on every push."
+        "Verified via Cargo tests, Gherkin BDD suites, and GitHub Actions CI/release builds."
       ],
       "results": [
-        "Publicly maintained repositories with passing CI/Release status on GitHub."
+        "Maintained open-source tools on GitHub (stden/FunnyFileManager and stden/RustShot)."
       ]
     }
   ],
   "githubProjects": [
-    {
-      "name": "pythorust_tg",
-      "url": "https://github.com/stden/pythorust_tg",
-      "docsUrl": "https://github.com/stden/pythorust_tg/blob/main/README.md",
-      "language": "Rust",
-      "secondaryLanguages": ["Python", "Gherkin"],
-      "description": "Rust-first Telegram automation toolkit featuring chat exports, AI auto-responder, LightRAG indexing, ops helpers (HTTP bench, k8s/site monitoring), and Python MCP/analysis modules.",
-      "ciStatus": "CI/CD passing",
-      "latestActivity": "2026-11-23",
-      "topics": ["Rust", "Python", "MCP", "LightRAG"]
-    },
-    {
-      "name": "FunnyFileManager",
-      "url": "https://github.com/stden/FunnyFileManager",
-      "docsUrl": "https://github.com/stden/FunnyFileManager/blob/main/README.md",
-      "language": "Rust",
-      "secondaryLanguages": ["TypeScript", "Gherkin"],
-      "description": "High-performance dual-panel terminal file manager (ffm) built in Rust with ratatui, inspired by Far Manager and Norton Commander, backed by BDD tests.",
-      "ciStatus": "CI passing",
-      "latestActivity": "2026-11-26",
-      "topics": ["Rust", "TUI", "ratatui", "Gherkin BDD"]
-    },
-    {
-      "name": "RustShot",
-      "url": "https://github.com/stden/RustShot",
-      "docsUrl": "https://github.com/stden/RustShot/blob/main/README.md",
-      "language": "Rust",
-      "secondaryLanguages": ["Gherkin", "Python"],
-      "description": "Fast desktop engineering utility for instant screenshot capture and H.264 MP4 screen recording.",
-      "ciStatus": "Release passing",
-      "latestActivity": "2026-11-26",
-      "topics": ["Rust", "Desktop", "Screen Capture", "H.264"]
-    },
-    {
-      "name": "SonarQubeChecker",
-      "url": "https://github.com/stden/SonarQubeChecker",
-      "docsUrl": "https://github.com/stden/SonarQubeChecker/blob/main/README.md",
-      "language": "Python",
-      "secondaryLanguages": ["Rust", "Gherkin"],
-      "description": "Automated quality-gate checker querying SonarCloud / SonarQube metrics for bugs, code smells, and quality gate status.",
-      "ciStatus": "test passing",
-      "latestActivity": "2026-11-20",
-      "topics": ["Python", "Quality Gates", "SonarQube", "CI Automation"]
-    },
     {
       "name": "EntityLocker",
       "url": "https://github.com/stden/EntityLocker",
       "docsUrl": "https://github.com/stden/EntityLocker/blob/main/README.md",
       "language": "Java",
       "secondaryLanguages": [],
-      "description": "Reusable Java concurrency utility providing fine-grained synchronization similar to row-level database locking keyed by entity IDs.",
-      "ciStatus": "No CI workflow",
+      "description": "JVM-local Java concurrency utility providing reentrant per-entity-ID mutual exclusion, acquisition timeouts, and Comparable ID-order deadlock prevention.",
+      "concepts": [
+        "JVM Concurrency",
+        "ReentrantLock",
+        "Deadlock Prevention"
+      ],
+      "testsSummary": "JUnit 4 concurrency, reentrancy, timeout & deadlock-prevention tests",
+      "ciStatus": "Not verified",
       "latestActivity": "2026-11-13",
-      "topics": ["Java", "Concurrency", "Synchronization"]
+      "topics": [
+        "Java",
+        "Concurrency",
+        "Synchronization"
+      ]
     },
     {
       "name": "JPA2",
@@ -479,10 +456,121 @@
       "docsUrl": "https://github.com/stden/JPA2/blob/main/README.md",
       "language": "Java",
       "secondaryLanguages": [],
-      "description": "Spring Framework 6, Hibernate 6, and Jakarta Persistence 3.2 experiments and integration tests built with Maven and H2.",
-      "ciStatus": "Java CI with Maven passing",
+      "description": "Spring Framework 6, Hibernate 6, and Jakarta Persistence (JPA) experiments and integration tests built with Maven and H2.",
+      "concepts": [
+        "Spring 6",
+        "Hibernate 6",
+        "JPA"
+      ],
+      "testsSummary": "Maven + H2 JPA integration tests",
+      "ciStatus": "Not verified",
       "latestActivity": "2026-11-13",
-      "topics": ["Java", "Spring 6", "Hibernate 6", "JPA 3.2"]
+      "topics": [
+        "Java",
+        "Spring 6",
+        "Hibernate 6",
+        "JPA"
+      ]
+    },
+    {
+      "name": "FunnyFileManager",
+      "url": "https://github.com/stden/FunnyFileManager",
+      "docsUrl": "https://github.com/stden/FunnyFileManager/blob/main/README.md",
+      "language": "Rust",
+      "secondaryLanguages": [
+        "TypeScript",
+        "Gherkin"
+      ],
+      "description": "Dual-panel terminal file manager (ffm) built in Rust with ratatui, background editor LSP diagnostics, and Gherkin BDD tests.",
+      "concepts": [
+        "Rust TUI",
+        "Async Tooling",
+        "Gherkin BDD"
+      ],
+      "testsSummary": "Cargo unit tests and Gherkin BDD suite",
+      "ciStatus": "Not verified",
+      "latestActivity": "2026-11-26",
+      "topics": [
+        "Rust",
+        "TUI",
+        "ratatui",
+        "Gherkin BDD"
+      ]
+    },
+    {
+      "name": "RustShot",
+      "url": "https://github.com/stden/RustShot",
+      "docsUrl": "https://github.com/stden/RustShot/blob/main/README.md",
+      "language": "Rust",
+      "secondaryLanguages": [
+        "Gherkin",
+        "Python"
+      ],
+      "description": "Desktop screenshot utility for Windows and Linux (X11/Wayland portal) with H.264 MP4 screen recording on Windows.",
+      "concepts": [
+        "Native Capture",
+        "Cross-Platform Rust",
+        "CI Releases"
+      ],
+      "testsSummary": "Cargo tests and Gherkin BDD suite",
+      "ciStatus": "Not verified",
+      "latestActivity": "2026-11-26",
+      "topics": [
+        "Rust",
+        "Desktop",
+        "Screen Capture",
+        "H.264"
+      ]
+    },
+    {
+      "name": "SonarQubeChecker",
+      "url": "https://github.com/stden/SonarQubeChecker",
+      "docsUrl": "https://github.com/stden/SonarQubeChecker/blob/main/README.md",
+      "language": "Python",
+      "secondaryLanguages": [
+        "Rust",
+        "Gherkin"
+      ],
+      "description": "Python CLI tool querying SonarQube and SonarCloud APIs for bugs, code smells, and quality-gate status to generate bilingual Markdown reports.",
+      "concepts": [
+        "Quality Gates",
+        "API Client",
+        "CI Automation"
+      ],
+      "testsSummary": "Automated test suite & SonarCloud analysis",
+      "ciStatus": "Not verified",
+      "latestActivity": "2026-11-20",
+      "topics": [
+        "Python",
+        "Quality Gates",
+        "SonarQube",
+        "CI Automation"
+      ]
+    },
+    {
+      "name": "pythorust_tg",
+      "url": "https://github.com/stden/pythorust_tg",
+      "docsUrl": "https://github.com/stden/pythorust_tg/blob/main/README.md",
+      "language": "Rust",
+      "secondaryLanguages": [
+        "Python",
+        "Gherkin"
+      ],
+      "description": "Public Rust/Python automation toolkit with MTProto client tooling, LightRAG indexing, Prometheus command metrics, and MCP modules.",
+      "concepts": [
+        "Rust Async",
+        "MCP",
+        "Observability"
+      ],
+      "testsSummary": "Cargo & Python automated CI/CD checks",
+      "ciStatus": "Not verified",
+      "latestActivity": "2026-11-23",
+      "topics": [
+        "Rust",
+        "Python",
+        "MCP",
+        "LightRAG"
+      ]
     }
   ],
   "architectureDiagrams": [
@@ -492,15 +580,17 @@
       "originLabel": "Independent personal project (outside employer work)",
       "tabTitle": "Semantic Search & MCP",
       "title": "Semantic Search & MCP Integration",
-      "label": "Independent personal project architecture: MTProto sync service in Rust, PostgreSQL queue, Python Whisper worker, batched Rust indexer, Qdrant vector DB, and MCP server",
-      "summary": "Cross-language personal ingestion pipeline bridging PostgreSQL and Qdrant with idempotent UUIDv5 upserts and read-only MCP tool exposure.",
+      "label": "Independent personal project architecture: MTProto sync service in Rust, PostgreSQL row-locked queue, Python Whisper worker, batched Rust indexer, Qdrant vector DB, and MCP server",
+      "summary": "Cross-language personal ingestion pipeline bridging PostgreSQL and Qdrant with at-least-once retries, idempotent UUIDv5 upserts, and read-only MCP tool exposure.",
       "nodes": [
         {
           "id": "mtproto",
           "title": "Messenger API (MTProto)",
           "detail": "Source message & voice history",
           "responsibility": "Provides incremental message history and voice attachments subject to upstream rate limits.",
-          "concepts": ["Failure handling"],
+          "concepts": [
+            "Failure handling"
+          ],
           "tradeoffs": "Rate-limited upstream API requires persistent cursor checkpoints to avoid costly full re-syncs."
         },
         {
@@ -508,47 +598,65 @@
           "title": "Sync Service (Rust)",
           "detail": "Flood-wait backoff & retries",
           "responsibility": "Fetches history with exponential/flood-wait backoff and stores raw messages in PostgreSQL.",
-          "concepts": ["Failure handling", "Idempotency"],
+          "concepts": [
+            "Failure handling",
+            "Idempotency"
+          ],
           "tradeoffs": "Rust async runtime handles long-running sync sessions with predictable memory footprint."
         },
         {
           "id": "postgres-queue",
           "title": "PostgreSQL Store & Queue",
-          "detail": "Messages + SKIP LOCKED queue",
-          "responsibility": "Stores canonical chat records and coordinates voice transcription jobs via FOR UPDATE SKIP LOCKED.",
-          "concepts": ["Distributed coordination", "Eventual consistency"],
-          "tradeoffs": "Using PostgreSQL for both storage and job queuing removes an extra broker dependency at personal scale."
+          "detail": "Messages + FOR UPDATE SKIP LOCKED",
+          "responsibility": "Stores canonical chat records and coordinates voice transcription jobs via row-level locks (FOR UPDATE SKIP LOCKED) so workers skip already locked rows.",
+          "concepts": [
+            "Distributed coordination",
+            "Eventual consistency"
+          ],
+          "tradeoffs": "Row-level locking (not lock-free) removes an extra broker dependency at personal scale while requiring lease/timeout recovery if a worker dies mid-transaction."
         },
         {
           "id": "whisper-worker",
           "title": "Transcription Worker (Python)",
           "detail": "Whisper speech-to-text",
-          "responsibility": "Claims un-transcribed voice attachments and writes transcripts back to PostgreSQL.",
-          "concepts": ["Failure handling", "Idempotency"],
+          "responsibility": "Claims untranscribed voice attachments under a database transaction and writes transcripts back to PostgreSQL.",
+          "concepts": [
+            "Failure handling",
+            "Idempotency"
+          ],
           "tradeoffs": "Separating Python ML execution keeps the core Rust sync and indexing paths lightweight."
         },
         {
           "id": "rust-indexer",
           "title": "Batch Indexer (Rust)",
           "detail": "Local embeddings + checkpoint",
-          "responsibility": "Generates local text embeddings in batches and saves the indexing cursor only after upsert confirmation.",
-          "concepts": ["Idempotency", "Eventual consistency"],
-          "tradeoffs": "Checkpoint-after-upsert avoids distributed 2PC transactions across PostgreSQL and Qdrant."
+          "responsibility": "Generates local text embeddings in batches and saves the indexing cursor only after Qdrant upsert confirmation.",
+          "concepts": [
+            "Idempotency",
+            "Eventual consistency"
+          ],
+          "tradeoffs": "At-least-once checkpoint-after-upsert avoids distributed 2PC transactions across PostgreSQL and Qdrant."
         },
         {
           "id": "qdrant",
           "title": "Vector Store (Qdrant)",
           "detail": "Deterministic UUIDv5 point IDs",
           "responsibility": "Stores semantic embeddings keyed by deterministic UUIDv5 identifiers derived from message identity.",
-          "concepts": ["Idempotency", "Observability"],
-          "tradeoffs": "Deterministic IDs make replay after crash completely safe without duplicate vector entries."
+          "concepts": [
+            "Idempotency",
+            "Observability"
+          ],
+          "tradeoffs": "Idempotent overwrites handle Qdrant retries safely, but do not extend automatically to non-idempotent external side effects."
         },
         {
           "id": "mcp-server",
           "title": "MCP Server (stdio / HTTP)",
           "detail": "Read-only agent interface",
           "responsibility": "Exposes semantic search and thread retrieval tools to LLM assistants over Model Context Protocol.",
-          "concepts": ["Security", "Observability"],
+          "concepts": [
+            "Security",
+            "Observability"
+          ],
           "tradeoffs": "Read-only query tools isolate LLM agents from direct database or session credentials."
         }
       ]
@@ -558,49 +666,62 @@
       "origin": "open-source",
       "originLabel": "Open-source Java project (github.com/stden/EntityLocker)",
       "tabTitle": "Entity Concurrency Locking",
-      "title": "Fine-Grained Entity Concurrency Locking (EntityLocker)",
-      "label": "Open-source Java library EntityLocker: caller threads, lock registry, per-ID lock entry, protected critical section, and lock reclamation",
-      "summary": "Public Java concurrency design providing row-level mutual exclusion keyed by entity identifier without blocking unrelated keys.",
+      "title": "JVM-Local Entity Concurrency Locking (EntityLocker)",
+      "label": "Open-source Java library EntityLocker: single-JVM caller threads, ConcurrentHashMap registry, per-ID CountLock (ReentrantLock), ThreadLocal ID-order check, and critical section",
+      "summary": "Public single-JVM Java concurrency utility providing per-ID mutual exclusion keyed by Comparable identifier without blocking unrelated keys.",
       "nodes": [
         {
           "id": "caller-threads",
-          "title": "Concurrent Caller Threads",
-          "detail": "Request work for Entity ID",
-          "responsibility": "Multiple application threads contend on reads or mutations identified solely by generic entity IDs.",
-          "concepts": ["Distributed coordination"],
-          "tradeoffs": "Key-based locking preserves parallelism across distinct entities compared to coarse class-level locks."
+          "title": "JVM Caller Threads",
+          "detail": "Single-process per-ID access",
+          "responsibility": "Threads inside a single JVM process request exclusive access to work identified solely by generic Comparable entity IDs.",
+          "concepts": [
+            "Distributed coordination"
+          ],
+          "tradeoffs": "Strictly JVM-local synchronisation; multi-node services require database locks or an external distributed coordinator."
         },
         {
           "id": "lock-registry",
-          "title": "Concurrent Lock Registry",
-          "detail": "ConcurrentHashMap<ID, Entry>",
-          "responsibility": "Atomically resolves or creates the synchronization entry for a given entity key.",
-          "concepts": ["Cache consistency", "Idempotency"],
-          "tradeoffs": "Atomic map updates prevent duplicate lock instances for the same key under high contention."
+          "title": "ConcurrentHashMap Registry",
+          "detail": "computeIfAbsent per Entity ID",
+          "responsibility": "Maps each active Comparable entity ID to a CountLock instance inside a ConcurrentHashMap.",
+          "concepts": [
+            "Distributed coordination",
+            "Cache consistency"
+          ],
+          "tradeoffs": "Hash-striped lookup avoids coarse global locking, though remove(ID) vs computeIfAbsent requires atomic compute() eviction under extreme churn."
         },
         {
           "id": "entity-lock",
-          "title": "Per-ID Reentrant Lock",
-          "detail": "Mutual exclusion & timeout",
-          "responsibility": "Serialises access per entity ID while allowing optional global escalation or lock acquisition timeouts.",
-          "concepts": ["Failure handling", "Distributed coordination"],
-          "tradeoffs": "Timeouts protect caller threads against deadlock or slow downstream operations."
+          "title": "CountLock (ReentrantLock)",
+          "detail": "Reentrancy, timeout & order check",
+          "responsibility": "Provides reentrant per-ID mutual exclusion, millisecond tryWithLock timeouts, and ThreadLocal ascending ID ordering to prevent internal deadlocks.",
+          "concepts": [
+            "Failure handling",
+            "Distributed coordination"
+          ],
+          "tradeoffs": "Ordering checks only cover locks acquired through EntityLocker; non-atomic enters counter in CountLock is a known trade-off in the public study."
         },
         {
           "id": "critical-section",
           "title": "Protected Critical Section",
-          "detail": "Cache / repository mutation",
-          "responsibility": "Executes the guarded state update while holding only the target entity's lock.",
-          "concepts": ["Cache consistency"],
-          "tradeoffs": "Keeps critical sections short and deterministic to minimise tail latency."
+          "detail": "In-memory / repository mutation",
+          "responsibility": "Executes the guarded Runnable while holding only the target entity key lock.",
+          "concepts": [
+            "Cache consistency"
+          ],
+          "tradeoffs": "Short critical sections reduce per-key contention without serialising unrelated entity IDs."
         },
         {
           "id": "reclaim",
-          "title": "Reference-Safe Eviction",
-          "detail": "Reclaims idle lock entries",
-          "responsibility": "Decrements active waiter counts on unlock and safely removes unreferenced entries from the registry.",
-          "concepts": ["Observability", "Failure handling"],
-          "tradeoffs": "Careful reference checks prevent evicting an entry while another thread is acquiring it."
+          "title": "Unlock & Map Cleanup",
+          "detail": "Removes entry when enters == 1",
+          "responsibility": "Restores previous ThreadLocal maxLockedId, removes the map entry on outer release, and calls unlock().",
+          "concepts": [
+            "Observability",
+            "Failure handling"
+          ],
+          "tradeoffs": "Bounding active map entries helps memory footprint, though lock-free remove() can race with concurrent threads acquiring the same key."
         }
       ]
     },
@@ -609,56 +730,74 @@
       "origin": "educational-example",
       "originLabel": "Independent educational reference architecture — unrelated to any employer system",
       "tabTitle": "Outbox & Idempotent Events",
-      "title": "Transactional Outbox & Idempotent Event Consumer",
+      "title": "Transactional Outbox & Idempotent Consumer",
       "label": "Educational reference architecture: application service, relational outbox transaction, outbox relay, message broker, idempotent consumer, and dead-letter queue",
-      "summary": "Standard educational distributed-systems pattern guaranteeing atomic database writes and reliable at-least-once event publishing.",
+      "summary": "Standard educational distributed-systems pattern pairing atomic local outbox writes with at-least-once relay delivery and consumer-side deduplication.",
       "nodes": [
         {
           "id": "app-service",
           "title": "Domain Service (Java / Spring)",
           "detail": "Handles API command",
-          "responsibility": "Validates incoming requests and executes domain state transitions inside a single local transaction.",
-          "concepts": ["Security", "Failure handling"],
+          "responsibility": "Validates incoming requests and executes domain state transitions inside a single local ACID transaction.",
+          "concepts": [
+            "Security",
+            "Failure handling"
+          ],
           "tradeoffs": "Avoids brittle two-phase commit across database and message broker."
         },
         {
           "id": "db-outbox",
           "title": "Relational DB + Outbox Table",
           "detail": "Atomic state & event commit",
-          "responsibility": "Persists domain state and outbox event payload in the same ACID PostgreSQL transaction.",
-          "concepts": ["Eventual consistency", "Message delivery guarantees"],
-          "tradeoffs": "Guarantees no lost events on crash at the cost of small relational write amplification."
+          "responsibility": "Persists domain state and outbox event payload in the same local database transaction.",
+          "concepts": [
+            "Eventual consistency",
+            "Message delivery guarantees"
+          ],
+          "tradeoffs": "Ensures events are not lost on crash before publishing, at the cost of relational write amplification."
         },
         {
           "id": "outbox-relay",
           "title": "Outbox Relay Publisher",
-          "detail": "Polls / streams & publishes",
-          "responsibility": "Reads unpublished outbox rows and emits events to the message broker with monotonic checkpoints.",
-          "concepts": ["Message delivery guarantees", "Observability"],
-          "tradeoffs": "At-least-once relay requires downstream consumers to handle duplicate deliveries safely."
+          "detail": "At-least-once relay",
+          "responsibility": "Reads unpublished outbox rows and emits events to the message broker before marking rows published.",
+          "concepts": [
+            "Message delivery guarantees",
+            "Observability"
+          ],
+          "tradeoffs": "Guarantees at-least-once delivery—not end-to-end exactly-once—because a crash after broker ack and before DB mark causes replay."
         },
         {
           "id": "broker",
           "title": "Message Broker (Kafka / AMQP)",
           "detail": "Partitioned event topic",
-          "responsibility": "Decouples producers and consumers while buffering spikes and preserving per-key ordering.",
-          "concepts": ["Distributed coordination", "Message delivery guarantees"],
-          "tradeoffs": "Partitioning scales throughput horizontally; cross-partition ordering is not global."
+          "responsibility": "Decouples producers and consumers while buffering spikes and preserving per-key partition ordering.",
+          "concepts": [
+            "Distributed coordination",
+            "Message delivery guarantees"
+          ],
+          "tradeoffs": "Partitioning scales throughput horizontally; ordering is per-partition rather than global."
         },
         {
           "id": "idempotent-consumer",
           "title": "Idempotent Consumer",
           "detail": "Deduplication key store",
-          "responsibility": "Checks deterministic event ID before applying updates so redelivered events are safe no-ops.",
-          "concepts": ["Idempotency", "Eventual consistency"],
-          "tradeoffs": "Maintaining an idempotency key index trades minor storage overhead for safe retries."
+          "responsibility": "Records deterministic event IDs within the consumer transaction so redelivered events become safe no-ops for local state.",
+          "concepts": [
+            "Idempotency",
+            "Eventual consistency"
+          ],
+          "tradeoffs": "Idempotency keys have retention/TTL limits and cannot automatically roll back non-idempotent third-party side effects."
         },
         {
           "id": "dlq",
           "title": "Retry & Dead-Letter Queue",
           "detail": "Bounded retries + alerting",
-          "responsibility": "Routes poison payloads after bounded backoff retries to a dead-letter queue for inspection.",
-          "concepts": ["Failure handling", "Observability"],
+          "responsibility": "Routes poison payloads after bounded backoff retries to a dead-letter queue for operator inspection.",
+          "concepts": [
+            "Failure handling",
+            "Observability"
+          ],
           "tradeoffs": "Prevents malformed messages from stalling healthy partition progress."
         }
       ]
@@ -669,47 +808,62 @@
       "originLabel": "Independent educational reference architecture — unrelated to any employer system",
       "tabTitle": "Async Job Queue & Backpressure",
       "title": "Resilient Asynchronous Job Queue & Backpressure",
-      "label": "Educational reference architecture: API producer, persistent job queue, bounded worker pool, atomic result staging, and observability metrics",
-      "summary": "Standard educational pattern for decoupling slow background jobs from synchronous API latency using bounded worker pools and safe retries.",
+      "label": "Educational reference architecture: API producer, persistent job queue with row-level locks, bounded worker pool, atomic result staging, and observability metrics",
+      "summary": "Standard educational pattern decoupling slow background jobs from synchronous API latency using bounded worker pools and safe retries.",
       "nodes": [
         {
           "id": "api-gateway",
           "title": "Stateless API Frontend",
           "detail": "Validates & enqueues job",
           "responsibility": "Authenticates requests, enqueues work asynchronously, and returns a job correlation ID immediately.",
-          "concepts": ["Security", "Observability"],
+          "concepts": [
+            "Security",
+            "Observability"
+          ],
           "tradeoffs": "Keeps request threads fast and predictable instead of blocking on long-running background work."
         },
         {
           "id": "job-queue",
           "title": "Persistent Work Queue",
-          "detail": "SKIP LOCKED / Broker queue",
+          "detail": "Row-locked SKIP LOCKED / Broker",
           "responsibility": "Durably tracks queued, in-flight, completed, and failed job states with lease/visibility timeouts.",
-          "concepts": ["Distributed coordination", "Message delivery guarantees"],
-          "tradeoffs": "Explicit lease timeouts allow recovery if a worker crashes mid-execution."
+          "concepts": [
+            "Distributed coordination",
+            "Message delivery guarantees"
+          ],
+          "tradeoffs": "FOR UPDATE SKIP LOCKED uses row-level exclusive locks while skipping locked rows; lease timeouts enable at-least-once recovery after worker crashes."
         },
         {
           "id": "bounded-workers",
           "title": "Bounded Worker Pool",
           "detail": "Controlled concurrency",
-          "responsibility": "Executes tasks up to a configured concurrency ceiling to protect downstream CPU, memory, and DB pools.",
-          "concepts": ["Failure handling", "Distributed coordination"],
+          "responsibility": "Executes tasks up to a configured concurrency ceiling to protect downstream CPU, memory, and DB connection pools.",
+          "concepts": [
+            "Failure handling",
+            "Distributed coordination"
+          ],
           "tradeoffs": "Backpressure caps queue drain rate to prevent cascading overload."
         },
         {
           "id": "atomic-publish",
           "title": "Staged Write & Atomic Commit",
           "detail": "Write temp, commit state",
-          "responsibility": "Writes output artifacts to staging before marking the job completed so readers never see partial results.",
-          "concepts": ["Cache consistency", "Idempotency"],
-          "tradeoffs": "Uses brief temporary storage headroom to guarantee clean read consistency."
+          "responsibility": "Writes output artifacts to staging before committing job completion so readers never observe partial output.",
+          "concepts": [
+            "Cache consistency",
+            "Idempotency"
+          ],
+          "tradeoffs": "Crashed workers leave orphaned staging files that require scheduled TTL cleanup."
         },
         {
           "id": "metrics-alerts",
           "title": "Health, Metrics & Cleanup",
           "detail": "Queue depth & TTL eviction",
-          "responsibility": "Exports queue lag, retry counts, and purges expired temporary artifacts on a predictable schedule.",
-          "concepts": ["Observability", "Cache consistency"],
+          "responsibility": "Exports queue lag, retry counts, and purges expired staging artifacts on a predictable schedule.",
+          "concepts": [
+            "Observability",
+            "Cache consistency"
+          ],
           "tradeoffs": "Scheduled TTL cleanup decouples storage reclamation from user-facing latency."
         }
       ]
@@ -717,28 +871,24 @@
   ],
   "engineeringConcepts": [
     {
-      "name": "Idempotency",
-      "description": "Deterministic UUIDv5 vector point IDs in the personal archive pipeline and deduplication keys in the outbox pattern ensure retries overwrite cleanly without duplicates."
+      "name": "Idempotency & Its Limits",
+      "description": "Deterministic UUIDv5 vector point IDs and consumer deduplication tables prevent duplicate state on retries, though deduplication stores require bounded TTLs and external side effects need separate safeguards."
+    },
+    {
+      "name": "At-Least-Once vs Exactly-Once",
+      "description": "Transactional outbox relays and durable queues guarantee at-least-once delivery rather than automatic end-to-end exactly-once processing; idempotent consumers reconcile duplicate deliveries."
     },
     {
       "name": "Eventual Consistency",
-      "description": "Advancing sync checkpoints only after downstream upserts succeed and committing outbox events alongside domain state keeps distributed stores convergent."
+      "description": "Advancing sync checkpoints only after downstream upserts succeed and committing outbox rows alongside domain state keeps separate data stores convergent."
     },
     {
-      "name": "Message Delivery Guarantees",
-      "description": "Pairing durable queues or outbox relays with idempotent consumers turns at-least-once broker delivery into effectively-once domain outcomes."
+      "name": "Row-Level Locking & JVM Locks",
+      "description": "PostgreSQL FOR UPDATE SKIP LOCKED uses row-level exclusive locks while skipping locked rows across workers; EntityLocker provides single-JVM per-key ReentrantLock synchronisation."
     },
     {
-      "name": "Failure Handling",
-      "description": "Bounded retries, upstream flood-wait backoff, and dead-letter queues keep transient faults recoverable without halting healthy traffic."
-    },
-    {
-      "name": "Distributed Coordination",
-      "description": "PostgreSQL SKIP LOCKED job claiming, per-key lock registries (EntityLocker), and broker partitions coordinate concurrent workers without global locks."
-    },
-    {
-      "name": "Cache Consistency",
-      "description": "Staged writes before atomic publication and reference-counted lock eviction prevent torn reads or stale cache entries under concurrency."
+      "name": "Failure Handling & Backpressure",
+      "description": "Bounded worker pools, exponential flood-wait backoff, lease timeouts, and dead-letter queues keep transient failures recoverable without cascading overload."
     },
     {
       "name": "Observability",
@@ -752,93 +902,307 @@
   "skills": [
     {
       "id": "core",
-      "title": "Core Expertise",
-      "description": "Primary enterprise backend engineering stack across production roles.",
+      "title": "Java, Backend & Data Core",
+      "description": "Primary enterprise backend engineering technologies demonstrated in production roles.",
       "items": [
-        { "name": "Java (6–25)", "tier": "core", "techSlug": "java" },
-        { "name": "JVM & Concurrency", "tier": "core", "techSlug": "java" },
-        { "name": "Spring Framework", "tier": "core", "techSlug": "spring" },
-        { "name": "Spring Boot", "tier": "core", "techSlug": "spring-boot" },
-        { "name": "Distributed Systems", "tier": "core" },
-        { "name": "Microservices", "tier": "core" },
-        { "name": "SQL", "tier": "core", "techSlug": "sql" },
-        { "name": "PostgreSQL", "tier": "core", "techSlug": "postgresql" },
-        { "name": "JPA / Hibernate", "tier": "core", "techSlug": "jpa" },
-        { "name": "Enterprise Integration", "tier": "core" },
-        { "name": "Software Design & Algorithms", "tier": "core" }
+        {
+          "name": "Java (6–25)",
+          "tier": "primary",
+          "techSlug": "java",
+          "evidence": "Kuehne+Nagel (2018–Present), Oracle JDK (2014–2017), earlier Java roles"
+        },
+        {
+          "name": "JVM & Concurrency",
+          "tier": "primary",
+          "techSlug": "java",
+          "evidence": "Oracle JDK concurrency/JMM testing & stden/EntityLocker"
+        },
+        {
+          "name": "Spring Framework",
+          "tier": "primary",
+          "techSlug": "spring",
+          "evidence": "Kuehne+Nagel, earlier enterprise Java roles, stden/JPA2"
+        },
+        {
+          "name": "Spring Boot",
+          "tier": "primary",
+          "techSlug": "spring-boot",
+          "evidence": "Kuehne+Nagel enterprise Java services"
+        },
+        {
+          "name": "Distributed Systems",
+          "tier": "primary",
+          "evidence": "Kuehne+Nagel distributed integration workloads & Taxify/Bolt services"
+        },
+        {
+          "name": "Microservices",
+          "tier": "primary",
+          "evidence": "Taxify (Bolt) Node.js services & Kuehne+Nagel backend workloads"
+        },
+        {
+          "name": "SQL",
+          "tier": "primary",
+          "techSlug": "sql",
+          "evidence": "Kuehne+Nagel (PostgreSQL, Oracle), earlier roles & personal projects"
+        },
+        {
+          "name": "PostgreSQL",
+          "tier": "primary",
+          "techSlug": "postgresql",
+          "evidence": "Kuehne+Nagel backend persistence & personal SKIP LOCKED pipelines"
+        },
+        {
+          "name": "Oracle Database",
+          "tier": "primary",
+          "techSlug": "oracle",
+          "evidence": "Kuehne+Nagel & earlier Java enterprise roles"
+        },
+        {
+          "name": "JPA / Hibernate",
+          "tier": "primary",
+          "techSlug": "jpa",
+          "evidence": "Kuehne+Nagel persistence & stden/JPA2"
+        },
+        {
+          "name": "Enterprise Integration",
+          "tier": "primary",
+          "evidence": "Kuehne+Nagel REST, queue-based & relational backend integrations"
+        },
+        {
+          "name": "Software Design & Algorithms",
+          "tier": "primary",
+          "evidence": "Production engineering, Oracle JDK & programming olympiad background"
+        }
       ]
     },
     {
       "id": "messaging-data",
-      "title": "Messaging & Data",
-      "description": "Event streaming, AMQP brokering, relational databases, caching, and vector storage.",
+      "title": "Messaging, Caching & Storage",
+      "description": "Asynchronous brokering, relational persistence, caching, and vector stores.",
       "items": [
-        { "name": "RabbitMQ", "tier": "core" },
-        { "name": "Apache Kafka", "tier": "additional" },
-        { "name": "Oracle Database", "tier": "core", "techSlug": "oracle" },
-        { "name": "Redis / Valkey", "tier": "additional" },
-        { "name": "Qdrant", "tier": "personal" },
-        { "name": "Vector Databases (pgvector, Weaviate)", "tier": "personal" }
+        {
+          "name": "RabbitMQ",
+          "tier": "primary",
+          "evidence": "Kuehne+Nagel asynchronous integration workloads"
+        },
+        {
+          "name": "Apache Kafka",
+          "tier": "familiarity",
+          "evidence": "Explored; production depth requires confirmation"
+        },
+        {
+          "name": "Redis / Valkey",
+          "tier": "additional",
+          "evidence": "Taxify (Bolt) backend caching infrastructure"
+        },
+        {
+          "name": "Qdrant",
+          "tier": "independent",
+          "evidence": "Personal semantic archive pipeline with deterministic UUIDv5 upserts"
+        },
+        {
+          "name": "Vector Databases (pgvector, Weaviate)",
+          "tier": "familiarity",
+          "evidence": "Explored alongside personal Qdrant semantic search work"
+        }
       ]
     },
     {
       "id": "infra-devops",
-      "title": "Infrastructure & DevOps",
-      "description": "Build pipelines, container orchestration, runtime administration, and monitoring.",
+      "title": "CI/CD, Containers & Operations",
+      "description": "Build tools, containerisation, CI pipelines, and infrastructure tooling.",
       "items": [
-        { "name": "Docker / Compose", "tier": "core", "techSlug": "docker" },
-        { "name": "Kubernetes / Helm", "tier": "core", "techSlug": "kubernetes" },
-        { "name": "Jenkins", "tier": "core", "techSlug": "jenkins" },
-        { "name": "GitLab CI/CD", "tier": "core", "techSlug": "gitlab" },
-        { "name": "GitHub Actions", "tier": "additional" },
-        { "name": "Maven", "tier": "core", "techSlug": "maven" },
-        { "name": "Git", "tier": "core", "techSlug": "git" },
-        { "name": "AWS", "tier": "additional" },
-        { "name": "Terraform", "tier": "additional" },
-        { "name": "Linux / systemd / bash", "tier": "core" },
-        { "name": "Nginx / Caddy / Cloudflare", "tier": "additional" },
-        { "name": "Prometheus / Grafana", "tier": "additional" }
-      ]
-    },
-    {
-      "id": "additional-languages",
-      "title": "Additional Languages & Frameworks",
-      "description": "Production polyglot backend/frontend delivery alongside personal systems programming.",
-      "items": [
-        { "name": "Python (2 & 3)", "tier": "core", "techSlug": "python" },
-        { "name": "Rust", "tier": "personal" },
-        { "name": "TypeScript", "tier": "core" },
-        { "name": "Node.js", "tier": "core" },
-        { "name": "Go (Gin, gRPC)", "tier": "additional" },
-        { "name": "React", "tier": "additional", "techSlug": "react" },
-        { "name": "AngularJS", "tier": "additional", "techSlug": "angular" },
-        { "name": "Svelte / SvelteKit", "tier": "personal" }
-      ]
-    },
-    {
-      "id": "ai-engineering",
-      "title": "AI Engineering",
-      "description": "Personal projects and AI-assisted software delivery workflows.",
-      "items": [
-        { "name": "Model Context Protocol (MCP)", "tier": "personal" },
-        { "name": "RAG / Embeddings / Semantic Search", "tier": "personal" },
-        { "name": "Local LLMs / Ollama", "tier": "personal" },
-        { "name": "Large Language Models (Claude, GPT, Gemini)", "tier": "personal" },
-        { "name": "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)", "tier": "personal" }
+        {
+          "name": "Docker / Compose",
+          "tier": "primary",
+          "techSlug": "docker",
+          "evidence": "Kuehne+Nagel & Taxify (Bolt) containerised delivery"
+        },
+        {
+          "name": "Maven",
+          "tier": "primary",
+          "techSlug": "maven",
+          "evidence": "Kuehne+Nagel Java builds & stden/JPA2"
+        },
+        {
+          "name": "Jenkins",
+          "tier": "primary",
+          "techSlug": "jenkins",
+          "evidence": "Kuehne+Nagel CI/CD automation"
+        },
+        {
+          "name": "GitLab CI/CD",
+          "tier": "primary",
+          "techSlug": "gitlab",
+          "evidence": "Kuehne+Nagel build & deployment pipelines"
+        },
+        {
+          "name": "Git",
+          "tier": "primary",
+          "techSlug": "git",
+          "evidence": "Daily version control across professional & public repositories"
+        },
+        {
+          "name": "Linux / systemd / bash",
+          "tier": "primary",
+          "evidence": "Production service operations & personal automation infrastructure"
+        },
+        {
+          "name": "Kubernetes / Helm",
+          "tier": "additional",
+          "techSlug": "kubernetes",
+          "evidence": "Kuehne+Nagel containerised deployments (depth varies by team)"
+        },
+        {
+          "name": "Nginx / Caddy / Cloudflare",
+          "tier": "additional",
+          "evidence": "Taxify (Bolt) Nginx & personal web infrastructure"
+        },
+        {
+          "name": "GitHub Actions",
+          "tier": "independent",
+          "evidence": "CI/CD workflows across stden public repositories"
+        },
+        {
+          "name": "AWS",
+          "tier": "familiarity",
+          "evidence": "Listed as additional exposure at Taxify/Bolt; depth requires confirmation"
+        },
+        {
+          "name": "Terraform",
+          "tier": "familiarity",
+          "evidence": "Explored; production depth requires confirmation"
+        },
+        {
+          "name": "Prometheus / Grafana",
+          "tier": "familiarity",
+          "evidence": "Command metrics in pythorust_tg; production depth requires confirmation"
+        }
       ]
     },
     {
       "id": "quality-engineering",
-      "title": "Quality Engineering",
-      "description": "Automated verification, mocking frameworks, BDD/E2E testing, and CI gates.",
+      "title": "Quality Engineering & Testing",
+      "description": "Automated verification, mocking frameworks, BDD/E2E testing, and CI quality gates.",
       "items": [
-        { "name": "JUnit", "tier": "core" },
-        { "name": "Mockito / JMockit / EasyMock", "tier": "core", "techSlug": "mockito" },
-        { "name": "Test-Driven Development (TDD)", "tier": "core" },
-        { "name": "Integration & E2E Testing", "tier": "core" },
-        { "name": "Cucumber / Gherkin (BDD)", "tier": "additional" },
-        { "name": "Playwright / Vitest / Selenide", "tier": "additional" },
-        { "name": "Continuous Integration", "tier": "core" }
+        {
+          "name": "JUnit",
+          "tier": "primary",
+          "evidence": "Kuehne+Nagel, Oracle JDK suites, stden/EntityLocker"
+        },
+        {
+          "name": "Mockito / JMockit / EasyMock",
+          "tier": "primary",
+          "techSlug": "mockito",
+          "evidence": "Kuehne+Nagel & Oracle Java unit/integration testing"
+        },
+        {
+          "name": "Test-Driven Development (TDD)",
+          "tier": "primary",
+          "evidence": "Enterprise Java & open-source test suites"
+        },
+        {
+          "name": "Integration & E2E Testing",
+          "tier": "primary",
+          "evidence": "Kuehne+Nagel backend integration & Oracle JDK suites"
+        },
+        {
+          "name": "Continuous Integration",
+          "tier": "primary",
+          "evidence": "Jenkins, GitLab CI/CD & automated quality checks"
+        },
+        {
+          "name": "Cucumber / Gherkin (BDD)",
+          "tier": "independent",
+          "evidence": "FunnyFileManager, RustShot & pythorust_tg acceptance suites"
+        },
+        {
+          "name": "Playwright / Vitest / Selenide",
+          "tier": "independent",
+          "evidence": "Portfolio E2E/Axe suite & web tooling"
+        }
+      ]
+    },
+    {
+      "id": "additional-languages",
+      "title": "Polyglot Languages & Frameworks",
+      "description": "Additional professional backend/frontend languages alongside independent systems work.",
+      "items": [
+        {
+          "name": "Python (2 & 3)",
+          "tier": "additional",
+          "techSlug": "python",
+          "evidence": "Oracle test infrastructure, Kuehne+Nagel scripting & SonarQubeChecker"
+        },
+        {
+          "name": "TypeScript",
+          "tier": "additional",
+          "evidence": "Taxify (Bolt) Node.js microservices"
+        },
+        {
+          "name": "Node.js",
+          "tier": "additional",
+          "evidence": "Taxify (Bolt) high-load REST APIs and microservices"
+        },
+        {
+          "name": "React",
+          "tier": "additional",
+          "techSlug": "react",
+          "evidence": "Kuehne+Nagel supporting frontend development"
+        },
+        {
+          "name": "AngularJS",
+          "tier": "additional",
+          "techSlug": "angular",
+          "evidence": "Kuehne+Nagel supporting frontend maintenance"
+        },
+        {
+          "name": "Rust",
+          "tier": "independent",
+          "evidence": "FunnyFileManager, RustShot, pythorust_tg & personal archive tools"
+        },
+        {
+          "name": "Svelte / SvelteKit",
+          "tier": "independent",
+          "evidence": "Independent web projects"
+        },
+        {
+          "name": "Go (Gin, gRPC)",
+          "tier": "familiarity",
+          "evidence": "Explored; no production role evidence yet"
+        }
+      ]
+    },
+    {
+      "id": "ai-engineering",
+      "title": "AI Engineering & Tooling",
+      "description": "Independent engineering projects and AI-assisted development workflows.",
+      "items": [
+        {
+          "name": "Model Context Protocol (MCP)",
+          "tier": "independent",
+          "evidence": "Personal read-only MCP archive server & pythorust_tg"
+        },
+        {
+          "name": "RAG / Embeddings / Semantic Search",
+          "tier": "independent",
+          "evidence": "Personal Qdrant + local embedding archive pipeline"
+        },
+        {
+          "name": "Local LLMs / Ollama",
+          "tier": "independent",
+          "evidence": "Local embedding/inference workflows in personal tooling"
+        },
+        {
+          "name": "Large Language Models (Claude, GPT, Gemini)",
+          "tier": "independent",
+          "evidence": "API & assistant integration in independent projects"
+        },
+        {
+          "name": "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)",
+          "tier": "independent",
+          "evidence": "Daily development & test-driven engineering workflows"
+        }
       ]
     }
   ],
@@ -850,8 +1214,14 @@
     }
   ],
   "languages": [
-    { "name": "Russian", "level": "Native" },
-    { "name": "English", "level": "Intermediate" }
+    {
+      "name": "Russian",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Intermediate"
+    }
   ],
   "interests": [
     "Programming Olympiad",
@@ -863,7 +1233,13 @@
       "title": "Java",
       "summary": "Main language for enterprise backend services, concurrency utilities, and test automation, from Java 6 to Java 25.",
       "logo": true,
-      "flow": ["Source (.java)", "javac", "Bytecode (.class)", "JVM", "Machine code (JIT)"],
+      "flow": [
+        "Source (.java)",
+        "javac",
+        "Bytecode (.class)",
+        "JVM",
+        "Machine code (JIT)"
+      ],
       "official": "https://openjdk.org/",
       "capabilities": [
         "Language features from generics and lambdas (Java 8) to records, sealed classes, and pattern matching (Java 17+)",
@@ -884,7 +1260,13 @@
       "title": "Spring framework",
       "summary": "Application framework for Java: dependency injection, web MVC, transactions, and data access.",
       "logo": true,
-      "flow": ["HTTP request", "Controller", "Service", "Repository", "Database"],
+      "flow": [
+        "HTTP request",
+        "Controller",
+        "Service",
+        "Repository",
+        "Database"
+      ],
       "official": "https://spring.io/projects/spring-framework",
       "capabilities": [
         "Inversion of Control container and dependency injection",
@@ -904,7 +1286,13 @@
       "title": "Spring Boot",
       "summary": "Opinionated layer on top of Spring for standalone, production-ready backend services.",
       "logo": true,
-      "flow": ["Starter dependencies", "Auto-configuration", "Embedded server", "Executable JAR", "Docker / Kubernetes"],
+      "flow": [
+        "Starter dependencies",
+        "Auto-configuration",
+        "Embedded server",
+        "Executable JAR",
+        "Docker / Kubernetes"
+      ],
       "official": "https://spring.io/projects/spring-boot",
       "capabilities": [
         "Auto-configuration and starter dependencies",
@@ -922,7 +1310,13 @@
       "title": "JPA",
       "summary": "Java standard for object-relational mapping: entities, relations, and queries.",
       "icon": "fa-database",
-      "flow": ["Entity class", "EntityManager", "Persistence context", "SQL", "Database"],
+      "flow": [
+        "Entity class",
+        "EntityManager",
+        "Persistence context",
+        "SQL",
+        "Database"
+      ],
       "official": "https://jakarta.ee/specifications/persistence/",
       "capabilities": [
         "Mapping entities to tables with annotations, including one-to-many and many-to-many relations",
@@ -932,7 +1326,7 @@
       ],
       "usedIn": [
         "Kuehne+Nagel (2018 – Present): Relational persistence with JPA and SQL",
-        "Open-source (github.com/stden/JPA2): Jakarta Persistence 3.2 with Hibernate 6 and H2"
+        "Open-source (github.com/stden/JPA2): Jakarta Persistence (JPA) with Hibernate 6 and H2"
       ]
     },
     {
@@ -940,7 +1334,14 @@
       "title": "SQL",
       "summary": "Relational query language used across PostgreSQL, Oracle Database, MySQL, and MS SQL.",
       "icon": "fa-database",
-      "flow": ["FROM and JOIN", "WHERE", "GROUP BY", "HAVING", "SELECT", "ORDER BY"],
+      "flow": [
+        "FROM and JOIN",
+        "WHERE",
+        "GROUP BY",
+        "HAVING",
+        "SELECT",
+        "ORDER BY"
+      ],
       "capabilities": [
         "Joins, subqueries, aggregation, and window functions",
         "Schema design with keys, constraints, and indexes",
@@ -958,7 +1359,13 @@
       "title": "Oracle Database",
       "summary": "Enterprise relational database used across Java backend systems.",
       "icon": "fa-database",
-      "flow": ["Client application", "Listener", "Server process", "SGA (buffer cache)", "Data files"],
+      "flow": [
+        "Client application",
+        "Listener",
+        "Server process",
+        "SGA (buffer cache)",
+        "Data files"
+      ],
       "official": "https://www.oracle.com/database/",
       "capabilities": [
         "PL/SQL procedures and packages",
@@ -976,7 +1383,13 @@
       "title": "PostgreSQL",
       "summary": "Open-source relational database used for backend persistence and worker coordination.",
       "logo": true,
-      "flow": ["Client query", "Parser", "Planner", "Executor", "Table storage (MVCC)"],
+      "flow": [
+        "Client query",
+        "Parser",
+        "Planner",
+        "Executor",
+        "Table storage (MVCC)"
+      ],
       "official": "https://www.postgresql.org",
       "capabilities": [
         "Relational schemas with constraints, indexes, and MVCC transactions",
@@ -994,7 +1407,13 @@
       "title": "Angular JS",
       "summary": "Front-end framework for single-page web applications.",
       "logo": true,
-      "flow": ["Template", "Component", "Service", "HTTP client", "REST API"],
+      "flow": [
+        "Template",
+        "Component",
+        "Service",
+        "HTTP client",
+        "REST API"
+      ],
       "official": "https://angular.dev",
       "capabilities": [
         "Component-based UI with templates and data binding",
@@ -1012,7 +1431,12 @@
       "title": "React JS",
       "summary": "Component library for building interactive web user interfaces.",
       "logo": true,
-      "flow": ["State change", "Component render", "Virtual DOM diff", "DOM update"],
+      "flow": [
+        "State change",
+        "Component render",
+        "Virtual DOM diff",
+        "DOM update"
+      ],
       "official": "https://react.dev",
       "capabilities": [
         "Function components with hooks for state and side effects",
@@ -1029,7 +1453,14 @@
       "title": "Maven",
       "summary": "Build and dependency management tool for Java projects.",
       "logo": true,
-      "flow": ["validate", "compile", "test", "package", "install", "deploy"],
+      "flow": [
+        "validate",
+        "compile",
+        "test",
+        "package",
+        "install",
+        "deploy"
+      ],
       "official": "https://maven.apache.org",
       "capabilities": [
         "Standard lifecycle: compile, test, package, install, and deploy",
@@ -1047,7 +1478,13 @@
       "title": "Hibernate",
       "summary": "ORM framework and JPA implementation for Java.",
       "logo": true,
-      "flow": ["Entity", "Session", "JDBC", "SQL", "Database"],
+      "flow": [
+        "Entity",
+        "Session",
+        "JDBC",
+        "SQL",
+        "Database"
+      ],
       "official": "https://hibernate.org",
       "capabilities": [
         "Entity mapping, relations, and inheritance",
@@ -1058,7 +1495,7 @@
       "usedIn": [
         "Kuehne+Nagel (2018 – Present): Hibernate persistence in Java services",
         "Earlier Java roles (2012 – 2014): Hibernate ORM integration",
-        "Open-source (github.com/stden/JPA2): Hibernate 6 with Jakarta Persistence 3.2"
+        "Open-source (github.com/stden/JPA2): Hibernate 6 with Jakarta Persistence (JPA)"
       ]
     },
     {
@@ -1066,7 +1503,13 @@
       "title": "Jenkins",
       "summary": "Open-source automation server for CI/CD pipelines.",
       "logo": true,
-      "flow": ["Commit", "Build", "Test", "Quality gate", "Deploy"],
+      "flow": [
+        "Commit",
+        "Build",
+        "Test",
+        "Quality gate",
+        "Deploy"
+      ],
       "official": "https://www.jenkins.io",
       "capabilities": [
         "Declarative pipelines as code",
@@ -1083,7 +1526,12 @@
       "title": "Docker",
       "summary": "Containers for packaging and running services consistently across environments.",
       "logo": true,
-      "flow": ["Dockerfile", "Image", "Registry", "Container"],
+      "flow": [
+        "Dockerfile",
+        "Image",
+        "Registry",
+        "Container"
+      ],
       "official": "https://www.docker.com",
       "capabilities": [
         "Images built from Dockerfiles",
@@ -1101,7 +1549,12 @@
       "title": "Kubernetes",
       "summary": "Container orchestrator for running and scaling services.",
       "logo": true,
-      "flow": ["Ingress", "Service", "Pods", "Nodes"],
+      "flow": [
+        "Ingress",
+        "Service",
+        "Pods",
+        "Nodes"
+      ],
       "official": "https://kubernetes.io",
       "capabilities": [
         "Deployments with rolling updates and rollbacks",
@@ -1110,7 +1563,7 @@
         "Horizontal workload scaling"
       ],
       "usedIn": [
-        "Kuehne+Nagel (2018 – Present): Containerised service orchestration and deployments"
+        "Kuehne+Nagel (2018 – Present): Containerised service deployments (team usage)"
       ]
     },
     {
@@ -1118,7 +1571,12 @@
       "title": "Git",
       "summary": "Distributed version control system.",
       "logo": true,
-      "flow": ["Working directory", "Staging area", "Local repository", "Remote repository"],
+      "flow": [
+        "Working directory",
+        "Staging area",
+        "Local repository",
+        "Remote repository"
+      ],
       "official": "https://git-scm.com",
       "capabilities": [
         "Branching, merging, and rebasing",
@@ -1136,7 +1594,13 @@
       "title": "GitLab",
       "summary": "Git hosting with integrated CI/CD pipelines.",
       "logo": true,
-      "flow": ["Merge request", "Pipeline", "Runner", "Artifacts", "Deploy"],
+      "flow": [
+        "Merge request",
+        "Pipeline",
+        "Runner",
+        "Artifacts",
+        "Deploy"
+      ],
       "official": "https://about.gitlab.com",
       "capabilities": [
         "Declarative pipelines in .gitlab-ci.yml",
@@ -1153,7 +1617,12 @@
       "title": "Python",
       "summary": "Scripting and backend automation language for operations, test infrastructure, quality checks, and AI pipelines.",
       "logo": true,
-      "flow": ["Source (.py)", "Bytecode (.pyc)", "Interpreter", "Output"],
+      "flow": [
+        "Source (.py)",
+        "Bytecode (.pyc)",
+        "Interpreter",
+        "Output"
+      ],
       "official": "https://www.python.org",
       "capabilities": [
         "Automation scripts for operational and deployment workflows",
@@ -1172,7 +1641,12 @@
       "title": "Mockito",
       "summary": "Mocking framework for Java unit tests.",
       "icon": "fa-flask",
-      "flow": ["Create mock", "Stub: when(...).thenReturn", "Run code under test", "verify() calls"],
+      "flow": [
+        "Create mock",
+        "Stub: when(...).thenReturn",
+        "Run code under test",
+        "verify() calls"
+      ],
       "official": "https://site.mockito.org",
       "capabilities": [
         "Stubbing return values and exceptions",
@@ -1190,7 +1664,12 @@
       "title": "JMockit",
       "summary": "Java testing toolkit supporting static methods, constructors, and final classes.",
       "icon": "fa-flask",
-      "flow": ["Mock target", "Expectations block", "Run code under test", "Verifications block"],
+      "flow": [
+        "Mock target",
+        "Expectations block",
+        "Run code under test",
+        "Verifications block"
+      ],
       "official": "https://jmockit.github.io",
       "capabilities": [
         "Mocking static methods, constructors, and final classes",
@@ -1207,7 +1686,13 @@
       "title": "EasyMock",
       "summary": "Mock object library for Java following a record, replay, and verify workflow.",
       "icon": "fa-flask",
-      "flow": ["createMock()", "Record expectations", "replay()", "Run code under test", "verify()"],
+      "flow": [
+        "createMock()",
+        "Record expectations",
+        "replay()",
+        "Run code under test",
+        "verify()"
+      ],
       "official": "https://easymock.org",
       "capabilities": [
         "Record expected calls, replay them, and verify",
@@ -1224,21 +1709,42 @@
     {
       "slug": "general",
       "shortLabel": "General CV",
-      "roleTitle": "Senior Software Engineer",
+      "roleTitle": "Senior Software Engineer — Java & Distributed Systems",
       "targetAudience": "Senior backend and distributed systems engineering roles",
       "pdfFilename": "Denis-Stepulenok-Senior-Software-Engineer.pdf",
-      "summary": "Senior software engineer specialising in enterprise Java, distributed systems and backend integrations. Experience includes Spring Boot services, asynchronous messaging, relational databases, production deployments and JVM testing. Independent projects use Rust and Python for data processing, semantic search and AI integrations.",
+      "summary": "Senior Software Engineer specialising in Java backend engineering, distributed systems, enterprise integration, JVM concurrency, and production reliability across Kuehne+Nagel, Taxify (Bolt), and Oracle, complemented by independent work in Python, Rust, and AI/MCP tooling.",
       "focusHighlights": [
-        "Enterprise Java services and asynchronous integration with Spring Boot, RabbitMQ, PostgreSQL and Oracle Database.",
-        "JVM and concurrency experience from Oracle JDK testing, defect investigation and distributed test infrastructure."
+        "Enterprise Java & Spring Boot backend services, RabbitMQ asynchronous integration, and PostgreSQL / Oracle persistence at Kuehne+Nagel.",
+        "High-load microservices at Taxify (Bolt) and JVM internals, concurrency, and test automation at Oracle."
       ],
-      "skillCategoryOrder": ["core", "messaging-data", "infra-devops", "quality-engineering", "additional-languages"],
+      "skillCategoryOrder": [
+        "core",
+        "messaging-data",
+        "infra-devops",
+        "quality-engineering",
+        "additional-languages"
+      ],
       "skillNames": [
-        "Java (6–25)", "JVM & Concurrency", "Spring Boot", "Distributed Systems", "SQL", "PostgreSQL",
-        "Enterprise Integration", "RabbitMQ", "Oracle Database", "Jenkins", "GitLab CI/CD",
-        "JUnit", "Python (2 & 3)", "Rust"
+        "Java (6–25)",
+        "JVM & Concurrency",
+        "Spring Boot",
+        "Distributed Systems",
+        "SQL",
+        "PostgreSQL",
+        "Enterprise Integration",
+        "RabbitMQ",
+        "Docker / Compose",
+        "Maven",
+        "Jenkins",
+        "GitLab CI/CD",
+        "JUnit",
+        "Python (2 & 3)",
+        "Rust"
       ],
-      "caseStudyIds": ["entity-concurrency-locking", "messenger-archive-search"],
+      "caseStudyIds": [
+        "entity-concurrency-locking",
+        "messenger-archive-search"
+      ],
       "githubProjectNames": [],
       "includeCompactRoles": true,
       "expectedPages": 2
@@ -1249,16 +1755,53 @@
       "roleTitle": "Senior Java Backend Engineer",
       "targetAudience": "International Java / Spring Boot backend engineering teams",
       "pdfFilename": "Denis-Stepulenok-Senior-Java-Engineer.pdf",
-      "summary": "Senior Java Backend Engineer with production experience across Java 6–25, Spring Framework, Spring Boot, relational persistence (PostgreSQL, Oracle Database), and asynchronous messaging. Career record across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering.",
+      "summary": "Senior Java Backend Engineer with production experience across Java 6–25, Spring Framework, Spring Boot, JPA/Hibernate, relational persistence (PostgreSQL, Oracle Database), and asynchronous integration across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering.",
       "focusHighlights": [
-        "Enterprise Java backend development (Java 6–25), Spring Boot, JPA/Hibernate, and SQL across PostgreSQL and Oracle Database.",
+        "Enterprise Java backend services (Java 6–25), Spring Boot, JPA/Hibernate, and SQL across PostgreSQL and Oracle Database.",
         "JVM internals grounded in Oracle JDK quality work: Java Memory Model, concurrency, collections, generics, and class loading.",
-        "Open-source Java libraries and test suites including EntityLocker (fine-grained entity concurrency) and JPA2 (Spring 6 / Hibernate 6).",
-        "Containerised CI/CD delivery with Maven, Jenkins, GitLab, Docker, and Kubernetes."
+        "Open-source Java projects including EntityLocker (JVM-local entity concurrency) and JPA2 (Spring 6 / Hibernate 6).",
+        "Containerised CI/CD delivery with Maven, Jenkins, GitLab CI/CD, and Docker."
       ],
-      "skillCategoryOrder": ["core", "messaging-data", "quality-engineering", "infra-devops", "additional-languages"],
-      "caseStudyIds": ["entity-concurrency-locking", "messenger-archive-search"],
-      "githubProjectNames": ["EntityLocker", "JPA2", "SonarQubeChecker"],
+      "skillCategoryOrder": [
+        "core",
+        "messaging-data",
+        "quality-engineering",
+        "infra-devops",
+        "additional-languages"
+      ],
+      "skillNames": [
+        "Java (6–25)",
+        "JVM & Concurrency",
+        "Spring Framework",
+        "Spring Boot",
+        "Distributed Systems",
+        "Microservices",
+        "SQL",
+        "PostgreSQL",
+        "Oracle Database",
+        "JPA / Hibernate",
+        "Enterprise Integration",
+        "RabbitMQ",
+        "JUnit",
+        "Mockito / JMockit / EasyMock",
+        "Test-Driven Development (TDD)",
+        "Integration & E2E Testing",
+        "Docker / Compose",
+        "Maven",
+        "Jenkins",
+        "GitLab CI/CD",
+        "Git",
+        "Python (2 & 3)"
+      ],
+      "caseStudyIds": [
+        "entity-concurrency-locking",
+        "messenger-archive-search"
+      ],
+      "githubProjectNames": [
+        "EntityLocker",
+        "JPA2",
+        "SonarQubeChecker"
+      ],
       "includeCompactRoles": false,
       "expectedPages": 2
     },
@@ -1268,54 +1811,163 @@
       "roleTitle": "Senior Software Engineer — Distributed Systems",
       "targetAudience": "Distributed backend, event-driven architecture & reliability engineering teams",
       "pdfFilename": "Denis-Stepulenok-Distributed-Systems-Engineer.pdf",
-      "summary": "Senior Software Engineer focused on distributed backend services, asynchronous messaging, concurrency, failure recovery, and production reliability across Kuehne+Nagel, Taxify (Bolt), and Oracle, backed by independent distributed-systems and concurrency projects.",
+      "summary": "Senior Software Engineer focused on distributed backend services, asynchronous messaging, concurrency, failure recovery, and production reliability across Kuehne+Nagel, Taxify (Bolt), and Oracle, backed by independent concurrency and indexing projects.",
       "focusHighlights": [
         "Enterprise experience with distributed, asynchronous, and event-driven Java services, RabbitMQ, and relational persistence.",
-        "Independent archive indexing pipeline combining PostgreSQL SKIP LOCKED queues, deterministic UUIDv5 keys, and checkpoint-after-upsert consistency.",
-        "Open-source EntityLocker utility providing per-ID mutual exclusion and safe lock eviction under concurrent load.",
-        "High-load Node.js microservices experience at Taxify (Bolt) and distributed test infrastructure automation at Oracle."
+        "Independent archive pipeline combining PostgreSQL FOR UPDATE SKIP LOCKED row-locked queues, deterministic UUIDv5 keys, and checkpoint-after-upsert recovery.",
+        "Open-source EntityLocker utility providing JVM-local per-ID mutual exclusion, timeouts, and Comparable ID-order deadlock prevention.",
+        "High-load Node.js microservices at Taxify (Bolt) and distributed test infrastructure automation at Oracle."
       ],
-      "skillCategoryOrder": ["core", "messaging-data", "infra-devops", "quality-engineering", "additional-languages"],
-      "caseStudyIds": ["messenger-archive-search", "entity-concurrency-locking", "rust-desktop-tooling"],
-      "githubProjectNames": ["EntityLocker", "pythorust_tg", "JPA2"],
+      "skillCategoryOrder": [
+        "core",
+        "messaging-data",
+        "infra-devops",
+        "quality-engineering",
+        "additional-languages"
+      ],
+      "skillNames": [
+        "Java (6–25)",
+        "JVM & Concurrency",
+        "Spring Boot",
+        "Distributed Systems",
+        "Microservices",
+        "SQL",
+        "PostgreSQL",
+        "Enterprise Integration",
+        "RabbitMQ",
+        "Apache Kafka",
+        "Redis / Valkey",
+        "Docker / Compose",
+        "Kubernetes / Helm",
+        "Jenkins",
+        "GitLab CI/CD",
+        "JUnit",
+        "Python (2 & 3)",
+        "TypeScript",
+        "Node.js",
+        "Rust"
+      ],
+      "caseStudyIds": [
+        "messenger-archive-search",
+        "entity-concurrency-locking"
+      ],
+      "githubProjectNames": [
+        "EntityLocker",
+        "pythorust_tg",
+        "JPA2"
+      ],
       "includeCompactRoles": false,
       "expectedPages": 2
     },
     {
       "slug": "fintech-integrations",
-      "shortLabel": "Fintech & Integrations",
-      "roleTitle": "Senior Software Engineer — Fintech & Integrations",
-      "targetAudience": "International fintech & high-reliability integration engineering teams",
+      "shortLabel": "Backend & Integrations",
+      "roleTitle": "Senior Software Engineer — Backend & Integrations",
+      "targetAudience": "International backend & high-reliability integration engineering teams",
       "pdfFilename": "Denis-Stepulenok-Fintech-Engineer.pdf",
-      "summary": "Senior Software Engineer bringing strong Java, Spring Boot, SQL/PostgreSQL, enterprise integration, and production reliability experience across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering.",
+      "summary": "Senior Software Engineer bringing enterprise Java, Spring Boot, SQL/PostgreSQL, enterprise integration, and production reliability experience across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering.",
       "focusHighlights": [
-        "Enterprise Java integration engineering with Spring Boot, relational databases (PostgreSQL, Oracle), and asynchronous messaging.",
-        "Reliability-focused patterns in independent projects: idempotent UUIDv5 upserts, safe retry checkpoints, and fine-grained concurrency locking.",
+        "Enterprise Java integration engineering with Spring Boot, relational databases (PostgreSQL, Oracle), and RabbitMQ.",
+        "Reliability patterns demonstrated in independent projects: idempotent UUIDv5 upserts, retry checkpoints, and JVM-local concurrency locking.",
         "High-load backend API and microservice delivery experience from Taxify (Bolt).",
         "Rigorous testing discipline from Oracle JDK defect investigation, concurrency testing, and automated CI quality gates."
       ],
-      "skillCategoryOrder": ["core", "messaging-data", "quality-engineering", "infra-devops", "additional-languages"],
-      "caseStudyIds": ["entity-concurrency-locking", "messenger-archive-search"],
-      "githubProjectNames": ["EntityLocker", "JPA2", "SonarQubeChecker"],
+      "skillCategoryOrder": [
+        "core",
+        "messaging-data",
+        "quality-engineering",
+        "infra-devops",
+        "additional-languages"
+      ],
+      "skillNames": [
+        "Java (6–25)",
+        "JVM & Concurrency",
+        "Spring Framework",
+        "Spring Boot",
+        "Distributed Systems",
+        "Microservices",
+        "SQL",
+        "PostgreSQL",
+        "Oracle Database",
+        "JPA / Hibernate",
+        "Enterprise Integration",
+        "RabbitMQ",
+        "JUnit",
+        "Mockito / JMockit / EasyMock",
+        "Integration & E2E Testing",
+        "Docker / Compose",
+        "Maven",
+        "Jenkins",
+        "GitLab CI/CD",
+        "Python (2 & 3)",
+        "TypeScript",
+        "Node.js"
+      ],
+      "caseStudyIds": [
+        "entity-concurrency-locking",
+        "messenger-archive-search"
+      ],
+      "githubProjectNames": [
+        "EntityLocker",
+        "JPA2",
+        "SonarQubeChecker"
+      ],
       "includeCompactRoles": false,
       "expectedPages": 2
     },
     {
       "slug": "wise",
-      "shortLabel": "Wise-Targeted (Java Backend)",
+      "shortLabel": "Backend Java Focus (Wise-Ready)",
       "roleTitle": "Senior Java Backend Engineer",
-      "targetAudience": "Tailored for Wise Senior Java / Distributed Backend engineering teams",
+      "targetAudience": "High-scale Java / distributed backend engineering teams (reference template; use npm run cv:job for private applications)",
       "pdfFilename": "Denis-Stepulenok-Wise-Senior-Java-Engineer.pdf",
-      "summary": "Senior Java Backend Engineer specialising in Spring Boot, SQL/PostgreSQL, distributed systems, concurrency, and production reliability. Experience across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering, complemented by Kafka familiarity and AI engineering automation.",
+      "summary": "Senior Java Backend Engineer specialising in Java Core, Spring Boot, SQL/PostgreSQL, concurrency, distributed integration, and production reliability across Kuehne+Nagel, Taxify (Bolt), and Oracle JDK quality engineering, with Kafka familiarity and AI automation tooling.",
       "focusHighlights": [
-        "Enterprise Java & Spring Boot development at Kuehne+Nagel: distributed integration workloads, SQL/PostgreSQL & Oracle persistence, Docker & Kubernetes CI/CD.",
-        "Concurrency & idempotency demonstrated publicly: Java EntityLocker row-level locking utility and deterministic UUIDv5 upsert checkpoints.",
-        "Asynchronous messaging & reliability: RabbitMQ production experience, Apache Kafka familiarity, and bounded retry/backpressure design.",
-        "Quality engineering & automation: Oracle JDK concurrency/JMM debugging, automated testing, and AI-assisted development workflows."
+        "Oracle JDK quality engineering: deep Java Core, Java Memory Model, concurrency, class loading, and automated test suites.",
+        "Taxify (Bolt) high-load backend API and microservice delivery alongside Kuehne+Nagel NDA-safe enterprise Java, Spring Boot, RabbitMQ, and SQL/PostgreSQL integration.",
+        "Concurrency & idempotency in independent code: EntityLocker JVM-local per-ID locking and deterministic UUIDv5 upserts with at-least-once checkpoints.",
+        "Automated testing and CI/CD discipline across JUnit, Mockito, Maven, Jenkins, GitLab, and Docker (plus Apache Kafka familiarity)."
       ],
-      "skillCategoryOrder": ["core", "messaging-data", "quality-engineering", "infra-devops", "ai-engineering"],
-      "caseStudyIds": ["entity-concurrency-locking", "messenger-archive-search"],
-      "githubProjectNames": ["EntityLocker", "JPA2", "SonarQubeChecker"],
+      "skillCategoryOrder": [
+        "core",
+        "messaging-data",
+        "quality-engineering",
+        "infra-devops",
+        "additional-languages"
+      ],
+      "skillNames": [
+        "Java (6–25)",
+        "JVM & Concurrency",
+        "Spring Framework",
+        "Spring Boot",
+        "Distributed Systems",
+        "Microservices",
+        "SQL",
+        "PostgreSQL",
+        "Oracle Database",
+        "JPA / Hibernate",
+        "Enterprise Integration",
+        "RabbitMQ",
+        "Apache Kafka",
+        "JUnit",
+        "Mockito / JMockit / EasyMock",
+        "Test-Driven Development (TDD)",
+        "Integration & E2E Testing",
+        "Docker / Compose",
+        "Maven",
+        "Jenkins",
+        "GitLab CI/CD",
+        "Python (2 & 3)"
+      ],
+      "caseStudyIds": [
+        "entity-concurrency-locking",
+        "messenger-archive-search"
+      ],
+      "githubProjectNames": [
+        "EntityLocker",
+        "JPA2",
+        "SonarQubeChecker"
+      ],
       "includeCompactRoles": false,
       "expectedPages": 2
     },
@@ -1325,33 +1977,83 @@
       "roleTitle": "AI Integration / MCP Engineer",
       "targetAudience": "AI platform, semantic search & Model Context Protocol engineering teams",
       "pdfFilename": "Denis-Stepulenok-AI-Engineer.pdf",
-      "summary": "Senior Software Engineer combining enterprise Java/Python production reliability with independent systems projects in Rust, semantic search (Qdrant), Whisper transcription, local LLMs (Ollama), and Model Context Protocol (MCP) servers for LLM agent integration.",
+      "summary": "Senior Software Engineer combining enterprise Java/Python production reliability with independent systems projects in Rust, semantic search (Qdrant), Whisper transcription, local LLMs (Ollama), and Model Context Protocol (MCP) servers.",
       "focusHighlights": [
-        "Independent semantic archive platform: Rust MTProto sync, PostgreSQL SKIP LOCKED queue, Python Whisper transcription, Qdrant UUIDv5 indexing, and read-only MCP server.",
-        "Rust-first Telegram & AI automation toolkit (pythorust_tg) integrating LightRAG indexing, AI auto-responder, and Python MCP modules.",
+        "Independent semantic archive platform: Rust MTProto sync, PostgreSQL FOR UPDATE SKIP LOCKED queue, Python Whisper worker, Qdrant UUIDv5 indexing, and read-only MCP server.",
+        "Public Rust/Python automation toolkit (pythorust_tg) integrating LightRAG indexing, Prometheus metrics, and MCP modules.",
         "Production engineering foundation across Kuehne+Nagel, Taxify (Bolt), and Oracle building reliable backend services and CI/CD pipelines.",
-        "Practical daily workflows with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI/API, and automated quality gates."
+        "Practical engineering workflows with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI/API, and automated quality gates."
       ],
-      "skillCategoryOrder": ["ai-engineering", "additional-languages", "messaging-data", "core", "infra-devops"],
-      "caseStudyIds": ["messenger-archive-search", "rust-desktop-tooling"],
-      "githubProjectNames": ["pythorust_tg", "SonarQubeChecker", "FunnyFileManager", "RustShot"],
+      "skillCategoryOrder": [
+        "ai-engineering",
+        "additional-languages",
+        "messaging-data",
+        "core",
+        "infra-devops"
+      ],
+      "skillNames": [
+        "Model Context Protocol (MCP)",
+        "RAG / Embeddings / Semantic Search",
+        "Local LLMs / Ollama",
+        "Large Language Models (Claude, GPT, Gemini)",
+        "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)",
+        "Python (2 & 3)",
+        "Rust",
+        "TypeScript",
+        "Node.js",
+        "Qdrant",
+        "PostgreSQL",
+        "Java (6–25)",
+        "Spring Boot",
+        "Distributed Systems",
+        "Docker / Compose",
+        "GitHub Actions"
+      ],
+      "caseStudyIds": [
+        "messenger-archive-search",
+        "rust-desktop-tooling"
+      ],
+      "githubProjectNames": [
+        "pythorust_tg",
+        "SonarQubeChecker",
+        "FunnyFileManager",
+        "RustShot"
+      ],
       "includeCompactRoles": false,
       "expectedPages": 2
     },
     {
       "slug": "full",
       "shortLabel": "Full Professional CV",
-      "roleTitle": "Senior Software Engineer | Java, Distributed Systems & AI Engineering",
+      "roleTitle": "Senior Software Engineer — Java, Distributed Systems & Polyglot Engineering",
       "targetAudience": "Comprehensive career history, independent project case studies & open-source record",
       "pdfFilename": "Denis-Stepulenok-Full-CV.pdf",
-      "summary": "Senior Software Engineer specialising in Java backend development, distributed systems, event-driven architecture, enterprise integration, and production reliability. Complete career history spanning Kuehne+Nagel, Taxify (Bolt), Oracle, and earlier engineering roles since 2001.",
+      "summary": "Senior Software Engineer specialising in Java backend engineering, distributed systems, event-driven architecture, enterprise integration, and production reliability. Full chronological record covering professional employment since 2005, an earlier 2001–2005 university internship, and independent open-source work.",
       "focusHighlights": [
-        "Career history across enterprise Java applications, high-load Node.js services, JDK quality engineering, C/C++, and modern Rust/AI open-source projects.",
-        "Complete chronological record with independent/open-source project case studies and verified public GitHub repositories."
+        "Professional employment across enterprise Java applications, high-load Node.js services, JDK quality engineering, and C/C++, plus an earlier university internship (2001–2005).",
+        "Complete chronological record with independent/open-source case studies and public GitHub repositories."
       ],
-      "skillCategoryOrder": ["core", "messaging-data", "infra-devops", "additional-languages", "ai-engineering", "quality-engineering"],
-      "caseStudyIds": ["messenger-archive-search", "entity-concurrency-locking", "rust-desktop-tooling"],
-      "githubProjectNames": ["pythorust_tg", "FunnyFileManager", "RustShot", "SonarQubeChecker", "EntityLocker", "JPA2"],
+      "skillCategoryOrder": [
+        "core",
+        "messaging-data",
+        "infra-devops",
+        "additional-languages",
+        "ai-engineering",
+        "quality-engineering"
+      ],
+      "caseStudyIds": [
+        "messenger-archive-search",
+        "entity-concurrency-locking",
+        "rust-desktop-tooling"
+      ],
+      "githubProjectNames": [
+        "pythorust_tg",
+        "FunnyFileManager",
+        "RustShot",
+        "SonarQubeChecker",
+        "EntityLocker",
+        "JPA2"
+      ],
       "includeCompactRoles": true,
       "expectedPages": 3
     }
