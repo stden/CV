@@ -76,7 +76,7 @@ const PROVENANCE_ORIGINS = new Map([
     ['independent-educational', 'educational-example'],
 ]);
 const SAFE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const PRIVATE_PATH = /(?:^|\/)(?:\.private|private|applications?|application-packages)(?:\/|$)|(?:^|\/)(?:resume|cover-letter|interview-preparation|evidence-report|match-report|application-manifest)\.[\w-]+$/i;
+const PRIVATE_PATH = /(?:^|\/)(?:\.private|private|applications?|application-packages)(?:\/|$)|(?:^|\/)(?:cover-letter|interview-preparation|evidence-report|match-report|application-manifest)\.[\w-]+$|\/resume\.[\w-]+$|^resume\.(?!(?:md|txt)$)[\w-]+$/i;
 const MAX_FILE_SIZE = 32 * 1024 * 1024;
 const UTF8 = new TextDecoder('utf8', { fatal: true });
 

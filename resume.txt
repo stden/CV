@@ -1,0 +1,92 @@
+DENIS STEPULENOK
+Senior Software Engineer — Java & Distributed Systems
+Location: Tallinn, Estonia
+Portfolio: https://stden.github.io/CV/
+Email: super.denis@gmail.com
+GitHub: https://github.com/stden
+LinkedIn: https://www.linkedin.com/in/denis-stepulenok-2149b514/
+Canonical PDF: https://stden.github.io/CV/assets/pdf/Denis-Stepulenok-CV-EN.pdf
+Content Revision Date: 2026-11-27
+
+SUMMARY
+-------
+I build Java backend services and asynchronous integrations. At Kuehne+Nagel I work on enterprise Java services and delivery automation. I previously built high-load services at Taxify (now Bolt) and investigated JDK defects at Oracle.
+
+SKILLS & EVIDENCE TIERS
+-----------------------
+Primary professional: Java (6–25), JVM & Concurrency, Spring Framework, Spring Boot, Distributed Systems, SQL, PostgreSQL, Enterprise Integration, RabbitMQ, Apache Kafka, Jenkins, GitLab CI/CD, JUnit, Continuous Integration
+Additional professional: Microservices, JPA / Hibernate, Software Design & Algorithms, Oracle Database, Redis, Docker / Compose, Kubernetes, Maven, Git, AWS, Python (2 & 3), TypeScript, Node.js, React, AngularJS, Mockito / JMockit / EasyMock
+Independent engineering: Qdrant, Vector databases, GitHub Actions, Linux / systemd / bash, Rust, Model Context Protocol (MCP), RAG / Embeddings / Semantic Search, Large Language Models (Claude, GPT, Gemini), AI-Assisted Development (Claude Code, Codex, Copilot, Gemini), Integration & E2E Testing, Cucumber / Gherkin (BDD)
+Familiarity (requires confirmation): Valkey, Helm, Terraform, Nginx / Caddy / Cloudflare, Prometheus / Grafana, Go (Gin, gRPC), Svelte / SvelteKit, Local LLMs / Ollama, Test-Driven Development (TDD), Playwright / Vitest / Selenide
+
+EXPERIENCE (SELF-REPORTED)
+--------------------------
+Senior Java Developer | Kuehne+Nagel | May 2018 – Present | Tallinn, Estonia
+Develop and maintain enterprise Java backend services and integrations, and support automated software delivery.
+  * Develop Java and Spring Boot services used in enterprise workflows.
+  * Build event-driven pipelines with Apache Kafka (Spring Kafka producers/consumers, partitioning, per-key ordering, offsets/rebalancing, Schema Registry, Kafka Streams/Connect) and RabbitMQ.
+  * Implement reliable messaging with transactional outbox, idempotent processing, retry/DLQ topics, consumer lag monitoring, and broker operations.
+  * Integrate backend services with PostgreSQL and relational databases using SQL, JPA, and Hibernate.
+  * Automate builds, tests, and containerised deployments with JUnit, Jenkins, GitLab CI/CD, Docker, and Kubernetes.
+  Technologies: Java, Spring Boot, RabbitMQ, Apache Kafka, SQL, PostgreSQL, Oracle Database, Jenkins, GitLab CI/CD, Docker, Kubernetes, Maven, Git, Python, React, AngularJS
+
+Senior Backend Developer | Taxify (now Bolt) | May 2017 – May 2018 | Tallinn, Estonia
+Developed high-load Node.js backend services and internal web tools.
+  * Developed backend services in Node.js with JavaScript and TypeScript.
+  * Built and maintained REST interfaces for backend services.
+  * Developed internal administration tools backed by MySQL.
+  * Worked with cloud-hosted services and Docker.
+  Technologies: Node.js, TypeScript, REST APIs, MySQL, Redis, Docker, AWS, JavaScript, PHP, Microsoft Azure, Google App Engine, Neo4j
+
+SQE / Java Developer | Oracle (Oracle Russia & CIS) | January 2014 – May 2017 | Saint Petersburg
+Investigated JDK defects and developed automated tests for Java platform releases.
+  * Developed Java, JUnit and Jemmy tests and stabilised existing test suites.
+  * Analysed scheduled test runs and verified fixes in the JDK and test code.
+  * Investigated failures involving concurrency, the Java Memory Model and class loading.
+  * Maintained a distributed testing lab using Python, PowerShell and Puppet.
+  Technologies: Java, JVM, JDK, JUnit, Jemmy, Python, Mockito, PowerShell, Puppet
+
+Senior Java Developer | Software Development & Solutions | August 2013 – January 2014 | Saint Petersburg
+Developed Java software for business information management.
+  * Contributed to requirements, technical design, testing and release support.
+  Technologies: Java, Spring Framework, JUnit, Hibernate, Oracle Database
+
+C/C++ / Java / Android Developer | Bonus Club | September 2012 – August 2013 | Saint Petersburg
+Developed and maintained software for point-of-sale and loyalty applications.
+  * Contributed to application libraries, service integration and Android development.
+  Technologies: C/C++, Java, Android, REST APIs
+
+Software Developer | OAO INRUSKOM | November 2005 – February 2007 | Saint Petersburg
+Developed database and desktop software.
+  * Built user interfaces and supported relational data access.
+  Technologies: C# .NET, Microsoft SQL Server
+
+Software Developer | i-Free | March 2005 – October 2005 | Saint Petersburg
+Developed software for content management.
+  * Built user interfaces and automated data import.
+  Technologies: Java, C# .NET, Microsoft SQL Server
+
+Software Engineer Intern | Research & Engineering Center of SPb ETU | September 2001 – March 2005 | Saint Petersburg
+Worked on data processing and visualisation as a software engineering intern.
+  * Contributed to data analysis and visualisation software.
+  Technologies: Java, Delphi, C++ Builder, MATLAB, SQL
+
+PUBLIC REPOSITORIES (INSPECTABLE)
+---------------------------------
+* pythorust_tg (Rust, ci-verified): https://github.com/stden/pythorust_tg
+  Telegram automation toolkit with export, indexing and analysis utilities.
+* FunnyFileManager (Rust, ci-verified): https://github.com/stden/FunnyFileManager
+  Terminal file manager with two-panel navigation, keyboard controls, and file operations.
+* RustShot (Rust, ci-verified): https://github.com/stden/RustShot
+  Desktop screenshot utility for Windows, Linux and macOS with screen recording on Windows.
+* SonarQubeChecker (Python, ci-verified): https://github.com/stden/SonarQubeChecker
+  CLI that reads SonarQube or SonarCloud analysis data and produces Markdown reports.
+* EntityLocker (Java, publicly-inspectable): https://github.com/stden/EntityLocker
+  Java utility for exploring JVM-local, keyed locking and nested acquisition order.
+* JPA2 (Java, ci-verified): https://github.com/stden/JPA2
+  Educational JPA and Hibernate examples with persistence tests.
+
+EDUCATION & LANGUAGES
+---------------------
+* Specialist in Computer Science — Saint-Petersburg Electrotechnical University "LETI" (1999 – 2005)
+* Languages: Russian: Native; English: Intermediate

@@ -1,0 +1,355 @@
+{
+  "schemaVersion": "1.0.0",
+  "canonicalProfileUrl": "https://stden.github.io/CV/",
+  "contentRevisionDate": "2026-11-27",
+  "canonicalLanguage": "en",
+  "pageUrl": "https://stden.github.io/CV/roles/",
+  "disclaimer": "Role alignment maps confirmed skills and public repositories to target engineering roles. It is separate from employment history and deliberately omits synthetic fit scores or offer probabilities.",
+  "roles": [
+    {
+      "id": "senior-java-backend-engineer",
+      "title": "Senior Java Backend Engineer",
+      "summary": "Core career focus since 2012 across enterprise Java (6–25), Spring Boot, JVM concurrency, SQL/PostgreSQL, JPA/Hibernate, and JUnit testing.",
+      "relevantCompetencies": [
+        {
+          "id": "java",
+          "name": "Java (6–25)"
+        },
+        {
+          "id": "jvm-concurrency",
+          "name": "JVM & Concurrency"
+        },
+        {
+          "id": "spring-boot",
+          "name": "Spring Boot"
+        },
+        {
+          "id": "postgresql",
+          "name": "PostgreSQL"
+        },
+        {
+          "id": "jpa-hibernate",
+          "name": "JPA / Hibernate"
+        },
+        {
+          "id": "junit",
+          "name": "JUnit"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "self-reported-employment",
+          "ref": "kuehne-nagel",
+          "label": "Kuehne+Nagel (May 2018 – Present): Senior Java Developer",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "self-reported-employment",
+          "ref": "oracle",
+          "label": "Oracle (Jan 2014 – May 2017): SQE / Java Developer (JDK fixes & concurrency)",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/EntityLocker",
+          "label": "EntityLocker public Java keyed locking utility & JUnit 4 tests",
+          "verificationStatus": "publicly-inspectable"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/JPA2",
+          "label": "JPA2 Spring/Hibernate 6 Maven project with CI",
+          "verificationStatus": "ci-verified"
+        }
+      ],
+      "limitations": "Production Java codebases at Kuehne+Nagel and Oracle are proprietary; EntityLocker lacks a GitHub Actions CI workflow and its CountLock eviction path requires thread-safety hardening.",
+      "areasRequiringConfirmation": [
+        "Depth with Java 21+ virtual threads vs classical thread-pool executors in production.",
+        "Team leadership, architecture ownership, and system scale parameters under NDA-safe interview discussion."
+      ]
+    },
+    {
+      "id": "senior-software-engineer",
+      "title": "Senior Software Engineer",
+      "summary": "Long-running backend and systems engineering background combining enterprise Java platforms, polyglot services (TypeScript/Node.js, Python, Rust), and automated delivery pipelines.",
+      "relevantCompetencies": [
+        {
+          "id": "java",
+          "name": "Java (6–25)"
+        },
+        {
+          "id": "distributed-systems",
+          "name": "Distributed Systems"
+        },
+        {
+          "id": "python",
+          "name": "Python (2 & 3)"
+        },
+        {
+          "id": "rust",
+          "name": "Rust"
+        },
+        {
+          "id": "docker-compose",
+          "name": "Docker / Compose"
+        },
+        {
+          "id": "continuous-integration",
+          "name": "Continuous Integration"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "self-reported-employment",
+          "ref": "kuehne-nagel",
+          "label": "Kuehne+Nagel: enterprise Java services & CI/CD",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "self-reported-employment",
+          "ref": "taxify-bolt",
+          "label": "Taxify (now Bolt): Senior Backend Developer on real-time services",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/RustShot",
+          "label": "RustShot with GitHub Actions CI & release pipelines",
+          "verificationStatus": "ci-verified"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/SonarQubeChecker",
+          "label": "SonarQubeChecker Python CLI with CI & SonarCloud analysis",
+          "verificationStatus": "ci-verified"
+        }
+      ],
+      "limitations": "Recorded employment does not include public metrics on traffic volume, latency targets, or team size; public Go/Svelte items are familiarity only.",
+      "areasRequiringConfirmation": [
+        "Product domain ownership, cross-team technical mentorship, and on-call operational responsibilities.",
+        "Frontend proficiency outside backend-focused React/AngularJS support."
+      ]
+    },
+    {
+      "id": "distributed-systems-engineer",
+      "title": "Distributed Systems Engineer",
+      "summary": "Practical production experience in event-driven integration with Apache Kafka and RabbitMQ alongside independent design patterns for outbox delivery, idempotency, and keyed concurrency.",
+      "relevantCompetencies": [
+        {
+          "id": "distributed-systems",
+          "name": "Distributed Systems"
+        },
+        {
+          "id": "apache-kafka",
+          "name": "Apache Kafka"
+        },
+        {
+          "id": "rabbitmq",
+          "name": "RabbitMQ"
+        },
+        {
+          "id": "microservices",
+          "name": "Microservices"
+        },
+        {
+          "id": "postgresql",
+          "name": "PostgreSQL"
+        },
+        {
+          "id": "redis",
+          "name": "Redis"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "self-reported-employment",
+          "ref": "kuehne-nagel",
+          "label": "Kuehne+Nagel: Apache Kafka (Spring Kafka, partitioning, per-key ordering, offsets/rebalancing, DLQ, outbox, Schema Registry, Streams/Connect, lag monitoring) & RabbitMQ",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "self-reported-employment",
+          "ref": "taxify-bolt",
+          "label": "Taxify (now Bolt): distributed backend microservices & Redis",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "independent-project",
+          "ref": "https://stden.github.io/CV/architecture/",
+          "label": "Independent architecture diagrams and educational transactional-outbox write-ups",
+          "verificationStatus": "publicly-inspectable"
+        }
+      ],
+      "limitations": "Production Kafka clusters, Schema Registry setups, and Bolt microservices cannot be inspected publicly; public architecture diagrams use independent educational examples.",
+      "areasRequiringConfirmation": [
+        "Consensus protocols (Raft/Paxos), multi-region replication, or large-scale Kafka Streams state-store operations.",
+        "Production observability stack depth beyond listed Prometheus/Grafana familiarity."
+      ]
+    },
+    {
+      "id": "enterprise-integration-engineer",
+      "title": "Enterprise Integration Engineer",
+      "summary": "Direct alignment with global logistics system-to-system integration using Java, Spring Boot, Apache Kafka, RabbitMQ, PostgreSQL, and Oracle Database.",
+      "relevantCompetencies": [
+        {
+          "id": "enterprise-integration",
+          "name": "Enterprise Integration"
+        },
+        {
+          "id": "apache-kafka",
+          "name": "Apache Kafka"
+        },
+        {
+          "id": "rabbitmq",
+          "name": "RabbitMQ"
+        },
+        {
+          "id": "spring-boot",
+          "name": "Spring Boot"
+        },
+        {
+          "id": "oracle-database",
+          "name": "Oracle Database"
+        },
+        {
+          "id": "sql",
+          "name": "SQL"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "self-reported-employment",
+          "ref": "kuehne-nagel",
+          "label": "Kuehne+Nagel (2018–Present): enterprise B2B/logistics Java integrations, Kafka & RabbitMQ",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/JPA2",
+          "label": "JPA2 relational persistence demonstration with Maven CI",
+          "verificationStatus": "ci-verified"
+        }
+      ],
+      "limitations": "Partner message formats, EDI/API contracts, and enterprise integration topologies at Kuehne+Nagel are covered by NDA.",
+      "areasRequiringConfirmation": [
+        "Specific financial messaging standards (ISO 20022, SEPA, SWIFT) if required by fintech employers vs logistics messaging experience."
+      ]
+    },
+    {
+      "id": "software-reliability-engineer",
+      "title": "Software Reliability Engineer",
+      "summary": "Focus on deterministic testing, defect reproduction, CI/CD release gates, container security checks, and automated quality validation.",
+      "relevantCompetencies": [
+        {
+          "id": "junit",
+          "name": "JUnit"
+        },
+        {
+          "id": "integration-e2e-testing",
+          "name": "Integration & E2E Testing"
+        },
+        {
+          "id": "continuous-integration",
+          "name": "Continuous Integration"
+        },
+        {
+          "id": "github-actions",
+          "name": "GitHub Actions"
+        },
+        {
+          "id": "docker-compose",
+          "name": "Docker / Compose"
+        },
+        {
+          "id": "playwright-vitest-selenide",
+          "name": "Playwright / Vitest / Selenide"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "self-reported-employment",
+          "ref": "oracle",
+          "label": "Oracle SQE (2014–2017): JDK defect reproduction, regression suites & Java/Python tooling",
+          "verificationStatus": "self-reported"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/CV",
+          "label": "stden/CV deterministic static, PDF, confidentiality, and Playwright/Axe CI gates",
+          "verificationStatus": "ci-verified"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/docker-gems",
+          "label": "docker-gems with GitHub Actions container security scan",
+          "verificationStatus": "ci-verified"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/SonarQubeChecker",
+          "label": "SonarQubeChecker automated code-quality reporting with CI",
+          "verificationStatus": "ci-verified"
+        }
+      ],
+      "limitations": "Role history is Software Quality & Backend Engineering rather than dedicated 24/7 Infrastructure SRE; Terraform and Kubernetes cluster operations need confirmation.",
+      "areasRequiringConfirmation": [
+        "Production SLO/error-budget ownership, incident commander experience, and Infrastructure-as-Code depth (Terraform/Helm)."
+      ]
+    },
+    {
+      "id": "ai-integration-engineer",
+      "title": "AI Integration Engineer",
+      "summary": "Independent engineering experience connecting structured tool interfaces (MCP), hybrid vector/lexical search, and LLM workflows with deterministic validation.",
+      "relevantCompetencies": [
+        {
+          "id": "model-context-protocol",
+          "name": "Model Context Protocol (MCP)"
+        },
+        {
+          "id": "rag-embeddings-semantic-search",
+          "name": "RAG / Embeddings / Semantic Search"
+        },
+        {
+          "id": "large-language-models",
+          "name": "Large Language Models (Claude, GPT, Gemini)"
+        },
+        {
+          "id": "ai-assisted-development",
+          "name": "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)"
+        },
+        {
+          "id": "python",
+          "name": "Python (2 & 3)"
+        },
+        {
+          "id": "rust",
+          "name": "Rust"
+        }
+      ],
+      "supportingEvidence": [
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/pythorust_tg",
+          "label": "pythorust_tg Rust/Python archive, RAG & MCP modules with CI/CD",
+          "verificationStatus": "ci-verified"
+        },
+        {
+          "kind": "public-repository",
+          "ref": "https://github.com/stden/anygen",
+          "label": "anygen AI-assisted spec/BDD verification repository with CI",
+          "verificationStatus": "ci-verified"
+        },
+        {
+          "kind": "independent-project",
+          "ref": "https://stden.github.io/CV/projects/#case-messenger-archive-search",
+          "label": "Messenger Archive & Semantic Search personal architecture study",
+          "verificationStatus": "publicly-inspectable"
+        }
+      ],
+      "limitations": "AI/MCP/RAG engineering comes from independent open-source and personal projects rather than large-scale enterprise ML/AI production roles; Local LLMs/Ollama is listed familiarity only.",
+      "areasRequiringConfirmation": [
+        "Production LLM evaluation, token cost/latency budgeting, and model serving architecture at commercial scale."
+      ]
+    }
+  ]
+}

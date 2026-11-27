@@ -22,3 +22,10 @@ The portfolio is for international software engineering recruitment. Review the 
 - Confirm any public relocation or work-authorisation wording separately. Availability remains off by default.
 - Confirm that the general Senior Software Engineer CV should stay the default. The existing Wise URL and PDF remain public. Review whether to adopt a generic backend profile at those URLs in a separate approved change, with actual vacancy-specific materials kept local.
 - Review links and PDF text before approving release. Keep application history, vacancy documents, personal credentials and private supporting evidence outside the published portfolio.
+
+## AI discovery, machine-readable profile & technical articles
+
+- Confirm disclosure authorisation for the expanded Apache Kafka claims at Kuehne+Nagel in `data/cv.json`, `candidate.json`, `skills-evidence.json`, `resume.md`, and `resume.txt`, ensuring only high-level engineering capabilities (and no internal broker names, topics, SLAs, or metrics) are published.
+- Review and approve [`docs/HOST_ROBOTS_APPROVAL.md`](docs/HOST_ROBOTS_APPROVAL.md) separately before committing `robots.txt` to the `stden/stden.github.io` repository.
+- Confirm that `llms.txt`, `candidate.json`, `skills-evidence.json`, `role-alignment.json`, `resume.md`, and `resume.txt` expose only allowlisted public data with neutral framing, explicit verification statuses, and zero synthetic hiring scores or prompt directives.
+- Review all 5 engineering articles under `/CV/articles/` to confirm that every example, repository reference, and reproducible command comes exclusively from independent research or verified public open-source code.

@@ -644,12 +644,35 @@ function renderHomePage(data, techLookup) {
                     addressLocality: 'Tallinn',
                     addressCountry: 'EE',
                 },
+                worksFor: {
+                    '@type': 'Organization',
+                    name: 'Kuehne+Nagel',
+                    url: 'https://www.kuehne-nagel.com/',
+                },
+                alumniOf: data.education.map((edu) => ({
+                    '@type': 'CollegeOrUniversity',
+                    name: edu.institution,
+                })),
                 sameAs: [
                     data.profile.contact.github,
                     data.profile.contact.linkedin,
                     data.profile.contact.telegram,
                 ],
-                knowsAbout: data.profile.coreBadges,
+                knowsAbout: [
+                    ...data.profile.coreBadges,
+                    'Spring Boot',
+                    'JVM Concurrency',
+                    'Distributed Systems',
+                    'Enterprise Integration',
+                    'Model Context Protocol',
+                ],
+                knowsLanguage: ['Russian', 'English'],
+                subjectOf: [
+                    `${data.site.baseUrl}/candidate.json`,
+                    `${data.site.baseUrl}/skills-evidence.json`,
+                    `${data.site.baseUrl}/role-alignment.json`,
+                    `${data.site.baseUrl}/resume.md`,
+                ],
             },
             {
                 '@type': 'ProfilePage',
@@ -657,6 +680,7 @@ function renderHomePage(data, techLookup) {
                 url: pageUrl(data),
                 inLanguage: data.locale,
                 name: data.site.title,
+                dateModified: data.meta?.contentRevisionDate || '2026-11-27',
                 mainEntity: { '@id': `${data.site.baseUrl}/#person` },
             },
         ],
@@ -963,6 +987,247 @@ Sitemap: ${base}/sitemap.xml
     fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robots);
 }
 
+function renderRoleAlignmentPage(data) {
+    const verificationLabels = {
+        'self-reported': 'Self-reported employment',
+        'publicly-inspectable': 'Publicly inspectable repository',
+        'ci-verified': 'Public repository (CI passing)',
+        'requires-confirmation': 'Requires interview confirmation',
+    };
+    const roleCards = (data.roleAlignment || []).map((role) => {
+        const competencies = role.relevantCompetencies
+            .map((comp) => `<li><span class="badge">${escapeHtml(comp.name)}</span></li>`)
+            .join('');
+        const evidence = role.supportingEvidence.map((ev) => {
+            const badge = verificationLabels[ev.verificationStatus] || ev.verificationStatus;
+            const link = ev.ref.startsWith('http')
+                ? `<a href="${escapeHtml(ev.ref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(ev.label)}</a>`
+                : `<a href="../experience/#role-${escapeHtml(ev.ref)}">${escapeHtml(ev.label)}</a>`;
+            return `<li>${link} <span class="verification-tag">${escapeHtml(badge)}</span></li>`;
+        }).join('\n          ');
+        const confirmations = role.areasRequiringConfirmation
+            .map((item) => `<li>${escapeHtml(item)}</li>`)
+            .join('\n          ');
+
+        return `      <article class="card" id="role-align-${escapeHtml(role.id)}">
+        <h2 class="card-title">${escapeHtml(role.title)}</h2>
+        <p class="card-body">${escapeHtml(role.summary)}</p>
+        <h3 class="role-align-subheading">Relevant Competencies</h3>
+        <ul class="badge-list">${competencies}</ul>
+        <h3 class="role-align-subheading">Supporting Evidence &amp; Verification Status</h3>
+        <ul class="bullet-list">
+          ${evidence}
+        </ul>
+        <h3 class="role-align-subheading">Known Limitations</h3>
+        <p class="card-body">${escapeHtml(role.limitations)}</p>
+        <h3 class="role-align-subheading">Areas Requiring Confirmation</h3>
+        <ul class="bullet-list">
+          ${confirmations}
+        </ul>
+      </article>`;
+    }).join('\n');
+
+    const title = 'Role Alignment';
+    const description = 'Evidence-based mapping across six backend, distributed systems, integration, reliability, and AI tooling engineering roles.';
+    const url = pageUrl(data, 'roles/');
+
+    return renderDocument(data, {
+        depth: 1,
+        title: `${title} — ${data.profile.name}`,
+        description,
+        canonicalPath: 'roles/',
+        bodyHtml: `<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">Portfolio</a> / ${title}</p>
+    <h1>${title}</h1>
+    <p class="section-lead">${escapeHtml(description)}</p>
+    <p class="provenance">This page maps confirmed skills and public repositories to target engineering roles. It is separate from <a href="../experience/">confirmed employment history</a> and intentionally contains no synthetic fit scores or offer probabilities. Machine-readable version: <a href="../role-alignment.json">role-alignment.json</a>.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="role-align-grid">
+${roleCards}
+    </div>
+  </div>
+</section>`,
+        jsonLd: {
+            '@context': 'https://schema.org',
+            '@graph': [
+                {
+                    '@type': 'WebPage',
+                    '@id': `${url}#page`,
+                    url,
+                    inLanguage: 'en',
+                    name: `${title} — ${data.profile.name}`,
+                    description,
+                    dateModified: data.meta?.contentRevisionDate || '2026-11-27',
+                    about: { '@id': `${data.site.baseUrl}/#person` },
+                },
+                {
+                    '@type': 'BreadcrumbList',
+                    itemListElement: [
+                        { '@type': 'ListItem', position: 1, name: 'Portfolio', item: `${data.site.baseUrl}/` },
+                        { '@type': 'ListItem', position: 2, name: title, item: url },
+                    ],
+                },
+            ],
+        },
+    });
+}
+
+function renderArticlesIndexPage(data) {
+    const cards = (data.articles || []).map((article) => `      <article class="card" id="article-${escapeHtml(article.slug)}">
+        <p class="article-meta">${escapeHtml(article.publishedDate)} &middot; ${escapeHtml(article.author)} &middot; ${escapeHtml(article.readingTime)}</p>
+        <h2 class="card-title"><a href="${escapeHtml(article.slug)}/">${escapeHtml(article.title)}</a></h2>
+        <p class="card-body">${escapeHtml(article.summary)}</p>
+        <ul class="badge-list" style="margin-top:0.75rem">${article.topics.map((t) => `<li><span class="badge">${escapeHtml(t)}</span></li>`).join('')}</ul>
+      </article>`).join('\n');
+
+    const title = 'Technical Articles';
+    const description = 'Original, independently researched engineering notes on Java concurrency, Kafka idempotency and outbox delivery, PostgreSQL row locking, Rust/MCP retrieval, and automated quality gates.';
+    const url = pageUrl(data, 'articles/');
+
+    return renderDocument(data, {
+        depth: 1,
+        title: `${title} — ${data.profile.name}`,
+        description,
+        canonicalPath: 'articles/',
+        bodyHtml: `<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">Portfolio</a> / ${title}</p>
+    <h1>${title}</h1>
+    <p class="section-lead">${escapeHtml(description)}</p>
+    <p class="provenance">All articles use independent research, public repository code, and educational examples without employer internals or confidential metrics.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="repo-grid">
+${cards}
+    </div>
+  </div>
+</section>`,
+        jsonLd: {
+            '@context': 'https://schema.org',
+            '@graph': [
+                {
+                    '@type': 'CollectionPage',
+                    '@id': `${url}#page`,
+                    url,
+                    inLanguage: 'en',
+                    name: `${title} — ${data.profile.name}`,
+                    description,
+                    dateModified: data.meta?.contentRevisionDate || '2026-11-27',
+                    author: { '@id': `${data.site.baseUrl}/#person` },
+                },
+                {
+                    '@type': 'BreadcrumbList',
+                    itemListElement: [
+                        { '@type': 'ListItem', position: 1, name: 'Portfolio', item: `${data.site.baseUrl}/` },
+                        { '@type': 'ListItem', position: 2, name: title, item: url },
+                    ],
+                },
+            ],
+        },
+    });
+}
+
+function renderArticlePage(data, article) {
+    const sectionsHtml = (article.sections || []).map((section) => {
+        const paragraphs = (section.paragraphs || []).map((p) => `<p>${escapeHtml(p)}</p>`).join('\n      ');
+        const codeBlock = section.code
+            ? `\n      <pre class="code-block"><code>${escapeHtml(section.code)}</code></pre>`
+            : '';
+        return `    <section class="article-section">
+      <h2>${escapeHtml(section.heading)}</h2>
+      ${paragraphs}${codeBlock}
+    </section>`;
+    }).join('\n');
+
+    const tradeoffsHtml = (article.tradeoffs || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('\n        ');
+    const limitationsHtml = (article.limitations || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('\n        ');
+    const experimentCmds = (article.reproducibleExperiment?.commands || []).join('\n');
+    const repoLinks = (article.relatedRepoUrls || []).map((href) => {
+        const isSelf = href.startsWith(data.site.baseUrl);
+        const relAttr = isSelf ? '' : ' target="_blank" rel="noopener noreferrer"';
+        return `<li><a href="${escapeHtml(href)}"${relAttr}>${escapeHtml(href)}</a></li>`;
+    }).join('\n        ');
+    const url = pageUrl(data, `articles/${article.slug}/`);
+
+    return renderDocument(data, {
+        depth: 2,
+        title: `${article.title} — ${data.profile.name}`,
+        description: article.summary,
+        canonicalPath: `articles/${article.slug}/`,
+        ogType: 'article',
+        bodyHtml: `<article>
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../../index.html">Portfolio</a> / <a href="../index.html">Technical Articles</a> / ${escapeHtml(article.title)}</p>
+    <p class="article-meta">${escapeHtml(article.publishedDate)} &middot; Author: ${escapeHtml(article.author)} &middot; ${escapeHtml(article.readingTime)}</p>
+    <h1>${escapeHtml(article.title)}</h1>
+    <p class="section-lead">${escapeHtml(article.summary)}</p>
+    <p class="provenance">${escapeHtml(article.provenance)}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container article-body">
+${sectionsHtml}
+    <section class="article-section">
+      <h2>Engineering Trade-offs</h2>
+      <ul class="bullet-list">
+        ${tradeoffsHtml}
+      </ul>
+    </section>
+    <section class="article-section">
+      <h2>Limitations &amp; Boundaries</h2>
+      <ul class="bullet-list">
+        ${limitationsHtml}
+      </ul>
+    </section>
+    ${article.reproducibleExperiment ? `<section class="article-section">
+      <h2>Reproducible Verification</h2>
+      <p>${escapeHtml(article.reproducibleExperiment.summary)}</p>
+      <pre class="code-block"><code>${escapeHtml(experimentCmds)}</code></pre>
+    </section>` : ''}
+    ${repoLinks ? `<section class="article-section">
+      <h2>Public References</h2>
+      <ul class="bullet-list">
+        ${repoLinks}
+      </ul>
+    </section>` : ''}
+  </div>
+</section>
+</article>`,
+        jsonLd: {
+            '@context': 'https://schema.org',
+            '@graph': [
+                {
+                    '@type': 'TechArticle',
+                    '@id': `${url}#article`,
+                    url,
+                    inLanguage: 'en',
+                    headline: article.title,
+                    description: article.summary,
+                    datePublished: article.publishedDate,
+                    dateModified: article.updatedDate,
+                    author: { '@id': `${data.site.baseUrl}/#person` },
+                    keywords: article.topics,
+                },
+                {
+                    '@type': 'BreadcrumbList',
+                    itemListElement: [
+                        { '@type': 'ListItem', position: 1, name: 'Portfolio', item: `${data.site.baseUrl}/` },
+                        { '@type': 'ListItem', position: 2, name: 'Technical Articles', item: `${data.site.baseUrl}/articles/` },
+                        { '@type': 'ListItem', position: 3, name: article.title, item: url },
+                    ],
+                },
+            ],
+        },
+    });
+}
+
 function main() {
     const data = loadCvData();
     const techLookup = buildTechSlugLookup(data);
@@ -986,6 +1251,13 @@ function main() {
         for (const variant of localizedVariants(cv, code)) {
             write(code, `cv/${variant.slug}.html`, renderVariantPage(cv, variant, techLookup));
         }
+    }
+
+    const englishCv = localize(data, 'en', dictionaries.en);
+    write('en', 'roles/index.html', renderRoleAlignmentPage(englishCv));
+    write('en', 'articles/index.html', renderArticlesIndexPage(englishCv));
+    for (const article of englishCv.articles || []) {
+        write('en', `articles/${article.slug}/index.html`, renderArticlePage(englishCv, article));
     }
 
     fs.writeFileSync(
