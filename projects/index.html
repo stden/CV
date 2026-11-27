@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Denis Stepulenok</title>
+  <meta name="description" content="Case studies and public repositories. Independent work only; no employer systems are described.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/projects/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Projects | Denis Stepulenok">
+  <meta property="og:description" content="Case studies and public repositories. Independent work only; no employer systems are described.">
+  <meta property="og:url" content="https://stden.github.io/CV/projects/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projects | Denis Stepulenok">
+  <meta name="twitter:description" content="Case studies and public repositories. Independent work only; no employer systems are described.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="../experience/index.html">Experience</a></li>
+        <li><a href="../projects/index.html">Projects</a></li>
+        <li><a href="../skills/index.html">Skills</a></li>
+        <li><a href="../architecture/index.html">Architecture</a></li>
+        <li><a href="../cv/index.html">CVs</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <span class="theme-label">Dark</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
+        Menu
+      </button>
+    </div>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+      <li><a href="../experience/index.html">Experience</a></li>
+      <li><a href="../projects/index.html">Projects</a></li>
+      <li><a href="../skills/index.html">Skills</a></li>
+      <li><a href="../architecture/index.html">Architecture</a></li>
+      <li><a href="../cv/index.html">CVs</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">Projects</h1>
+    <p class="section-lead">Case studies and public repositories. Independent work only; no employer systems are described.</p>
+  </div>
+</header><section id="projects" class="section section-alt" aria-labelledby="projects-heading">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Engineering Case Studies</p>
+      <h2 id="projects-heading" class="section-title">Independent Projects &amp; Open Source</h2>
+      <p class="section-lead">Self-directed engineering case studies and verified public repositories spanning Java, Rust, Python, distributed concurrency, semantic search, and AI tooling.</p>
+    </div>
+    <div class="case-grid">
+      <article class="case-card">
+        <span class="case-scope case-scope-personal">Independent personal project</span>
+        <h3 class="case-title">Messenger Archive &amp; Semantic Search</h3>
+        <div class="case-columns">
+          <div>
+            <dl class="case-dl">
+              <div><dt>Problem Statement</dt><dd>Long-running personal chat archives combine text and voice messages across thousands of threads, making keyword search ineffective for recalling context or supplying structured history to LLM agents.</dd></div>
+              <div><dt>Engineering Context</dt><dd>Self-directed personal engineering project built independently outside employer work to explore Rust/Python interoperability, local speech-to-text, vector indexing, and Model Context Protocol (MCP) tooling.</dd></div>
+              <div><dt>Architecture</dt><dd>A Rust sync service fetches personal chat history over MTProto with flood-wait backoff into PostgreSQL. A Python worker claims pending voice rows using PostgreSQL SKIP LOCKED and transcribes them with Whisper. A Rust indexer computes batched local embeddings and upserts points into Qdrant, exposed to LLM agents via a read-only MCP server (stdio and HTTP).</dd></div>
+              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list"><li>No distributed transaction spans PostgreSQL, Qdrant, and the sync cursor checkpoint.</li><li>Respecting upstream MTProto rate limits while recovering cleanly from mid-batch interruptions.</li></ul></dd></div>
+              <div><dt>Design Decisions</dt><dd><ul class="bullet-list"><li>Computed deterministic UUIDv5 Qdrant point IDs from message identity so retries overwrite idempotently instead of creating duplicates.</li><li>Persisted the indexing checkpoint only after each Qdrant upsert batch succeeds.</li><li>Used PostgreSQL SELECT ... FOR UPDATE SKIP LOCKED for lock-free concurrent voice transcription workers.</li></ul></dd></div>
+              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list"><li>At-least-once processing paired with deterministic UUIDv5 upserts delivers idempotent eventual consistency without 2PC.</li><li>Flood-wait backoff and bounded retries protect upstream API sessions.</li></ul></dd></div>
+              <div><dt>Verified Outcomes</dt><dd><ul class="bullet-list"><li>End-to-end personal archive searchable semantically across text and transcribed voice messages through standard MCP clients.</li></ul></dd></div>
+            </dl>
+            <div class="tech-group">
+              <span class="tech-group-label">Technology stack</span>
+              <ul class="badge-list"><li><span class="badge">Rust</span></li><li><span class="badge">Python</span></li><li><span class="badge">PostgreSQL (SKIP LOCKED)</span></li><li><span class="badge">Whisper</span></li><li><span class="badge">Qdrant</span></li><li><span class="badge">MCP</span></li></ul>
+            </div>
+          </div>
+          <div class="case-diagram-box">
+            <img src="../assets/images/projects/messenger-archive-search.svg" alt="Messenger Archive &amp; Semantic Search architecture flow diagram" loading="lazy" width="420" height="580">
+            <p class="case-diagram-caption"><a href="#architecture">Inspect interactive component breakdown &rarr;</a></p>
+          </div>
+        </div>
+      </article>
+      <article class="case-card">
+        <span class="case-scope case-scope-personal">Open-source Java project · github.com/stden/EntityLocker</span>
+        <h3 class="case-title">EntityLocker — Row-Level Entity Concurrency Utility</h3>
+        <div class="case-columns">
+          <div>
+            <dl class="case-dl">
+              <div><dt>Problem Statement</dt><dd>Applications caching or mutating domain entities concurrently often face either coarse global locks that bottleneck throughput or complex ad-hoc per-key lock maps prone to leaks and races.</dd></div>
+              <div><dt>Engineering Context</dt><dd>Public open-source Java library demonstrating fine-grained JVM concurrency primitives comparable to row-level database locking.</dd></div>
+              <div><dt>Architecture</dt><dd>A generic EntityLocker&lt;ID&gt; coordinator manages per-entity-ID mutual exclusion without coupling to entity payload types, supporting different ID types, reentrant locking semantics, escalation/global locking options, and bounded cleanup of unused lock entries.</dd></div>
+              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list"><li>Preventing race conditions between lock acquisition, reference counting, and map eviction when locks are released.</li><li>Supporting arbitrary generic ID types safely without deadlocks or unbounded memory growth.</li></ul></dd></div>
+              <div><dt>Design Decisions</dt><dd><ul class="bullet-list"><li>Decoupled lock coordination completely from entity storage so components only pass primary key identifiers.</li><li>Used concurrent map atomic operations and reference tracking to reclaim idle lock objects safely.</li></ul></dd></div>
+              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list"><li>Isolates contention to the specific entity ID being mutated rather than blocking unrelated entities.</li><li>Avoids memory leaks under high key cardinality via safe lock entry cleanup.</li></ul></dd></div>
+              <div><dt>Verified Outcomes</dt><dd><ul class="bullet-list"><li>Published as a standalone reusable Java utility on GitHub (stden/EntityLocker).</li></ul></dd></div>
+            </dl>
+            <div class="tech-group">
+              <span class="tech-group-label">Technology stack</span>
+              <ul class="badge-list"><li><span class="badge">Java</span></li><li><span class="badge">java.util.concurrent</span></li><li><span class="badge">ConcurrentHashMap</span></li><li><span class="badge">ReentrantLock</span></li></ul>
+            </div>
+          </div>
+          <div class="case-diagram-box">
+            <img src="../assets/images/projects/entity-concurrency-locking.svg" alt="EntityLocker — Row-Level Entity Concurrency Utility architecture flow diagram" loading="lazy" width="420" height="580">
+            <p class="case-diagram-caption"><a href="#architecture">Inspect interactive component breakdown &rarr;</a></p>
+          </div>
+        </div>
+      </article>
+      <article class="case-card">
+        <span class="case-scope case-scope-personal">Open-source Rust projects · github.com/stden</span>
+        <h3 class="case-title">FunnyFileManager &amp; RustShot — Systems &amp; Desktop Tooling</h3>
+        <div class="case-columns">
+          <div>
+            <dl class="case-dl">
+              <div><dt>Problem Statement</dt><dd>Building responsive cross-platform developer utilities—a keyboard-driven dual-panel terminal file manager and a fast screen-capture/recording tool—with strict test coverage and automated releases.</dd></div>
+              <div><dt>Engineering Context</dt><dd>Independent open-source Rust projects demonstrating native performance, UI responsiveness, BDD acceptance testing, and GitHub Actions release automation.</dd></div>
+              <div><dt>Architecture</dt><dd>FunnyFileManager (ffm) implements a non-blocking dual-panel TUI on ratatui with async filesystem operations; RustShot captures display frames and encodes H.264 MP4 video natively, both validated via Gherkin BDD suites and automated CI/release workflows.</dd></div>
+              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list"><li>Keeping terminal UI and capture pipelines responsive under slow filesystem or high-resolution display workloads.</li><li>Validating desktop and terminal workflows deterministically across CI runs.</li></ul></dd></div>
+              <div><dt>Design Decisions</dt><dd><ul class="bullet-list"><li>Separated UI event loops from blocking I/O and encoding pipelines.</li><li>Added Gherkin behaviour-driven test suites alongside continuous GitHub Actions builds and release pipelines.</li></ul></dd></div>
+              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list"><li>Passing automated CI and Release workflows verify builds and regression tests on every push.</li></ul></dd></div>
+              <div><dt>Verified Outcomes</dt><dd><ul class="bullet-list"><li>Publicly maintained repositories with passing CI/Release status on GitHub.</li></ul></dd></div>
+            </dl>
+            <div class="tech-group">
+              <span class="tech-group-label">Technology stack</span>
+              <ul class="badge-list"><li><span class="badge">Rust</span></li><li><span class="badge">ratatui</span></li><li><span class="badge">H.264 / Media</span></li><li><span class="badge">Gherkin BDD</span></li><li><span class="badge">GitHub Actions</span></li></ul>
+            </div>
+          </div>
+          <div class="case-diagram-box">
+            <img src="../assets/images/projects/ref-async-job-pipeline.svg" alt="FunnyFileManager &amp; RustShot — Systems &amp; Desktop Tooling architecture flow diagram" loading="lazy" width="420" height="580">
+            <p class="case-diagram-caption"><a href="#architecture">Inspect interactive component breakdown &rarr;</a></p>
+          </div>
+        </div>
+      </article>
+    </div>
+    <h3 class="repo-section-title">Selected Public GitHub Repositories</h3>
+    <p class="repo-section-lead">Verified public repositories from <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">github.com/stden</a> highlighting Rust, Java concurrency, JPA, quality automation, and MCP/AI tooling.</p>
+    <div class="repo-grid">
+      <article class="repo-card">
+        <div>
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/pythorust_tg" target="_blank" rel="noopener noreferrer">pythorust_tg</a></h4>
+            <span class="repo-lang">Rust</span>
+          </div>
+          <p class="repo-desc">Rust-first Telegram automation toolkit featuring chat exports, AI auto-responder, LightRAG indexing, ops helpers (HTTP bench, k8s/site monitoring), and Python MCP/analysis modules.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Stack: Rust · Python · Gherkin</span>
+            <span>CI: CI/CD passing</span>
+            <span>Updated: 2026-11-23</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/pythorust_tg" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/pythorust_tg/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+          </div>
+        </div>
+      </article>
+      <article class="repo-card">
+        <div>
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/FunnyFileManager" target="_blank" rel="noopener noreferrer">FunnyFileManager</a></h4>
+            <span class="repo-lang">Rust</span>
+          </div>
+          <p class="repo-desc">High-performance dual-panel terminal file manager (ffm) built in Rust with ratatui, inspired by Far Manager and Norton Commander, backed by BDD tests.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Stack: Rust · TypeScript · Gherkin</span>
+            <span>CI: CI passing</span>
+            <span>Updated: 2026-11-26</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/FunnyFileManager" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/FunnyFileManager/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+          </div>
+        </div>
+      </article>
+      <article class="repo-card">
+        <div>
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/RustShot" target="_blank" rel="noopener noreferrer">RustShot</a></h4>
+            <span class="repo-lang">Rust</span>
+          </div>
+          <p class="repo-desc">Fast desktop engineering utility for instant screenshot capture and H.264 MP4 screen recording.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Stack: Rust · Gherkin · Python</span>
+            <span>CI: Release passing</span>
+            <span>Updated: 2026-11-26</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/RustShot" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/RustShot/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+          </div>
+        </div>
+      </article>
+      <article class="repo-card">
+        <div>
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/SonarQubeChecker" target="_blank" rel="noopener noreferrer">SonarQubeChecker</a></h4>
+            <span class="repo-lang">Python</span>
+          </div>
+          <p class="repo-desc">Automated quality-gate checker querying SonarCloud / SonarQube metrics for bugs, code smells, and quality gate status.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Stack: Python · Rust · Gherkin</span>
+            <span>CI: test passing</span>
+            <span>Updated: 2026-11-20</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/SonarQubeChecker" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/SonarQubeChecker/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+          </div>
+        </div>
+      </article>
+      <article class="repo-card">
+        <div>
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/EntityLocker" target="_blank" rel="noopener noreferrer">EntityLocker</a></h4>
+            <span class="repo-lang">Java</span>
+          </div>
+          <p class="repo-desc">Reusable Java concurrency utility providing fine-grained synchronization similar to row-level database locking keyed by entity IDs.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Stack: Java</span>
+            <span>CI: No CI workflow</span>
+            <span>Updated: 2026-11-13</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/EntityLocker" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/EntityLocker/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+          </div>
+        </div>
+      </article>
+      <article class="repo-card">
+        <div>
+          <div class="repo-top">
+            <h4 class="repo-name"><a href="https://github.com/stden/JPA2" target="_blank" rel="noopener noreferrer">JPA2</a></h4>
+            <span class="repo-lang">Java</span>
+          </div>
+          <p class="repo-desc">Spring Framework 6, Hibernate 6, and Jakarta Persistence 3.2 experiments and integration tests built with Maven and H2.</p>
+        </div>
+        <div>
+          <div class="repo-meta">
+            <span>Stack: Java</span>
+            <span>CI: Java CI with Maven passing</span>
+            <span>Updated: 2026-11-13</span>
+          </div>
+          <div class="repo-links">
+            <a href="https://github.com/stden/JPA2" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/stden/JPA2/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
+    <div class="footer-links">
+      <a href="../index.html">Portfolio</a>
+      <a href="../cv/index.html">Targeted CVs</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>
