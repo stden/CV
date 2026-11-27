@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { test } = require('node:test');
+const { FONT_SUBSETS } = require('../scripts/lib/fonts');
 const { runConfidentialityCheck } = require('../scripts/check-confidentiality');
 
 const syntheticCv = {
@@ -88,6 +89,29 @@ test('every requested public text type is checked with the private denylist', (t
         assert.ok(!error.message.includes(term));
         return true;
     });
+});
+
+test('the confidentiality gate scans translated pages and nested SVGs with Unicode normalization', (t) => {
+    const marker = 'Вымышленный Маяк';
+    const estonian = 'Väljamõeldud Märge';
+    const options = fixture(t, {
+        'ru/index.html': `<p lang="ru">${marker.toUpperCase()}</p>`,
+        'assets/images/projects/et/example.svg': `<svg><title>${estonian.normalize('NFD')}</title></svg>`,
+    });
+    options.envDenylist = `${marker}\n${estonian}`;
+    expectViolation(options, 'denylist-match', [marker, marker.toUpperCase(), estonian]);
+    assert.throws(() => runConfidentialityCheck(options), (error) => {
+        assert.deepEqual(error.issues, [{ code: 'denylist-match', count: 2 }]);
+        return true;
+    });
+});
+
+test('approved stylesheet Unicode ranges coexist with phone screening', (t) => {
+    const style = FONT_SUBSETS.map(({ range }) => `@font-face { unicode-range: ${range}; }`).join('\n');
+    assert.doesNotThrow(() => runConfidentialityCheck(fixture(t, { 'assets/css/style.css': style })));
+    const fictional = '+1 202-555-0104';
+    expectViolation(fixture(t, { 'assets/css/style.css': `${style} .sample { content: '${fictional}'; }` }),
+        'phone-number', [fictional]);
 });
 
 test('a private denylist cannot be read from inside the publication directory', (t) => {

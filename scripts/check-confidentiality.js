@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { ROOT_DIR, loadCvData } = require('./lib/utils');
 
+const { FONT_SUBSETS } = require('./lib/fonts');
 const { imageChecks, inspectPdf, isCleanFont } = require('./lib/confidential-media');
 
 const ALLOWED_PUBLIC_HOSTS = new Set([
@@ -46,6 +47,7 @@ const SAFE_HYPHEN_CODES = new Set([
     'HTTP-2',
 ]);
 
+const APPROVED_FONT_RANGES = new Set(FONT_SUBSETS.map(({ range }) => range));
 const FONT_LICENSE_HOSTS = new Set(['scripts.sil.org']);
 
 const SECRET_AND_TOPOLOGY_RULES = [
@@ -180,8 +182,12 @@ function approvedWebUrl(raw, extraHosts) {
 function scanText(text, policy, record) {
     const detected = new Set();
     for (const form of textForms(text)) {
+        const phoneText = policy.fontStylesheet
+            ? form.replace(/unicode-range:\s*([U+0-9A-F,-]+);/gim,
+                (declaration, range) => APPROVED_FONT_RANGES.has(range) ? '' : declaration)
+            : form;
         for (const { name, regex } of SECRET_AND_TOPOLOGY_RULES) {
-            if (form.match(regex)) detected.add(name);
+            if ((name === 'phone-number' ? phoneText : form).match(regex)) detected.add(name);
         }
         for (const [code] of form.matchAll(/\b[A-Z]{2,8}-\d{2,6}\b/g)) {
             if (!SAFE_HYPHEN_CODES.has(code)) detected.add('ticket-like-identifier');
@@ -305,7 +311,7 @@ function inspectFile(filename, relative, policy, record, counts) {
             if (extension === '.svg' && /<metadata\b|<!--|<!DOCTYPE\b|<!ENTITY\b/i.test(text)) record('image-metadata');
             scanText(text, relative === 'assets/fonts/INTER-LICENSE.txt'
                 ? { ...policy, extraHosts: FONT_LICENSE_HOSTS }
-                : policy, record);
+                : { ...policy, fontStylesheet: relative === 'assets/css/style.css' }, record);
         } else if (Object.hasOwn(imageChecks, extension)) {
             if (!imageChecks[extension](bytes)) record('image-metadata');
         } else if (extension === '.woff2') {

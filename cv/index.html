@@ -7,11 +7,21 @@
   <meta name="description" content="General, Senior Java, Distributed Systems, Fintech, Wise, AI/MCP, and Full CV web and PDF versions for Denis Stepulenok.">
   <meta name="author" content="Denis Stepulenok">
   <link rel="canonical" href="https://stden.github.io/CV/cv/index.html">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/cv/index.html">
+  <link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/cv/index.html">
+  <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/cv/index.html">
+  <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/cv/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="et_EE">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="ru_RU">
   <meta property="og:type" content="website">
   <meta property="og:title" content="CV Versions — Denis Stepulenok">
   <meta property="og:description" content="General, Senior Java, Distributed Systems, Fintech, Wise, AI/MCP, and Full CV web and PDF versions for Denis Stepulenok.">
   <meta property="og:url" content="https://stden.github.io/CV/cv/index.html">
   <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="CV Versions — Denis Stepulenok">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CV Versions — Denis Stepulenok">
   <meta name="twitter:description" content="General, Senior Java, Distributed Systems, Fintech, Wise, AI/MCP, and Full CV web and PDF versions for Denis Stepulenok.">
@@ -29,7 +39,7 @@
       <span class="brand-mark" aria-hidden="true">DS</span>
       <span>Denis Stepulenok</span>
     </a>
-    <nav aria-label="Primary navigation">
+    <nav class="primary-nav" aria-label="Primary navigation">
       <ul class="nav-links">
         <li><a href="../index.html#overview">Overview</a></li>
         <li><a href="../experience/">Experience</a></li>
@@ -37,18 +47,22 @@
         <li><a href="../projects/">Projects</a></li>
         <li><a href="../architecture/">Architecture</a></li>
         <li><a href="../cv/">CV Versions</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../contact/">Contact</a></li>
       </ul>
     </nav>
     <div class="header-actions">
-      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Dark · Switch to dark theme"
+        data-light-label="Light" data-dark-label="Dark"
+        data-to-light="Light · Switch to light theme"
+        data-to-dark="Dark · Switch to dark theme">
         <span class="theme-label">Dark</span>
       </button>
-      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV</a>
-      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menu · Toggle navigation menu">
         Menu
       </button>
     </div>
+    <nav class="language-menu" aria-label="Website language"><a href="../cv/index.html" hreflang="en" lang="en" aria-label="EN · English" data-locale="en" aria-current="page">EN</a><a href="../et/cv/index.html" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../de/cv/index.html" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../ru/cv/index.html" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
   </div>
   <div id="mobile-drawer" class="mobile-drawer" hidden>
     <ul>
@@ -58,15 +72,15 @@
         <li><a href="../projects/">Projects</a></li>
         <li><a href="../architecture/">Architecture</a></li>
         <li><a href="../cv/">CV Versions</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
-      <li><a href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV (PDF)</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      <li><a href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV (PDF)</a></li>
     </ul>
   </div>
 </header>
 <main id="main-content">
 <section class="subpage-hero">
   <div class="container">
-    <p class="breadcrumb"><a href="../index.html">&larr; Back to Main Portfolio</a></p>
+    <p class="breadcrumb"><a href="../index.html">&larr; Back to Portfolio</a></p>
     <h1>CV Versions</h1>
     <p class="section-lead">General, role-specific and full CVs, available as web pages and ATS-friendly A4 PDFs.</p>
   </div>
@@ -80,7 +94,7 @@
         <p class="card-body">Senior software engineer specialising in Java backend services, distributed systems and enterprise integration. Experience includes Spring Boot, asynchronous messaging, relational databases, CI/CD and JDK testing. Independent projects use Rust and Python for data processing, semantic search and AI integrations.</p>
         <div class="hero-actions" style="margin-top:1rem;margin-bottom:0">
           <a class="btn btn-secondary btn-sm" href="general.html">Open Web CV</a>
-          <a class="btn btn-primary btn-sm" href="../assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download PDF</a>
+          <a class="btn btn-primary btn-sm" href="../assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download PDF</a>
         </div>
       </article>
       <article class="card">
@@ -138,6 +152,7 @@
         </div>
       </article>
     </div>
+
   </div>
 </section>
 </main>
@@ -146,7 +161,7 @@
     <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
     <div class="footer-links">
       <a href="../index.html">Portfolio</a>
-      <a href="../cv/">CV versions</a>
+      <a href="../cv/">All CV versions</a>
       <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:super.denis@gmail.com">Email</a>

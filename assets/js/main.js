@@ -14,10 +14,10 @@
         if (btn) {
             const isDark = theme === 'dark';
             btn.setAttribute('aria-pressed', String(isDark));
-            btn.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+            btn.setAttribute('aria-label', isDark ? btn.dataset.toLight : btn.dataset.toDark);
             const label = btn.querySelector('.theme-label');
             if (label) {
-                label.textContent = isDark ? 'Light' : 'Dark';
+                label.textContent = isDark ? btn.dataset.lightLabel : btn.dataset.darkLabel;
             }
         }
     }
@@ -34,6 +34,33 @@
             }
             applyTheme(next);
         });
+    }
+
+    const languageLinks = Array.from(document.querySelectorAll('a[data-locale]'));
+    const languageKey = 'cv-language';
+    languageLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            try {
+                localStorage.setItem(languageKey, link.dataset.locale);
+            } catch (_) {
+                // Links still work when storage is unavailable.
+            }
+        });
+    });
+
+    const defaultLanding = languageLinks.find(function (link) {
+        return link.dataset.locale === 'en' && link.getAttribute('href') === './';
+    });
+    if (defaultLanding && location.href === defaultLanding.href) {
+        try {
+            const preference = localStorage.getItem(languageKey);
+            const destination = languageLinks.find(function (link) {
+                return link.dataset.locale === preference && preference !== 'en';
+            });
+            if (destination) location.replace(destination.href);
+        } catch (_) {
+            // The English homepage is available in restricted storage contexts.
+        }
     }
 
     // Mobile drawer toggle
@@ -94,9 +121,8 @@
             }
 
             if (status) {
-                status.textContent = copied
-                    ? 'Copied ' + email + ' to clipboard.'
-                    : 'Email address: ' + email;
+                const message = copied ? button.dataset.copySuccess : button.dataset.copyFallback;
+                status.textContent = message.replace('{email}', email);
             }
         });
     });

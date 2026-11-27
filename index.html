@@ -7,11 +7,21 @@
   <meta name="description" content="Senior Software Engineer in Tallinn, Estonia. Java backend services, distributed systems and enterprise integration. Experience at Kuehne+Nagel, Taxify (now Bolt) and Oracle.">
   <meta name="author" content="Denis Stepulenok">
   <link rel="canonical" href="https://stden.github.io/CV/">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/">
+  <link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/">
+  <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/">
+  <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="et_EE">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="ru_RU">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Denis Stepulenok — Senior Software Engineer, Java &amp; Distributed Systems">
   <meta property="og:description" content="Senior Software Engineer in Tallinn, Estonia. Java backend services, distributed systems and enterprise integration. Experience at Kuehne+Nagel, Taxify (now Bolt) and Oracle.">
   <meta property="og:url" content="https://stden.github.io/CV/">
   <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="Denis Stepulenok — Senior Software Engineer, Java &amp; Distributed Systems">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Denis Stepulenok — Senior Software Engineer, Java &amp; Distributed Systems">
   <meta name="twitter:description" content="Senior Software Engineer in Tallinn, Estonia. Java backend services, distributed systems and enterprise integration. Experience at Kuehne+Nagel, Taxify (now Bolt) and Oracle.">
@@ -20,7 +30,7 @@
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://stden.github.io/CV/#person","name":"Denis Stepulenok","jobTitle":"Senior Software Engineer — Java & Distributed Systems","description":"I build Java backend services and asynchronous integrations. At Kuehne+Nagel I work on enterprise Java services and delivery automation. I previously built high-load services at Taxify (now Bolt) and investigated JDK defects at Oracle.","url":"https://stden.github.io/CV/","image":"https://stden.github.io/CV/assets/images/photo.jpg","email":"mailto:super.denis@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"sameAs":["https://github.com/stden","https://www.linkedin.com/in/denis-stepulenok-2149b514/","https://t.me/stdenx"],"knowsAbout":["Java","Spring Boot","Distributed systems","RabbitMQ","PostgreSQL"]},{"@type":"ProfilePage","@id":"https://stden.github.io/CV/#profilepage","url":"https://stden.github.io/CV/","name":"Denis Stepulenok — Senior Software Engineer, Java & Distributed Systems","mainEntity":{"@id":"https://stden.github.io/CV/#person"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://stden.github.io/CV/#person","name":"Denis Stepulenok","jobTitle":"Senior Software Engineer — Java & Distributed Systems","description":"I build Java backend services and asynchronous integrations. At Kuehne+Nagel I work on enterprise Java services and delivery automation. I previously built high-load services at Taxify (now Bolt) and investigated JDK defects at Oracle.","url":"https://stden.github.io/CV/","image":"https://stden.github.io/CV/assets/images/photo.jpg","email":"mailto:super.denis@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressCountry":"EE"},"sameAs":["https://github.com/stden","https://www.linkedin.com/in/denis-stepulenok-2149b514/","https://t.me/stdenx"],"knowsAbout":["Java","Spring Boot","Distributed systems","RabbitMQ","PostgreSQL"]},{"@type":"ProfilePage","@id":"https://stden.github.io/CV/#profilepage","url":"https://stden.github.io/CV/","inLanguage":"en","name":"Denis Stepulenok — Senior Software Engineer, Java & Distributed Systems","mainEntity":{"@id":"https://stden.github.io/CV/#person"}}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -30,7 +40,7 @@
       <span class="brand-mark" aria-hidden="true">DS</span>
       <span>Denis Stepulenok</span>
     </a>
-    <nav aria-label="Primary navigation">
+    <nav class="primary-nav" aria-label="Primary navigation">
       <ul class="nav-links">
         <li><a href="index.html#overview">Overview</a></li>
         <li><a href="index.html#experience">Experience</a></li>
@@ -42,14 +52,18 @@
       </ul>
     </nav>
     <div class="header-actions">
-      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Dark · Switch to dark theme"
+        data-light-label="Light" data-dark-label="Dark"
+        data-to-light="Light · Switch to light theme"
+        data-to-dark="Dark · Switch to dark theme">
         <span class="theme-label">Dark</span>
       </button>
 
-      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menu · Toggle navigation menu">
         Menu
       </button>
     </div>
+    <nav class="language-menu" aria-label="Website language"><a href="./" hreflang="en" lang="en" aria-label="EN · English" data-locale="en" aria-current="page">EN</a><a href="et/" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="de/" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="ru/" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
   </div>
   <div id="mobile-drawer" class="mobile-drawer" hidden>
     <ul>
@@ -74,7 +88,7 @@
       <p class="hero-summary">I build Java backend services and asynchronous integrations. At Kuehne+Nagel I work on enterprise Java services and delivery automation. I previously built high-load services at Taxify (now Bolt) and investigated JDK defects at Oracle.</p>
       <p class="hero-secondary">Java · Spring Boot · Distributed systems · RabbitMQ · PostgreSQL</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>Download CV (PDF)</a>
+        <a class="btn btn-primary" href="assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>Download CV (PDF)</a>
         <a class="btn btn-secondary" href="#contact">Contact</a>
       </div>
       <p class="recruiter-more"><a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/">LinkedIn</a> · <a href="https://github.com/stden">GitHub</a></p>
@@ -137,7 +151,7 @@
         <p>A Java experiment in coordinating threads that share an entity key. Its public JUnit tests cover nested acquisition, reentrancy and timeouts. The case study looks at why retiring lock objects safely needs separate verification.</p>
         <p>Each instance has its own lock registry. The design notes distinguish locking within a Java process from coordination across processes.</p>
         <a href="projects/#case-entity-concurrency-locking">Read the locking case study</a>
-         · <a href="https://github.com/stden/EntityLocker" aria-label="GitHub source for EntityLocker">GitHub source</a>
+         · <a href="https://github.com/stden/EntityLocker" aria-label="GitHub source — EntityLocker">GitHub source</a>
       </div>
     </article>
     <article class="recruiter-project" id="case-messenger-archive-search">
@@ -162,7 +176,7 @@
         <p>A Rust terminal file manager with two-panel navigation and keyboard controls for filesystem operations. The built-in editor supports language-server hover.</p>
         <p>The public repository includes behaviour tests for search and save in the editor, quick search and common file operations.</p>
         <a href="projects/#repo-FunnyFileManager">View repository and tests</a>
-         · <a href="https://github.com/stden/FunnyFileManager" aria-label="GitHub source for FunnyFileManager">GitHub source</a>
+         · <a href="https://github.com/stden/FunnyFileManager" aria-label="GitHub source — FunnyFileManager">GitHub source</a>
       </div>
     </article>
     <article class="recruiter-project" id="case-rust-desktop-tooling">
@@ -176,7 +190,7 @@
         <p>A Rust screenshot utility for Windows, Linux and macOS. Platform adapters share output handling, and the capture guide documents the supported modes and destinations by operating system.</p>
         <p>On Wayland, the desktop portal handles full-desktop capture. Windows supports recording as a separate capture path.</p>
         <a href="projects/#case-rust-desktop-tooling">Read the desktop capture case study</a>
-         · <a href="https://github.com/stden/RustShot" aria-label="GitHub source for RustShot">GitHub source</a>
+         · <a href="https://github.com/stden/RustShot" aria-label="GitHub source — RustShot">GitHub source</a>
       </div>
     </article>
     </div>
@@ -198,15 +212,15 @@
       <h2 id="contact-heading" class="section-title">Contact</h2>
       <p class="section-lead">Tallinn, Estonia · <a href="mailto:super.denis@gmail.com">super.denis@gmail.com</a></p>
       <div class="contact-actions">
-        <button type="button" class="btn btn-secondary" data-copy-email="super.denis@gmail.com" data-status-target="copy-email-status">Copy Email Address</button>
+        <button type="button" class="btn btn-secondary" data-copy-email="super.denis@gmail.com" data-status-target="copy-email-status" data-copy-success="Copied {email} to clipboard." data-copy-fallback="Email address: {email}">Copy Email Address</button>
         <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://t.me/stdenx" target="_blank" rel="noopener noreferrer">Telegram</a>
-        <a href="assets/pdf/Denis-Stepulenok-Senior-Software-Engineer.pdf" download>General CV PDF</a>
+        <a href="assets/pdf/Denis-Stepulenok-CV-EN.pdf" download>General CV PDF</a>
         <a href="cv/">All CV versions</a>
       </div>
       <p class="recruiter-context">The general edition is a two-page English CV with selectable text. The version index links both the web pages and the A4 downloads.</p>
-      <p class="recruiter-context">For role-specific applications, see the <a href="cv/senior-java.html">Java backend</a>, <a href="cv/distributed-systems.html">distributed systems</a> and <a href="cv/fintech-integrations.html">integrations</a> editions. The <a href="cv/full.html">full CV</a> includes earlier roles and a broader project record.</p>
+      <p class="recruiter-context">For role-specific applications, see the <a href="cv/senior-java.html" hreflang="en">Java backend</a>, <a href="cv/distributed-systems.html" hreflang="en">distributed systems</a> and <a href="cv/fintech-integrations.html" hreflang="en">integrations</a> editions. The <a href="cv/full.html" hreflang="en">full CV</a> includes earlier roles and a broader project record.</p>
       <p id="copy-email-status" class="copy-status" aria-live="polite"></p>
     </div>
   </div>
@@ -217,7 +231,7 @@
     <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Estonia</p>
     <div class="footer-links">
       <a href="index.html">Portfolio</a>
-      <a href="cv/">CV versions</a>
+      <a href="cv/">All CV versions</a>
       <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:super.denis@gmail.com">Email</a>

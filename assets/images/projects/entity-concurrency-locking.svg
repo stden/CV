@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 464" width="420" height="464" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" viewBox="0 0 420 464" width="420" height="464" role="img">
   <title>JVM-Local Entity Locking (Independent public repository)</title>
   <desc>JVM-local keyed locking with a lock registry, lock acquisition, action execution and attempted registry retirement.</desc>
   <defs>

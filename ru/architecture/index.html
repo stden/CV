@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Архитектурное портфолио — Denis Stepulenok</title>
+  <meta name="description" content="Интерактивные схемы независимых инженерных проектов и учебных примеров.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/ru/architecture/">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/architecture/">
+  <link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/architecture/">
+  <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/architecture/">
+  <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/architecture/">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="et_EE">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Архитектурное портфолио — Denis Stepulenok">
+  <meta property="og:description" content="Интерактивные схемы независимых инженерных проектов и учебных примеров.">
+  <meta property="og:url" content="https://stden.github.io/CV/ru/architecture/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="Архитектурное портфолио — Denis Stepulenok">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Архитектурное портфолио — Denis Stepulenok">
+  <meta name="twitter:description" content="Интерактивные схемы независимых инженерных проектов и учебных примеров.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="preload" href="../../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","inLanguage":"ru","@id":"https://stden.github.io/CV/ru/architecture/#page","url":"https://stden.github.io/CV/ru/architecture/","name":"Архитектурное портфолио","description":"Интерактивные схемы независимых инженерных проектов и учебных примеров.","author":{"@id":"https://stden.github.io/CV/#person"},"hasPart":[{"@type":"CreativeWork","url":"https://stden.github.io/CV/ru/architecture/#arch-tab-messenger-archive-search","name":"Семантический поиск и интеграция MCP","description":"Личный архив разделяет импорт, транскрибацию и векторную индексацию. Повтор может выполнить запись по тому же идентификатору точки.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/ru/architecture/#arch-tab-entity-concurrency-locking","name":"Блокировка сущностей внутри JVM","description":"EntityLocker изучает блокировки по ключу между потоками Java в одном процессе. Код проверяет порядок вложенного захвата и пытается удалять неиспользуемые записи реестра.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/ru/architecture/#arch-tab-ref-event-driven-outbox","name":"Транзакционный outbox и идемпотентный потребитель событий","description":"Учебная схема записи события вместе с данными приложения и его передачи брокеру. Публикация может повториться, поэтому потребителю нужна стратегия обработки дубликатов.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/ru/architecture/#arch-tab-ref-async-job-pipeline","name":"Устойчивая очередь асинхронных заданий с обратным давлением","description":"Учебная схема приёма заданий, ограничения числа параллельных обработчиков и публикации результатов.","author":{"@id":"https://stden.github.io/CV/#person"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Портфолио","item":"https://stden.github.io/CV/ru/"},{"@type":"ListItem","position":2,"name":"Архитектурное портфолио","item":"https://stden.github.io/CV/ru/architecture/"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav class="primary-nav" aria-label="Основная навигация">
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Обзор</a></li>
+        <li><a href="../experience/">Опыт</a></li>
+        <li><a href="../skills/">Навыки</a></li>
+        <li><a href="../projects/">Проекты</a></li>
+        <li><a href="../architecture/">Архитектура</a></li>
+        <li><a href="../cv/">Версии резюме</a></li>
+        <li><a href="../contact/">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Тёмная · Включить тёмную тему"
+        data-light-label="Светлая" data-dark-label="Тёмная"
+        data-to-light="Светлая · Включить светлую тему"
+        data-to-dark="Тёмная · Включить тёмную тему">
+        <span class="theme-label">Тёмная</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../../assets/pdf/Denis-Stepulenok-CV-RU.pdf" download>Скачать резюме</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Меню · Открыть или закрыть меню">
+        Меню
+      </button>
+    </div>
+    <nav class="language-menu" aria-label="Язык сайта"><a href="../../architecture/" hreflang="en" lang="en" aria-label="EN · English" data-locale="en">EN</a><a href="../../et/architecture/" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et">ET</a><a href="../../de/architecture/" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../../ru/architecture/" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru" aria-current="page">RU</a></nav>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../index.html#overview">Обзор</a></li>
+        <li><a href="../experience/">Опыт</a></li>
+        <li><a href="../skills/">Навыки</a></li>
+        <li><a href="../projects/">Проекты</a></li>
+        <li><a href="../architecture/">Архитектура</a></li>
+        <li><a href="../cv/">Версии резюме</a></li>
+        <li><a href="../contact/">Контакты</a></li>
+      <li><a href="../../assets/pdf/Denis-Stepulenok-CV-RU.pdf" download>Скачать резюме (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">Портфолио</a> / Архитектурное портфолио</p>
+    <h1>Архитектурное портфолио</h1>
+    <p class="section-lead">Интерактивные схемы независимых инженерных проектов и учебных примеров.</p>
+  </div>
+</section>
+<section id="architecture" class="section" aria-labelledby="architecture-heading">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Проектирование систем</p>
+      <h2 id="architecture-heading" class="section-title">Интерактивные схемы</h2>
+    </div>
+    <details class="recruitment-disclosure" id="static-diagrams">
+      <summary>Открыть статические схемы</summary>
+      <ul class="bullet-list">
+        <li><a href="../../assets/images/projects/ru/messenger-archive-search.svg">Семантический поиск и интеграция MCP</a></li>
+        <li><a href="../../assets/images/projects/ru/entity-concurrency-locking.svg">Блокировка сущностей внутри JVM</a></li>
+        <li><a href="../../assets/images/projects/ru/ref-event-driven-outbox.svg">Транзакционный outbox и идемпотентный потребитель событий</a></li>
+        <li><a href="../../assets/images/projects/ru/ref-async-job-pipeline.svg">Устойчивая очередь асинхронных заданий с обратным давлением</a></li>
+      </ul>
+    </details>
+    <div class="arch-tabs" role="tablist" aria-label="Архитектурные схемы">
+      <button type="button" class="arch-tab" role="tab" aria-selected="true" tabindex="0" aria-controls="arch-panel-messenger-archive-search" id="arch-tab-messenger-archive-search" data-arch-tab="messenger-archive-search">Семантический поиск и MCP</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="arch-panel-entity-concurrency-locking" id="arch-tab-entity-concurrency-locking" data-arch-tab="entity-concurrency-locking">Конкурентный доступ к сущностям</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="arch-panel-ref-event-driven-outbox" id="arch-tab-ref-event-driven-outbox" data-arch-tab="ref-event-driven-outbox">Outbox и идемпотентность событий</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="arch-panel-ref-async-job-pipeline" id="arch-tab-ref-async-job-pipeline" data-arch-tab="ref-async-job-pipeline">Очередь заданий и обратное давление</button>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-messenger-archive-search" aria-labelledby="arch-tab-messenger-archive-search" data-arch-panel="messenger-archive-search">
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 644" role="group" aria-label="Личный архив: импорт сообщений, захват заданий с блокировкой строк, транскрибация, векторная индексация и поиск через MCP.">
+  <defs>
+    <marker id="inline-arrow-messenger-archive-search" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="mtproto">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. API мессенджера (MTProto)</text>
+    <text class="node-detail" x="38" y="68">История сообщений и голосовых вложений</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="rust-sync">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Сервис синхронизации (Rust)</text>
+    <text class="node-detail" x="38" y="158">Паузы по flood-wait и повторы</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="postgres-queue">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Хранилище и очередь PostgreSQL</text>
+    <text class="node-detail" x="38" y="248">Захват свободных строк с блокировкой</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="whisper-worker">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Обработчик транскрибации (Python)</text>
+    <text class="node-detail" x="38" y="338">Расшифровать аудио из задания</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="rust-indexer">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Пакетный индексатор (Rust)</text>
+    <text class="node-detail" x="38" y="428">Записать векторы до обновления прогресса</text>
+  </g>
+  <line x1="210" y1="444" x2="210" y2="468" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="qdrant">
+    <rect x="20" y="470" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="497">6. Векторное хранилище Qdrant</text>
+    <text class="node-detail" x="38" y="518">Детерминированные ID точек UUIDv5</text>
+  </g>
+  <line x1="210" y1="534" x2="210" y2="558" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="mcp-server">
+    <rect x="20" y="560" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="587">7. Сервер MCP (stdio / HTTP)</text>
+    <text class="node-detail" x="38" y="608">Интерфейс агентов для чтения</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Независимый личный проект</span>
+            <h3>Семантический поиск и интеграция MCP</h3>
+            <p class="section-lead">Личный архив разделяет импорт, транскрибацию и векторную индексацию. Повтор может выполнить запись по тому же идентификатору точки.</p>
+            <p class="provenance">Независимый личный проект. На схеме показаны программные компоненты без примеров сообщений и записей об аккаунтах.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Выбранный компонент</p>
+            <h4 class="card-title" data-field="title">API мессенджера (MTProto)</h4>
+            <p class="card-body" data-field="responsibility">Предоставляет новые сообщения и голосовые вложения с учётом ограничений API.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Инженерные концепции</p>
+            <p class="card-body" data-field="concepts">Обработка сбоев</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Компромисс решения</p>
+            <p class="card-body" data-field="tradeoffs">Чтобы не загружать всю историю заново при ограничениях API, позицию чтения сохраняют между запусками.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Просмотр компонентов (нажмите мышью или клавишу Enter)</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="mtproto" data-node-json="{&quot;title&quot;:&quot;API мессенджера (MTProto)&quot;,&quot;responsibility&quot;:&quot;Предоставляет новые сообщения и голосовые вложения с учётом ограничений API.&quot;,&quot;concepts&quot;:[&quot;Обработка сбоев&quot;],&quot;tradeoffs&quot;:&quot;Чтобы не загружать всю историю заново при ограничениях API, позицию чтения сохраняют между запусками.&quot;}" aria-pressed="true">
+              <strong>1. API мессенджера (MTProto)</strong>
+              <span>Предоставляет новые сообщения и голосовые вложения с учётом ограничений API.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="rust-sync" data-node-json="{&quot;title&quot;:&quot;Сервис синхронизации (Rust)&quot;,&quot;responsibility&quot;:&quot;Получает историю с экспоненциальным увеличением пауз и учётом flood-wait, затем сохраняет исходные сообщения в PostgreSQL.&quot;,&quot;concepts&quot;:[&quot;Обработка сбоев&quot;,&quot;Идемпотентность&quot;],&quot;tradeoffs&quot;:&quot;Асинхронная среда Rust поддерживает длительные сеансы синхронизации с предсказуемым расходом памяти.&quot;}" aria-pressed="false">
+              <strong>2. Сервис синхронизации (Rust)</strong>
+              <span>Получает историю с экспоненциальным увеличением пауз и учётом flood-wait, затем сохраняет исходные сообщения в PostgreSQL.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="postgres-queue" data-node-json="{&quot;title&quot;:&quot;Хранилище и очередь PostgreSQL&quot;,&quot;responsibility&quot;:&quot;Обработчики транскрибации захватывают задания в PostgreSQL с блокировкой строк. SKIP LOCKED позволяет выбрать другие подходящие строки, пока часть из них занята.&quot;,&quot;concepts&quot;:[&quot;Распределённая координация&quot;,&quot;Согласованность в конечном счёте&quot;],&quot;tradeoffs&quot;:&quot;Свободные строки можно брать не в порядке поступления, если более ранние задания заблокированы.&quot;}" aria-pressed="false">
+              <strong>3. Хранилище и очередь PostgreSQL</strong>
+              <span>Обработчики транскрибации захватывают задания в PostgreSQL с блокировкой строк. SKIP LOCKED позволяет выбрать другие подходящие строки, пока часть из них занята.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="whisper-worker" data-node-json="{&quot;title&quot;:&quot;Обработчик транскрибации (Python)&quot;,&quot;responsibility&quot;:&quot;Обработчик на Python запускает Whisper для полученного аудио и сохраняет текст для индексации.&quot;,&quot;concepts&quot;:[&quot;Обработка сбоев&quot;,&quot;Идемпотентность&quot;],&quot;tradeoffs&quot;:&quot;Нужны правила повторов или восстановления для заданий, прерванных до завершения.&quot;}" aria-pressed="false">
+              <strong>4. Обработчик транскрибации (Python)</strong>
+              <span>Обработчик на Python запускает Whisper для полученного аудио и сохраняет текст для индексации.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="rust-indexer" data-node-json="{&quot;title&quot;:&quot;Пакетный индексатор (Rust)&quot;,&quot;responsibility&quot;:&quot;Индексатор назначает детерминированный идентификатор вектора и обновляет контрольную точку после успешной вставки или обновления.&quot;,&quot;concepts&quot;:[&quot;Идемпотентность&quot;,&quot;Согласованность в конечном счёте&quot;],&quot;tradeoffs&quot;:&quot;После сбоя запись можно повторить. Векторное хранилище и контрольная точка не участвуют в общей атомарной транзакции.&quot;}" aria-pressed="false">
+              <strong>5. Пакетный индексатор (Rust)</strong>
+              <span>Индексатор назначает детерминированный идентификатор вектора и обновляет контрольную точку после успешной вставки или обновления.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="qdrant" data-node-json="{&quot;title&quot;:&quot;Векторное хранилище Qdrant&quot;,&quot;responsibility&quot;:&quot;Хранит семантические векторы по детерминированным идентификаторам UUIDv5, вычисленным из идентификаторов сообщений.&quot;,&quot;concepts&quot;:[&quot;Идемпотентность&quot;,&quot;Наблюдаемость&quot;],&quot;tradeoffs&quot;:&quot;Детерминированные идентификаторы не дают создать дубликат при повторной записи вектора с тем же ID после перезапуска.&quot;}" aria-pressed="false">
+              <strong>6. Векторное хранилище Qdrant</strong>
+              <span>Хранит семантические векторы по детерминированным идентификаторам UUIDv5, вычисленным из идентификаторов сообщений.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="mcp-server" data-node-json="{&quot;title&quot;:&quot;Сервер MCP (stdio / HTTP)&quot;,&quot;responsibility&quot;:&quot;Предоставляет ИИ-ассистентам через Model Context Protocol инструменты семантического поиска и чтения цепочек сообщений.&quot;,&quot;concepts&quot;:[&quot;Безопасность&quot;,&quot;Наблюдаемость&quot;],&quot;tradeoffs&quot;:&quot;Инструменты только для чтения не дают ИИ-агентам прямого доступа к учётным данным базы или сессии.&quot;}" aria-pressed="false">
+              <strong>7. Сервер MCP (stdio / HTTP)</strong>
+              <span>Предоставляет ИИ-ассистентам через Model Context Protocol инструменты семантического поиска и чтения цепочек сообщений.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-entity-concurrency-locking" aria-labelledby="arch-tab-entity-concurrency-locking" data-arch-panel="entity-concurrency-locking" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 464" role="group" aria-label="Блокировка по ключу внутри JVM: поиск в реестре, захват блокировки, выполнение действия и попытка удаления записи.">
+  <defs>
+    <marker id="inline-arrow-entity-concurrency-locking" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="caller-threads">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Параллельные потоки</text>
+    <text class="node-detail" x="38" y="68">Потоки одной JVM передают ключ сущности</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="lock-registry">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Потокобезопасный реестр блокировок</text>
+    <text class="node-detail" x="38" y="158">Найти блокировку по ID</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="entity-lock">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Реентерабельная блокировка по ID</text>
+    <text class="node-detail" x="38" y="248">Повторный вход и необязательный тайм-аут</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="critical-section">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Защищённая критическая секция</text>
+    <text class="node-detail" x="38" y="338">Выполнить действие и снять блокировку</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="reclaim">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Удаление записи реестра</text>
+    <text class="node-detail" x="38" y="428">Попытка удаления неиспользуемых записей</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Независимый публичный репозиторий</span>
+            <h3>Блокировка сущностей внутри JVM</h3>
+            <p class="section-lead">EntityLocker изучает блокировки по ключу между потоками Java в одном процессе. Код проверяет порядок вложенного захвата и пытается удалять неиспользуемые записи реестра.</p>
+            <p class="provenance">Публичные исходники и тесты JUnit эксперимента с блокировками на Java, который поддерживает Denis Stepulenok. <a href="https://github.com/stden/EntityLocker">Репозиторий исходного кода</a></p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Выбранный компонент</p>
+            <h4 class="card-title" data-field="title">Параллельные потоки</h4>
+            <p class="card-body" data-field="responsibility">Потоки, использующие один экземпляр EntityLocker, передают ключ и код для выполнения.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Инженерные концепции</p>
+            <p class="card-body" data-field="concepts">Распределённая координация</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Компромисс решения</p>
+            <p class="card-body" data-field="tradeoffs">Реестр блокировок существует в пределах одного экземпляра. Другие экземпляры и процессы его не используют.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Просмотр компонентов (нажмите мышью или клавишу Enter)</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="caller-threads" data-node-json="{&quot;title&quot;:&quot;Параллельные потоки&quot;,&quot;responsibility&quot;:&quot;Потоки, использующие один экземпляр EntityLocker, передают ключ и код для выполнения.&quot;,&quot;concepts&quot;:[&quot;Распределённая координация&quot;],&quot;tradeoffs&quot;:&quot;Реестр блокировок существует в пределах одного экземпляра. Другие экземпляры и процессы его не используют.&quot;}" aria-pressed="true">
+              <strong>1. Параллельные потоки</strong>
+              <span>Потоки, использующие один экземпляр EntityLocker, передают ключ и код для выполнения.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="lock-registry" data-node-json="{&quot;title&quot;:&quot;Потокобезопасный реестр блокировок&quot;,&quot;responsibility&quot;:&quot;ConcurrentHashMap.computeIfAbsent связывает ключ с объектом блокировки.&quot;,&quot;concepts&quot;:[&quot;Согласованность кэша&quot;,&quot;Идемпотентность&quot;],&quot;tradeoffs&quot;:&quot;Для безопасного удаления записи требуется координация с владельцами блокировки и ожидающими потоками.&quot;}" aria-pressed="false">
+              <strong>2. Потокобезопасный реестр блокировок</strong>
+              <span>ConcurrentHashMap.computeIfAbsent связывает ключ с объектом блокировки.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="entity-lock" data-node-json="{&quot;title&quot;:&quot;Реентерабельная блокировка по ID&quot;,&quot;responsibility&quot;:&quot;Утилита проверяет порядок вложенных ID в вызывающем потоке, затем захватывает реентерабельную блокировку с ожиданием или тайм-аутом.&quot;,&quot;concepts&quot;:[&quot;Обработка сбоев&quot;,&quot;Распределённая координация&quot;],&quot;tradeoffs&quot;:&quot;Порядок проверяется во вложенных вызовах через эту утилиту. Другие блокировки всё ещё могут образовать циклические зависимости.&quot;}" aria-pressed="false">
+              <strong>3. Реентерабельная блокировка по ID</strong>
+              <span>Утилита проверяет порядок вложенных ID в вызывающем потоке, затем захватывает реентерабельную блокировку с ожиданием или тайм-аутом.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="critical-section" data-node-json="{&quot;title&quot;:&quot;Защищённая критическая секция&quot;,&quot;responsibility&quot;:&quot;После захвата утилита выполняет действие вызывающей стороны и освобождает блокировку в блоке finally.&quot;,&quot;concepts&quot;:[&quot;Согласованность кэша&quot;],&quot;tradeoffs&quot;:&quot;Если нужен откат, он зависит от ресурсов или кода, используемых этим действием.&quot;}" aria-pressed="false">
+              <strong>4. Защищённая критическая секция</strong>
+              <span>После захвата утилита выполняет действие вызывающей стороны и освобождает блокировку в блоке finally.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="reclaim" data-node-json="{&quot;title&quot;:&quot;Удаление записи реестра&quot;,&quot;responsibility&quot;:&quot;Реализация пытается удалить запись перед освобождением текущей блокировки.&quot;,&quot;concepts&quot;:[&quot;Наблюдаемость&quot;,&quot;Обработка сбоев&quot;],&quot;tradeoffs&quot;:&quot;Захват и удаление могут совпасть по времени. Для проверки безопасной замены нужны тесты, в которых обе операции конкурируют.&quot;}" aria-pressed="false">
+              <strong>5. Удаление записи реестра</strong>
+              <span>Реализация пытается удалить запись перед освобождением текущей блокировки.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-ref-event-driven-outbox" aria-labelledby="arch-tab-ref-event-driven-outbox" data-arch-panel="ref-event-driven-outbox" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 554" role="group" aria-label="Учебная схема outbox от локальной транзакции до публикации, доставки и обработки дубликатов.">
+  <defs>
+    <marker id="inline-arrow-ref-event-driven-outbox" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="app-service">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Сервис бизнес-логики (Java / Spring)</text>
+    <text class="node-detail" x="38" y="68">Записать данные и событие в outbox</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="db-outbox">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Реляционная БД и таблица outbox</text>
+    <text class="node-detail" x="38" y="158">Сохранить событие в локальной транзакции</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="outbox-relay">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Служба публикации outbox</text>
+    <text class="node-detail" x="38" y="248">Отправить ожидающие события брокеру</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="broker">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Брокер сообщений (Kafka / AMQP)</text>
+    <text class="node-detail" x="38" y="338">Доставить сообщения потребителям</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="idempotent-consumer">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Идемпотентный потребитель</text>
+    <text class="node-detail" x="38" y="428">Обрабатывать повторы по ID события</text>
+  </g>
+  <line x1="210" y1="444" x2="210" y2="468" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="dlq">
+    <rect x="20" y="470" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="497">6. Повторные попытки и DLQ</text>
+    <text class="node-detail" x="38" y="518">Передать повторяющиеся сбои на разбор</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Независимый учебный пример</span>
+            <h3>Транзакционный outbox и идемпотентный потребитель событий</h3>
+            <p class="section-lead">Учебная схема записи события вместе с данными приложения и его передачи брокеру. Публикация может повториться, поэтому потребителю нужна стратегия обработки дубликатов.</p>
+            <p class="provenance">Независимый учебный проект, иллюстрирующий общий инженерный паттерн.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Выбранный компонент</p>
+            <h4 class="card-title" data-field="title">Сервис бизнес-логики (Java / Spring)</h4>
+            <p class="card-body" data-field="responsibility">В одной локальной транзакции обновляет бизнес-данные и сохраняет событие для публикации.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Инженерные концепции</p>
+            <p class="card-body" data-field="concepts">Безопасность · Обработка сбоев</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Компромисс решения</p>
+            <p class="card-body" data-field="tradeoffs">Атомарность действует в пределах транзакции базы. Публикация в брокере выполняется отдельно.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Просмотр компонентов (нажмите мышью или клавишу Enter)</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="app-service" data-node-json="{&quot;title&quot;:&quot;Сервис бизнес-логики (Java / Spring)&quot;,&quot;responsibility&quot;:&quot;В одной локальной транзакции обновляет бизнес-данные и сохраняет событие для публикации.&quot;,&quot;concepts&quot;:[&quot;Безопасность&quot;,&quot;Обработка сбоев&quot;],&quot;tradeoffs&quot;:&quot;Атомарность действует в пределах транзакции базы. Публикация в брокере выполняется отдельно.&quot;}" aria-pressed="true">
+              <strong>1. Сервис бизнес-логики (Java / Spring)</strong>
+              <span>В одной локальной транзакции обновляет бизнес-данные и сохраняет событие для публикации.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="db-outbox" data-node-json="{&quot;title&quot;:&quot;Реляционная БД и таблица outbox&quot;,&quot;responsibility&quot;:&quot;После фиксации транзакции делает событие со стабильным ID доступным для публикации.&quot;,&quot;concepts&quot;:[&quot;Согласованность в конечном счёте&quot;,&quot;Гарантии доставки сообщений&quot;],&quot;tradeoffs&quot;:&quot;Outbox сохраняет ожидающее событие, пока служба публикации недоступна. Доставка через брокер настраивается отдельно.&quot;}" aria-pressed="false">
+              <strong>2. Реляционная БД и таблица outbox</strong>
+              <span>После фиксации транзакции делает событие со стабильным ID доступным для публикации.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="outbox-relay" data-node-json="{&quot;title&quot;:&quot;Служба публикации outbox&quot;,&quot;responsibility&quot;:&quot;Читает ожидающие строки, публикует события и сохраняет прогресс после подтверждения.&quot;,&quot;concepts&quot;:[&quot;Гарантии доставки сообщений&quot;,&quot;Наблюдаемость&quot;],&quot;tradeoffs&quot;:&quot;Сбой между публикацией и записью прогресса может привести к повторной отправке.&quot;}" aria-pressed="false">
+              <strong>3. Служба публикации outbox</strong>
+              <span>Читает ожидающие строки, публикует события и сохраняет прогресс после подтверждения.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="broker" data-node-json="{&quot;title&quot;:&quot;Брокер сообщений (Kafka / AMQP)&quot;,&quot;responsibility&quot;:&quot;Буферизует и доставляет события согласно настройкам брокера.&quot;,&quot;concepts&quot;:[&quot;Распределённая координация&quot;,&quot;Гарантии доставки сообщений&quot;],&quot;tradeoffs&quot;:&quot;Доставка «как минимум один раз» допускает повторы. Настройки и поведение при сбоях зависят от брокера.&quot;}" aria-pressed="false">
+              <strong>4. Брокер сообщений (Kafka / AMQP)</strong>
+              <span>Буферизует и доставляет события согласно настройкам брокера.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="idempotent-consumer" data-node-json="{&quot;title&quot;:&quot;Идемпотентный потребитель&quot;,&quot;responsibility&quot;:&quot;Устраняет дублирование эффектов в заданных границах. Например, записывает ID обработанного события и изменение локального состояния в одной транзакции.&quot;,&quot;concepts&quot;:[&quot;Идемпотентность&quot;,&quot;Согласованность в конечном счёте&quot;],&quot;tradeoffs&quot;:&quot;Для других эффектов нужен свой механизм. Запись о дедупликации в БД не защищает отдельный внешний вызов.&quot;}" aria-pressed="false">
+              <strong>5. Идемпотентный потребитель</strong>
+              <span>Устраняет дублирование эффектов в заданных границах. Например, записывает ID обработанного события и изменение локального состояния в одной транзакции.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="dlq" data-node-json="{&quot;title&quot;:&quot;Повторные попытки и DLQ&quot;,&quot;responsibility&quot;:&quot;Сохраняет сообщения со сбоями для проверки после исчерпания настроенных попыток.&quot;,&quot;concepts&quot;:[&quot;Обработка сбоев&quot;,&quot;Наблюдаемость&quot;],&quot;tradeoffs&quot;:&quot;Даже при повторной обработке сообщения после сбоя нужна стратегия работы с дубликатами.&quot;}" aria-pressed="false">
+              <strong>6. Повторные попытки и DLQ</strong>
+              <span>Сохраняет сообщения со сбоями для проверки после исчерпания настроенных попыток.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-ref-async-job-pipeline" aria-labelledby="arch-tab-ref-async-job-pipeline" data-arch-panel="ref-async-job-pipeline" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 464" role="group" aria-label="Учебная схема асинхронных заданий: приём, захват, выполнение с ограничениями, публикация результата и мониторинг.">
+  <defs>
+    <marker id="inline-arrow-ref-async-job-pipeline" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="api-gateway">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. API без состояния</text>
+    <text class="node-detail" x="38" y="68">Проверка и постановка задания в очередь</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="job-queue">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Персистентная очередь заданий</text>
+    <text class="node-detail" x="38" y="158">Записать и захватить задание</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="bounded-workers">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Ограниченный пул обработчиков</text>
+    <text class="node-detail" x="38" y="248">Ограничить параллельное выполнение</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="atomic-publish">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Публикация готовых результатов</text>
+    <text class="node-detail" x="38" y="338">Сделать результат доступным</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="metrics-alerts">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Состояние, метрики и очистка</text>
+    <text class="node-detail" x="38" y="428">Измерять время ожидания и число сбоев</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Независимый учебный пример</span>
+            <h3>Устойчивая очередь асинхронных заданий с обратным давлением</h3>
+            <p class="section-lead">Учебная схема приёма заданий, ограничения числа параллельных обработчиков и публикации результатов.</p>
+            <p class="provenance">Независимый учебный проект, иллюстрирующий общий инженерный паттерн.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Выбранный компонент</p>
+            <h4 class="card-title" data-field="title">API без состояния</h4>
+            <p class="card-body" data-field="responsibility">Проверяет подлинность запроса, асинхронно ставит задание в очередь и сразу возвращает ID для отслеживания.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Инженерные концепции</p>
+            <p class="card-body" data-field="concepts">Безопасность · Наблюдаемость</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Компромисс решения</p>
+            <p class="card-body" data-field="tradeoffs">Длительные фоновые задания не блокируют потоки запросов, поэтому время ответа остаётся предсказуемым.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Просмотр компонентов (нажмите мышью или клавишу Enter)</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="api-gateway" data-node-json="{&quot;title&quot;:&quot;API без состояния&quot;,&quot;responsibility&quot;:&quot;Проверяет подлинность запроса, асинхронно ставит задание в очередь и сразу возвращает ID для отслеживания.&quot;,&quot;concepts&quot;:[&quot;Безопасность&quot;,&quot;Наблюдаемость&quot;],&quot;tradeoffs&quot;:&quot;Длительные фоновые задания не блокируют потоки запросов, поэтому время ответа остаётся предсказуемым.&quot;}" aria-pressed="true">
+              <strong>1. API без состояния</strong>
+              <span>Проверяет подлинность запроса, асинхронно ставит задание в очередь и сразу возвращает ID для отслеживания.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="job-queue" data-node-json="{&quot;title&quot;:&quot;Персистентная очередь заданий&quot;,&quot;responsibility&quot;:&quot;Сохраняет задания и отмечает захват обработчиком перед выполнением.&quot;,&quot;concepts&quot;:[&quot;Распределённая координация&quot;,&quot;Гарантии доставки сообщений&quot;],&quot;tradeoffs&quot;:&quot;Повторные попытки и истёкшие захваты могут привести к повторному выполнению задания. Его эффекты должны допускать безопасный повтор.&quot;}" aria-pressed="false">
+              <strong>2. Персистентная очередь заданий</strong>
+              <span>Сохраняет задания и отмечает захват обработчиком перед выполнением.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="bounded-workers" data-node-json="{&quot;title&quot;:&quot;Ограниченный пул обработчиков&quot;,&quot;responsibility&quot;:&quot;Ограниченный пул обработчиков создаёт обратное давление и удерживает выполнение в настроенных пределах.&quot;,&quot;concepts&quot;:[&quot;Обработка сбоев&quot;,&quot;Распределённая координация&quot;],&quot;tradeoffs&quot;:&quot;Больше параллельных заданий требуют больше ресурсов. При обратном давлении задания дольше ждут в очереди.&quot;}" aria-pressed="false">
+              <strong>3. Ограниченный пул обработчиков</strong>
+              <span>Ограниченный пул обработчиков создаёт обратное давление и удерживает выполнение в настроенных пределах.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="atomic-publish" data-node-json="{&quot;title&quot;:&quot;Публикация готовых результатов&quot;,&quot;responsibility&quot;:&quot;Записывает временный результат и публикует его операцией замены, если хранилище её поддерживает.&quot;,&quot;concepts&quot;:[&quot;Согласованность кэша&quot;,&quot;Идемпотентность&quot;],&quot;tradeoffs&quot;:&quot;Атомарная замена зависит от хранилища. Подтверждение в очереди выполняется отдельно.&quot;}" aria-pressed="false">
+              <strong>4. Публикация готовых результатов</strong>
+              <span>Записывает временный результат и публикует его операцией замены, если хранилище её поддерживает.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="metrics-alerts" data-node-json="{&quot;title&quot;:&quot;Состояние, метрики и очистка&quot;,&quot;responsibility&quot;:&quot;Отслеживает длину очереди, возраст заданий и число сбоев, чтобы замечать задержки и повторяющиеся ошибки.&quot;,&quot;concepts&quot;:[&quot;Наблюдаемость&quot;,&quot;Согласованность кэша&quot;],&quot;tradeoffs&quot;:&quot;Сигналам нужны пороги и разбор. Устойчивость к потере данных зависит от хранилища и правил повторов.&quot;}" aria-pressed="false">
+              <strong>5. Состояние, метрики и очистка</strong>
+              <span>Отслеживает длину очереди, возраст заданий и число сбоев, чтобы замечать задержки и повторяющиеся ошибки.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <details class="recruitment-disclosure architecture-concepts">
+      <summary>Подробнее о концепциях</summary>
+    <div class="concepts-grid">
+      <article class="concept-card">
+        <h3>Идемпотентность</h3>
+        <p>Повтор операции даёт тот же эффект в заданных границах. Стабильный ключ может предотвращать дублирование записей, но не охватывает сторонние эффекты.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Согласованность в конечном счёте</h3>
+        <p>Пока идут обновления, данные в разных хранилищах могут расходиться. Повторы и сверка помогают привести их в согласованное состояние после применения изменений.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Гарантии доставки сообщений</h3>
+        <p>Доставка «как минимум один раз» допускает повтор сообщения. Для обработки ровно один раз нужно чётко определить границы транзакции и её эффектов.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Обработка сбоев</h3>
+        <p>Для восстановления после временных сбоев ограничивайте число повторов, а постоянные сбои делайте доступными для разбора или повторной обработки.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Распределённая координация</h3>
+        <p>Потоки в одной JVM могут использовать общую блокировку. Для нескольких процессов нужен механизм координации со своей моделью сбоев.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Согласованность кэша</h3>
+        <p>Данные в кэше могут устареть. Срок хранения, сброс и обновление определяют, когда кэш снова соответствует источнику.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Наблюдаемость</h3>
+        <p>Журналы, метрики и трассировки помогают понять поведение системы и исследовать сбои.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Безопасность</h3>
+        <p>Защищайте доступ с помощью аутентификации, авторизации, надлежащей обработки данных и документированной модели угроз.</p>
+      </article>
+    </div>
+    </details>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Таллин, Эстония</p>
+    <div class="footer-links">
+      <a href="../index.html">Портфолио</a>
+      <a href="../cv/">Все версии резюме</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">Почта</a>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,32 +1,51 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { localeCodes, localizedPath, localizedPdfName } = require('./i18n');
+const { FONT_SUBSETS } = require('./fonts');
 
 function checkedName(value, pattern) {
     if (typeof value !== 'string' || !pattern.test(value)) throw new Error('PUBLIC_MANIFEST_INVALID');
     return value;
 }
 
-const DETAIL_PAGES = ['experience', 'skills', 'projects', 'architecture'];
+const DETAIL_PAGES = ['experience', 'skills', 'projects', 'architecture', 'contact'];
+
+function localizedVariants(data, code) {
+    return code === 'en' ? data.variants : data.variants.filter(({ slug }) => slug === 'general');
+}
+
+function availableLanguages(contentPath) {
+    return /^cv\/(?!index\.html$|general\.html$).*\.html$/.test(contentPath) ? ['en'] : localeCodes;
+}
+
+function contentRoutes(data, code) {
+    return [
+        '', 'cv/index.html', ...DETAIL_PAGES.map((route) => `${route}/`),
+        ...localizedVariants(data, code).map(({ slug }) => `cv/${slug}.html`),
+        ...data.technologies.map(({ slug }) => `tech/${slug}.html`),
+    ];
+}
+
 
 function publicFiles(data) {
     const slug = (value) => checkedName(value, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     const photo = checkedName(data.profile.photo, /^assets\/images\/[a-z0-9-]+\.(?:jpg|jpeg|png|webp)$/);
+    for (const item of [...data.variants, ...data.technologies, ...data.architectureDiagrams]) slug(item.slug);
     return [...new Set([
-        '.nojekyll', 'index.html', 'robots.txt', 'sitemap.xml', 'favicon.ico', 'cv/index.html',
-        ...DETAIL_PAGES.map((route) => `${route}/index.html`),
-        'assets/css/style.css', 'assets/js/main.js', 'assets/fonts/inter-latin-wght-normal.woff2',
+        '.nojekyll', 'robots.txt', 'sitemap.xml', 'favicon.ico',
+        ...localeCodes.flatMap((code) => contentRoutes(data, code).map((route) =>
+            localizedPath(code, route.endsWith('.html') ? route : `${route}index.html`))),
+        'assets/css/style.css', 'assets/js/main.js',
+        ...FONT_SUBSETS.map(({ filename }) => `assets/fonts/${filename}`),
         'assets/fonts/INTER-LICENSE.txt', 'assets/images/og-preview.png', 'assets/images/og-preview.svg', photo,
-        ...data.variants.flatMap((item) => [
-            `cv/${slug(item.slug)}.html`,
-            `assets/pdf/${checkedName(item.pdfFilename, /^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\.pdf$/)}`,
-        ]),
-        ...data.technologies.flatMap((item) => [
-            `tech/${slug(item.slug)}.html`,
-            ...(item.logo ? [`assets/images/tech/${slug(item.slug)}.svg`] : []),
-        ]),
+        ...data.variants.map(({ pdfFilename }) =>
+            `assets/pdf/${checkedName(pdfFilename, /^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\.pdf$/)}`),
+        ...localeCodes.map((code) => `assets/pdf/${localizedPdfName(code)}`),
+        ...data.technologies.filter(({ logo }) => logo).map(({ slug: tech }) => `assets/images/tech/${tech}.svg`),
         ...(data.githubProjects ?? []).filter((item) => item.previewImage).map(({ previewImage }) =>
             checkedName(previewImage, /^assets\/images\/projects\/[a-z0-9]+(?:-[a-z0-9]+)*-preview\.webp$/)),
-        ...data.architectureDiagrams.map((item) => `assets/images/projects/${slug(item.slug)}.svg`),
+        ...localeCodes.flatMap((code) => data.architectureDiagrams.map((item) =>
+            `assets/images/projects/${localizedPath(code, `${item.slug}.svg`)}`)),
     ])].sort();
 }
 
@@ -38,7 +57,10 @@ function references(file, content) {
         ];
     }
     if (file.endsWith('.css')) return [...content.matchAll(/\burl\(\s*["']?([^\s"')]+)["']?\s*\)/gi)].map(([, ref]) => ref);
-    if (file.endsWith('.xml')) return [...content.matchAll(/<loc>([^<]+)<\/loc>/gi)].map(([, ref]) => ref);
+    if (file.endsWith('.xml')) return [
+        ...[...content.matchAll(/<loc>([^<]+)<\/loc>/gi)].map(([, ref]) => ref),
+        ...[...content.matchAll(/\bhref="([^"]+)"/gi)].map(([, ref]) => ref),
+    ];
     if (file === 'robots.txt') return [...content.matchAll(/^Sitemap:\s*(\S+)/gim)].map(([, ref]) => ref);
     return [];
 }
@@ -84,4 +106,4 @@ function validatePublicLinks(root, baseUrl, files) {
     }
 }
 
-module.exports = { DETAIL_PAGES, publicFiles, validatePublicLinks };
+module.exports = { DETAIL_PAGES, localizedVariants, availableLanguages, contentRoutes, publicFiles, validatePublicLinks };

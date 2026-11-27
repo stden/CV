@@ -436,7 +436,7 @@
           "detail": "Deterministic UUIDv5 point IDs",
           "responsibility": "Stores semantic embeddings keyed by deterministic UUIDv5 identifiers derived from message identity.",
           "concepts": ["Idempotency", "Observability"],
-          "tradeoffs": "Deterministic IDs make replay after crash completely safe without duplicate vector entries."
+          "tradeoffs": "Deterministic IDs avoid duplicate entries when the same vector is written again after a restart."
         },
         {
           "id": "mcp-server",

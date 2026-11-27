@@ -10,7 +10,8 @@ const VIEWPORTS = [375, 390, 768, 1024, 1440, 1920];
 const SECTIONS = ['overview', 'experience', 'skills', 'projects', 'contact'];
 const DETAIL_ROUTES = ['experience', 'skills', 'projects', 'architecture'];
 const COMPATIBLE_ANCHORS = ['architecture', 'education', 'expertise-heading', 'arch-tab-ref-event-driven-outbox'];
-const GENERAL_PDF = 'Denis-Stepulenok-Senior-Software-Engineer.pdf';
+const GENERAL_PDF = 'Denis-Stepulenok-CV-EN.pdf';
+const LEGACY_GENERAL_PDF = 'Denis-Stepulenok-Senior-Software-Engineer.pdf';
 const VARIANTS = [
     { slug: 'general', pdf: GENERAL_PDF },
     { slug: 'senior-java', pdf: 'Denis-Stepulenok-Senior-Java-Engineer.pdf' },
@@ -278,6 +279,10 @@ test('all seven CV variants, PDFs, and 20 technology pages load under /CV/', asy
     expect(cvIndexRes?.ok()).toBe(true);
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('CV Versions');
     await expect(page.locator('.header-cv-btn')).toHaveAttribute('href', `../assets/pdf/${GENERAL_PDF}`);
+
+    const legacyPdf = await request.get(`${HOME}assets/pdf/${LEGACY_GENERAL_PDF}`);
+    expect(legacyPdf.ok()).toBe(true);
+    expect((await legacyPdf.body()).subarray(0, 5).toString('ascii')).toBe('%PDF-');
 
     for (const variant of VARIANTS) {
         const res = await page.goto(`${HOME}cv/${variant.slug}.html`);

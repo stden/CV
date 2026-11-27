@@ -21,7 +21,15 @@ The preview mounts the verified artifact at [http://127.0.0.1:4174/CV/](http://1
 
 ## Portfolio pages
 
-The homepage highlights experience, core skills, selected work and contact details. Full employment history is in `/experience/`, the technology catalogue in `/skills/`, independent project details in `/projects/`, and engineering diagrams in `/architecture/`. All seven CV versions remain available at `/cv/`.
+The homepage highlights experience, core skills, selected work and contact details. A dedicated contact page is also available at `/contact/`. Full employment history is in `/experience/`, the technology catalogue in `/skills/`, independent project details in `/projects/`, and engineering diagrams in `/architecture/`. All seven CV versions remain available at `/cv/`.
+
+## Website languages
+
+English uses the original paths under `/CV/`. Estonian, German and Russian live at `/CV/et/`, `/CV/de/` and `/CV/ru/`. The header links to equivalent pages and works with JavaScript disabled. An explicit choice is remembered for the next visit to the unqualified home URL. New visitors start in English regardless of their browser settings.
+
+Edit verified facts in `data/cv.json`. Keep the corresponding messages in `data/locales/{en,et,de,ru}.json` aligned. Entries use shared role, project, diagram and technology identifiers. The generator validates required keys and interpolation placeholders before writing pages. Month labels change by locale while the dates stay fixed. Translation of the site has no bearing on the recorded language proficiency.
+
+General resumes are available as `Denis-Stepulenok-CV-EN.pdf`, `Denis-Stepulenok-CV-ET.pdf`, `Denis-Stepulenok-CV-DE.pdf` and `Denis-Stepulenok-CV-RU.pdf`. Existing English PDF URLs and specialised variants are supported. The site and PDF templates use embedded Inter subsets for Latin, Latin Extended and Cyrillic. The publication gate scans all locale routes, static diagrams and PDF downloads. Include approved spellings and language variants in your private denylist where applicable.
 
 ## Edit and review factual content
 
@@ -31,7 +39,7 @@ Every architecture example and case study carries declared independent personal,
 
 ## Confidentiality gate
 
-`npm run stage:public` copies the explicit manifest to an isolated directory, checks its actual files and links, and replaces `_site/` after validation. The manifest includes public HTML, CSS, JavaScript, diagrams, fonts, images, sitemaps and the seven public PDFs. The scanner checks provenance, file paths, text, image metadata, and PDF text, metadata, embedded links and active content. Diagnostics report category codes and counts.
+`npm run stage:public` copies the explicit manifest to an isolated directory, checks its actual files and links, and replaces `_site/` after validation. The manifest includes public HTML, CSS, JavaScript, diagrams, fonts, images, sitemaps and all public PDF versions. The scanner checks provenance, file paths, text, image metadata, and PDF text, metadata, embedded links and active content. Diagnostics report category codes and counts.
 
 Keep private terms one per line in `.private/confidential-denylist.txt`. An alternate local file can be selected with `CONFIDENTIAL_DENYLIST_FILE` or `--denylist`. Trusted main-branch workflow runs can use the `CONFIDENTIAL_DENYLIST` secret. Keep the list out of repository files and public artifacts. To recheck an existing staged bundle, run `npm run check:confidentiality -- --artifact-root _site`.
 

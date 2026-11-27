@@ -2,6 +2,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { ROOT_DIR, escapeXml, escapeHtml, loadCvData } = require('./lib/utils');
 
+const { localeCodes, loadLocales, localize, localizedPath } = require('./lib/i18n');
+
 const OUTPUT_DIR = path.join(ROOT_DIR, 'assets', 'images', 'projects');
 const WIDTH = 420;
 const BOX_X = 20;
@@ -10,7 +12,11 @@ const BOX_HEIGHT = 64;
 const GAP = 26;
 const MARGIN = 20;
 
-function renderStandaloneSvg(diagram) {
+function fitText(text, limit) {
+    return text.length > limit ? ' textLength="340" lengthAdjust="spacingAndGlyphs"' : '';
+}
+
+function renderStandaloneSvg(diagram, locale = 'en') {
     const count = diagram.nodes.length;
     const height = 2 * MARGIN + count * BOX_HEIGHT + (count - 1) * GAP;
     const markerId = `arrow-${diagram.slug}`;
@@ -22,12 +28,12 @@ function renderStandaloneSvg(diagram) {
             ? `  <line class="link" x1="${WIDTH / 2}" y1="${bottom}" x2="${WIDTH / 2}" y2="${bottom + GAP - 2}"/>\n`
             : '';
         return `  <rect class="box" x="${BOX_X}" y="${top}" width="${BOX_WIDTH}" height="${BOX_HEIGHT}" rx="8"/>
-  <text class="title" x="38" y="${top + 27}">${index + 1}. ${escapeXml(node.title)}</text>
-  <text class="detail" x="38" y="${top + 48}">${escapeXml(node.detail)}</text>
+  <text class="title" x="38" y="${top + 27}"${fitText(node.title, 42)}>${index + 1}. ${escapeXml(node.title)}</text>
+  <text class="detail" x="38" y="${top + 48}"${fitText(node.detail, 52)}>${escapeXml(node.detail)}</text>
 ${arrow}`;
     }).join('');
 
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${WIDTH} ${height}" width="${WIDTH}" height="${height}" role="img">
+    return `<svg xmlns="http://www.w3.org/2000/svg" xml:lang="${locale}" viewBox="0 0 ${WIDTH} ${height}" width="${WIDTH}" height="${height}" role="img">
   <title>${escapeXml(diagram.title)} (${escapeXml(diagram.originLabel)})</title>
   <desc>${escapeXml(diagram.label)}</desc>
   <defs>
@@ -59,8 +65,8 @@ function renderInteractiveSvg(diagram) {
         const pressed = index === 0 ? 'true' : 'false';
         return `  <g class="arch-node" role="button" tabindex="0" aria-pressed="${pressed}" data-node-id="${escapeHtml(node.id)}">
     <rect x="${BOX_X}" y="${top}" width="${BOX_WIDTH}" height="${BOX_HEIGHT}" rx="8"/>
-    <text class="node-title" x="38" y="${top + 27}">${index + 1}. ${escapeHtml(node.title)}</text>
-    <text class="node-detail" x="38" y="${top + 48}">${escapeHtml(node.detail)}</text>
+    <text class="node-title" x="38" y="${top + 27}"${fitText(node.title, 42)}>${index + 1}. ${escapeHtml(node.title)}</text>
+    <text class="node-detail" x="38" y="${top + 48}"${fitText(node.detail, 52)}>${escapeHtml(node.detail)}</text>
   </g>
 ${arrow}`;
     }).join('');
@@ -76,14 +82,16 @@ ${steps}</svg>`;
 
 function main() {
     const data = loadCvData();
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-    for (const diagram of data.architectureDiagrams) {
-        fs.writeFileSync(
-            path.join(OUTPUT_DIR, `${diagram.slug}.svg`),
-            renderStandaloneSvg(diagram)
-        );
+    const dictionaries = loadLocales(data);
+    for (const code of localeCodes) {
+        const cv = localize(data, code, dictionaries[code]);
+        const directory = path.join(OUTPUT_DIR, localizedPath(code));
+        fs.mkdirSync(directory, { recursive: true });
+        for (const diagram of cv.architectureDiagrams) {
+            fs.writeFileSync(path.join(directory, `${diagram.slug}.svg`), renderStandaloneSvg(diagram, code));
+        }
     }
-    console.log(`Generated ${data.architectureDiagrams.length} architecture SVG diagrams in ${OUTPUT_DIR}`);
+    console.log(`Generated ${data.architectureDiagrams.length} architecture SVG diagrams in each language.`);
 }
 
 if (require.main === module) {

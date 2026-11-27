@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arhitektuuriportfoolio — Denis Stepulenok</title>
+  <meta name="description" content="Iseseisvate inseneriprojektide ja õppenäidete interaktiivsed skeemid.">
+  <meta name="author" content="Denis Stepulenok">
+  <link rel="canonical" href="https://stden.github.io/CV/et/architecture/">
+  <link rel="alternate" hreflang="en" href="https://stden.github.io/CV/architecture/">
+  <link rel="alternate" hreflang="et" href="https://stden.github.io/CV/et/architecture/">
+  <link rel="alternate" hreflang="de" href="https://stden.github.io/CV/de/architecture/">
+  <link rel="alternate" hreflang="ru" href="https://stden.github.io/CV/ru/architecture/">
+  <link rel="alternate" hreflang="x-default" href="https://stden.github.io/CV/">
+  <meta property="og:locale" content="et_EE">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Arhitektuuriportfoolio — Denis Stepulenok">
+  <meta property="og:description" content="Iseseisvate inseneriprojektide ja õppenäidete interaktiivsed skeemid.">
+  <meta property="og:url" content="https://stden.github.io/CV/et/architecture/">
+  <meta property="og:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <meta property="og:image:alt" content="Arhitektuuriportfoolio — Denis Stepulenok">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arhitektuuriportfoolio — Denis Stepulenok">
+  <meta name="twitter:description" content="Iseseisvate inseneriprojektide ja õppenäidete interaktiivsed skeemid.">
+  <meta name="twitter:image" content="https://stden.github.io/CV/assets/images/og-preview.png">
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="preload" href="../../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){try{var t=localStorage.getItem('cv-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}if(t==='dark'){document.documentElement.dataset.theme='dark';}}catch(_){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","inLanguage":"et","@id":"https://stden.github.io/CV/et/architecture/#page","url":"https://stden.github.io/CV/et/architecture/","name":"Arhitektuuriportfoolio","description":"Iseseisvate inseneriprojektide ja õppenäidete interaktiivsed skeemid.","author":{"@id":"https://stden.github.io/CV/#person"},"hasPart":[{"@type":"CreativeWork","url":"https://stden.github.io/CV/et/architecture/#arch-tab-messenger-archive-search","name":"Semantiline otsing ja MCP-liidestus","description":"Isiklik arhiiv eraldi impordi-, transkribeerimis- ja vektorindekseerimise etappidega. Korduskatse võib uuendada sama tunnusega vektorikirjet.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/et/architecture/#arch-tab-entity-concurrency-locking","name":"Olemite lukustamine JVM-i piires","description":"EntityLocker uurib võtmel põhinevat lukustamist ühe protsessi Java lõimede vahel. Kood järgib pesastatud lukkude võtmise järjekorda ja proovib kasutamata registrikirjeid eemaldada.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/et/architecture/#arch-tab-ref-event-driven-outbox","name":"Tehinguline väljundkast ja idempotentne sündmusetarbija","description":"Õppenäide sündmuse salvestamisest koos rakenduse andmetega ja selle edastamisest sõnumivahendajale. Sündmust võidakse avaldada korduvalt, mistõttu tarbijal on vaja duplikaatide käsitlemise viisi.","author":{"@id":"https://stden.github.io/CV/#person"}},{"@type":"CreativeWork","url":"https://stden.github.io/CV/et/architecture/#arch-tab-ref-async-job-pipeline","name":"Tõrkekindel asünkroonne tööjärjekord ja koormuse tagasisurve","description":"Õppenäide tööde vastuvõtmisest, samaaegsete tööprotsesside arvu piiramisest ja valminud tulemuste avaldamisest.","author":{"@id":"https://stden.github.io/CV/#person"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfoolio","item":"https://stden.github.io/CV/et/"},{"@type":"ListItem","position":2,"name":"Arhitektuuriportfoolio","item":"https://stden.github.io/CV/et/architecture/"}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Liigu põhisisu juurde</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">DS</span>
+      <span>Denis Stepulenok</span>
+    </a>
+    <nav class="primary-nav" aria-label="Põhinavigatsioon">
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Ülevaade</a></li>
+        <li><a href="../experience/">Töökogemus</a></li>
+        <li><a href="../skills/">Oskused</a></li>
+        <li><a href="../projects/">Projektid</a></li>
+        <li><a href="../architecture/">Arhitektuur</a></li>
+        <li><a href="../cv/">CV versioonid</a></li>
+        <li><a href="../contact/">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Tume · Lülitu tumedale teemale"
+        data-light-label="Hele" data-dark-label="Tume"
+        data-to-light="Hele · Lülitu heledale teemale"
+        data-to-dark="Tume · Lülitu tumedale teemale">
+        <span class="theme-label">Tume</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-cv-btn" href="../../assets/pdf/Denis-Stepulenok-CV-ET.pdf" download>Laadi CV alla</a>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Menüü · Ava või sule navigeerimismenüü">
+        Menüü
+      </button>
+    </div>
+    <nav class="language-menu" aria-label="Veebilehe keel"><a href="../../architecture/" hreflang="en" lang="en" aria-label="EN · English" data-locale="en">EN</a><a href="../../et/architecture/" hreflang="et" lang="et" aria-label="ET · Eesti" data-locale="et" aria-current="page">ET</a><a href="../../de/architecture/" hreflang="de" lang="de" aria-label="DE · Deutsch" data-locale="de">DE</a><a href="../../ru/architecture/" hreflang="ru" lang="ru" aria-label="RU · Русский" data-locale="ru">RU</a></nav>
+  </div>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <ul>
+        <li><a href="../index.html#overview">Ülevaade</a></li>
+        <li><a href="../experience/">Töökogemus</a></li>
+        <li><a href="../skills/">Oskused</a></li>
+        <li><a href="../projects/">Projektid</a></li>
+        <li><a href="../architecture/">Arhitektuur</a></li>
+        <li><a href="../cv/">CV versioonid</a></li>
+        <li><a href="../contact/">Kontakt</a></li>
+      <li><a href="../../assets/pdf/Denis-Stepulenok-CV-ET.pdf" download>Laadi CV alla (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main-content">
+<section class="subpage-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">Portfoolio</a> / Arhitektuuriportfoolio</p>
+    <h1>Arhitektuuriportfoolio</h1>
+    <p class="section-lead">Iseseisvate inseneriprojektide ja õppenäidete interaktiivsed skeemid.</p>
+  </div>
+</section>
+<section id="architecture" class="section" aria-labelledby="architecture-heading">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Süsteemide kavandamine</p>
+      <h2 id="architecture-heading" class="section-title">Interaktiivsed skeemid</h2>
+    </div>
+    <details class="recruitment-disclosure" id="static-diagrams">
+      <summary>Ava staatilised skeemid</summary>
+      <ul class="bullet-list">
+        <li><a href="../../assets/images/projects/et/messenger-archive-search.svg">Semantiline otsing ja MCP-liidestus</a></li>
+        <li><a href="../../assets/images/projects/et/entity-concurrency-locking.svg">Olemite lukustamine JVM-i piires</a></li>
+        <li><a href="../../assets/images/projects/et/ref-event-driven-outbox.svg">Tehinguline väljundkast ja idempotentne sündmusetarbija</a></li>
+        <li><a href="../../assets/images/projects/et/ref-async-job-pipeline.svg">Tõrkekindel asünkroonne tööjärjekord ja koormuse tagasisurve</a></li>
+      </ul>
+    </details>
+    <div class="arch-tabs" role="tablist" aria-label="Arhitektuuriskeemid">
+      <button type="button" class="arch-tab" role="tab" aria-selected="true" tabindex="0" aria-controls="arch-panel-messenger-archive-search" id="arch-tab-messenger-archive-search" data-arch-tab="messenger-archive-search">Semantiline otsing ja MCP</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="arch-panel-entity-concurrency-locking" id="arch-tab-entity-concurrency-locking" data-arch-tab="entity-concurrency-locking">Olemite samaaegne lukustamine</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="arch-panel-ref-event-driven-outbox" id="arch-tab-ref-event-driven-outbox" data-arch-tab="ref-event-driven-outbox">Väljundkast ja idempotentsed sündmused</button>
+      <button type="button" class="arch-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="arch-panel-ref-async-job-pipeline" id="arch-tab-ref-async-job-pipeline" data-arch-tab="ref-async-job-pipeline">Asünkroonne tööjärjekord ja tagasisurve</button>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-messenger-archive-search" aria-labelledby="arch-tab-messenger-archive-search" data-arch-panel="messenger-archive-search">
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 644" role="group" aria-label="Isiklik arhiiv, mis hõlmab sõnumite importi, tööde võtmist realukkudega, transkribeerimist, vektorindekseerimist ja MCP-otsingut.">
+  <defs>
+    <marker id="inline-arrow-messenger-archive-search" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="mtproto">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Sõnumite API (MTProto)</text>
+    <text class="node-detail" x="38" y="68">Sõnumite ja häälsõnumite ajalugu</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="rust-sync">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Sünkroonimisteenus (Rust)</text>
+    <text class="node-detail" x="38" y="158">Ooteajad ja korduskatsed</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="postgres-queue">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. PostgreSQL-i andmehoidla ja järjekord</text>
+    <text class="node-detail" x="38" y="248">Valib vabad read realukkude abil</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="whisper-worker">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Transkribeerimistööprotsess (Python)</text>
+    <text class="node-detail" x="38" y="338">Transkribeerib tööks võetud helifaili</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="rust-indexer">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Pakkindekseerija (Rust)</text>
+    <text class="node-detail" x="38" y="428">Salvestab vektorid enne kontrollpunkti uuendamist</text>
+  </g>
+  <line x1="210" y1="444" x2="210" y2="468" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="qdrant">
+    <rect x="20" y="470" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="497">6. Vektorandmebaas (Qdrant)</text>
+    <text class="node-detail" x="38" y="518">Deterministlikud UUIDv5 tunnused</text>
+  </g>
+  <line x1="210" y1="534" x2="210" y2="558" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-messenger-archive-search)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="mcp-server">
+    <rect x="20" y="560" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="587">7. MCP-server (stdio / HTTP)</text>
+    <text class="node-detail" x="38" y="608">Agentide kirjutusõiguseta liides</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Iseseisev isiklik projekt</span>
+            <h3>Semantiline otsing ja MCP-liidestus</h3>
+            <p class="section-lead">Isiklik arhiiv eraldi impordi-, transkribeerimis- ja vektorindekseerimise etappidega. Korduskatse võib uuendada sama tunnusega vektorikirjet.</p>
+            <p class="provenance">Iseseisev isiklik projekt. Skeem kirjeldab tarkvarakomponente ning on koostatud näidissõnumite ja kontoandmeteta.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Valitud komponent</p>
+            <h4 class="card-title" data-field="title">Sõnumite API (MTProto)</h4>
+            <p class="card-body" data-field="responsibility">Väljastab uusi sõnumeid ja helimanuseid teenuse päringusageduse piirides.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Insenerimõisted</p>
+            <p class="card-body" data-field="concepts">Tõrgete käsitlemine</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Arhitektuuri kompromiss</p>
+            <p class="card-body" data-field="tradeoffs">Päringusageduse piiranguga API korral väldivad salvestatud kontrollpunktid kulukat täielikku taassünkroonimist.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Uuri komponente klõpsu või sisestusklahviga</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="mtproto" data-node-json="{&quot;title&quot;:&quot;Sõnumite API (MTProto)&quot;,&quot;responsibility&quot;:&quot;Väljastab uusi sõnumeid ja helimanuseid teenuse päringusageduse piirides.&quot;,&quot;concepts&quot;:[&quot;Tõrgete käsitlemine&quot;],&quot;tradeoffs&quot;:&quot;Päringusageduse piiranguga API korral väldivad salvestatud kontrollpunktid kulukat täielikku taassünkroonimist.&quot;}" aria-pressed="true">
+              <strong>1. Sõnumite API (MTProto)</strong>
+              <span>Väljastab uusi sõnumeid ja helimanuseid teenuse päringusageduse piirides.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="rust-sync" data-node-json="{&quot;title&quot;:&quot;Sünkroonimisteenus (Rust)&quot;,&quot;responsibility&quot;:&quot;Loeb sõnumiajalugu eksponentsiaalse ooteaja ja teenuse määratud ooteaja järgi ning salvestab toorsõnumid PostgreSQL-i.&quot;,&quot;concepts&quot;:[&quot;Tõrgete käsitlemine&quot;,&quot;Idempotentsus&quot;],&quot;tradeoffs&quot;:&quot;Rusti asünkroonne käituskeskkond võimaldab pikki sünkroonimisseansse prognoositava mälukasutusega.&quot;}" aria-pressed="false">
+              <strong>2. Sünkroonimisteenus (Rust)</strong>
+              <span>Loeb sõnumiajalugu eksponentsiaalse ooteaja ja teenuse määratud ooteaja järgi ning salvestab toorsõnumid PostgreSQL-i.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="postgres-queue" data-node-json="{&quot;title&quot;:&quot;PostgreSQL-i andmehoidla ja järjekord&quot;,&quot;responsibility&quot;:&quot;Tööprotsessid võtavad PostgreSQL-ist transkribeerimistöid realukkude abil. SKIP LOCKED laseb tööprotsessil valida teisi sobivaid ridu, kuni osa ridu on lukus.&quot;,&quot;concepts&quot;:[&quot;Hajuskoordineerimine&quot;,&quot;Lõplik kooskõla&quot;],&quot;tradeoffs&quot;:&quot;Kui varasemad tööd on lukus, võib vabu ridu võtta saabumise järjekorrast erinevas järjekorras.&quot;}" aria-pressed="false">
+              <strong>3. PostgreSQL-i andmehoidla ja järjekord</strong>
+              <span>Tööprotsessid võtavad PostgreSQL-ist transkribeerimistöid realukkude abil. SKIP LOCKED laseb tööprotsessil valida teisi sobivaid ridu, kuni osa ridu on lukus.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="whisper-worker" data-node-json="{&quot;title&quot;:&quot;Transkribeerimistööprotsess (Python)&quot;,&quot;responsibility&quot;:&quot;Pythoni tööprotsess käivitab helil Whisperi ja salvestab transkriptsiooni indekseerimiseks.&quot;,&quot;concepts&quot;:[&quot;Tõrgete käsitlemine&quot;,&quot;Idempotentsus&quot;],&quot;tradeoffs&quot;:&quot;Pooleli jäänud tööde jaoks tuleb ette näha korduskatse või taastamine.&quot;}" aria-pressed="false">
+              <strong>4. Transkribeerimistööprotsess (Python)</strong>
+              <span>Pythoni tööprotsess käivitab helil Whisperi ja salvestab transkriptsiooni indekseerimiseks.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="rust-indexer" data-node-json="{&quot;title&quot;:&quot;Pakkindekseerija (Rust)&quot;,&quot;responsibility&quot;:&quot;Indekseerija määrab vektorile deterministliku tunnuse ja uuendab kontrollpunkti pärast kirje edukat lisamist või uuendamist.&quot;,&quot;concepts&quot;:[&quot;Idempotentsus&quot;,&quot;Lõplik kooskõla&quot;],&quot;tradeoffs&quot;:&quot;Pärast katkestust saab kirjutamisi korrata. Vektorandmebaasil ja kontrollpunktil puudub ühine atomaarne tehing.&quot;}" aria-pressed="false">
+              <strong>5. Pakkindekseerija (Rust)</strong>
+              <span>Indekseerija määrab vektorile deterministliku tunnuse ja uuendab kontrollpunkti pärast kirje edukat lisamist või uuendamist.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="qdrant" data-node-json="{&quot;title&quot;:&quot;Vektorandmebaas (Qdrant)&quot;,&quot;responsibility&quot;:&quot;Salvestab semantilised vektorid deterministlike UUIDv5 tunnustega, mis lähtuvad sõnumi identiteedist.&quot;,&quot;concepts&quot;:[&quot;Idempotentsus&quot;,&quot;Vaadeldavus&quot;],&quot;tradeoffs&quot;:&quot;Deterministlik tunnus väldib vektorikirje duplikaati, kui sama tunnusega kirje pärast taaskäivitust uuesti kirjutatakse.&quot;}" aria-pressed="false">
+              <strong>6. Vektorandmebaas (Qdrant)</strong>
+              <span>Salvestab semantilised vektorid deterministlike UUIDv5 tunnustega, mis lähtuvad sõnumi identiteedist.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="mcp-server" data-node-json="{&quot;title&quot;:&quot;MCP-server (stdio / HTTP)&quot;,&quot;responsibility&quot;:&quot;Annab keelemudeli assistentidele Model Context Protocoli kaudu semantilise otsingu ja vestluslõimede päringu vahendid.&quot;,&quot;concepts&quot;:[&quot;Turvalisus&quot;,&quot;Vaadeldavus&quot;],&quot;tradeoffs&quot;:&quot;Lugemiseks mõeldud päringuvahendid hoiavad keelemudeli agendid eemal andmebaasi ja seansi juurdepääsuandmetest.&quot;}" aria-pressed="false">
+              <strong>7. MCP-server (stdio / HTTP)</strong>
+              <span>Annab keelemudeli assistentidele Model Context Protocoli kaudu semantilise otsingu ja vestluslõimede päringu vahendid.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-entity-concurrency-locking" aria-labelledby="arch-tab-entity-concurrency-locking" data-arch-panel="entity-concurrency-locking" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 464" role="group" aria-label="Võtmepõhine lukustamine JVM-i piires: lukuregister, luku võtmine, toimingu käivitamine ja registrikirje eemaldamise katse.">
+  <defs>
+    <marker id="inline-arrow-entity-concurrency-locking" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="caller-threads">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Samaaegselt kutsuvad lõimed</text>
+    <text class="node-detail" x="38" y="68">Ühe JVM-i lõimed annavad olemi võtme</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="lock-registry">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Lõimekindel lukuregister</text>
+    <text class="node-detail" x="38" y="158">Otsib lukku tunnuse järgi</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="entity-lock">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Taassisenemist lubav lukk tunnuse kohta</text>
+    <text class="node-detail" x="38" y="248">Lukk valikulise ajalõpuga</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="critical-section">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Kaitstud kriitiline sektsioon</text>
+    <text class="node-detail" x="38" y="338">Käivitab toimingu ja vabastab luku</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-entity-concurrency-locking)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="reclaim">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Registrikirjete eemaldamine</text>
+    <text class="node-detail" x="38" y="428">Proovib eemaldada kasutamata registrikirjed</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Iseseisev avalik repositoorium</span>
+            <h3>Olemite lukustamine JVM-i piires</h3>
+            <p class="section-lead">EntityLocker uurib võtmel põhinevat lukustamist ühe protsessi Java lõimede vahel. Kood järgib pesastatud lukkude võtmise järjekorda ja proovib kasutamata registrikirjeid eemaldada.</p>
+            <p class="provenance">Java lukustamise katse avalik lähtekood ja JUniti testid, mida haldab Denis Stepulenok. <a href="https://github.com/stden/EntityLocker">Lähtekoodi repositoorium</a></p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Valitud komponent</p>
+            <h4 class="card-title" data-field="title">Samaaegselt kutsuvad lõimed</h4>
+            <p class="card-body" data-field="responsibility">Sama EntityLockeri eksemplari kasutavad lõimed annavad võtme ja käivitatava koodi.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Insenerimõisted</p>
+            <p class="card-body" data-field="concepts">Hajuskoordineerimine</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Arhitektuuri kompromiss</p>
+            <p class="card-body" data-field="tradeoffs">Lukuregister on ühe eksemplari kohalik. Teistel eksemplaridel ja protsessidel on eraldi olek.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Uuri komponente klõpsu või sisestusklahviga</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="caller-threads" data-node-json="{&quot;title&quot;:&quot;Samaaegselt kutsuvad lõimed&quot;,&quot;responsibility&quot;:&quot;Sama EntityLockeri eksemplari kasutavad lõimed annavad võtme ja käivitatava koodi.&quot;,&quot;concepts&quot;:[&quot;Hajuskoordineerimine&quot;],&quot;tradeoffs&quot;:&quot;Lukuregister on ühe eksemplari kohalik. Teistel eksemplaridel ja protsessidel on eraldi olek.&quot;}" aria-pressed="true">
+              <strong>1. Samaaegselt kutsuvad lõimed</strong>
+              <span>Sama EntityLockeri eksemplari kasutavad lõimed annavad võtme ja käivitatava koodi.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="lock-registry" data-node-json="{&quot;title&quot;:&quot;Lõimekindel lukuregister&quot;,&quot;responsibility&quot;:&quot;ConcurrentHashMap.computeIfAbsent seob võtme lukuobjektiga.&quot;,&quot;concepts&quot;:[&quot;Vahemälu kooskõla&quot;,&quot;Idempotentsus&quot;],&quot;tradeoffs&quot;:&quot;Kirje ohutu eemaldamine eeldab ka koordineerimist luku hoidjate ja ootajatega.&quot;}" aria-pressed="false">
+              <strong>2. Lõimekindel lukuregister</strong>
+              <span>ConcurrentHashMap.computeIfAbsent seob võtme lukuobjektiga.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="entity-lock" data-node-json="{&quot;title&quot;:&quot;Taassisenemist lubav lukk tunnuse kohta&quot;,&quot;responsibility&quot;:&quot;Vahend kontrollib kutsuvas lõimes pesastatud tunnuste järjekorda ning võtab taassisenemist lubava luku blokeeruvalt või ajalimiidiga.&quot;,&quot;concepts&quot;:[&quot;Tõrgete käsitlemine&quot;,&quot;Hajuskoordineerimine&quot;],&quot;tradeoffs&quot;:&quot;Järjekorra kontroll kehtib selle vahendi pesastatud kutsetele. Teised lukud võivad endiselt osaleda sõltuvustsüklites.&quot;}" aria-pressed="false">
+              <strong>3. Taassisenemist lubav lukk tunnuse kohta</strong>
+              <span>Vahend kontrollib kutsuvas lõimes pesastatud tunnuste järjekorda ning võtab taassisenemist lubava luku blokeeruvalt või ajalimiidiga.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="critical-section" data-node-json="{&quot;title&quot;:&quot;Kaitstud kriitiline sektsioon&quot;,&quot;responsibility&quot;:&quot;Luku edukal võtmisel käivitab vahend kutsuja toimingu ja vabastab luku finally-plokis.&quot;,&quot;concepts&quot;:[&quot;Vahemälu kooskõla&quot;],&quot;tradeoffs&quot;:&quot;Vajaduse korral toetub toimingu tagasipööramine kasutatud ressurssidele või rakenduse koodile.&quot;}" aria-pressed="false">
+              <strong>4. Kaitstud kriitiline sektsioon</strong>
+              <span>Luku edukal võtmisel käivitab vahend kutsuja toimingu ja vabastab luku finally-plokis.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="reclaim" data-node-json="{&quot;title&quot;:&quot;Registrikirjete eemaldamine&quot;,&quot;responsibility&quot;:&quot;Teostus proovib eemaldada kirje enne praeguse luku vabastamist.&quot;,&quot;concepts&quot;:[&quot;Vaadeldavus&quot;,&quot;Tõrgete käsitlemine&quot;],&quot;tradeoffs&quot;:&quot;Luku võtmine ja kirje eemaldamine võivad toimuda korraga. Ohutu asendamise testimiseks on vaja ajastusi, kus mõlemad toimingud võistlevad.&quot;}" aria-pressed="false">
+              <strong>5. Registrikirjete eemaldamine</strong>
+              <span>Teostus proovib eemaldada kirje enne praeguse luku vabastamist.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-ref-event-driven-outbox" aria-labelledby="arch-tab-ref-event-driven-outbox" data-arch-panel="ref-event-driven-outbox" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 554" role="group" aria-label="Õppenäide, mis jälgib sündmust andmebaasitehingust avaldamise, kohaletoimetamise ja duplikaatide käsitlemiseni.">
+  <defs>
+    <marker id="inline-arrow-ref-event-driven-outbox" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="app-service">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Valdkonnateenus (Java / Spring)</text>
+    <text class="node-detail" x="38" y="68">Kirjutab äriandmed ja väljundkasti kirje</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="db-outbox">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Relatsioonandmebaas ja väljundkast</text>
+    <text class="node-detail" x="38" y="158">Salvestab sündmuse kohalikus tehingus</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="outbox-relay">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Väljundkasti sündmuste edastaja</text>
+    <text class="node-detail" x="38" y="248">Avaldab ootel sündmused</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="broker">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Sõnumivahendaja (Kafka / AMQP)</text>
+    <text class="node-detail" x="38" y="338">Edastab sõnumid tarbijatele</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="idempotent-consumer">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Idempotentne tarbija</text>
+    <text class="node-detail" x="38" y="428">Töötleb kordusi sündmuse tunnuse järgi</text>
+  </g>
+  <line x1="210" y1="444" x2="210" y2="468" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-event-driven-outbox)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="dlq">
+    <rect x="20" y="470" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="497">6. Korduskatsed ja tõrkesõnumite järjekord</text>
+    <text class="node-detail" x="38" y="518">Toob korduvad tõrked ülevaatamiseks esile</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Iseseisev õppenäide</span>
+            <h3>Tehinguline väljundkast ja idempotentne sündmusetarbija</h3>
+            <p class="section-lead">Õppenäide sündmuse salvestamisest koos rakenduse andmetega ja selle edastamisest sõnumivahendajale. Sündmust võidakse avaldada korduvalt, mistõttu tarbijal on vaja duplikaatide käsitlemise viisi.</p>
+            <p class="provenance">Iseseisev võrdluslahendus üldise tarkvaramustri õpetamiseks.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Valitud komponent</p>
+            <h4 class="card-title" data-field="title">Valdkonnateenus (Java / Spring)</h4>
+            <p class="card-body" data-field="responsibility">Uuendab äriandmeid ja salvestab avaldatava sündmuse ühes kohalikus andmebaasitehingus.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Insenerimõisted</p>
+            <p class="card-body" data-field="concepts">Turvalisus · Tõrgete käsitlemine</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Arhitektuuri kompromiss</p>
+            <p class="card-body" data-field="tradeoffs">Atomaarsus kehtib selle andmebaasitehingu piires. Järgnev avaldamine sõnumivahendajas on eraldi toiming.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Uuri komponente klõpsu või sisestusklahviga</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="app-service" data-node-json="{&quot;title&quot;:&quot;Valdkonnateenus (Java / Spring)&quot;,&quot;responsibility&quot;:&quot;Uuendab äriandmeid ja salvestab avaldatava sündmuse ühes kohalikus andmebaasitehingus.&quot;,&quot;concepts&quot;:[&quot;Turvalisus&quot;,&quot;Tõrgete käsitlemine&quot;],&quot;tradeoffs&quot;:&quot;Atomaarsus kehtib selle andmebaasitehingu piires. Järgnev avaldamine sõnumivahendajas on eraldi toiming.&quot;}" aria-pressed="true">
+              <strong>1. Valdkonnateenus (Java / Spring)</strong>
+              <span>Uuendab äriandmeid ja salvestab avaldatava sündmuse ühes kohalikus andmebaasitehingus.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="db-outbox" data-node-json="{&quot;title&quot;:&quot;Relatsioonandmebaas ja väljundkast&quot;,&quot;responsibility&quot;:&quot;Teeb iga kinnitatud sündmuse koos püsiva tunnusega edastajale kättesaadavaks.&quot;,&quot;concepts&quot;:[&quot;Lõplik kooskõla&quot;,&quot;Sõnumite edastamise garantiid&quot;],&quot;tradeoffs&quot;:&quot;Kui edastaja pole saadaval, säilitab väljundkast ootel sündmuse. Sõnumivahendaja edastus toimib eraldi seadistuse järgi.&quot;}" aria-pressed="false">
+              <strong>2. Relatsioonandmebaas ja väljundkast</strong>
+              <span>Teeb iga kinnitatud sündmuse koos püsiva tunnusega edastajale kättesaadavaks.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="outbox-relay" data-node-json="{&quot;title&quot;:&quot;Väljundkasti sündmuste edastaja&quot;,&quot;responsibility&quot;:&quot;Loeb ootel ridu, avaldab need sõnumivahendajas ja salvestab edenemise pärast kinnituse saamist.&quot;,&quot;concepts&quot;:[&quot;Sõnumite edastamise garantiid&quot;,&quot;Vaadeldavus&quot;],&quot;tradeoffs&quot;:&quot;Tõrge pärast avaldamist ja enne edenemise salvestamist võib põhjustada korduva avaldamise.&quot;}" aria-pressed="false">
+              <strong>3. Väljundkasti sündmuste edastaja</strong>
+              <span>Loeb ootel ridu, avaldab need sõnumivahendajas ja salvestab edenemise pärast kinnituse saamist.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="broker" data-node-json="{&quot;title&quot;:&quot;Sõnumivahendaja (Kafka / AMQP)&quot;,&quot;responsibility&quot;:&quot;Puhverdab ja edastab sündmusi vastavalt sõnumivahendaja seadistusele.&quot;,&quot;concepts&quot;:[&quot;Hajuskoordineerimine&quot;,&quot;Sõnumite edastamise garantiid&quot;],&quot;tradeoffs&quot;:&quot;Vähemalt ühekordse edastuse korral võib sõnum korduda. Edastusseaded ja tõrkekäitumine sõltuvad sõnumivahendajast.&quot;}" aria-pressed="false">
+              <strong>4. Sõnumivahendaja (Kafka / AMQP)</strong>
+              <span>Puhverdab ja edastab sündmusi vastavalt sõnumivahendaja seadistusele.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="idempotent-consumer" data-node-json="{&quot;title&quot;:&quot;Idempotentne tarbija&quot;,&quot;responsibility&quot;:&quot;Väldib korduvaid mõjusid piiritletud ulatuses, näiteks salvestades töödeldud sündmuse tunnuse ja kohaliku olekumuutuse ühes tehingus.&quot;,&quot;concepts&quot;:[&quot;Idempotentsus&quot;,&quot;Lõplik kooskõla&quot;],&quot;tradeoffs&quot;:&quot;Muude mõjude jaoks on vaja eraldi lahendust. Duplikaadi tuvastamise kirje andmebaasis ei väldi eraldiseisva väliskutse kordumist.&quot;}" aria-pressed="false">
+              <strong>5. Idempotentne tarbija</strong>
+              <span>Väldib korduvaid mõjusid piiritletud ulatuses, näiteks salvestades töödeldud sündmuse tunnuse ja kohaliku olekumuutuse ühes tehingus.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="dlq" data-node-json="{&quot;title&quot;:&quot;Korduskatsed ja tõrkesõnumite järjekord&quot;,&quot;responsibility&quot;:&quot;Säilitab tõrkega sõnumid uurimiseks pärast seda, kui seadistatud korduskatsed on ammendatud.&quot;,&quot;concepts&quot;:[&quot;Tõrgete käsitlemine&quot;,&quot;Vaadeldavus&quot;],&quot;tradeoffs&quot;:&quot;Tõrkega sõnumi uuesti töötlemisel tuleb samuti arvestada duplikaatidega.&quot;}" aria-pressed="false">
+              <strong>6. Korduskatsed ja tõrkesõnumite järjekord</strong>
+              <span>Säilitab tõrkega sõnumid uurimiseks pärast seda, kui seadistatud korduskatsed on ammendatud.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arch-panel" role="tabpanel" id="arch-panel-ref-async-job-pipeline" aria-labelledby="arch-tab-ref-async-job-pipeline" data-arch-panel="ref-async-job-pipeline" hidden>
+      <div class="arch-workspace">
+        <div class="arch-svg-wrap">
+          <svg viewBox="0 0 420 464" role="group" aria-label="Asünkroonse töö õppenäide esitamisest ja tööks võtmisest piiratud täitmise, tulemuse avaldamise ja seireni.">
+  <defs>
+    <marker id="inline-arrow-ref-async-job-pipeline" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L5,9 L10,0" fill="var(--accent)"/>
+    </marker>
+  </defs>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="true" data-node-id="api-gateway">
+    <rect x="20" y="20" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="47">1. Olekuta API-liides</text>
+    <text class="node-detail" x="38" y="68">Kontrollib tööd ja lisab järjekorda</text>
+  </g>
+  <line x1="210" y1="84" x2="210" y2="108" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="job-queue">
+    <rect x="20" y="110" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="137">2. Püsiv tööjärjekord</text>
+    <text class="node-detail" x="38" y="158">Salvestab tööd ja määrab need täitjale</text>
+  </g>
+  <line x1="210" y1="174" x2="210" y2="198" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="bounded-workers">
+    <rect x="20" y="200" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="227">3. Piiratud tööprotsesside kogum</text>
+    <text class="node-detail" x="38" y="248">Piirab korraga tehtavate tööde arvu</text>
+  </g>
+  <line x1="210" y1="264" x2="210" y2="288" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="atomic-publish">
+    <rect x="20" y="290" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="317">4. Valminud tulemuste avaldamine</text>
+    <text class="node-detail" x="38" y="338">Teeb valminud tulemuse nähtavaks</text>
+  </g>
+  <line x1="210" y1="354" x2="210" y2="378" stroke="var(--accent)" stroke-width="1.75" marker-end="url(#inline-arrow-ref-async-job-pipeline)"/>
+  <g class="arch-node" role="button" tabindex="0" aria-pressed="false" data-node-id="metrics-alerts">
+    <rect x="20" y="380" width="380" height="64" rx="8"/>
+    <text class="node-title" x="38" y="407">5. Oleku seire, mõõdikud ja koristus</text>
+    <text class="node-detail" x="38" y="428">Mõõdab järjekorra ooteaega ja tõrkeid</text>
+  </g>
+</svg>
+        </div>
+        <div class="arch-inspector">
+          <div>
+            <span class="case-scope case-scope-personal">Iseseisev õppenäide</span>
+            <h3>Tõrkekindel asünkroonne tööjärjekord ja koormuse tagasisurve</h3>
+            <p class="section-lead">Õppenäide tööde vastuvõtmisest, samaaegsete tööprotsesside arvu piiramisest ja valminud tulemuste avaldamisest.</p>
+            <p class="provenance">Iseseisev võrdluslahendus üldise tarkvaramustri õpetamiseks.</p>
+          </div>
+          <div class="arch-inspector-box" data-inspector-detail>
+            <p class="section-eyebrow">Valitud komponent</p>
+            <h4 class="card-title" data-field="title">Olekuta API-liides</h4>
+            <p class="card-body" data-field="responsibility">Autendib päringu, lisab töö asünkroonselt järjekorda ja tagastab kohe töö seostunnuse.</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Insenerimõisted</p>
+            <p class="card-body" data-field="concepts">Turvalisus · Vaadeldavus</p>
+            <p class="tech-group-label" style="margin-top:0.75rem">Arhitektuuri kompromiss</p>
+            <p class="card-body" data-field="tradeoffs">Päringulõimed vastavad kiiresti ja prognoositavalt, sest kaua kestvad tööd täidetakse taustal.</p>
+          </div>
+          <div>
+            <p class="tech-group-label" style="margin-bottom:0.45rem">Uuri komponente klõpsu või sisestusklahviga</p>
+            <ul class="arch-component-list">
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="api-gateway" data-node-json="{&quot;title&quot;:&quot;Olekuta API-liides&quot;,&quot;responsibility&quot;:&quot;Autendib päringu, lisab töö asünkroonselt järjekorda ja tagastab kohe töö seostunnuse.&quot;,&quot;concepts&quot;:[&quot;Turvalisus&quot;,&quot;Vaadeldavus&quot;],&quot;tradeoffs&quot;:&quot;Päringulõimed vastavad kiiresti ja prognoositavalt, sest kaua kestvad tööd täidetakse taustal.&quot;}" aria-pressed="true">
+              <strong>1. Olekuta API-liides</strong>
+              <span>Autendib päringu, lisab töö asünkroonselt järjekorda ja tagastab kohe töö seostunnuse.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="job-queue" data-node-json="{&quot;title&quot;:&quot;Püsiv tööjärjekord&quot;,&quot;responsibility&quot;:&quot;Salvestab järjekorras oleva töö ja fikseerib enne täitmist, milline tööprotsess selle võttis.&quot;,&quot;concepts&quot;:[&quot;Hajuskoordineerimine&quot;,&quot;Sõnumite edastamise garantiid&quot;],&quot;tradeoffs&quot;:&quot;Korduskatsed ja aegunud tööõigused võivad sama töö uuesti käivitada. Mõjud tuleb teha ohutult korratavaks.&quot;}" aria-pressed="false">
+              <strong>2. Püsiv tööjärjekord</strong>
+              <span>Salvestab järjekorras oleva töö ja fikseerib enne täitmist, milline tööprotsess selle võttis.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="bounded-workers" data-node-json="{&quot;title&quot;:&quot;Piiratud tööprotsesside kogum&quot;,&quot;responsibility&quot;:&quot;Piiratud tööprotsesside arv tekitab tagasisurve ning hoiab tööde täitmise seadistatud piirides.&quot;,&quot;concepts&quot;:[&quot;Tõrgete käsitlemine&quot;,&quot;Hajuskoordineerimine&quot;],&quot;tradeoffs&quot;:&quot;Rohkem samaaegseid töid kulutab rohkem ressursse. Tagasisurve viib ooteaja järjekorda.&quot;}" aria-pressed="false">
+              <strong>3. Piiratud tööprotsesside kogum</strong>
+              <span>Piiratud tööprotsesside arv tekitab tagasisurve ning hoiab tööde täitmise seadistatud piirides.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="atomic-publish" data-node-json="{&quot;title&quot;:&quot;Valminud tulemuste avaldamine&quot;,&quot;responsibility&quot;:&quot;Kirjutab ajutise väljundi ja avaldab selle asendustoiminguga, kui salvestussüsteem seda toetab.&quot;,&quot;concepts&quot;:[&quot;Vahemälu kooskõla&quot;,&quot;Idempotentsus&quot;],&quot;tradeoffs&quot;:&quot;Atomaarse asendamise võimalus sõltub salvestussüsteemist. Järjekorra kinnitus on eraldi toiming.&quot;}" aria-pressed="false">
+              <strong>4. Valminud tulemuste avaldamine</strong>
+              <span>Kirjutab ajutise väljundi ja avaldab selle asendustoiminguga, kui salvestussüsteem seda toetab.</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="arch-component-btn" data-node-id="metrics-alerts" data-node-json="{&quot;title&quot;:&quot;Oleku seire, mõõdikud ja koristus&quot;,&quot;responsibility&quot;:&quot;Seirab järjekorra pikkust, tööde vanust ja tõrgete arvu, et leida viivitusi või korduvaid vigu.&quot;,&quot;concepts&quot;:[&quot;Vaadeldavus&quot;,&quot;Vahemälu kooskõla&quot;],&quot;tradeoffs&quot;:&quot;Signaalid vajavad lävendeid ja uurimist. Andmete säilivus sõltub salvestusest ja korduskatsete käitumisest.&quot;}" aria-pressed="false">
+              <strong>5. Oleku seire, mõõdikud ja koristus</strong>
+              <span>Seirab järjekorra pikkust, tööde vanust ja tõrgete arvu, et leida viivitusi või korduvaid vigu.</span>
+            </button>
+          </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <details class="recruitment-disclosure architecture-concepts">
+      <summary>Insenerimõisted</summary>
+    <div class="concepts-grid">
+      <article class="concept-card">
+        <h3>Idempotentsus</h3>
+        <p>Toimingu kordamisel on piiritletud ulatuses sama mõju. Püsiv võti võib vältida korduvkirjeid, kuid muud mõjud vajavad eraldi lahendust.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Lõplik kooskõla</h3>
+        <p>Uuendamise ajal võivad eri andmehoidlate andmed lahkneda. Korduskatsed ja andmete ühtlustamine aitavad neil pärast muudatuste rakendamist kooskõlla jõuda.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Sõnumite edastamise garantiid</h3>
+        <p>Vähemalt ühekordse edastuse korral võib sõnum korduda. Täpselt ühekordne töötlus nõuab selgelt määratud tehingu ja mõjude piire.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Tõrgete käsitlemine</h3>
+        <p>Ajutistest tõrgetest taastumiseks kasutatakse piiratud arvu korduskatseid. Püsivad tõrked jäetakse uurimiseks või uuesti töötlemiseks nähtavale.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Hajuskoordineerimine</h3>
+        <p>Ühes JVM-is saavad lõimed jagada lukku. Mitu protsessi vajavad koordineerimismehhanismi, millel on oma tõrkemudel.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Vahemälu kooskõla</h3>
+        <p>Vahemälus olevad andmed võivad aeguda. Aegumise, kehtetuks tunnistamise ja värskendamise reeglid määravad, millal need allikaga taas ühtivad.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Vaadeldavus</h3>
+        <p>Logid, mõõdikud ja jäljed aitavad süsteemi käitumist selgitada ja tõrkeid uurida.</p>
+      </article>
+      <article class="concept-card">
+        <h3>Turvalisus</h3>
+        <p>Juurdepääsu kaitsmiseks kasutatakse autentimist, õiguste kontrolli, asjakohast andmekäitlust ja dokumenteeritud ohumudelit.</p>
+      </article>
+    </div>
+    </details>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; 2026 Denis Stepulenok &middot; Tallinn, Eesti</p>
+    <div class="footer-links">
+      <a href="../index.html">Portfoolio</a>
+      <a href="../cv/">Kõik CV versioonid</a>
+      <a href="https://github.com/stden" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/denis-stepulenok-2149b514/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:super.denis@gmail.com">E-post</a>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>
