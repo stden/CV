@@ -14,10 +14,10 @@
         if (btn) {
             const isDark = theme === 'dark';
             btn.setAttribute('aria-pressed', String(isDark));
-            btn.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+            btn.setAttribute('aria-label', isDark ? btn.dataset.labelToLight : btn.dataset.labelToDark);
             const label = btn.querySelector('.theme-label');
             if (label) {
-                label.textContent = isDark ? 'Light' : 'Dark';
+                label.textContent = isDark ? btn.dataset.textLight : btn.dataset.textDark;
             }
         }
     }
@@ -183,4 +183,26 @@
             });
         });
     });
+})();
+
+(function languageMemory() {
+    const KEY = 'cv-lang';
+    const switcher = Array.from(document.querySelectorAll('.lang-switcher a[hreflang]'));
+    if (!switcher.length) return;
+    const current = document.documentElement.lang;
+    switcher.forEach((link) => {
+        link.addEventListener('click', () => {
+            try { localStorage.setItem(KEY, link.getAttribute('hreflang')); } catch (error) { /* storage blocked */ }
+        });
+    });
+    let saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (error) { return; }
+    if (!saved || saved === current) return;
+    const target = switcher.find((link) => link.getAttribute('hreflang') === saved);
+    const hint = document.querySelector('[data-lang-hint]');
+    if (!target || !hint) return;
+    const anchor = hint.querySelector('a');
+    anchor.href = target.href;
+    anchor.textContent = hint.dataset.template.replace('{language}', target.title);
+    hint.hidden = false;
 })();

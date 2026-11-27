@@ -2,13 +2,20 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { ROOT_DIR, escapeHtml, escapeXml, loadCvData, relPrefix } = require('./lib/utils');
 const { defaultCvHref, renderDocument } = require('./lib/layout');
+const { LOCALES, setLocale, ui, validateLocales, localizeData, pageOutputPath, isTranslatedPage, currentLocaleCode } = require('./lib/i18n');
 const { renderInteractiveSvg } = require('./build-project-diagrams');
 
+// Inter subsets: Latin (English, German), Latin Extended (Estonian Š and Ž), Cyrillic (Russian).
+const FONT_SUBSETS = ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext'];
+
 function copyFonts() {
-    const src = path.join(ROOT_DIR, 'node_modules', '@fontsource-variable', 'inter', 'files', 'inter-latin-wght-normal.woff2');
+    const srcDir = path.join(ROOT_DIR, 'node_modules', '@fontsource-variable', 'inter', 'files');
     const dstDir = path.join(ROOT_DIR, 'assets', 'fonts');
     fs.mkdirSync(dstDir, { recursive: true });
-    fs.copyFileSync(src, path.join(dstDir, 'inter-latin-wght-normal.woff2'));
+    for (const subset of FONT_SUBSETS) {
+        const name = `inter-${subset}-wght-normal.woff2`;
+        fs.copyFileSync(path.join(srcDir, name), path.join(dstDir, name));
+    }
 }
 
 function buildTechSlugLookup(data) {
@@ -81,18 +88,18 @@ function renderHero(data) {
       <p class="hero-role">${escapeHtml(profile.title)}</p>${availabilityHtml}
       <p class="hero-summary">${escapeHtml(profile.summary)}</p>
       <p class="hero-intro">${escapeHtml(profile.homeIntro)}</p>
-      <p class="hero-languages">Languages: ${data.languages.map((l) => `${escapeHtml(l.name)} (${escapeHtml(l.level)})`).join(', ')}</p>
+      <p class="hero-languages">${escapeHtml(ui('heroLanguages'))}: ${data.languages.map((l) => `${escapeHtml(l.name)} (${escapeHtml(l.level)})`).join(', ')}</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data))}" download>Download CV (PDF)</a>
+        <a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data, localeDepth()))}" download>${escapeHtml(ui('downloadCvPdf'))}</a>
         <a class="btn btn-ghost" href="${escapeHtml(profile.contact.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="btn btn-ghost" href="${escapeHtml(profile.contact.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
-      <ul class="badge-list" aria-label="Core technologies">
+      <ul class="badge-list" aria-label="${escapeHtml(ui('heroBadgesLabel'))}">
         ${badges}
       </ul>
     </div>
     <div class="hero-photo-wrap">
-      <img class="hero-photo" src="${escapeHtml(profile.photo)}" alt="${escapeHtml(profile.photoAlt)}" width="${profile.photoWidth}" height="${profile.photoHeight}" decoding="async">
+      <img class="hero-photo" src="${relPrefix(localeDepth())}${escapeHtml(profile.photo)}" alt="${escapeHtml(profile.photoAlt)}" width="${profile.photoWidth}" height="${profile.photoHeight}" decoding="async">
     </div>
   </div>
 </section>`;
@@ -110,7 +117,7 @@ function renderExperience(data, techLookup, depth = 0) {
         const bullets = role.responsibilities.map((r) => `          <li>${escapeHtml(r)}</li>`).join('\n');
         const additionalBlock = role.additionalTechnologies?.length
             ? `<div class="tech-group">
-            <span class="tech-group-label">Additional role technologies</span>
+            <span class="tech-group-label">${escapeHtml(ui('additionalTechLabel'))}</span>
             <ul class="badge-list">${renderTechChips(role.additionalTechnologies, techLookup, depth)}</ul>
           </div>`
             : '';
@@ -126,7 +133,7 @@ function renderExperience(data, techLookup, depth = 0) {
 ${bullets}
         </ul>
         <div class="tech-group">
-          <span class="tech-group-label">Primary technologies in role</span>
+          <span class="tech-group-label">${escapeHtml(ui('primaryTechLabel'))}</span>
           <ul class="badge-list">${renderTechChips(role.projectTechnologies, techLookup, depth)}</ul>
         </div>
         ${additionalBlock}
@@ -160,15 +167,15 @@ ${bullets}
     return `<section id="experience" class="section" aria-labelledby="experience-heading">
   <div class="container">
     <div class="section-header">
-      <p class="section-eyebrow">Career Timeline</p>
-      <h2 id="experience-heading" class="section-title">Professional Experience</h2>
-      <p class="section-lead">Chronological engineering record across enterprise Java backend platforms, high-load microservices, and JDK quality infrastructure.</p>
+      <p class="section-eyebrow">${escapeHtml(ui('careerTimeline'))}</p>
+      <h2 id="experience-heading" class="section-title">${escapeHtml(ui('experienceTitle'))}</h2>
+      <p class="section-lead">${escapeHtml(ui('experienceFullLead'))}</p>
     </div>
     <div class="timeline">
 ${primaryHtml}
     </div>
     <div class="earlier-roles">
-      <h3 class="earlier-roles-heading">Earlier Engineering Roles (2001 – 2014)</h3>
+      <h3 class="earlier-roles-heading">${escapeHtml(ui('earlierRolesHeading'))}</h3>
       <div class="earlier-list">
 ${earlierHtml}
       </div>
@@ -192,22 +199,22 @@ function renderProjects(data, depth = 0) {
         <div class="case-columns">
           <div>
             <dl class="case-dl">
-              <div><dt>Problem Statement</dt><dd>${escapeHtml(cs.problem)}</dd></div>
+              <div><dt>${escapeHtml(ui('caseProblem'))}</dt><dd>${escapeHtml(cs.problem)}</dd></div>
               <div><dt>Engineering Context</dt><dd>${escapeHtml(cs.context)}</dd></div>
               <div><dt>Architecture</dt><dd>${escapeHtml(cs.architecture)}</dd></div>
-              <div><dt>Technical Challenges</dt><dd><ul class="bullet-list">${challenges}</ul></dd></div>
-              <div><dt>Design Decisions</dt><dd><ul class="bullet-list">${decisions}</ul></dd></div>
-              <div><dt>Reliability Considerations</dt><dd><ul class="bullet-list">${reliability}</ul></dd></div>
-              <div><dt>Verified Outcomes</dt><dd><ul class="bullet-list">${results}</ul></dd></div>
+              <div><dt>${escapeHtml(ui('caseChallenges'))}</dt><dd><ul class="bullet-list">${challenges}</ul></dd></div>
+              <div><dt>${escapeHtml(ui('caseDecisions'))}</dt><dd><ul class="bullet-list">${decisions}</ul></dd></div>
+              <div><dt>${escapeHtml(ui('caseReliability'))}</dt><dd><ul class="bullet-list">${reliability}</ul></dd></div>
+              <div><dt>${escapeHtml(ui('caseOutcomes'))}</dt><dd><ul class="bullet-list">${results}</ul></dd></div>
             </dl>
             <div class="tech-group">
-              <span class="tech-group-label">Technology stack</span>
+              <span class="tech-group-label">${escapeHtml(ui('caseStack'))}</span>
               <ul class="badge-list">${stackBadges}</ul>
             </div>
           </div>
           <div class="case-diagram-box">
             <img src="${relPrefix(depth)}assets/images/projects/${escapeHtml(cs.diagramSlug)}.svg" alt="${escapeHtml(cs.title)} architecture flow diagram" loading="lazy" width="420" height="580">
-            <p class="case-diagram-caption"><a href="#architecture">Inspect interactive component breakdown &rarr;</a></p>
+            <p class="case-diagram-caption"><a href="${relPrefix(depth)}architecture/index.html">${escapeHtml(ui('caseInspect'))} &rarr;</a></p>
           </div>
         </div>
       </article>`;
@@ -240,14 +247,14 @@ function renderProjects(data, depth = 0) {
     return `<section id="projects" class="section section-alt" aria-labelledby="projects-heading">
   <div class="container">
     <div class="section-header">
-      <p class="section-eyebrow">Engineering Case Studies</p>
-      <h2 id="projects-heading" class="section-title">Independent Projects &amp; Open Source</h2>
-      <p class="section-lead">Self-directed engineering case studies and verified public repositories spanning Java, Rust, Python, distributed concurrency, semantic search, and AI tooling.</p>
+      <p class="section-eyebrow">${escapeHtml(ui('projectsEyebrow'))}</p>
+      <h2 id="projects-heading" class="section-title">${escapeHtml(ui('projectsSectionTitle'))}</h2>
+      <p class="section-lead">${escapeHtml(ui('projectsSectionLead'))}</p>
     </div>
     <div class="case-grid">
 ${casesHtml}
     </div>
-    <h3 class="repo-section-title">Selected Public GitHub Repositories</h3>
+    <h3 class="repo-section-title">${escapeHtml(ui('repoSectionTitle'))}</h3>
     <p class="repo-section-lead">Verified public repositories from <a href="${escapeHtml(data.profile.contact.github)}" target="_blank" rel="noopener noreferrer">github.com/stden</a> highlighting Rust, Java concurrency, JPA, quality automation, and MCP/AI tooling.</p>
     <div class="repo-grid">
 ${reposHtml}
@@ -358,21 +365,21 @@ ${itemsHtml}
     return `<section id="skills" class="section section-alt" aria-labelledby="skills-heading">
   <div class="container">
     <div class="section-header">
-      <p class="section-eyebrow">Technical Matrix</p>
-      <h2 id="skills-heading" class="section-title">Technical Skills &amp; Evidence</h2>
-      <p class="section-lead">Categorised by engineering domain and backed by role or repository evidence—distinguishing core production skills from additional and personal project technologies.</p>
+      <p class="section-eyebrow">${escapeHtml(ui('skillsEyebrow'))}</p>
+      <h2 id="skills-heading" class="section-title">${escapeHtml(ui('skillsSectionTitle'))}</h2>
+      <p class="section-lead">${escapeHtml(ui('skillsSectionLead'))}</p>
     </div>
     <div class="skills-toolbar">
-      <div class="tier-legend" aria-label="Experience context legend">
+      <div class="tier-legend" aria-label="${escapeHtml(ui('legendLabel'))}">
         <span class="tier-pill tier-core">${tierLabels.core}</span>
         <span class="tier-pill tier-additional">${tierLabels.additional}</span>
         <span class="tier-pill tier-personal">${tierLabels.personal}</span>
       </div>
-      <div class="skill-filter-group" role="group" aria-label="Filter skills by experience context">
-        <button type="button" class="filter-btn" data-skill-filter="all" aria-pressed="true">All</button>
-        <button type="button" class="filter-btn" data-skill-filter="core" aria-pressed="false">Core</button>
-        <button type="button" class="filter-btn" data-skill-filter="additional" aria-pressed="false">Additional</button>
-        <button type="button" class="filter-btn" data-skill-filter="personal" aria-pressed="false">Personal</button>
+      <div class="skill-filter-group" role="group" aria-label="${escapeHtml(ui('filterLabel'))}">
+        <button type="button" class="filter-btn" data-skill-filter="all" aria-pressed="true">${escapeHtml(ui('filterAll'))}</button>
+        <button type="button" class="filter-btn" data-skill-filter="core" aria-pressed="false">${escapeHtml(ui('filterCore'))}</button>
+        <button type="button" class="filter-btn" data-skill-filter="additional" aria-pressed="false">${escapeHtml(ui('filterAdditional'))}</button>
+        <button type="button" class="filter-btn" data-skill-filter="personal" aria-pressed="false">${escapeHtml(ui('filterPersonal'))}</button>
       </div>
     </div>
     <div class="skills-grid">
@@ -395,17 +402,17 @@ function renderEducation(data) {
     return `<section id="education" class="section" aria-labelledby="education-heading">
   <div class="container">
     <div class="section-header">
-      <p class="section-eyebrow">Academic Background</p>
-      <h2 id="education-heading" class="section-title">Education, Languages &amp; Interests</h2>
+      <p class="section-eyebrow">${escapeHtml(ui('educationEyebrow'))}</p>
+      <h2 id="education-heading" class="section-title">${escapeHtml(ui('educationTitle'))}</h2>
     </div>
     <div class="edu-grid">
 ${eduCards}
       <article class="card">
-        <h3 class="card-title">Languages</h3>
+        <h3 class="card-title">${escapeHtml(ui('languagesLabel'))}</h3>
         <ul class="bullet-list">${langItems}</ul>
       </article>
       <article class="card">
-        <h3 class="card-title">Interests</h3>
+        <h3 class="card-title">${escapeHtml(ui('interestsLabel'))}</h3>
         <ul class="badge-list">${interestItems}</ul>
       </article>
     </div>
@@ -414,6 +421,10 @@ ${eduCards}
 }
 
 const HOME_EXPERIENCE_IDS = ['kuehne-nagel', 'taxify-bolt', 'oracle'];
+
+function localeDepth() {
+    return currentLocaleCode() === 'en' ? 0 : 1;
+}
 
 function renderHomeExperience(data) {
     const roles = HOME_EXPERIENCE_IDS.map((id) => data.experience.find((r) => r.id === id)).filter(Boolean);
@@ -432,18 +443,18 @@ function renderHomeExperience(data) {
         <ul class="bullet-list">
 ${bullets}
         </ul>
-        <p class="tech-list"><strong>Technologies:</strong> ${role.projectTechnologies.slice(0, 8).map(escapeHtml).join(', ')}</p>
+        <p class="tech-list"><strong>${escapeHtml(ui('technologiesLabel'))}</strong> ${role.projectTechnologies.slice(0, 8).map(escapeHtml).join(', ')}</p>
       </article>`;
     }).join('\n');
 
     return `<section id="experience" class="section" aria-labelledby="experience-heading">
   <div class="container">
-    <h2 id="experience-heading" class="section-title">Professional Experience</h2>
-    <p class="section-lead">The three most recent roles. Earlier roles and full responsibilities are on the experience page.</p>
+    <h2 id="experience-heading" class="section-title">${escapeHtml(ui('experienceTitle'))}</h2>
+    <p class="section-lead">${escapeHtml(ui('experienceLead'))}</p>
     <div class="home-roles">
 ${items}
     </div>
-    <p class="section-more"><a class="btn btn-ghost btn-sm" href="experience/index.html">Full employment history</a></p>
+    <p class="section-more"><a class="btn btn-ghost btn-sm" href="experience/index.html">${escapeHtml(ui('fullHistory'))}</a></p>
   </div>
 </section>`;
 }
@@ -456,10 +467,10 @@ function renderHomeSkills(data) {
       </div>`).join('\n');
     return `<section id="skills" class="section section-alt" aria-labelledby="skills-heading">
   <div class="container">
-    <h2 id="skills-heading" class="section-title">Core Skills</h2>
-    <p class="section-lead">Grouped by area. Each skill is labelled by where it was used on the skills page.</p>
+    <h2 id="skills-heading" class="section-title">${escapeHtml(ui('skillsTitle'))}</h2>
+    <p class="section-lead">${escapeHtml(ui('skillsLead'))}</p>
 ${groups}
-    <p class="section-more"><a class="btn btn-ghost btn-sm" href="skills/index.html">All skills and evidence</a></p>
+    <p class="section-more"><a class="btn btn-ghost btn-sm" href="skills/index.html">${escapeHtml(ui('allSkills'))}</a></p>
   </div>
 </section>`;
 }
@@ -468,17 +479,17 @@ function renderHomeProjects(data) {
     const items = data.githubProjects.filter((g) => g.featured).map((g) => `      <article class="home-project">
         <h3 class="case-title"><a href="${escapeHtml(g.url)}" rel="noopener noreferrer">${escapeHtml(g.name)}</a></h3>
         <p>${escapeHtml(g.homeSummary)}</p>
-        <p class="role-company">${escapeHtml(g.language)} &middot; Stack: ${g.homeStack.map(escapeHtml).join(', ')} &middot; CI: ${escapeHtml(g.ciStatus)}</p>
+        <p class="role-company">${escapeHtml(g.language)} &middot; ${escapeHtml(ui('stackLabel'))}: ${g.homeStack.map(escapeHtml).join(', ')} &middot; ${escapeHtml(ui('ciLabel'))}: ${escapeHtml(g.ciStatus)}</p>
       </article>`).join('\n');
 
     return `<section id="projects" class="section section-alt" aria-labelledby="projects-heading">
   <div class="container">
-    <h2 id="projects-heading" class="section-title">Selected Projects</h2>
-    <p class="section-lead">Independent work in Java, Rust and Python. The repositories are public; the case studies and architecture diagrams are on the projects and architecture pages. Each card shows the stack and the CI status.</p>
+    <h2 id="projects-heading" class="section-title">${escapeHtml(ui('projectsTitle'))}</h2>
+    <p class="section-lead">${escapeHtml(ui('projectsLead'))}</p>
     <div class="home-projects">
 ${items}
     </div>
-    <p class="section-more"><a class="btn btn-ghost btn-sm" href="projects/index.html">All projects and case studies</a></p>
+    <p class="section-more"><a class="btn btn-ghost btn-sm" href="projects/index.html">${escapeHtml(ui('allProjects'))}</a></p>
   </div>
 </section>`;
 }
@@ -487,15 +498,15 @@ function renderHomeContact(data) {
     const { contact } = data.profile;
     return `<section id="contact" class="section" aria-labelledby="contact-heading">
   <div class="container">
-    <h2 id="contact-heading" class="section-title">Contact</h2>
-    <p class="section-lead">Based in ${escapeHtml(data.profile.location)}. Email is the quickest way to reach me.</p>
+    <h2 id="contact-heading" class="section-title">${escapeHtml(ui('contactTitle'))}</h2>
+    <p class="section-lead">${escapeHtml(ui('contactLead', { location: data.profile.location }))}</p>
     <ul class="contact-list">
       <li><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></li>
       <li><a href="${escapeHtml(contact.linkedin)}" rel="noopener noreferrer">LinkedIn</a></li>
       <li><a href="${escapeHtml(contact.github)}" rel="noopener noreferrer">GitHub</a></li>
-      <li><a href="${escapeHtml(contact.telegram)}" rel="noopener noreferrer">Telegram ${escapeHtml(contact.telegramHandle)}</a></li>
+      <li><a href="${escapeHtml(contact.telegram)}" rel="noopener noreferrer">${escapeHtml(ui('telegramLabel'))} ${escapeHtml(contact.telegramHandle)}</a></li>
     </ul>
-    <p class="actions"><a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data))}" download>Download CV (PDF)</a> <a class="btn btn-ghost" href="cv/index.html">CV versions for specific roles</a></p>
+    <p class="actions"><a class="btn btn-primary" href="${escapeHtml(defaultCvHref(data, localeDepth()))}" download>${escapeHtml(ui('downloadCvPdf'))}</a> <a class="btn btn-ghost" href="cv/index.html">${escapeHtml(ui('contactCvVersions'))}</a></p>
   </div>
 </section>`;
 }
@@ -535,10 +546,11 @@ function renderHomePage(data) {
     };
 
     return renderDocument(data, {
-        depth: 0,
+        depth: localeDepth(),
         title: data.site.title,
         description: data.site.description,
-        canonicalPath: '',
+        outputPath: pageOutputPath(currentLocaleCode(), 'home'),
+        pageKey: 'home',
         ogType: 'profile',
         jsonLd,
         bodyHtml,
@@ -554,10 +566,11 @@ function renderSubPage(data, { slug, title, lead, bodyHtml }) {
   </div>
 </header>`;
     return renderDocument(data, {
-        depth: 1,
+        depth: 1 + localeDepth(),
         title: `${title} | ${data.profile.name}`,
         description: lead,
-        canonicalPath: `${slug}/`,
+        outputPath: pageOutputPath(currentLocaleCode(), slug),
+        pageKey: slug,
         ogType: 'website',
         jsonLd: null,
         bodyHtml: header + bodyHtml,
@@ -565,41 +578,42 @@ function renderSubPage(data, { slug, title, lead, bodyHtml }) {
 }
 
 function renderSecondaryPages(data, techLookup) {
+    const depth = 1 + localeDepth();
     return [
         {
-            dir: 'experience',
+            slug: 'experience',
             html: renderSubPage(data, {
                 slug: 'experience',
-                title: 'Experience',
-                lead: 'Full employment history with responsibilities and technologies by role.',
-                bodyHtml: renderExperience(data, techLookup, 1) + renderEducation(data),
+                title: ui('pageExperienceTitle'),
+                lead: ui('pageExperienceLead'),
+                bodyHtml: renderExperience(data, techLookup, depth) + renderEducation(data),
             }),
         },
         {
-            dir: 'projects',
+            slug: 'projects',
             html: renderSubPage(data, {
                 slug: 'projects',
-                title: 'Projects',
-                lead: 'Case studies and public repositories. Independent work only; no employer systems are described.',
-                bodyHtml: renderProjects(data, 1),
+                title: ui('pageProjectsTitle'),
+                lead: ui('pageProjectsLead'),
+                bodyHtml: renderProjects(data, depth),
             }),
         },
         {
-            dir: 'skills',
+            slug: 'skills',
             html: renderSubPage(data, {
                 slug: 'skills',
-                title: 'Skills',
-                lead: 'The complete skills catalogue. Each skill is labelled by where it was used.',
-                bodyHtml: renderSkills(data, 1),
+                title: ui('pageSkillsTitle'),
+                lead: ui('pageSkillsLead'),
+                bodyHtml: renderSkills(data, depth),
             }),
         },
         {
-            dir: 'architecture',
+            slug: 'architecture',
             html: renderSubPage(data, {
                 slug: 'architecture',
-                title: 'Architecture',
-                lead: 'Independent example architectures and the engineering concepts behind them.',
-                bodyHtml: renderArchitecture(data, 1),
+                title: ui('pageArchitectureTitle'),
+                lead: ui('pageArchitectureLead'),
+                bodyHtml: renderArchitecture(data, depth),
             }),
         },
     ];
@@ -611,16 +625,16 @@ function renderCvIndexPage(data) {
         <h2 class="card-title">${escapeHtml(v.roleTitle)}</h2>
         <p class="card-body">${escapeHtml(v.summary)}</p>
         <div class="hero-actions" style="margin-top:1rem;margin-bottom:0">
-          <a class="btn btn-secondary btn-sm" href="${escapeHtml(v.slug)}.html">Open Web CV</a>
-          <a class="btn btn-primary btn-sm" href="../assets/pdf/${escapeHtml(v.pdfFilename)}" download>Download PDF</a>
+          <a class="btn btn-secondary btn-sm" href="${escapeHtml(path.posix.relative(path.posix.dirname(pageOutputPath(currentLocaleCode(), 'cv-index')), `cv/${v.slug}.html`))}">Open Web CV</a>
+          <a class="btn btn-primary btn-sm" href="${relPrefix(1 + localeDepth())}assets/pdf/${escapeHtml(v.pdfFilename)}" download>Download PDF</a>
         </div>
       </article>`).join('\n');
 
     const bodyHtml = `<section class="subpage-hero">
   <div class="container">
-    <p class="breadcrumb"><a href="../index.html">&larr; Back to Main Portfolio</a></p>
-    <h1>CV Versions</h1>
-    <p class="section-lead">General, role-specific and full CVs, available as web pages and ATS-friendly A4 PDFs.</p>
+    <p class="breadcrumb"><a href="../index.html">&larr; ${escapeHtml(ui('backToPortfolio'))}</a></p>
+    <h1>${escapeHtml(ui('cvIndexTitle'))}</h1>
+    <p class="section-lead">${escapeHtml(ui('cvIndexLead'))}</p>
   </div>
 </section>
 <section class="section">
@@ -632,10 +646,11 @@ ${cards}
 </section>`;
 
     return renderDocument(data, {
-        depth: 1,
+        depth: 1 + localeDepth(),
         title: `CV Versions — ${data.profile.name}`,
         description: 'General, Senior Java, Distributed Systems, Fintech, Wise, AI/MCP, and Full CV web and PDF versions for Denis Stepulenok.',
-        canonicalPath: 'cv/index.html',
+        outputPath: pageOutputPath(currentLocaleCode(), 'cv-index'),
+        pageKey: 'cv-index',
         bodyHtml,
     });
 }
@@ -764,7 +779,8 @@ ${reposHtml}
         depth: 1,
         title: `${data.profile.name} — ${variant.roleTitle}`,
         description: variant.summary,
-        canonicalPath: `cv/${variant.slug}.html`,
+        outputPath: `cv/${variant.slug}.html`,
+        pageKey: `cv/${variant.slug}.html`,
         downloadHref: pdfPath,
         bodyHtml,
     });
@@ -785,65 +801,91 @@ function renderOgSvg(data) {
 `;
 }
 
-function writeDiscoveryFiles(data) {
-    const base = data.site.baseUrl;
-    const urls = [
-        `${base}/`,
-        `${base}/experience/index.html`,
-        `${base}/projects/index.html`,
-        `${base}/skills/index.html`,
-        `${base}/architecture/index.html`,
-        `${base}/cv/index.html`,
-        ...data.variants.map((v) => `${base}/cv/${v.slug}.html`),
-        ...data.technologies.map((t) => `${base}/tech/${t.slug}.html`),
-    ];
+const SITEMAP_KEYS = ['home', 'experience', 'projects', 'skills', 'cv-index'];
 
+function pageUrl(data, outputPath) {
+    return `${data.site.baseUrl}/${outputPath.replace(/index\.html$/, '')}`;
+}
+
+function writeDiscoveryFiles(data) {
+    const entries = [];
+    for (const key of SITEMAP_KEYS) {
+        const alternates = LOCALES.map((locale) => ({
+            hreflang: locale.htmlLang,
+            href: pageUrl(data, pageOutputPath(locale.code, key)),
+        }));
+        alternates.push({ hreflang: 'x-default', href: pageUrl(data, pageOutputPath('en', key)) });
+        for (const locale of LOCALES) {
+            entries.push({ loc: pageUrl(data, pageOutputPath(locale.code, key)), alternates });
+        }
+    }
+    const englishOnly = [
+        'architecture/index.html',
+        'cv/index.html',
+        ...data.variants.map((v) => `cv/${v.slug}.html`),
+        ...data.technologies.map((t) => `tech/${t.slug}.html`),
+    ];
+    for (const page of englishOnly) entries.push({ loc: pageUrl(data, page), alternates: [] });
+
+    const urls = entries.map((entry) => {
+        const links = entry.alternates
+            .map((alt) => `    <xhtml:link rel="alternate" hreflang="${alt.hreflang}" href="${escapeXml(alt.href)}"/>`)
+            .join('\n');
+        return `  <url>\n    <loc>${escapeXml(entry.loc)}</loc>${links ? `\n${links}` : ''}\n  </url>`;
+    });
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `  <url><loc>${escapeXml(u)}</loc></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls.join('\n')}
 </urlset>
 `;
     const robots = `User-agent: *
 Allow: /
 
-Sitemap: ${base}/sitemap.xml
+Sitemap: ${data.site.baseUrl}/sitemap.xml
 `;
 
     fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'), sitemap);
     fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robots);
 }
 
+function writePage(relativePath, html) {
+    const target = path.join(ROOT_DIR, relativePath);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, html);
+}
+
 function main() {
     const data = loadCvData();
-    const techLookup = buildTechSlugLookup(data);
+    const problems = validateLocales(data);
+    if (problems.length) throw new Error(`Translations are incomplete:\n- ${problems.join('\n- ')}`);
 
     copyFonts();
 
-    fs.writeFileSync(path.join(ROOT_DIR, 'index.html'), renderHomePage(data));
+    for (const locale of LOCALES) {
+        setLocale(locale.code);
+        const localized = localizeData(data, locale.code);
+        const techLookup = buildTechSlugLookup(localized);
 
-    for (const page of renderSecondaryPages(data, techLookup)) {
-        fs.mkdirSync(path.join(ROOT_DIR, page.dir), { recursive: true });
-        fs.writeFileSync(path.join(ROOT_DIR, page.dir, 'index.html'), page.html);
+        writePage(pageOutputPath(locale.code, 'home'), renderHomePage(localized));
+        for (const page of renderSecondaryPages(localized, techLookup)) {
+            // Architecture is English only: it is written once, at the root.
+            if (!isTranslatedPage(page.slug) && locale.code !== 'en') continue;
+            writePage(pageOutputPath(locale.code, page.slug), page.html);
+        }
+        writePage(pageOutputPath(locale.code, 'cv-index'), renderCvIndexPage(localized));
+
+        if (locale.code === 'en') {
+            for (const variant of localized.variants) {
+                writePage(`cv/${variant.slug}.html`, renderVariantPage(localized, variant, techLookup));
+            }
+            fs.writeFileSync(path.join(ROOT_DIR, 'assets', 'images', 'og-preview.svg'), renderOgSvg(localized));
+        }
     }
-
-    const cvDir = path.join(ROOT_DIR, 'cv');
-    fs.mkdirSync(cvDir, { recursive: true });
-    fs.writeFileSync(path.join(cvDir, 'index.html'), renderCvIndexPage(data));
-    for (const variant of data.variants) {
-        fs.writeFileSync(
-            path.join(cvDir, `${variant.slug}.html`),
-            renderVariantPage(data, variant, techLookup)
-        );
-    }
-
-    fs.writeFileSync(
-        path.join(ROOT_DIR, 'assets', 'images', 'og-preview.svg'),
-        renderOgSvg(data)
-    );
 
     writeDiscoveryFiles(data);
-    console.log(`Built index.html, cv/index.html, ${data.variants.length} CV variant pages, sitemap.xml, robots.txt`);
+    console.log(`Built ${LOCALES.length} languages: ${LOCALES.map((l) => l.code).join(', ')}, ${data.variants.length} CV variants, sitemap.xml, robots.txt`);
 }
+
 
 if (require.main === module) {
     main();

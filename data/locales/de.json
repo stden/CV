@@ -1,0 +1,467 @@
+{
+  "meta": {
+    "title": "Denis Stepulenok — Senior Software Engineer | Java und verteilte Systeme",
+    "description": "Denis Stepulenok, Senior Software Engineer in Tallinn. Java-Backend-Entwicklung, verteilte Systeme, Unternehmensintegration und KI-Engineering. Berufserfahrung bei Kuehne+Nagel, Oracle und Taxify (Bolt)."
+  },
+  "ui": {
+    "skipLink": "Zum Hauptinhalt springen",
+    "navLabel": "Hauptnavigation",
+    "navExperience": "Erfahrung",
+    "navProjects": "Projekte",
+    "navSkills": "Kompetenzen",
+    "navArchitecture": "Architektur",
+    "navCvs": "Lebensläufe",
+    "navContact": "Kontakt",
+    "menuButton": "Menü",
+    "menuLabel": "Navigationsmenü ein- oder ausblenden",
+    "themeToDark": "Zum dunklen Design wechseln",
+    "themeToLight": "Zum hellen Design wechseln",
+    "themeLabelDark": "Dunkel",
+    "themeLabelLight": "Hell",
+    "downloadCv": "Lebenslauf",
+    "downloadCvPdf": "Lebenslauf herunterladen (PDF)",
+    "languageLabel": "Sprache",
+    "languageCurrent": "Aktuelle Sprache",
+    "footerPortfolio": "Portfolio",
+    "footerCvVersions": "Lebenslauf-Versionen",
+    "footerGitHub": "GitHub",
+    "footerLinkedIn": "LinkedIn",
+    "footerEmail": "E-Mail",
+    "heroLanguages": "Sprachen",
+    "heroGitHub": "GitHub",
+    "heroLinkedIn": "LinkedIn",
+    "experienceTitle": "Berufserfahrung",
+    "experienceLead": "Die drei jüngsten Stationen. Frühere Stationen und vollständige Aufgaben finden Sie auf der Seite Erfahrung.",
+    "fullHistory": "Vollständiger beruflicher Werdegang",
+    "technologiesLabel": "Technologien:",
+    "skillsTitle": "Kernkompetenzen",
+    "skillsLead": "Nach Bereichen gegliedert. Jede Kompetenz ist mit dem Ort gekennzeichnet, an dem sie eingesetzt wurde.",
+    "allSkills": "Alle Kompetenzen und Nachweise",
+    "projectsTitle": "Ausgewählte Projekte",
+    "projectsLead": "Eigenständige Arbeit in Java, Rust und Python. Die Repositories sind öffentlich; Fallstudien und Architekturdiagramme finden Sie auf den Seiten Projekte und Architektur. Jede Karte zeigt den Technologie-Stack und den CI-Status.",
+    "allProjects": "Alle Projekte und Fallstudien",
+    "stackLabel": "Stack",
+    "ciLabel": "CI",
+    "contactTitle": "Kontakt",
+    "contactLead": "Sitz in {location}. Am schnellsten erreichen Sie mich per E-Mail.",
+    "contactCvVersions": "Lebenslauf-Versionen für bestimmte Stellen",
+    "telegramLabel": "Telegram",
+    "pageExperienceTitle": "Erfahrung",
+    "pageExperienceLead": "Vollständiger beruflicher Werdegang mit Aufgaben und Technologien je Station.",
+    "pageProjectsTitle": "Projekte",
+    "pageProjectsLead": "Fallstudien und öffentliche Repositories. Nur eigenständige Arbeit; Systeme von Arbeitgebern werden nicht beschrieben.",
+    "pageSkillsTitle": "Kompetenzen",
+    "pageSkillsLead": "Der vollständige Kompetenzkatalog. Jede Kompetenz ist mit dem Ort gekennzeichnet, an dem sie eingesetzt wurde.",
+    "pageArchitectureTitle": "Architektur",
+    "pageArchitectureLead": "Eigenständige Beispielarchitekturen und die dahinterstehenden Ingenieurkonzepte.",
+    "pageNotTranslated": "Die technischen Details dieser Seite sind nur auf Englisch verfügbar.",
+    "careerTimeline": "Berufliche Laufbahn",
+    "experienceFullLead": "Chronologische Übersicht über Java-Backend-Plattformen in Unternehmen, hochbelastbare Microservices und die Qualitätsinfrastruktur des JDK.",
+    "earlierRolesHeading": "Frühere Ingenieurstationen (2001 – 2014)",
+    "primaryTechLabel": "Haupttechnologien dieser Position",
+    "additionalTechLabel": "Zusätzliche Technologien dieser Position",
+    "educationTitle": "Ausbildung, Sprachen und Interessen",
+    "educationLabel": "Ausbildung",
+    "languagesLabel": "Sprachen",
+    "interestsLabel": "Interessen",
+    "tierCore": "Kernkompetenz (beruflich)",
+    "tierAdditional": "Weitere berufliche Kompetenz",
+    "tierPersonal": "Persönlich / eigenständig",
+    "filterAll": "Alle",
+    "filterCore": "Kern",
+    "filterAdditional": "Weitere",
+    "filterPersonal": "Persönlich",
+    "caseProblem": "Problemstellung",
+    "caseContext": "Technischer Kontext",
+    "caseStack": "Technologie-Stack",
+    "caseChallenges": "Technische Herausforderungen",
+    "caseDecisions": "Designentscheidungen",
+    "caseReliability": "Betriebssicherheit",
+    "caseResults": "Ergebnisse",
+    "pdfSummary": "Profil",
+    "pdfSkills": "Technische Kompetenzen",
+    "pdfExperience": "Berufserfahrung",
+    "pdfEarlier": "Frühere Erfahrung",
+    "pdfProjects": "Ausgewählte Projekte",
+    "pdfEducation": "Ausbildung",
+    "pdfLanguages": "Sprachen",
+    "pdfInterests": "Interessen",
+    "pdfStack": "Technologien",
+    "heroBadgesLabel": "Kerntechnologien",
+    "caseOutcomes": "Überprüfte Ergebnisse",
+    "caseInspect": "Interaktive Komponentenaufschlüsselung ansehen",
+    "projectsEyebrow": "Technische Fallstudien",
+    "projectsSectionTitle": "Eigenständige Projekte und Open Source",
+    "projectsSectionLead": "Selbst initiierte technische Fallstudien und überprüfte öffentliche Repositories zu Java, Rust, Python, verteilter Nebenläufigkeit, semantischer Suche und Werkzeugen für KI.",
+    "repoSectionTitle": "Ausgewählte öffentliche GitHub-Repositories",
+    "skillsEyebrow": "Technische Übersicht",
+    "skillsSectionTitle": "Technische Kompetenzen und Nachweise",
+    "skillsSectionLead": "Nach fachlichen Bereichen geordnet und durch Nachweise aus Stellen oder Repositories belegt. Kernkompetenzen aus der Produktionsarbeit sind von weiteren Technologien aus eigenen Projekten unterschieden.",
+    "legendLabel": "Legende zum Erfahrungskontext",
+    "filterLabel": "Kompetenzen nach Erfahrungskontext filtern",
+    "educationEyebrow": "Akademischer Hintergrund",
+    "backToPortfolio": "← Zurück zum Portfolio",
+    "cvIndexTitle": "Lebenslauf-Versionen",
+    "cvIndexLead": "Allgemeiner, auf Stellen zugeschnittener und vollständiger Lebenslauf, verfügbar als Webseiten und als ATS-taugliche A4-PDFs.",
+    "pdfEngineeringProjects": "Ausgewählte technische Projekte",
+    "pdfOpenSource": "Open-Source-Schwerpunkte",
+    "pdfEducationLanguages": "Ausbildung und Sprachen",
+    "pdfKeyDecisions": "Zentrale Entscheidungen und Stack:",
+    "langHint": "Diese Seite auf {language} öffnen."
+  },
+  "profile": {
+    "title": "Senior Software Engineer | Java, verteilte Systeme und KI-Engineering",
+    "location": "Tallinn, Estland",
+    "photoAlt": "Porträt von Denis Stepulenok",
+    "summary": "Senior Software Engineer mit Schwerpunkt auf Java-Backend-Entwicklung, verteilten Systemen, ereignisgesteuerter Architektur, Unternehmensintegration und Betriebssicherheit. Berufserfahrung bei Kuehne+Nagel, Oracle und Taxify (Bolt), ergänzt durch eigenständige Open-Source-Arbeit in Python, Rust, semantischer Suche und Werkzeugen für KI-Engineering.",
+    "homeIntro": "Mehr als zehn Jahre Java-Entwicklung, von Backend-Systemen in Unternehmen bis zur Qualitätssicherung auf Java-Core-Ebene. Der aktuelle Schwerpunkt liegt auf zuverlässigen verteilten Diensten: wiederholungssichere Verarbeitung, Steuerung der Nebenläufigkeit und automatisierte Tests. Zu den jüngsten eigenständigen Arbeiten gehören ein Java-Nebenläufigkeitswerkzeug, ein Rust-basiertes Automatisierungswerkzeug und eine semantische Suchpipeline für ein persönliches Messenger-Archiv."
+  },
+  "experience": {
+    "kuehne-nagel": {
+      "role": "Senior Java-Entwickler",
+      "location": "Tallinn, Estland",
+      "summary": "Senior-Backend-Ingenieur für die Entwicklung und Pflege von Java-Backend-Anwendungen in Unternehmen, verteilte Integrationslasten und automatisierte Bereitstellungspipelines.",
+      "responsibilities": [
+        "Entwicklung und Pflege von Java-Backend-Anwendungen für Unternehmen über mehrere Java-LTS-Versionen hinweg mit Spring Framework und Spring Boot.",
+        "Arbeit an verteilten, asynchronen und ereignisgesteuerten Systemen zur Unterstützung zuverlässiger Integrationslösungen im Unternehmen.",
+        "Anbindung relationaler Datenbanken (PostgreSQL und Oracle Database) mit SQL, JPA und Hibernate.",
+        "Umsetzung automatisierter Unit- und Integrationstests mit JUnit, Mockito, JMockit und EasyMock.",
+        "Beitrag zur CI/CD-Automatisierung, zu containerisierten Bereitstellungen und zur Modernisierung von Anwendungen mit Maven, Jenkins, GitLab, Docker und Kubernetes.",
+        "Unterstützung der Betriebssicherheit in der Produktion, bei der Fehlersuche und bei operativen Skripten mit Python."
+      ],
+      "homeSummary": "Java-Backend-Anwendungen und Integrationsarbeit im Unternehmensumfeld, einschließlich automatisiertem Build und Deployment.",
+      "homeBullets": [
+        "Unternehmens-Java-Backend-Anwendungen auf Java 6 bis 25 mit Spring und Spring Boot.",
+        "Verteilte, asynchrone und ereignisgesteuerte Systeme sowie Integrationslösungen im Unternehmen.",
+        "CI/CD-Automatisierung und containerisierte Deployments mit Jenkins, GitLab, Docker und Kubernetes."
+      ]
+    },
+    "taxify-bolt": {
+      "role": "Senior-Backend-Entwickler",
+      "location": "Tallinn, Estland",
+      "companyNote": "Taxify wurde in Bolt umbenannt",
+      "summary": "Senior-Backend-Ingenieur, der hochbelastbare Backend-Dienste und REST-APIs bei Bolt entwickelte (damals unter dem Namen Taxify).",
+      "responsibilities": [
+        "Entwicklung und Pflege hochbelastbarer Node.js-Microservices und REST-APIs in TypeScript und JavaScript.",
+        "Entwicklung unterstützender Verwaltungs-Webwerkzeuge und Frontends.",
+        "Arbeit an containerisierten Bereitstellungen, Caching, Datenspeichern und Cloud-Infrastruktur."
+      ],
+      "homeSummary": "Hochbelastbare Dienste in einem Unternehmen, das heute unter dem Namen Bolt auftritt.",
+      "homeBullets": [
+        "Hochbelastbare Node.js-Microservices und REST-APIs in TypeScript.",
+        "Containerisierte Deployments und Cloud-Infrastruktur.",
+        "Unterstützung von Verwaltungs-Webwerkzeugen und Frontends."
+      ]
+    },
+    "oracle": {
+      "role": "SQE / Java-Entwickler",
+      "location": "Sankt Petersburg, Russland",
+      "summary": "Qualitätssicherung für Java Core, Testentwicklung, Fehleranalyse, Stabilisierung automatisierter Testsuiten und Pflege einer verteilten Testumgebung.",
+      "responsibilities": [
+        "Arbeit an der Qualitätssicherung von Java Core, an Testentwicklung, Fehleranalyse und der Stabilisierung automatisierter Suiten mit Java, JUnit und Mockito.",
+        "Vertiefte Java-Core-Kenntnisse: Java-Speichermodell, Nebenläufigkeit, Collections, Generics, Klassenladen, JDBC, Swing und JavaFX.",
+        "Auswertung regulärer und nächtlicher Testläufe und Verifikation von Fehlerbehebungen über JDK-Komponenten und automatisierte Suiten hinweg.",
+        "Pflege und Automatisierung einer verteilten Testinfrastruktur mit Python und Konfigurationsmanagement-Werkzeugen."
+      ],
+      "homeSummary": "Qualitätssicherung in Java Core, Testinfrastruktur und Fehleranalyse.",
+      "homeBullets": [
+        "Java-Core-Qualitätssicherung: Testentwicklung, Fehleranalyse und Stabilisierung von Suiten.",
+        "Auswertung regulärer und nächtlicher Testläufe mit Verifikation von Fehlerbehebungen.",
+        "Verteilte Testinfrastruktur für automatisierte Testläufe."
+      ]
+    },
+    "sds": {
+      "role": "Senior Java-Entwickler",
+      "location": "Sankt Petersburg, Russland",
+      "summary": "Durchgängige Entwicklung einer Webanwendung zur Datenaggregation im Unternehmen: Anforderungen, Design, Umsetzung, Test und Freigabe.",
+      "responsibilities": [
+        "Entwurf und Umsetzung von Java-Webmodulen mit Spring, Play, GWT, Hibernate und JUnit auf Basis relationaler Datenbanken.",
+        "Entwicklung unterstützender Werkzeuge und UI-Komponenten mit Python, C# .NET WPF, jQuery, Bootstrap, LESS und SASS."
+      ]
+    },
+    "bonus-club": {
+      "role": "C/C++ / Java / Android-Entwickler",
+      "location": "Sankt Petersburg, Russland",
+      "summary": "Entwicklung von Backend-Kernbibliotheken, Dienstprogrammen, Software für die Transaktionsverarbeitung und Android-Client-Integrationen.",
+      "responsibilities": [
+        "Entwicklung von Kernbibliotheken, Betriebswerkzeugen und automatisierten Software-Update-Diensten.",
+        "Pflege serverseitiger Verarbeitungsanwendungen mit Java, Spring und Hibernate.",
+        "Umsetzung von Android-Benutzeroberflächen und REST-API-Client-Integrationen."
+      ]
+    },
+    "early-engineering-2005": {
+      "role": "Softwareentwickler",
+      "location": "Sankt Petersburg, Russland",
+      "summary": "Entwicklung relationaler Datenbanken und von Desktop-Benutzeroberflächen.",
+      "responsibilities": [
+        "Entwurf und Umsetzung von MS-SQL-Schemata und C#-.NET-Desktop-Oberflächen für die Verwaltung operativer Daten."
+      ]
+    },
+    "i-free": {
+      "role": "Softwareentwickler",
+      "location": "Sankt Petersburg, Russland",
+      "summary": "Internes Content-Management-Werkzeug und automatisierter Import externer Daten.",
+      "responsibilities": [
+        "Entwicklung interner CMS-Module, Benutzeroberflächen und automatisierter Datenimport-Pipelines nach MS SQL mit Java/JUnit und C# .NET."
+      ]
+    },
+    "spb-etu-research": {
+      "role": "Softwareentwickler (Praktikant)",
+      "location": "Sankt Petersburg, Russland",
+      "summary": "Datenverarbeitung, numerische Analyse und Visualisierungswerkzeuge.",
+      "responsibilities": [
+        "Entwicklung von Datenverarbeitungs- und Visualisierungswerkzeugen mit Java, Delphi, C++ Builder, Matlab und SQL."
+      ]
+    }
+  },
+  "skillGroups": {
+    "core": {
+      "title": "Kernkompetenz",
+      "description": "Zentraler Backend-Technologie-Stack aus Produktionsrollen in Unternehmen."
+    },
+    "messaging-data": {
+      "title": "Messaging und Daten",
+      "description": "Ereignisströme, AMQP-Vermittlung, relationale Datenbanken, Caching und Vektorspeicherung."
+    },
+    "infra-devops": {
+      "title": "Infrastruktur und DevOps",
+      "description": "Build-Pipelines, Container-Orchestrierung, Betrieb der Laufzeitumgebung und Monitoring."
+    },
+    "additional-languages": {
+      "title": "Weitere Sprachen und Frameworks",
+      "description": "Produktionsreife polyglotte Backend- und Frontend-Entwicklung sowie eigenständige Systemprogrammierung."
+    },
+    "ai-engineering": {
+      "title": "KI-Engineering",
+      "description": "Eigene Projekte und KI-gestützte Softwareentwicklungsprozesse."
+    },
+    "quality-engineering": {
+      "title": "Qualitätssicherung",
+      "description": "Automatisierte Prüfung, Mock-Frameworks, BDD- und E2E-Tests sowie CI-Gates."
+    }
+  },
+  "coreSkillGroups": {
+    "backend": {
+      "title": "Backend",
+      "description": "Unternehmenssysteme, Nebenläufigkeit und verteilte Systeme."
+    },
+    "data-messaging": {
+      "title": "Daten und Messaging",
+      "description": "Relationale Datenbanken und asynchrones Messaging."
+    },
+    "delivery-languages": {
+      "title": "Entwicklung und Sprachen",
+      "description": "Build- und Deployment-Automatisierung, Testen und weitere Sprachen."
+    }
+  },
+  "skillNames": {
+    "Java (6–25)": "Java (6–25)",
+    "JVM & Concurrency": "JVM und Nebenläufigkeit",
+    "Spring Framework": "Spring Framework",
+    "Spring Boot": "Spring Boot",
+    "Distributed Systems": "Verteilte Systeme",
+    "Microservices": "Microservices",
+    "SQL": "SQL",
+    "PostgreSQL": "PostgreSQL",
+    "JPA / Hibernate": "JPA / Hibernate",
+    "Enterprise Integration": "Unternehmensintegration",
+    "Software Design & Algorithms": "Softwaredesign und Algorithmen",
+    "RabbitMQ": "RabbitMQ",
+    "Apache Kafka": "Apache Kafka",
+    "Oracle Database": "Oracle Database",
+    "Redis / Valkey": "Redis / Valkey",
+    "Qdrant": "Qdrant",
+    "Vector Databases (pgvector, Weaviate)": "Vektordatenbanken (pgvector, Weaviate)",
+    "Docker / Compose": "Docker / Compose",
+    "Kubernetes / Helm": "Kubernetes / Helm",
+    "Jenkins": "Jenkins",
+    "GitLab CI/CD": "GitLab CI/CD",
+    "GitHub Actions": "GitHub Actions",
+    "Maven": "Maven",
+    "Git": "Git",
+    "AWS": "AWS",
+    "Terraform": "Terraform",
+    "Linux / systemd / bash": "Linux / systemd / bash",
+    "Nginx / Caddy / Cloudflare": "Nginx / Caddy / Cloudflare",
+    "Prometheus / Grafana": "Prometheus / Grafana",
+    "Python (2 & 3)": "Python (2 & 3)",
+    "Rust": "Rust",
+    "TypeScript": "TypeScript",
+    "Node.js": "Node.js",
+    "Go (Gin, gRPC)": "Go (Gin, gRPC)",
+    "React": "React",
+    "AngularJS": "AngularJS",
+    "Svelte / SvelteKit": "Svelte / SvelteKit",
+    "Model Context Protocol (MCP)": "Model Context Protocol (MCP)",
+    "RAG / Embeddings / Semantic Search": "RAG / Embeddings / semantische Suche",
+    "Local LLMs / Ollama": "Lokale LLMs / Ollama",
+    "Large Language Models (Claude, GPT, Gemini)": "Große Sprachmodelle (Claude, GPT, Gemini)",
+    "AI-Assisted Development (Claude Code, Codex, Copilot, Gemini)": "KI-gestützte Entwicklung (Claude Code, Codex, Copilot, Gemini)",
+    "JUnit": "JUnit",
+    "Mockito / JMockit / EasyMock": "Mockito / JMockit / EasyMock",
+    "Test-Driven Development (TDD)": "Testgetriebene Entwicklung (TDD)",
+    "Integration & E2E Testing": "Integrations- und E2E-Tests",
+    "Cucumber / Gherkin (BDD)": "Cucumber / Gherkin (BDD)",
+    "Playwright / Vitest / Selenide": "Playwright / Vitest / Selenide",
+    "Continuous Integration": "Kontinuierliche Integration",
+    "JVM & concurrency": "JVM und Nebenläufigkeit",
+    "Distributed systems": "Verteilte Systeme",
+    "SQL & PostgreSQL": "SQL und PostgreSQL",
+    "Asynchronous messaging": "Asynchrones Messaging",
+    "Docker & Kubernetes": "Docker und Kubernetes",
+    "Jenkins & GitLab CI/CD": "Jenkins und GitLab CI/CD",
+    "JUnit & Mockito": "JUnit und Mockito",
+    "Node.js & TypeScript": "Node.js und TypeScript",
+    "Python": "Python",
+    "Spring Framework 6": "Spring Framework 6",
+    "Java": "Java"
+  },
+  "githubProjects": {
+    "pythorust_tg": {
+      "description": "Rust-basiertes Werkzeugpaket zur Telegram-Automatisierung: Chat-Export, KI-Autoresponder, LightRAG-Indexierung und Betriebshilfen (HTTP-Benchmark, k8s- und Website-Monitoring) sowie Python-Module für MCP und Analyse.",
+      "homeSummary": "Rust-basiertes Werkzeugpaket zur Telegram-Automatisierung: Chat-Export, KI-Autoresponder, Indexierer und Betriebshilfen mit Prometheus-Metriken. Enthält außerdem Hilfen für HTTP-Benchmarks und Website-Monitoring."
+    },
+    "FunnyFileManager": {
+      "description": "Schneller, zweispaltiger Terminal-Dateimanager (ffm) in Rust, mit der Bibliothek ratatui entwickelt, inspiriert von Far Manager und Norton Commander, mit BDD-Tests.",
+      "homeSummary": "Tastaturgesteuerter, zweispaltiger Terminal-Dateimanager in Rust, mit der Bibliothek ratatui entwickelt und inspiriert von Far Manager und Norton Commander."
+    },
+    "RustShot": {
+      "description": "Schnelles Desktop-Werkzeug für Screenshots und Bildschirmaufnahmen im H.264-MP4-Format."
+    },
+    "SonarQubeChecker": {
+      "description": "Automatisierter Quality-Gate-Prüfer, der SonarCloud- und SonarQube-Metriken zu Fehlern, Code Smells und dem Status des Quality Gates abfragt.",
+      "homeSummary": "Kommandozeilenwerkzeug in Python, das SonarQube-Analysedaten und Probleme abruft und zweisprachige Markdown-Qualitätsberichte erstellt."
+    },
+    "EntityLocker": {
+      "description": "Wiederverwendbares Java-Werkzeug zur Nebenläufigkeitssteuerung, das eine feingranulare Synchronisierung ähnlich Zeilensperren in Datenbanken ermöglicht, mit Entitäts-IDs als Schlüssel.",
+      "homeSummary": "Wiederverwendbares Java-Werkzeug, das Aufrufern exklusiven Zugriff auf eine Entität je ID gewährt, ähnlich einer Zeilensperre in Datenbanken. Basiert auf wiedereintrittsfähigen Sperren, unterstützt Zeitlimits und verhindert Deadlocks bei geordnetem Sperren."
+    },
+    "JPA2": {
+      "description": "Versuche und Integrationstests mit Spring Framework 6, Hibernate 6 und Jakarta Persistence 3.2, gebaut mit Maven und H2."
+    }
+  },
+  "caseStudies": {
+    "messenger-archive-search": {
+      "title": "Messenger-Archiv und semantische Suche",
+      "scope": "Eigenständiges persönliches Projekt",
+      "problem": "Lange persönliche Chat-Archive verbinden Text- und Sprachnachrichten über Tausende von Unterhaltungen. Die Stichwortsuche hilft weder beim Wiederfinden des Kontexts noch bei der Bereitstellung einer strukturierten Historie für LLM-Agenten.",
+      "context": "Eigenständiges persönliches Ingenieurprojekt außerhalb der Arbeit für einen Arbeitgeber. Ziel ist die Erprobung des Zusammenspiels von Rust und Python, lokaler Spracherkennung, Vektorindizierung und Werkzeugen des Model Context Protocol (MCP).",
+      "architecture": "Ein Rust-Synchronisationsdienst lädt die persönliche Chat-Historie über MTProto mit Flood-Wait-Backoff in PostgreSQL. Ein Python-Worker reserviert ausstehende Sprachnachrichten per SKIP LOCKED und transkribiert sie mit Whisper. Ein Rust-Indexierer berechnet lokale Embeddings in Stapeln und schreibt die Punkte nach Qdrant; LLM-Agenten greifen über einen rein lesenden MCP-Server (stdio und HTTP) darauf zu.",
+      "challenges": [
+        "Keine verteilte Transaktion umfasst PostgreSQL, Qdrant und den Checkpoint des Synchronisations-Cursors.",
+        "Einhaltung der MTProto-Ratenlimits und sauberes Wiederanlaufen nach einer Unterbrechung mitten in einem Stapel."
+      ],
+      "decisions": [
+        "Deterministische UUIDv5-Punkt-IDs für Qdrant werden aus der Nachrichtenidentität berechnet, sodass Wiederholungen idempotent überschreiben statt Duplikate zu erzeugen.",
+        "Der Indexierungs-Checkpoint wird erst nach erfolgreichem Qdrant-Upsert eines Stapels gespeichert.",
+        "PostgreSQL SELECT ... FOR UPDATE SKIP LOCKED ermöglicht sperrfreie, parallele Transkriptions-Worker."
+      ],
+      "reliability": [
+        "Mindestens einmalige Verarbeitung mit deterministischen UUIDv5-Upserts ergibt idempotente eventuelle Konsistenz ohne Zwei-Phasen-Commit.",
+        "Flood-Wait-Backoff und begrenzte Wiederholungen schützen die Sitzungen zur vorgelagerten API."
+      ],
+      "results": [
+        "Das persönliche Archiv ist über Standard-MCP-Clients semantisch durchsuchbar, sowohl im Text als auch in den transkribierten Sprachnachrichten."
+      ]
+    },
+    "entity-concurrency-locking": {
+      "title": "EntityLocker — Nebenläufigkeitssteuerung auf Entitätsebene",
+      "scope": "Quelloffenes Java-Projekt · github.com/stden/EntityLocker",
+      "problem": "Anwendungen, die Domänenentitäten gleichzeitig zwischenspeichern oder ändern, stehen oft vor der Wahl zwischen groben globalen Sperren, die den Durchsatz begrenzen, und komplexen Ad-hoc-Sperrtabellen je Schlüssel, die zu Lecks und Race Conditions neigen.",
+      "context": "Quelloffene Java-Bibliothek, die feingranulare JVM-Nebenläufigkeitsprimitive zeigt, vergleichbar mit Zeilensperren in Datenbanken.",
+      "architecture": "Ein generischer Koordinator EntityLocker<ID> verwaltet den wechselseitigen Ausschluss je Entitäts-ID, ohne an die Datentypen der Entitäten gekoppelt zu sein. Er unterstützt verschiedene ID-Typen, wiedereintrittsfähige Sperren, optionale Eskalation oder globale Sperren sowie die begrenzte Bereinigung nicht genutzter Sperreinträge.",
+      "challenges": [
+        "Race Conditions zwischen Sperrerwerb, Referenzzählung und dem Entfernen aus der Tabelle beim Freigeben vermeiden.",
+        "Beliebige generische ID-Typen sicher unterstützen, ohne Deadlocks oder unbegrenztes Speicherwachstum."
+      ],
+      "decisions": [
+        "Die Sperrkoordination ist vollständig von der Entitätsspeicherung getrennt, sodass Komponenten nur Primärschlüssel übergeben.",
+        "Atomare Operationen auf einer nebenläufigen Map und Referenzverfolgung geben ungenutzte Sperrobjekte sicher frei."
+      ],
+      "reliability": [
+        "Konkurrenz betrifft nur die geänderte Entitäts-ID und blockiert keine anderen Entitäten.",
+        "Sicheres Bereinigen der Sperreinträge verhindert Speicherlecks bei vielen verschiedenen Schlüsseln."
+      ],
+      "results": [
+        "Als eigenständige, wiederverwendbare Java-Bibliothek auf GitHub veröffentlicht (stden/EntityLocker)."
+      ]
+    },
+    "rust-desktop-tooling": {
+      "title": "FunnyFileManager und RustShot — Systeme und Desktop-Werkzeuge",
+      "scope": "Quelloffene Rust-Projekte · github.com/stden",
+      "problem": "Entwicklung reaktionsschneller plattformübergreifender Entwicklerwerkzeuge: ein tastaturgesteuerter, zweispaltiger Terminal-Dateimanager und ein schnelles Werkzeug für Bildschirmaufnahmen, mit strenger Testabdeckung und automatisierten Releases.",
+      "context": "Eigenständige quelloffene Rust-Projekte, die native Leistung, Reaktionsfähigkeit der Oberfläche, BDD-Abnahmetests und die Automatisierung von Releases mit GitHub Actions zeigen.",
+      "architecture": "FunnyFileManager (ffm) setzt eine nicht blockierende zweispaltige TUI mit ratatui und asynchronen Dateisystemoperationen um. RustShot erfasst Bildschirminhalte und kodiert H.264-MP4-Video nativ. Beide werden durch Gherkin-BDD-Suites sowie automatisierte CI- und Release-Workflows geprüft.",
+      "challenges": [
+        "Reaktionsfähigkeit der Terminal-Oberfläche und der Aufnahme-Pipelines bei langsamem Dateisystem oder hochauflösenden Bildschirmen erhalten.",
+        "Desktop- und Terminal-Arbeitsabläufe in CI-Läufen deterministisch prüfen."
+      ],
+      "decisions": [
+        "Ereignisschleifen der Oberfläche sind von blockierender Ein- und Ausgabe und von Kodierungs-Pipelines getrennt.",
+        "Gherkin-Verhaltenstests laufen neben fortlaufenden GitHub-Actions-Builds und Release-Pipelines."
+      ],
+      "reliability": [
+        "Automatisierte CI- und Release-Workflows prüfen Builds und Regressionstests bei jedem Push."
+      ],
+      "results": [
+        "Öffentlich gepflegte Repositories mit bestandenem CI- und Release-Status auf GitHub."
+      ]
+    }
+  },
+  "education": [
+    {
+      "degree": "Spezialist für Informatik",
+      "institution": "Elektrotechnische Universität Sankt Petersburg „LETI“"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Russisch",
+      "level": "Muttersprache"
+    },
+    {
+      "name": "Englisch",
+      "level": "Mittelstufe"
+    }
+  ],
+  "interests": [
+    "Programmierolympiaden",
+    "Reisen"
+  ],
+  "variants": {
+    "general": {
+      "shortLabel": "Allgemeiner Lebenslauf",
+      "targetAudience": "Senior-Stellen im Backend- und im Umfeld verteilter Systeme",
+      "summary": "Senior Software Engineer mit Schwerpunkt auf Java in Unternehmen, verteilten Systemen und Backend-Integrationen. Erfahrung umfasst Services mit Spring Boot, asynchrones Messaging, relationale Datenbanken, produktive Bereitstellungen und JVM-Tests. Eigenständige Projekte nutzen Rust und Python für Datenverarbeitung, semantische Suche und KI-Integrationen.",
+      "focusHighlights": [
+        "Unternehmens-Java-Dienste und asynchrone Integration mit Spring Boot, RabbitMQ, PostgreSQL und Oracle Database.",
+        "JVM- und Nebenläufigkeitserfahrung aus dem Testen des Oracle JDK, der Fehleranalyse und einer verteilten Testinfrastruktur."
+      ],
+      "roleTitle": "Senior Software Engineer"
+    },
+    "senior-java": {
+      "shortLabel": "Senior Java-Backend",
+      "targetAudience": "Internationale Java- und Spring-Boot-Backend-Teams"
+    },
+    "distributed-systems": {
+      "shortLabel": "Verteilte Systeme",
+      "targetAudience": "Teams für verteilte Backends, ereignisgesteuerte Architektur und Zuverlässigkeit"
+    },
+    "fintech-integrations": {
+      "shortLabel": "Fintech und Integrationen",
+      "targetAudience": "Internationale Fintech- und Integrationsteams mit hohen Zuverlässigkeitsanforderungen"
+    },
+    "wise": {
+      "shortLabel": "Auf Wise zugeschnitten (Java-Backend)",
+      "targetAudience": "Senior-Java- und Backend-Teams für verteilte Systeme bei Wise"
+    },
+    "ai-mcp": {
+      "shortLabel": "KI-Integration / MCP",
+      "targetAudience": "Teams für KI-Plattformen, semantische Suche und Model Context Protocol"
+    },
+    "full": {
+      "shortLabel": "Vollständiger Lebenslauf",
+      "targetAudience": "Vollständiger beruflicher Werdegang, Fallstudien eigenständiger Projekte und Open-Source-Aktivität"
+    }
+  }
+}

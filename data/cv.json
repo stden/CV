@@ -40,6 +40,7 @@
     "homeIntro": "More than a decade of Java development, from enterprise back-end systems to quality engineering on Java Core. The current focus is reliable distributed services: retry-safe processing, concurrency control and automated testing. Recent independent work includes a Java concurrency utility, a Rust-first automation toolkit and a semantic search pipeline over a personal messenger archive.",
     "coreSkillGroups": [
       {
+        "id": "backend",
         "title": "Backend",
         "items": [
           "Java",
@@ -52,6 +53,7 @@
         "description": "Enterprise services, concurrency and distributed systems."
       },
       {
+        "id": "data-messaging",
         "title": "Data & messaging",
         "items": [
           "SQL & PostgreSQL",
@@ -61,6 +63,7 @@
         "description": "Relational databases and asynchronous messaging."
       },
       {
+        "id": "delivery-languages",
         "title": "Delivery & languages",
         "items": [
           "Docker & Kubernetes",

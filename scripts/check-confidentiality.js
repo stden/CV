@@ -62,7 +62,8 @@ const SECRET_AND_TOPOLOGY_RULES = [
     },
     {
         name: 'phone-number',
-        regex: /\+\d[\d\s().-]{7,16}\d/g,
+        // A Unicode code point such as U+0152-0153 (font ranges) is not a phone number.
+        regex: /(?<!U)\+\d[\d\s().-]{7,16}\d/g,
     },
 ];
 
@@ -95,7 +96,8 @@ function collectPublicTextFiles() {
         if (fs.existsSync(p)) files.push(rel);
     }
     // Every published page and asset directory; new secondary pages must not escape the scan.
-    for (const dir of ['cv', 'tech', 'experience', 'projects', 'skills', 'architecture', 'assets/css', 'assets/js', 'assets/images']) {
+    // Every published page and asset directory, including the translated locale folders.
+    for (const dir of ['cv', 'tech', 'experience', 'projects', 'skills', 'architecture', 'et', 'de', 'ru', 'assets/css', 'assets/js', 'assets/images']) {
         const absDir = path.join(ROOT_DIR, dir);
         if (!fs.existsSync(absDir)) continue;
         const walk = (cur) => {
@@ -201,12 +203,11 @@ function runConfidentialityCheck() {
         scanText(rel, text, privateTerms, failures);
     }
 
-    for (const variant of data.variants) {
-        const pdfPath = path.join(ROOT_DIR, 'assets', 'pdf', variant.pdfFilename);
-        if (fs.existsSync(pdfPath)) {
-            const pdfText = execFileSync('pdftotext', [pdfPath, '-'], { encoding: 'utf8' });
-            scanText(`assets/pdf/${variant.pdfFilename}`, pdfText, privateTerms, failures);
-        }
+    // Every generated PDF: the variant resumes and the resume in each language.
+    const pdfDir = path.join(ROOT_DIR, 'assets', 'pdf');
+    for (const pdfName of fs.readdirSync(pdfDir).filter((name) => name.endsWith('.pdf'))) {
+        const pdfText = execFileSync('pdftotext', [path.join(pdfDir, pdfName), '-'], { encoding: 'utf8' });
+        scanText(`assets/pdf/${pdfName}`, pdfText, privateTerms, failures);
     }
 
     checkJpegHasNoExif(data.profile.photo, failures);

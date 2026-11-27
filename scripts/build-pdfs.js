@@ -2,10 +2,13 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { ROOT_DIR, escapeHtml, loadCvData } = require('./lib/utils');
 const { launchChromium } = require('./lib/browser');
+const { LOCALES, setLocale, ui, localizeData, localeInfo, cvPdfName } = require('./lib/i18n');
+const { INTER_SUBSETS, fontFile } = require('./lib/fonts');
 
 const PDF_DIR = path.join(ROOT_DIR, 'assets', 'pdf');
 
-function renderPdfHtml(data, variant, fontBase64, { privateCv = false } = {}) {
+function renderPdfHtml(data, variant, fontBase64, { privateCv = false, locale = 'en' } = {}) {
+    setLocale(locale);
     const { profile } = data;
     const skillById = new Map(data.skills.map((s) => [s.id, s]));
     const caseById = new Map(data.caseStudies.map((c) => [c.id, c]));
@@ -19,7 +22,9 @@ function renderPdfHtml(data, variant, fontBase64, { privateCv = false } = {}) {
     const experienceFirst = privateCv || variant.slug === 'general';
     const selectedSkills = variant.skillNames ? new Set(variant.skillNames) : null;
     const fontCss = fontBase64
-        ? `@font-face { font-family: "Inter"; src: url("data:font/woff2;base64,${fontBase64}") format("woff2"); font-weight: 100 900; font-style: normal; }`
+        ? (typeof fontBase64 === 'string'
+            ? `@font-face { font-family: "Inter"; src: url("data:font/woff2;base64,${fontBase64}") format("woff2"); font-weight: 100 900; font-style: normal; }`
+            : fontBase64.map(({ base64, range }) => `@font-face { font-family: "Inter"; src: url("data:font/woff2;base64,${base64}") format("woff2"); font-weight: 100 900; font-style: normal; unicode-range: ${range}; }`).join('\n'))
         : '';
 
     const skillsRows = variant.skillCategoryOrder
@@ -62,7 +67,7 @@ function renderPdfHtml(data, variant, fontBase64, { privateCv = false } = {}) {
     <span class="period">${escapeHtml(cs.scope)}</span>
   </div>
   <p class="summary-line"><strong>Problem &amp; Architecture:</strong> ${escapeHtml(cs.problem)} ${escapeHtml(cs.architecture)}</p>
-  <p class="tech-line"><strong>Key Decisions &amp; Stack:</strong> ${escapeHtml(cs.decisions[0])} (${escapeHtml(cs.stack.join(', '))})</p>
+  <p class="tech-line"><strong>${escapeHtml(ui('pdfKeyDecisions'))}</strong> ${escapeHtml(cs.decisions[0])} (${escapeHtml(cs.stack.join(', '))})</p>
 </article>`).join('\n');
 
     const reposHtml = variant.githubProjectNames
@@ -77,16 +82,16 @@ function renderPdfHtml(data, variant, fontBase64, { privateCv = false } = {}) {
     const langLine = data.languages.map((l) => `${escapeHtml(l.name)} (${escapeHtml(l.level)})`).join(', ');
     const highlightsList = variant.focusHighlights.map((h) => `<li>${escapeHtml(h)}</li>`).join('');
     const skillsSection = `<section>
-  <h2>Technical Skills</h2>
+  <h2>${escapeHtml(ui('pdfSkills'))}</h2>
   ${skillsRows}
 </section>`;
     const experienceSection = `<section>
-  <h2>Professional Experience</h2>
+  <h2>${escapeHtml(ui('pdfExperience'))}</h2>
   ${rolesHtml}
 </section>`;
 
     return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${localeInfo(locale).htmlLang}">
 <head>
 <meta charset="utf-8">
 ${privateCv ? '<meta name="robots" content="noindex, nofollow">' : ''}
@@ -141,12 +146,12 @@ ${privateCv ? '<meta name="robots" content="noindex, nofollow">' : ''}
     <a href="mailto:${escapeHtml(profile.contact.email)}">${escapeHtml(profile.contact.email)}</a> |
     <a href="${escapeHtml(profile.contact.linkedin)}">LinkedIn</a> |
     <a href="${escapeHtml(profile.contact.github)}">GitHub</a> |
-    <a href="${escapeHtml(data.site.baseUrl)}/">Portfolio</a>
+    <a href="${escapeHtml(data.site.baseUrl)}/">${escapeHtml(ui('footerPortfolio'))}</a>
   </p>
 </header>
 
 <section>
-  <h2>Summary</h2>
+  <h2>${escapeHtml(ui('pdfSummary'))}</h2>
   <p class="summary-line">${escapeHtml(variant.summary)}</p>
   ${highlightsList ? `<ul class="bullets">${highlightsList}</ul>` : ''}
 </section>
@@ -154,19 +159,19 @@ ${privateCv ? '<meta name="robots" content="noindex, nofollow">' : ''}
 ${(experienceFirst ? [experienceSection, skillsSection] : [skillsSection, experienceSection]).join('\n\n')}
 
 ${casesHtml ? `<section>
-  <h2>Selected Engineering Projects</h2>
+  <h2>${escapeHtml(ui('pdfEngineeringProjects'))}</h2>
   ${casesHtml}
 </section>` : ''}
 
 ${reposHtml ? `<section>
-  <h2>Open-Source Highlights</h2>
+  <h2>${escapeHtml(ui('pdfOpenSource'))}</h2>
   <ul class="bullets">${reposHtml}</ul>
 </section>` : ''}
 
 <section>
-  <h2>Education &amp; Languages</h2>
-  <p><strong>Education:</strong> ${eduLine}</p>
-  <p><strong>Languages:</strong> ${langLine}</p>
+  <h2>${escapeHtml(ui('pdfEducationLanguages'))}</h2>
+  <p><strong>${escapeHtml(ui('pdfEducation'))}:</strong> ${eduLine}</p>
+  <p><strong>${escapeHtml(ui('pdfLanguages'))}:</strong> ${langLine}</p>
 </section>
 </body>
 </html>`;
@@ -182,8 +187,11 @@ async function main() {
     const data = loadCvData();
     fs.mkdirSync(PDF_DIR, { recursive: true });
 
-    const fontPath = path.join(ROOT_DIR, 'assets', 'fonts', 'inter-latin-wght-normal.woff2');
-    const fontBase64 = fs.existsSync(fontPath) ? fs.readFileSync(fontPath).toString('base64') : '';
+    // Every subset is embedded; the browser picks the one that holds each character.
+    const fonts = INTER_SUBSETS.map(({ subset, range }) => ({
+        base64: fs.readFileSync(path.join(ROOT_DIR, 'assets', 'fonts', fontFile(subset))).toString('base64'),
+        range,
+    }));
 
     const browser = await launchChromium();
     try {
@@ -191,10 +199,21 @@ async function main() {
         const page = await context.newPage();
 
         for (const variant of data.variants) {
-            const html = renderPdfHtml(data, variant, fontBase64);
+            const html = renderPdfHtml(data, variant, fonts);
             await printPdf(page, html, path.join(PDF_DIR, variant.pdfFilename));
             console.log(`Generated ${variant.pdfFilename}`);
         }
+
+        // The general CV in every language, with the same content in each file.
+        for (const locale of LOCALES) {
+            const localized = localizeData(data, locale.code);
+            const general = localized.variants.find((item) => item.slug === 'general');
+            const pdfVariant = { ...general, pdfFilename: cvPdfName(locale.code) };
+            const html = renderPdfHtml(localized, pdfVariant, fonts, { locale: locale.code });
+            await printPdf(page, html, path.join(PDF_DIR, pdfVariant.pdfFilename));
+            console.log(`Generated ${pdfVariant.pdfFilename} (${localeInfo(locale.code).name})`);
+        }
+        setLocale('en');
 
         // Rasterize og-preview.png (1200x630)
         const ogSvgPath = path.join(ROOT_DIR, 'assets', 'images', 'og-preview.svg');

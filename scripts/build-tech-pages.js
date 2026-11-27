@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { ROOT_DIR, escapeHtml, loadCvData } = require('./lib/utils');
 const { renderDocument } = require('./lib/layout');
+const { setLocale } = require('./lib/i18n');
 
 const OUTPUT_DIR = path.join(ROOT_DIR, 'tech');
 
@@ -57,12 +58,15 @@ ${usedIn}
         depth: 1,
         title: `${technology.title} — ${data.profile.name} | Technology Notes`,
         description: technology.summary,
-        canonicalPath: `tech/${technology.slug}.html`,
+        outputPath: `tech/${technology.slug}.html`,
+        pageKey: `tech/${technology.slug}.html`,
         bodyHtml,
     });
 }
 
 function main() {
+    // Technology pages are English only; the UI strings of the English locale are the default.
+    setLocale('en');
     const data = loadCvData();
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
     for (const technology of data.technologies) {

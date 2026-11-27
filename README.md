@@ -77,3 +77,17 @@ Run `npm run cv:job -- /path/to/vacancy.json`. The PDF, self-contained HTML and 
 ## Deployment
 
 `.github/workflows/ci-pages.yml` builds, generates PDFs, runs `npm test`, `npm run check:confidentiality`, and `npm run test:e2e`, and stages a clean `_site/` bundle on every push/PR to `main`. Built output files remain committed so existing GitHub Pages branch publishing works immediately; switching **Settings -> Pages -> Source** to **GitHub Actions** enables automated `actions/deploy-pages@v4` deployment from validated CI artifacts.
+
+## Languages
+
+The site is available in English (default), Estonian, German and Russian. The English pages keep their URLs; the other languages live in `/et/`, `/de/` and `/ru/`.
+
+- **Source of facts.** `data/cv.json` is the only source of verified facts. Dates, employers, technology names, links and contact details are never translated.
+- **Translations.** `data/locales/<code>.json` holds the human-readable text, keyed by stable identifiers: UI strings, role summaries and responsibilities by role id, skill groups and names, repository descriptions, case studies, and the variant labels.
+- **Validation.** `npm run build` stops with a list of every missing or mismatched key (for example, a responsibility added to `cv.json` without its translation). Nothing falls back silently to English.
+- **Translated pages.** Homepage, experience, projects, skills and the CV index. Architecture, the targeted CV pages and the technology pages are English only; their language switch leads to the locale homepage.
+- **Resumes.** `assets/pdf/Denis-Stepulenok-CV-<EN|ET|DE|RU>.pdf`, generated from the same data and print stylesheet as the web page. Cyrillic and Latin Extended letters use the Inter subsets in `assets/fonts/`.
+- **Language switch.** A link list in the header (and in the menu on phones). It works without JavaScript. A chosen language is remembered in `localStorage`; a later visit to another language shows a link to it, and never redirects.
+- **SEO.** Each translated page has `lang`, its own canonical URL, `hreflang` links for all four languages and `x-default` pointing to the English page. The sitemap lists the same alternates.
+
+To add a language: add its entry to `LOCALES` in `scripts/lib/i18n.js`, add `data/locales/<code>.json` with every key, then `npm run build`. The validator lists anything still missing.
